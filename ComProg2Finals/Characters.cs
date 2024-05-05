@@ -31,21 +31,21 @@ namespace ComProg2Finals
         */
         }
 
-        public virtual void UseSkill1()
+        public virtual void UseSkill1(Character target)
         {
-            CharSkills[0].Perform();
+            CharSkills[0].Perform(target);
         }
-        public virtual void UseSkill2()
+        public virtual void UseSkill2(Character target)
         {
-            CharSkills[1].Perform();
+            CharSkills[1].Perform(target);
         }
-        public virtual void UseSkill3()
+        public virtual void UseSkill3(Character target)
         {
-            CharSkills[2].Perform();
+            CharSkills[2].Perform(target);
         }
-        public virtual void UseSkill4()
+        public virtual void UseSkill4(Character target)
         {
-            CharSkills[3].Perform();
+            CharSkills[3].Perform(target);
         }
     }
     
@@ -53,6 +53,14 @@ namespace ComProg2Finals
     {
         public Bloo(string name) : base(name)
         {
+            Name = name;
+            Health = 100;
+            Accuracy = 100;
+            AttackDamage = 10;
+            Speed = 10;
+            CharSkills = new Skill[] { new Damage("Slime Slap", 50), new Damage("SlippySlopey", 50) };
+            Rizz = 5;
+            //Image = "R.png";
         }
     }
 
@@ -65,7 +73,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new Skill[] { new Slash("Sword Slash"), new Heal("Healing Prayers"), new Block("Protection"), new ShieldBash("Shield Bash") };
+            CharSkills = new Skill[] { new Slash("Sword Slash", 50), new Heal("Healing Prayers", 20), new Block("Protection"), new ShieldBash("Shield Bash") };
             Rizz = 5;
             Image = "R.png";
         }
@@ -80,7 +88,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new Skill[] { new Fireball("Fireball"), new Heal("Healing Prayers"), new Block("Protection") };
+            CharSkills = new Skill[] { new Fireball("Fireball"), new Heal("Healing Prayers", 100), new Block("Protection"), new Fireball("Double Fireball") };
             Rizz = 5;
             Image = "wiz.png";
         }

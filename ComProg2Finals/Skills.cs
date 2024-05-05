@@ -16,32 +16,37 @@ namespace ComProg2Finals
             Name = name;
         }
 
-        public virtual void Perform()
+        public virtual void Perform(Character target)
         {
             MessageBox.Show($"{Name} skill performed.");
+
         }
     }
 
     public class Damage : Skill
     {
-        public Damage(string name) : base(name)
+        public Damage(string name, int dmg) : base(name)
         {
         }
 
-        public override void Perform()
+        public override void Perform(Character target)
         {
             MessageBox.Show($"Dealt damage using {Name}!");
         }
     }
     public class Heal : Skill
     {
-        public Heal(string name) : base(name)
+        int healVal;
+        public Heal(string name, int heal) : base(name)
         {
+            healVal = heal;
         }
 
-        public override void Perform()
+        public override void Perform(Character target)
         {
             MessageBox.Show($"Using {Name} to heal.");
+           // MessageBox.Show(healVal.ToString());
+            target.Health += healVal;
         }
     }
     public class Block : Skill
@@ -50,20 +55,24 @@ namespace ComProg2Finals
         {
         }
 
-        public override void Perform()
+        public override void Perform(Character target)
         {
             MessageBox.Show($"Used {Name}");
         }
     }
     public class Slash : Skill
     {
-        public Slash(string name) : base(name)
+        int dmg;
+        public Slash(string name, int damage) : base(name)
         {
+            dmg = damage;
         }
 
-        public override void Perform()
+        public override void Perform(Character target)
         {
             MessageBox.Show($"Used {Name}");
+            target.Health -= dmg;
+
         }
     }
     public class ShieldBash : Skill
@@ -72,7 +81,7 @@ namespace ComProg2Finals
         {
         }
 
-        public override void Perform()
+        public override void Perform(Character target)
         {
             MessageBox.Show($"Used {Name}");
         }
@@ -83,7 +92,7 @@ namespace ComProg2Finals
         {
         }
 
-        public override void Perform()
+        public override void Perform(Character target)
         {
             MessageBox.Show($"Used {Name}");
         }
