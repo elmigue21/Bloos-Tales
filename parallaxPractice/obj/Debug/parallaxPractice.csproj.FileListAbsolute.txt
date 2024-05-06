@@ -1,0 +1,10 @@
+C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\bin\Debug\parallaxPractice.exe.config
+C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\bin\Debug\parallaxPractice.exe
+C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\bin\Debug\parallaxPractice.pdb
+C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.csproj.AssemblyReference.cache
+C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.Form1.resources
+C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.Properties.Resources.resources
+C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.csproj.GenerateResource.cache
+C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.csproj.CoreCompileInputs.cache
+C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.exe
+C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.pdb
