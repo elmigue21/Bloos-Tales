@@ -11,9 +11,8 @@ namespace ComProg2Finals
     {
         public string Name { get; protected set; }
 
-        public Skill(string name)
+        public Skill()
         {
-            Name = name;
         }
 
         public virtual void Perform(Character target)
@@ -23,36 +22,51 @@ namespace ComProg2Finals
         }
     }
 
-    public class Damage : Skill
+    // BLOO SKILLS
+    public class Tackle : Skill
     {
-        public Damage(string name, int dmg) : base(name)
+        public Tackle()
         {
+            this.Name = "Tackle";
+        }
+
+        public override void Perform(Character target)
+        {        
+            int damageValue = 50;
+            MessageBox.Show($"Used {Name} and dealt {damageValue} damage!");
+            target.Health += damageValue;
+        }
+    }
+    public class Goo : Skill
+    {
+        public Goo()
+        {
+            this.Name = "Goo";
         }
 
         public override void Perform(Character target)
         {
-            MessageBox.Show($"Dealt damage using {Name}!");
-        }
-    }
-    public class Heal : Skill
-    {
-        int healVal;
-        public Heal(string name, int heal) : base(name)
-        {
-            healVal = heal;
-        }
 
-        public override void Perform(Character target)
-        {
-            MessageBox.Show($"Using {Name} to heal.");
-           // MessageBox.Show(healVal.ToString());
-            target.Health += healVal;
         }
     }
+
+
+
+
+
+
+
+    
+
+
+    // KNIGHT SKILLS
+
+
     public class Block : Skill
     {
-        public Block(string name) : base(name)
+        public Block()
         {
+            this.Name = "Block";
         }
 
         public override void Perform(Character target)
@@ -62,23 +76,23 @@ namespace ComProg2Finals
     }
     public class Slash : Skill
     {
-        int dmg;
-        public Slash(string name, int damage) : base(name)
+        public Slash()
         {
-            dmg = damage;
+            this.Name = "Slash";
         }
 
         public override void Perform(Character target)
         {
             MessageBox.Show($"Used {Name}");
-            target.Health -= dmg;
+            target.Health -= 50;
 
         }
     }
     public class ShieldBash : Skill
     {
-        public ShieldBash(string name) : base(name)
+        public ShieldBash()
         {
+            this.Name = "ShieldBash";
         }
 
         public override void Perform(Character target)
@@ -86,15 +100,213 @@ namespace ComProg2Finals
             MessageBox.Show($"Used {Name}");
         }
     }
+
+    // WIZARD SKILLs
     public class Fireball : Skill
     {
-        public Fireball(string name) : base(name)
+        public Fireball()
         {
+            this.Name = "Fireball";
         }
 
         public override void Perform(Character target)
         {
             MessageBox.Show($"Used {Name}");
+            target.CharStatEffects.Add(new DmgPerTurn("Burn", 10, 5));
+        }
+    }
+    public class RockHurl : Skill
+    {
+        public RockHurl()
+        {
+            this.Name = "Rock Hurl";
+        }
+
+        public override void Perform(Character target)
+        {
+            MessageBox.Show($"Used {Name}");
+        }
+    }
+    public class WindSlice : Skill
+    {
+        public WindSlice()
+        {
+            this.Name = "Wind Slice";
+        }
+
+        public override void Perform(Character target)
+        {
+            MessageBox.Show($"Used {Name}");
+        }
+    }
+    public class WaterBlast : Skill
+    {
+        public WaterBlast()
+        {
+            this.Name = "Water Blast";
+        }
+
+        public override void Perform(Character target)
+        {
+            MessageBox.Show($"Used {Name}");
+        }
+    }
+
+
+    // PRIEST SKILLS
+    public class Heal : Skill
+    {
+        public Heal()
+        {
+            this.Name = "Heal";
+        }
+
+        public override void Perform(Character target)
+        {
+            MessageBox.Show($"Used {Name}");
+            target.CharStatEffects.Add(new HealPerTurn("Heal", 10, 2));
+        }
+    }
+    public class Smite : Skill
+    {
+        public Smite()
+        {
+            this.Name = "Smite";
+        }
+
+        public override void Perform(Character target)
+        {
+            MessageBox.Show($"Used {Name}");
+        }
+    }
+    public class Baptize : Skill
+    {
+        public Baptize()
+        {
+            this.Name = "Baptize";
+        }
+
+        public override void Perform(Character target)
+        {
+            MessageBox.Show($"Used {Name}");
+        }
+    }
+
+
+    // ROGUE SKILLS
+    public class Stealth : Skill
+    {
+        public Stealth()
+        {
+            this.Name = "Stealth";
+        }
+
+        public override void Perform(Character target)
+        {
+            MessageBox.Show($"Used {Name}");
+        }
+    }
+    public class Poison : Skill
+    {
+        public Poison()
+        {
+            this.Name = "Poison";
+        }
+
+        public override void Perform(Character target)
+        {
+            MessageBox.Show($"Used {Name}");
+        }
+    }
+    public class Dagger : Skill
+    {
+        public Dagger()
+        {
+            this.Name = "Dagger";
+        }
+
+        public override void Perform(Character target)
+        {
+            MessageBox.Show($"Used {Name}");
+        }
+    }
+
+    // ARCHER SKILLS
+    public class Lock : Skill
+    {
+        public Lock()
+        {
+            this.Name = "Lock";
+        }
+
+        public override void Perform(Character target)
+        {
+            MessageBox.Show($"Used {Name}");
+        }
+    }
+
+    public class Volley: Skill
+    {
+        public Volley()
+        {
+            this.Name = "Volley";
+        }
+
+        public override void Perform(Character target)
+        {
+            MessageBox.Show($"Used {Name}");
+        }
+    }
+    public class Shoot: Skill
+    {
+        public Shoot()
+        {
+            this.Name = "Shoot";
+        }
+
+        public override void Perform(Character target)
+        {
+            MessageBox.Show($"Used {Name}");
+        }
+    }
+
+
+
+
+    // MEMA SKILLS
+    public class Empty : Skill
+    {
+        public Empty()
+        {
+            this.Name = "";
+        }
+        public override void Perform(Character target)
+        {
+        }
+    }
+    public class HealingPrayers : Skill
+    {
+        public HealingPrayers()
+        {
+            this.Name = "Healing Prayers";
+        }
+        public override void Perform(Character target)
+        {
+            MessageBox.Show($"Used {Name}");
+        }
+    }
+    public class Recovery : Skill
+    {
+        public Recovery()
+        {
+            this.Name = "Recovery";
+        }
+
+        public override void Perform(Character target)
+        {
+            int healValue = 50;
+            MessageBox.Show($"Used {Name} and recovered {healValue} health!");
+            target.Health += healValue;
         }
     }
 }

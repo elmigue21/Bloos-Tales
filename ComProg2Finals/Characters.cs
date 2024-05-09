@@ -16,6 +16,8 @@ namespace ComProg2Finals
         public Skill[] CharSkills { get; set; }
         public int Rizz{ get; set; }
         public string Image { get; set; }
+        public int Defense { get; set; }
+        public List<StatusEffect> CharStatEffects { get; set; }
 
         public Character(string name)
         {
@@ -58,9 +60,11 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new Skill[] { new Damage("Slime Slap", 50), new Damage("SlippySlopey", 50) };
+            CharSkills = new Skill[] {  };
             Rizz = 5;
-            //Image = "R.png";
+            Image = "blooIdle.gif";
+            Defense = 10;
+            CharStatEffects = new List<StatusEffect> { };
         }
     }
 
@@ -73,9 +77,11 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new Skill[] { new Slash("Sword Slash", 50), new Heal("Healing Prayers", 20), new Block("Protection"), new ShieldBash("Shield Bash") };
+            CharSkills = new Skill[] { new Slash(),new Block(), new ShieldBash(), new Empty() };
             Rizz = 5;
-            Image = "R.png";
+            Image = "knight.png";
+            Defense = 10;
+            CharStatEffects = new List<StatusEffect> { };
         }
 
     }
@@ -88,9 +94,11 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new Skill[] { new Fireball("Fireball"), new Heal("Healing Prayers", 100), new Block("Protection"), new Fireball("Double Fireball") };
+            CharSkills = new Skill[] { new Fireball(), new RockHurl(), new WindSlice(), new WaterBlast() };
             Rizz = 5;
             Image = "wiz.png";
+            Defense = 10;
+            CharStatEffects = new List<StatusEffect> { };
         }
 
     }
@@ -98,6 +106,16 @@ namespace ComProg2Finals
     {
         public Priest(string name) : base(name)
         {
+            Name = name;
+            Health = 100;
+            Accuracy = 100;
+            AttackDamage = 10;
+            Speed = 10;
+            CharSkills = new Skill[] { new Heal(), new Smite(), new Baptize(), new Empty() };
+            Rizz = 5;
+            Image = "priest.png";
+            Defense = 10;
+            CharStatEffects = new List<StatusEffect> { };
         }
 
     }
@@ -105,6 +123,16 @@ namespace ComProg2Finals
     {
         public Rogue(string name) : base(name)
         {
+            Name = name;
+            Health = 100;
+            Accuracy = 100;
+            AttackDamage = 10;
+            Speed = 10;
+            CharSkills = new Skill[] { new Stealth(), new Poison(), new Dagger() , new Empty() };
+            Rizz = 5;
+            Image = "wiz.png";
+            Defense = 10;
+            CharStatEffects = new List<StatusEffect> { };
         }
 
     }
@@ -112,6 +140,16 @@ namespace ComProg2Finals
     {
         public Archer(string name) : base(name)
         {
+            Name = name;
+            Health = 100;
+            Accuracy = 100;
+            AttackDamage = 10;
+            Speed = 10;
+            CharSkills = new Skill[] { new Lock(), new Volley(), new Shoot(), new Empty() };
+            Rizz = 5;
+            Image = "archer.png";
+            Defense = 10;
+            CharStatEffects = new List<StatusEffect> { };
         }
 
     }
