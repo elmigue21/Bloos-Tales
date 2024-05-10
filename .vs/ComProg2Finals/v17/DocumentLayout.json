@@ -1,26 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\",
+  "WorkspaceRootPath": "C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|c:\\users\\john\\documents\\github\\comprog2finals\\comprog2finals\\statuseffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\statuseffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Ventura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ComProg2Finals\\Ventura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\StatusEffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ComProg2Finals\\StatusEffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:ComProg2Finals\\Skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\characters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:comprog2finals\\characters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\characters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\characters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ComProg2Finals\\Skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,15 +34,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Characters.cs",
-              "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Characters.cs",
+              "DocumentMoniker": "C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Characters.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\Characters.cs",
-              "ToolTip": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Characters.cs",
+              "ToolTip": "C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Characters.cs",
               "RelativeToolTip": "ComProg2Finals\\Characters.cs",
               "ViewState": "AQIAAHYAAAAAAAAAAAAAAEIAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -46,18 +50,31 @@
               "IsPinned": true
             },
             {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Ventura.cs",
+              "DocumentMoniker": "C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Ventura.cs",
+              "RelativeDocumentMoniker": "ComProg2Finals\\Ventura.cs",
+              "ToolTip": "C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Ventura.cs",
+              "RelativeToolTip": "ComProg2Finals\\Ventura.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T10:28:49.976Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "StatusEffect.cs",
-              "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\StatusEffect.cs",
+              "DocumentMoniker": "C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\StatusEffect.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\StatusEffect.cs",
-              "ToolTip": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\StatusEffect.cs",
+              "ToolTip": "C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\StatusEffect.cs",
               "RelativeToolTip": "ComProg2Finals\\StatusEffect.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAIwBMAAAAAAAAA",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAABgAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-09T11:59:53.038Z",
               "EditorCaption": ""
@@ -66,9 +83,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form1.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\Form1.cs",
-              "ToolTip": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form1.cs",
+              "ToolTip": "C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form1.cs",
               "RelativeToolTip": "ComProg2Finals\\Form1.cs",
               "ViewState": "AQIAAF8AAAAAAAAAAAAwwFEAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -76,22 +93,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form1.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\Form1.cs",
               "ToolTip": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form1.cs [Design]",
-              "RelativeToolTip": "ComProg2Finals\\Form1.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-09T10:42:19.795Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Skills.cs",
-              "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Skills.cs",
+              "DocumentMoniker": "C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Skills.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\Skills.cs",
-              "ToolTip": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Skills.cs",
+              "ToolTip": "C:\\Users\\tsmbi\\OneDrive\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Skills.cs",
               "RelativeToolTip": "ComProg2Finals\\Skills.cs",
               "ViewState": "AQIAAJgAAAAAAAAAAAAIwKYAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

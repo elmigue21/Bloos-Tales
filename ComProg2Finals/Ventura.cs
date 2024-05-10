@@ -1,1 +1,1 @@
-Console.WriteLine("ventura mayabang");
+Console.WriteLine("ventura maangas");
