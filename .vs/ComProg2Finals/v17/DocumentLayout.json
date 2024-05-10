@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\statuseffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|c:\\users\\john\\documents\\github\\comprog2finals\\comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -15,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:ComProg2Finals\\Skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|c:\\users\\john\\documents\\github\\comprog2finals\\comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -43,8 +43,7 @@
               "ViewState": "AQIAAHYAAAAAAAAAAAAAAEIAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-05T17:19:02.743Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -73,8 +72,7 @@
               "RelativeToolTip": "ComProg2Finals\\Form1.cs",
               "ViewState": "AQIAAF8AAAAAAAAAAAAwwFEAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T11:41:07.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-09T11:41:07.876Z"
             },
             {
               "$type": "Document",
@@ -85,8 +83,7 @@
               "ToolTip": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form1.cs [Design]",
               "RelativeToolTip": "ComProg2Finals\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T10:42:19.795Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-05-09T10:42:19.795Z"
             },
             {
               "$type": "Document",
@@ -98,8 +95,7 @@
               "RelativeToolTip": "ComProg2Finals\\Skills.cs",
               "ViewState": "AQIAAJgAAAAAAAAAAAAIwKYAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-05T17:29:31.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-05T17:29:31.61Z"
             }
           ]
         }
