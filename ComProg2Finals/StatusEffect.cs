@@ -32,11 +32,12 @@ namespace ComProg2Finals
         {
             dmg = damage;
             intervals = intrvl;
+            Name = name;
         }
         public override void Trigger(Character target)
         {
             target.Health -= dmg;
-            MessageBox.Show($"Burned {dmg} health from {target}, {intervals} intervals remaining");
+            MessageBox.Show($"dealt {Name} {dmg} health from {target.Name}, {intervals} intervals remaining");
             intervals--;
             if (intervals == 0)
             {

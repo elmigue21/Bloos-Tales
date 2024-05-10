@@ -17,15 +17,24 @@ namespace ComProg2Finals
         Character currentNpc { get; set; }
         List<Character> characters;
         string directory;
+
+
+        Character[] turns { get; set; }
+        Character currentTurn { get; set; }
+        Character enemy { get; set; }
+
+
         public Form1()
         {
             InitializeComponent();
+
 
             characters = new List<Character>();
 
             Knight soulknight = new Knight("Soul Knight");
             currentNpc = soulknight;
             Wizard wizard = new Wizard("GANDALF THE GREY");
+            
 
             Priest priest = new Priest("RAFAELLA");
             Rogue rogue = new Rogue("miROGUEl");
