@@ -34,7 +34,7 @@ namespace ComProg2Finals
         {        
             int damageValue = 50;
             MessageBox.Show($"Used {Name} and dealt {damageValue} damage!");
-            target.Health += damageValue;
+            target.Health -= damageValue;
         }
     }
     public class Goo : Skill
@@ -46,7 +46,8 @@ namespace ComProg2Finals
 
         public override void Perform(Character target)
         {
-
+            MessageBox.Show($"Used {Name}");
+            target.CharStatEffects.Add(new DmgPerTurn("Goo", 10, 2));
         }
     }
 

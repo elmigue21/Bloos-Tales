@@ -18,6 +18,7 @@ namespace ComProg2Finals
         public string Image { get; set; }
         public int Defense { get; set; }
         public List<StatusEffect> CharStatEffects { get; set; }
+        public Character Opposition { get; set; }
 
         public Character(string name)
         {
@@ -60,7 +61,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new Skill[] {  };
+            CharSkills = new Skill[] { new Tackle(), new Goo(), new Empty(), new Empty() };
             Rizz = 5;
             Image = "blooIdle.gif";
             Defense = 10;
