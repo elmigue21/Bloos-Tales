@@ -20,7 +20,7 @@ namespace ComProg2Finals
         public List<StatusEffect> CharStatEffects { get; set; }
         public Character Opposition { get; set; }
         public double CritChance { get; set; }
-
+        Form1 battleForm = Form1.Instance;
         public Character(string name)
         {
             
@@ -62,6 +62,7 @@ namespace ComProg2Finals
 
 
             target.Health += totalDamage;
+            battleForm.updateLabels();
         }
         public void UpdateAccuracy(double value, Character target)
         {

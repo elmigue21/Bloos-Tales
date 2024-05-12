@@ -24,7 +24,11 @@ namespace ComProg2Finals
         Character opps;
         Character currentTurnCharacter;
 
+        List<Character> characters;
+
         Button[] skillButtons = new Button[4];
+
+        public static Form1 Instance { get; private set; }
 
         public Form1()
         {
@@ -34,6 +38,9 @@ namespace ComProg2Finals
             skillButtons[1] = button2;
             skillButtons[2] = button3;
             skillButtons[3] = button4;
+            directory = AppDomain.CurrentDomain.BaseDirectory;
+            Instance = this;
+
         }
 
 
@@ -46,21 +53,45 @@ namespace ComProg2Finals
             // pag call kay bloo/player from the characters class
             Bloo bloo = new Bloo("Bloo");
             Player = bloo;
-            playerLabelName.Text = bloo.Name;
-            playerLabelHealth.Text = "Health: " + bloo.Health.ToString();
-            playerLabelName.ForeColor = Color.White;
+           // playerLabelName.Text = bloo.Name;
+            //playerLabelHealth.Text = "Health: " + bloo.Health.ToString();
+           // playerLabelName.ForeColor = Color.White;
 
             // pag call ng enemy from characters class
             Knight soulknight = new Knight("Soul Knight");
-            enemyLabelName.Text = soulknight.Name;
-            Enemy = soulknight;
+            //enemyLabelName.Text = soulknight.Name;
+           // Enemy = soulknight;
+
+
+            Wizard wizard = new Wizard("wizard");
+            Priest priest = new Priest("priest");
+            Rogue rogue = new Rogue("rogue");
+            Archer archer = new Archer("archer");
+            characters = new List<Character>();
+            characters.Add(soulknight);
+            characters.Add(wizard);
+            characters.Add(priest);
+            characters.Add(rogue);
+            characters.Add(archer);
+
+
+            comboBox1.Items.Add("Knight");
+            comboBox1.Items.Add("Wizard");
+            comboBox1.Items.Add("Priest");
+            comboBox1.Items.Add("Rogue");
+            comboBox1.Items.Add("Archer");
+            comboBox1.SelectedIndex = 4;
+
+
 
             // pag set ng image ng picturebox
             string programDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            directory = programDirectory;
-            pictureBox1.Image = Image.FromFile(Path.Combine(programDirectory, "assets", soulknight.Image));
-            pictureBox2.Image = Image.FromFile(Path.Combine(programDirectory, "assets", bloo.Image));
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            directory = AppDomain.CurrentDomain.BaseDirectory;
+            /*
+            enemyPictureBox.Image = Image.FromFile(Path.Combine(programDirectory, "assets", soulknight.Image));
+            playerPictureBox.Image = Image.FromFile(Path.Combine(programDirectory, "assets", bloo.Image));
+            */
+            playerPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
 
             updateLabels();
             runTurn();
@@ -69,8 +100,9 @@ namespace ComProg2Finals
         private void runTurn()
         {
             // pag add ng enemy and player sa turn order
-            turnOrder.Add(Player);
             turnOrder.Add(Enemy);
+            turnOrder.Add(Player);
+            //turnOrder.Add(Enemy);
             currentTurnCharacter = turnOrder[currentTurnIndex];
 
             // pag trigger ng status effects sa character
@@ -147,6 +179,7 @@ namespace ComProg2Finals
             playerLabelDefense.Text = "Defense:" + Player.Defense.ToString();
             playerLabelLives.Text = "Lives:" + Player.Lives.ToString();
             playerLabelCoins.Text = "Coins:" + Player.Coins.ToString();
+            playerPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Player.Image));
 
             enemyLabelName.Text = Enemy.Name;
             enemyLabelHealth.Text = "Health:" + Enemy.Health.ToString();
@@ -155,6 +188,7 @@ namespace ComProg2Finals
             enemyLabelSpeed.Text = "Speed:" + Enemy.Speed.ToString();
             enemyLabelRizz.Text = "Rizz:" + Enemy.Rizz.ToString();
             enemyLabelDefense.Text = "Defense:" + Enemy.Defense.ToString();
+            enemyPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Enemy.Image));
 
 
             if (Player.Health <= 0)
@@ -181,6 +215,33 @@ namespace ComProg2Finals
         {
             SwordInStone excalibur = new SwordInStone();
             excalibur.Perform(Player);
+            updateLabels();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            object selectedItem = comboBox1.SelectedItem;
+
+            string selectedText = selectedItem.ToString();
+
+            switch (selectedText)
+            {
+                case "Knight":
+                    Enemy = characters[0];
+                    break;
+                case "Wizard":
+                    Enemy = characters[1];
+                    break;
+                case "Priest":
+                    Enemy = characters[2];
+                    break;
+                case "Rogue":
+                    Enemy = characters[3];
+                    break;
+                case "Archer":
+                    Enemy = characters[4];
+                    break;
+            }
             updateLabels();
         }
     }

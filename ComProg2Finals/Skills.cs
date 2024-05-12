@@ -254,9 +254,18 @@ namespace ComProg2Finals
             this.Name = "Volley";
         }
 
-        public override void Perform(Character target)
+        public override async void Perform(Character target)
         {
-            MessageBox.Show($"Used {Name}");
+            Random random = new Random();
+            int randomNumber = random.Next(2, 6);
+            MessageBox.Show($"Used {Name} and shoots {randomNumber} times!");
+
+            for (int i = 0; i < randomNumber; i++)
+            {
+                //MessageBox.Show("hit " + i);
+                target.UpdateHealth(-10, target);
+                await Task.Delay(500);
+            }
         }
     }
     public class Shoot: Skill
@@ -269,6 +278,7 @@ namespace ComProg2Finals
         public override void Perform(Character target)
         {
             MessageBox.Show($"Used {Name}");
+            target.UpdateHealth(-5, target);
         }
     }
 

@@ -33,8 +33,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.playerLabelName = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.enemyPictureBox = new System.Windows.Forms.PictureBox();
+            this.playerPictureBox = new System.Windows.Forms.PictureBox();
             this.playerLabelHealth = new System.Windows.Forms.Label();
             this.enemyLabelName = new System.Windows.Forms.Label();
             this.enemyLabelHealth = new System.Windows.Forms.Label();
@@ -52,8 +52,9 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.playerLabelLives = new System.Windows.Forms.Label();
             this.playerLabelCoins = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,22 +104,22 @@
             this.playerLabelName.TabIndex = 5;
             this.playerLabelName.Text = "Character Name";
             // 
-            // pictureBox1
+            // enemyPictureBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(639, 37);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 97);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.enemyPictureBox.Location = new System.Drawing.Point(639, 37);
+            this.enemyPictureBox.Name = "enemyPictureBox";
+            this.enemyPictureBox.Size = new System.Drawing.Size(100, 97);
+            this.enemyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.enemyPictureBox.TabIndex = 6;
+            this.enemyPictureBox.TabStop = false;
             // 
-            // pictureBox2
+            // playerPictureBox
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(71, 37);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 97);
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
+            this.playerPictureBox.Location = new System.Drawing.Point(71, 37);
+            this.playerPictureBox.Name = "playerPictureBox";
+            this.playerPictureBox.Size = new System.Drawing.Size(100, 97);
+            this.playerPictureBox.TabIndex = 8;
+            this.playerPictureBox.TabStop = false;
             // 
             // playerLabelHealth
             // 
@@ -289,12 +290,22 @@
             this.playerLabelCoins.TabIndex = 25;
             this.playerLabelCoins.Text = "CharacterCoins";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(549, 303);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 26;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.playerLabelCoins);
             this.Controls.Add(this.playerLabelLives);
             this.Controls.Add(this.pictureBox3);
@@ -312,8 +323,8 @@
             this.Controls.Add(this.enemyLabelHealth);
             this.Controls.Add(this.enemyLabelName);
             this.Controls.Add(this.playerLabelHealth);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.playerPictureBox);
+            this.Controls.Add(this.enemyPictureBox);
             this.Controls.Add(this.playerLabelName);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -322,8 +333,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -337,8 +348,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label playerLabelName;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox enemyPictureBox;
+        private System.Windows.Forms.PictureBox playerPictureBox;
         private System.Windows.Forms.Label playerLabelHealth;
         private System.Windows.Forms.Label enemyLabelName;
         private System.Windows.Forms.Label enemyLabelHealth;
@@ -356,6 +367,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label playerLabelLives;
         private System.Windows.Forms.Label playerLabelCoins;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
