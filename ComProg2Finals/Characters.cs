@@ -19,6 +19,7 @@ namespace ComProg2Finals
         public double Defense { get; set; }
         public List<StatusEffect> CharStatEffects { get; set; }
         public Character Opposition { get; set; }
+        public double CritChance { get; set; }
 
         public Character(string name)
         {
@@ -50,7 +51,7 @@ namespace ComProg2Finals
         {
             CharSkills[3].Perform(target);
         }
-        // for this part, gamit kayo ng negative value for 'double value' para maconsider sya as damage //
+        // for this part, gamit kayo ng negative value for 'double value' para maconsider sya bawas and postive value for dagdag//
         public void UpdateHealth(double value, Character target)
         {
             target.Health += value;
@@ -75,11 +76,25 @@ namespace ComProg2Finals
         {
             target.Defense += value;
         }
+        public void UpdateCoin(double value, Bloo bloo)
+        {
+            bloo.Defense += value;
+        }
+        public void UpdateLives(double value, Bloo bloo)
+        {
+            bloo.Lives += value;
+        }
+        public void UpdateCritChance(double value, Character target)
+        {
+            target.Defense += value;
+        }
         /////////////////////////////////
     }
     
     public class Bloo : Character
     {
+        public double Coins;
+        public double Lives;
         public Bloo(string name) : base(name)
         {
             Name = name;
@@ -88,10 +103,14 @@ namespace ComProg2Finals
             AttackDamage = 10;
             Speed = 10;
             CharSkills = new Skill[] { new Tackle(), new Goo()};
-            Rizz = 5;
+            Rizz = 20;
             Image = "blooIdle.gif";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
+            Coins = 100;
+            Lives = 3;
+            CritChance = 0;
+            
         }
     }
 
@@ -109,6 +128,7 @@ namespace ComProg2Finals
             Image = "knight.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
+            CritChance = 0;
         }
 
     }
@@ -126,6 +146,7 @@ namespace ComProg2Finals
             Image = "wiz.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
+            CritChance = 0;
         }
 
     }
@@ -143,6 +164,7 @@ namespace ComProg2Finals
             Image = "priest.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
+            CritChance = 0;
         }
 
     }
@@ -160,6 +182,7 @@ namespace ComProg2Finals
             Image = "wiz.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
+            CritChance = 0;
         }
 
     }
@@ -177,6 +200,7 @@ namespace ComProg2Finals
             Image = "archer.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
+            CritChance = 0;
         }
 
     }

@@ -48,8 +48,13 @@
             this.enemyLabelSpeed = new System.Windows.Forms.Label();
             this.enemyLabelAttackDamage = new System.Windows.Forms.Label();
             this.enemyLabelAccuracy = new System.Windows.Forms.Label();
+            this.testButton = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.playerLabelLives = new System.Windows.Forms.Label();
+            this.playerLabelCoins = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -92,7 +97,7 @@
             // 
             this.playerLabelName.AutoSize = true;
             this.playerLabelName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelName.Location = new System.Drawing.Point(75, 195);
+            this.playerLabelName.Location = new System.Drawing.Point(68, 157);
             this.playerLabelName.Name = "playerLabelName";
             this.playerLabelName.Size = new System.Drawing.Size(84, 13);
             this.playerLabelName.TabIndex = 5;
@@ -100,7 +105,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(639, 75);
+            this.pictureBox1.Location = new System.Drawing.Point(639, 37);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 97);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -109,7 +114,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(78, 75);
+            this.pictureBox2.Location = new System.Drawing.Point(71, 37);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 97);
             this.pictureBox2.TabIndex = 8;
@@ -119,7 +124,7 @@
             // 
             this.playerLabelHealth.AutoSize = true;
             this.playerLabelHealth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelHealth.Location = new System.Drawing.Point(75, 208);
+            this.playerLabelHealth.Location = new System.Drawing.Point(68, 170);
             this.playerLabelHealth.Name = "playerLabelHealth";
             this.playerLabelHealth.Size = new System.Drawing.Size(87, 13);
             this.playerLabelHealth.TabIndex = 9;
@@ -129,7 +134,7 @@
             // 
             this.enemyLabelName.AutoSize = true;
             this.enemyLabelName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelName.Location = new System.Drawing.Point(636, 195);
+            this.enemyLabelName.Location = new System.Drawing.Point(636, 157);
             this.enemyLabelName.Name = "enemyLabelName";
             this.enemyLabelName.Size = new System.Drawing.Size(84, 13);
             this.enemyLabelName.TabIndex = 10;
@@ -139,7 +144,7 @@
             // 
             this.enemyLabelHealth.AutoSize = true;
             this.enemyLabelHealth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelHealth.Location = new System.Drawing.Point(636, 208);
+            this.enemyLabelHealth.Location = new System.Drawing.Point(636, 170);
             this.enemyLabelHealth.Name = "enemyLabelHealth";
             this.enemyLabelHealth.Size = new System.Drawing.Size(87, 13);
             this.enemyLabelHealth.TabIndex = 11;
@@ -149,7 +154,7 @@
             // 
             this.playerLabelAccuracy.AutoSize = true;
             this.playerLabelAccuracy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelAccuracy.Location = new System.Drawing.Point(75, 221);
+            this.playerLabelAccuracy.Location = new System.Drawing.Point(68, 183);
             this.playerLabelAccuracy.Name = "playerLabelAccuracy";
             this.playerLabelAccuracy.Size = new System.Drawing.Size(101, 13);
             this.playerLabelAccuracy.TabIndex = 12;
@@ -159,7 +164,7 @@
             // 
             this.playerLabelAttackDamage.AutoSize = true;
             this.playerLabelAttackDamage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelAttackDamage.Location = new System.Drawing.Point(75, 234);
+            this.playerLabelAttackDamage.Location = new System.Drawing.Point(68, 196);
             this.playerLabelAttackDamage.Name = "playerLabelAttackDamage";
             this.playerLabelAttackDamage.Size = new System.Drawing.Size(130, 13);
             this.playerLabelAttackDamage.TabIndex = 13;
@@ -169,7 +174,7 @@
             // 
             this.playerLabelSpeed.AutoSize = true;
             this.playerLabelSpeed.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelSpeed.Location = new System.Drawing.Point(75, 247);
+            this.playerLabelSpeed.Location = new System.Drawing.Point(68, 209);
             this.playerLabelSpeed.Name = "playerLabelSpeed";
             this.playerLabelSpeed.Size = new System.Drawing.Size(87, 13);
             this.playerLabelSpeed.TabIndex = 14;
@@ -179,7 +184,7 @@
             // 
             this.playerLabelRizz.AutoSize = true;
             this.playerLabelRizz.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelRizz.Location = new System.Drawing.Point(75, 260);
+            this.playerLabelRizz.Location = new System.Drawing.Point(68, 222);
             this.playerLabelRizz.Name = "playerLabelRizz";
             this.playerLabelRizz.Size = new System.Drawing.Size(73, 13);
             this.playerLabelRizz.TabIndex = 15;
@@ -189,7 +194,7 @@
             // 
             this.playerLabelDefense.AutoSize = true;
             this.playerLabelDefense.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelDefense.Location = new System.Drawing.Point(75, 273);
+            this.playerLabelDefense.Location = new System.Drawing.Point(68, 235);
             this.playerLabelDefense.Name = "playerLabelDefense";
             this.playerLabelDefense.Size = new System.Drawing.Size(93, 13);
             this.playerLabelDefense.TabIndex = 16;
@@ -199,7 +204,7 @@
             // 
             this.enemyLabelDefense.AutoSize = true;
             this.enemyLabelDefense.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelDefense.Location = new System.Drawing.Point(636, 273);
+            this.enemyLabelDefense.Location = new System.Drawing.Point(636, 235);
             this.enemyLabelDefense.Name = "enemyLabelDefense";
             this.enemyLabelDefense.Size = new System.Drawing.Size(93, 13);
             this.enemyLabelDefense.TabIndex = 21;
@@ -209,7 +214,7 @@
             // 
             this.enemyLabelRizz.AutoSize = true;
             this.enemyLabelRizz.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelRizz.Location = new System.Drawing.Point(636, 260);
+            this.enemyLabelRizz.Location = new System.Drawing.Point(636, 222);
             this.enemyLabelRizz.Name = "enemyLabelRizz";
             this.enemyLabelRizz.Size = new System.Drawing.Size(73, 13);
             this.enemyLabelRizz.TabIndex = 20;
@@ -219,7 +224,7 @@
             // 
             this.enemyLabelSpeed.AutoSize = true;
             this.enemyLabelSpeed.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelSpeed.Location = new System.Drawing.Point(636, 247);
+            this.enemyLabelSpeed.Location = new System.Drawing.Point(636, 209);
             this.enemyLabelSpeed.Name = "enemyLabelSpeed";
             this.enemyLabelSpeed.Size = new System.Drawing.Size(87, 13);
             this.enemyLabelSpeed.TabIndex = 19;
@@ -229,7 +234,7 @@
             // 
             this.enemyLabelAttackDamage.AutoSize = true;
             this.enemyLabelAttackDamage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelAttackDamage.Location = new System.Drawing.Point(636, 234);
+            this.enemyLabelAttackDamage.Location = new System.Drawing.Point(636, 196);
             this.enemyLabelAttackDamage.Name = "enemyLabelAttackDamage";
             this.enemyLabelAttackDamage.Size = new System.Drawing.Size(130, 13);
             this.enemyLabelAttackDamage.TabIndex = 18;
@@ -239,11 +244,50 @@
             // 
             this.enemyLabelAccuracy.AutoSize = true;
             this.enemyLabelAccuracy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelAccuracy.Location = new System.Drawing.Point(636, 221);
+            this.enemyLabelAccuracy.Location = new System.Drawing.Point(636, 183);
             this.enemyLabelAccuracy.Name = "enemyLabelAccuracy";
             this.enemyLabelAccuracy.Size = new System.Drawing.Size(101, 13);
             this.enemyLabelAccuracy.TabIndex = 17;
             this.enemyLabelAccuracy.Text = "Character Accuracy";
+            // 
+            // testButton
+            // 
+            this.testButton.Location = new System.Drawing.Point(337, 163);
+            this.testButton.Name = "testButton";
+            this.testButton.Size = new System.Drawing.Size(132, 45);
+            this.testButton.TabIndex = 22;
+            this.testButton.Text = "TEST";
+            this.testButton.UseVisualStyleBackColor = true;
+            this.testButton.Click += new System.EventHandler(this.testButton_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(493, 65);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 97);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 23;
+            this.pictureBox3.TabStop = false;
+            // 
+            // playerLabelLives
+            // 
+            this.playerLabelLives.AutoSize = true;
+            this.playerLabelLives.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.playerLabelLives.Location = new System.Drawing.Point(68, 248);
+            this.playerLabelLives.Name = "playerLabelLives";
+            this.playerLabelLives.Size = new System.Drawing.Size(78, 13);
+            this.playerLabelLives.TabIndex = 24;
+            this.playerLabelLives.Text = "CharacterLives";
+            // 
+            // playerLabelCoins
+            // 
+            this.playerLabelCoins.AutoSize = true;
+            this.playerLabelCoins.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.playerLabelCoins.Location = new System.Drawing.Point(68, 261);
+            this.playerLabelCoins.Name = "playerLabelCoins";
+            this.playerLabelCoins.Size = new System.Drawing.Size(79, 13);
+            this.playerLabelCoins.TabIndex = 25;
+            this.playerLabelCoins.Text = "CharacterCoins";
             // 
             // Form1
             // 
@@ -251,6 +295,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.playerLabelCoins);
+            this.Controls.Add(this.playerLabelLives);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.testButton);
             this.Controls.Add(this.enemyLabelDefense);
             this.Controls.Add(this.enemyLabelRizz);
             this.Controls.Add(this.enemyLabelSpeed);
@@ -276,6 +324,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,6 +352,10 @@
         private System.Windows.Forms.Label enemyLabelSpeed;
         private System.Windows.Forms.Label enemyLabelAttackDamage;
         private System.Windows.Forms.Label enemyLabelAccuracy;
+        private System.Windows.Forms.Button testButton;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label playerLabelLives;
+        private System.Windows.Forms.Label playerLabelCoins;
     }
 }
 

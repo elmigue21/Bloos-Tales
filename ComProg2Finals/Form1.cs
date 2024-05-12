@@ -136,7 +136,7 @@ namespace ComProg2Finals
 
 
         // for updating ng labels ng player and character | and checking narin ng win/lose
-        private void updateLabels()
+        public void updateLabels()
         {
             playerLabelName.Text = Player.Name;
             playerLabelHealth.Text = "Health:"+Player.Health.ToString();
@@ -145,6 +145,8 @@ namespace ComProg2Finals
             playerLabelSpeed.Text = "Speed:" + Player.Speed.ToString();
             playerLabelRizz.Text = "Rizz:" + Player.Rizz.ToString();
             playerLabelDefense.Text = "Defense:" + Player.Defense.ToString();
+            playerLabelLives.Text = "Lives:" + Player.Lives.ToString();
+            playerLabelCoins.Text = "Coins:" + Player.Coins.ToString();
 
             enemyLabelName.Text = Enemy.Name;
             enemyLabelHealth.Text = "Health:" + Enemy.Health.ToString();
@@ -169,7 +171,17 @@ namespace ComProg2Finals
             {
                 runTurn();
             }
+
+
+
+
         }
 
+        private void testButton_Click(object sender, EventArgs e)
+        {
+            SwordInStone excalibur = new SwordInStone();
+            excalibur.Perform(Player);
+            updateLabels();
+        }
     }
 }
