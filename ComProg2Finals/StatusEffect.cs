@@ -26,9 +26,9 @@ namespace ComProg2Finals
     }
     public class DmgPerTurn : StatusEffect
     {
-        int dmg;
+        double dmg;
         int intervals;
-        public DmgPerTurn(string name, int damage, int intrvl) : base(name)
+        public DmgPerTurn(string name, double damage, int intrvl) : base(name)
         {
             dmg = damage;
             intervals = intrvl;
@@ -48,9 +48,9 @@ namespace ComProg2Finals
     }
     public class HealPerTurn : StatusEffect
     {
-        int healVal;
+        double healVal;
         int intervals;
-        public HealPerTurn(string name, int heal, int intrvl) : base(name)
+        public HealPerTurn(string name, double heal, int intrvl) : base(name)
         {
             healVal = heal;
             intervals = intrvl;

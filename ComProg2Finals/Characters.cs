@@ -9,14 +9,14 @@ namespace ComProg2Finals
     public class Character
     {
         public string Name { get; set; }
-        public int Health { get; set; }
-        public int Accuracy { get; set; }
-        public int AttackDamage { get; set; }
-        public int Speed{ get; set; }
+        public double Health { get; set; }
+        public double Accuracy { get; set; }
+        public double AttackDamage { get; set; }
+        public double Speed{ get; set; }
         public Skill[] CharSkills { get; set; }
-        public int Rizz{ get; set; }
+        public double Rizz{ get; set; }
         public string Image { get; set; }
-        public int Defense { get; set; }
+        public double Defense { get; set; }
         public List<StatusEffect> CharStatEffects { get; set; }
         public Character Opposition { get; set; }
 
@@ -50,6 +50,32 @@ namespace ComProg2Finals
         {
             CharSkills[3].Perform(target);
         }
+        // for this part, gamit kayo ng negative value for 'double value' para maconsider sya as damage //
+        public void UpdateHealth(double value, Character target)
+        {
+            target.Health += value;
+        }
+        public void UpdateAccuracy(double value, Character target)
+        {
+            target.Accuracy += value;
+        }
+        public void UpdateAttackDamage(double value, Character target)
+        {
+            target.AttackDamage += value;
+        }
+        public void UpdateSpeed(double value, Character target)
+        {
+            target.Speed += value;
+        }
+        public void UpdateRizz(double value, Character target)
+        {
+            target.Rizz += value;
+        }
+        public void UpdateDefense(double value, Character target)
+        {
+            target.Defense += value;
+        }
+        /////////////////////////////////
     }
     
     public class Bloo : Character
@@ -61,7 +87,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new Skill[] { new Tackle(), new Goo(), new Empty(), new Empty() };
+            CharSkills = new Skill[] { new Tackle(), new Goo()};
             Rizz = 5;
             Image = "blooIdle.gif";
             Defense = 10;
@@ -78,7 +104,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new Skill[] { new Slash(),new Block(), new ShieldBash(), new Empty() };
+            CharSkills = new Skill[] { new Slash(),new Block(), new ShieldBash()};
             Rizz = 5;
             Image = "knight.png";
             Defense = 10;
@@ -112,7 +138,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new Skill[] { new Heal(), new Smite(), new Baptize(), new Empty() };
+            CharSkills = new Skill[] { new Heal(), new Smite(), new Baptize()};
             Rizz = 5;
             Image = "priest.png";
             Defense = 10;
@@ -129,7 +155,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new Skill[] { new Stealth(), new Poison(), new Dagger() , new Empty() };
+            CharSkills = new Skill[] { new Stealth(), new Poison(), new Dagger()};
             Rizz = 5;
             Image = "wiz.png";
             Defense = 10;
@@ -146,7 +172,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new Skill[] { new Lock(), new Volley(), new Shoot(), new Empty() };
+            CharSkills = new Skill[] { new Lock(), new Volley(), new Shoot()};
             Rizz = 5;
             Image = "archer.png";
             Defense = 10;

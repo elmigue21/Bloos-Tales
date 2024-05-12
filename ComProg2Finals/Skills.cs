@@ -32,7 +32,7 @@ namespace ComProg2Finals
 
         public override void Perform(Character target)
         {        
-            int damageValue = 50;
+            double damageValue = 1;
             MessageBox.Show($"Used {Name} and dealt {damageValue} damage!");
             target.Health -= damageValue;
         }
@@ -73,6 +73,7 @@ namespace ComProg2Finals
         public override void Perform(Character target)
         {
             MessageBox.Show($"Used {Name}");
+            target.UpdateHealth(-50, target);
         }
     }
     public class Slash : Skill
@@ -305,9 +306,10 @@ namespace ComProg2Finals
 
         public override void Perform(Character target)
         {
-            int healValue = 50;
+            double healValue = 50;
             MessageBox.Show($"Used {Name} and recovered {healValue} health!");
-            target.Health += healValue;
+            //target.Health += healValue;
+            target.UpdateHealth(-50, target);
         }
     }
 }
