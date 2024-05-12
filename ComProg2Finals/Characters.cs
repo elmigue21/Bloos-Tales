@@ -54,7 +54,14 @@ namespace ComProg2Finals
         // for this part, gamit kayo ng negative value for 'double value' para maconsider sya bawas and postive value for dagdag//
         public void UpdateHealth(double value, Character target)
         {
-            target.Health += value;
+            // target.defense is 10
+            double attack = value;
+
+
+            double totalDamage = attack;
+
+
+            target.Health += totalDamage;
         }
         public void UpdateAccuracy(double value, Character target)
         {

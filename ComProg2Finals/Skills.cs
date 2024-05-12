@@ -32,9 +32,9 @@ namespace ComProg2Finals
 
         public override void Perform(Character target)
         {        
-            double damageValue = 1;
+            double damageValue = -25;
             MessageBox.Show($"Used {Name} and dealt {damageValue} damage!");
-            target.Health -= damageValue;
+            target.UpdateHealth(damageValue, target);
         }
     }
     public class Goo : Skill
