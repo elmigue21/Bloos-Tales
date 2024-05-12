@@ -17,16 +17,16 @@ namespace ComProg2Finals
         Bloo Player;
         string directory;
 
-        public List<Character> turnOrder;
-        private int currentTurnIndex;
-
         Character Enemy { get; set; }
-        Character opps;
-        Character currentTurnCharacter;
 
         List<Character> characters;
 
         Button[] skillButtons = new Button[4];
+
+
+        Character currentTurn;
+
+
 
         public static Form1 Instance { get; private set; }
 
@@ -41,28 +41,20 @@ namespace ComProg2Finals
             directory = AppDomain.CurrentDomain.BaseDirectory;
             Instance = this;
 
+
         }
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // turns logic
-            turnOrder = new List<Character>();
-            currentTurnIndex = 0;
-
             // pag call kay bloo/player from the characters class
             Bloo bloo = new Bloo("Bloo");
             Player = bloo;
-           // playerLabelName.Text = bloo.Name;
-            //playerLabelHealth.Text = "Health: " + bloo.Health.ToString();
-           // playerLabelName.ForeColor = Color.White;
+
+            currentTurn = Player;
 
             // pag call ng enemy from characters class
             Knight soulknight = new Knight("Soul Knight");
-            //enemyLabelName.Text = soulknight.Name;
-           // Enemy = soulknight;
-
-
             Wizard wizard = new Wizard("wizard");
             Priest priest = new Priest("priest");
             Rogue rogue = new Rogue("rogue");
@@ -74,7 +66,6 @@ namespace ComProg2Finals
             characters.Add(rogue);
             characters.Add(archer);
 
-
             comboBox1.Items.Add("Knight");
             comboBox1.Items.Add("Wizard");
             comboBox1.Items.Add("Priest");
@@ -83,56 +74,53 @@ namespace ComProg2Finals
             comboBox1.SelectedIndex = 4;
 
 
+            Enemy = characters[comboBox1.SelectedIndex];
+            Player.Opposition = Enemy;
+            Enemy.Opposition = Player;
+
+            currentTurn = Player;
+
 
             // pag set ng image ng picturebox
             string programDirectory = AppDomain.CurrentDomain.BaseDirectory;
             directory = AppDomain.CurrentDomain.BaseDirectory;
-            /*
-            enemyPictureBox.Image = Image.FromFile(Path.Combine(programDirectory, "assets", soulknight.Image));
-            playerPictureBox.Image = Image.FromFile(Path.Combine(programDirectory, "assets", bloo.Image));
-            */
             playerPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
 
             updateLabels();
-            runTurn();
+           // runTurn();
 
         }
         private void runTurn()
         {
-            // pag add ng enemy and player sa turn order
-            turnOrder.Add(Enemy);
-            turnOrder.Add(Player);
-            //turnOrder.Add(Enemy);
-            currentTurnCharacter = turnOrder[currentTurnIndex];
 
             // pag trigger ng status effects sa character
-            for (int i = 0; i < currentTurnCharacter.CharStatEffects.Count; i++)
+            for (int i = 0; i < currentTurn.CharStatEffects.Count; i++)
             {
-                currentTurnCharacter.CharStatEffects[i].Trigger(turnOrder[(currentTurnIndex) % turnOrder.Count]);
+                currentTurn.CharStatEffects[i].Trigger(currentTurn);
             }
 
             // pag set ng buttons text according sa skills ng current turn na character
             for(int i = 0; i < 4; i++)
             {
-                if (i >= currentTurnCharacter.CharSkills.Length)
+                if (i >= currentTurn.CharSkills.Length)
                 {
                     skillButtons[i].Text = "";
                 }
                 else
                 {
-                    skillButtons[i].Text = currentTurnCharacter.CharSkills[i].Name;
+                    skillButtons[i].Text = currentTurn.CharSkills[i].Name;
                 }
             }
 
-            currentTurnIndex = (currentTurnIndex + 1) % turnOrder.Count;
-            opps = turnOrder[(currentTurnIndex) % turnOrder.Count];
+            
         }
         // buttons para sa skills
         private void button1_Click(object sender, EventArgs e)
         {
-            if (currentTurnCharacter.CharSkills.Length >= 1)
+            if (currentTurn.CharSkills.Length >= 1)
             {
-                currentTurnCharacter.UseSkill1(opps);
+                currentTurn.UseSkill1(currentTurn);
+                currentTurn = currentTurn.Opposition;
                 updateLabels();
             }
 
@@ -140,27 +128,30 @@ namespace ComProg2Finals
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (currentTurnCharacter.CharSkills.Length >= 2)
+            if (currentTurn.CharSkills.Length >= 2)
             {
-                currentTurnCharacter.UseSkill2(opps);
+                currentTurn.UseSkill2(currentTurn);
+                currentTurn = currentTurn.Opposition;
                 updateLabels();
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (currentTurnCharacter.CharSkills.Length >= 3)
+            if (currentTurn.CharSkills.Length >= 3)
             {
-                currentTurnCharacter.UseSkill3(opps);
+                currentTurn.UseSkill3(currentTurn);
+                currentTurn = currentTurn.Opposition;
                 updateLabels();
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (currentTurnCharacter.CharSkills.Length >= 4)
+            if (currentTurn.CharSkills.Length >= 4)
             {
-                currentTurnCharacter.UseSkill4(opps);
+                currentTurn.UseSkill4(currentTurn);
+                currentTurn = currentTurn.Opposition;
                 updateLabels();
             }
         }

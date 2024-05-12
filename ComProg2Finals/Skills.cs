@@ -15,7 +15,7 @@ namespace ComProg2Finals
         {
         }
 
-        public virtual void Perform(Character target)
+        public virtual void Perform(Character user)
         {
             MessageBox.Show($"{Name} skill performed.");
 
@@ -30,11 +30,11 @@ namespace ComProg2Finals
             this.Name = "Tackle";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {        
             double damageValue = -25;
             MessageBox.Show($"Used {Name} and dealt {damageValue} damage!");
-            target.UpdateHealth(damageValue, target);
+            user.UpdateHealth(damageValue, user.Opposition);
         }
     }
     public class Goo : Skill
@@ -44,20 +44,65 @@ namespace ComProg2Finals
             this.Name = "Goo";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            target.CharStatEffects.Add(new DmgPerTurn("Goo", 10, 2));
+            user.Opposition.CharStatEffects.Add(new DmgPerTurn("Goo", 10, 2));
+        }
+    }
+
+    public class Split : Skill
+    {
+        public Split()
+        {
+            this.Name = "Split";
+        }
+
+        public override void Perform(Character user)
+        {
+            
+        }
+    }
+    public class ElementBook : Skill
+    {
+        public ElementBook()
+        {
+            this.Name = "Element Book";
+        }
+
+        public override void Perform(Character user)
+        {
+
+        }
+    }
+    public class Mog : Skill
+    {
+        public Mog()
+        {
+            this.Name = "Mog";
+        }
+
+        public override void Perform(Character user)
+        {
+
+        }
+    }
+
+    public class Bounce : Skill
+    {
+        public Bounce()
+        {
+            this.Name = "Bounce";
+        }
+
+        public override void Perform(Character user)
+        {
+
         }
     }
 
 
 
-
-
-
-
-    
 
 
     // KNIGHT SKILLS
@@ -70,10 +115,10 @@ namespace ComProg2Finals
             this.Name = "Block";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            target.UpdateHealth(-50, target);
+            user.UpdateHealth(-50, user.Opposition);
         }
     }
     public class Slash : Skill
@@ -83,10 +128,10 @@ namespace ComProg2Finals
             this.Name = "Slash";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            target.Health -= 50;
+            user.Opposition.Health -= 50;
 
         }
     }
@@ -97,7 +142,7 @@ namespace ComProg2Finals
             this.Name = "ShieldBash";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
         }
@@ -111,10 +156,10 @@ namespace ComProg2Finals
             this.Name = "Fireball";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            target.CharStatEffects.Add(new DmgPerTurn("Burn", 10, 5));
+            user.Opposition.CharStatEffects.Add(new DmgPerTurn("Burn", 10, 5));
         }
     }
     public class RockHurl : Skill
@@ -124,7 +169,7 @@ namespace ComProg2Finals
             this.Name = "Rock Hurl";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
         }
@@ -136,7 +181,7 @@ namespace ComProg2Finals
             this.Name = "Wind Slice";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
         }
@@ -148,7 +193,7 @@ namespace ComProg2Finals
             this.Name = "Water Blast";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
         }
@@ -163,10 +208,10 @@ namespace ComProg2Finals
             this.Name = "Heal";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            target.CharStatEffects.Add(new HealPerTurn("Heal", 10, 2));
+            user.CharStatEffects.Add(new HealPerTurn("Heal", 10, 2));
         }
     }
     public class Smite : Skill
@@ -176,7 +221,7 @@ namespace ComProg2Finals
             this.Name = "Smite";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
         }
@@ -188,7 +233,7 @@ namespace ComProg2Finals
             this.Name = "Baptize";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
         }
@@ -215,7 +260,7 @@ namespace ComProg2Finals
             this.Name = "Poison";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
         }
@@ -227,7 +272,7 @@ namespace ComProg2Finals
             this.Name = "Dagger";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
         }
@@ -241,7 +286,7 @@ namespace ComProg2Finals
             this.Name = "Lock";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
         }
@@ -254,7 +299,7 @@ namespace ComProg2Finals
             this.Name = "Volley";
         }
 
-        public override async void Perform(Character target)
+        public override async void Perform(Character user)
         {
             Random random = new Random();
             int randomNumber = random.Next(2, 6);
@@ -263,7 +308,8 @@ namespace ComProg2Finals
             for (int i = 0; i < randomNumber; i++)
             {
                 //MessageBox.Show("hit " + i);
-                target.UpdateHealth(-10, target);
+                
+                user.UpdateHealth(-10, user.Opposition);
                 await Task.Delay(500);
             }
         }
@@ -275,10 +321,10 @@ namespace ComProg2Finals
             this.Name = "Shoot";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            target.UpdateHealth(-5, target);
+            user.UpdateHealth(-5, user.Opposition);
         }
     }
 
@@ -292,7 +338,7 @@ namespace ComProg2Finals
         {
             this.Name = "";
         }
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
         }
     }
@@ -302,7 +348,7 @@ namespace ComProg2Finals
         {
             this.Name = "Healing Prayers";
         }
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
         }
@@ -314,12 +360,12 @@ namespace ComProg2Finals
             this.Name = "Recovery";
         }
 
-        public override void Perform(Character target)
+        public override void Perform(Character user)
         {
             double healValue = 50;
             MessageBox.Show($"Used {Name} and recovered {healValue} health!");
             //target.Health += healValue;
-            target.UpdateHealth(-50, target);
+            user.UpdateHealth(50, user);
         }
     }
 }

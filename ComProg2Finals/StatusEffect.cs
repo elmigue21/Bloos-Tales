@@ -19,7 +19,7 @@ namespace ComProg2Finals
         {
 
         }
-        public virtual void Trigger(Character target)
+        public virtual void Trigger(Character user)
         {
 
         }
@@ -34,14 +34,14 @@ namespace ComProg2Finals
             intervals = intrvl;
             Name = name;
         }
-        public override void Trigger(Character target)
+        public override void Trigger(Character charac)
         {
-            target.Health -= dmg;
-            MessageBox.Show($"dealt {Name} {dmg} health from {target.Name}, {intervals} intervals remaining");
+            charac.Health -= dmg;
+            MessageBox.Show($"dealt {Name} {dmg} health from {charac.Name}, {intervals} intervals remaining");
             intervals--;
             if (intervals == 0)
             {
-                target.CharStatEffects.Remove(this);
+                charac.CharStatEffects.Remove(this);
             }
         }
 
@@ -55,14 +55,14 @@ namespace ComProg2Finals
             healVal = heal;
             intervals = intrvl;
         }
-        public override void Trigger(Character target)
+        public override void Trigger(Character charac)
         {
-            target.Health += healVal;
-            MessageBox.Show($"Healed {healVal} health from {target}, {intervals} intervals remaining");
+            charac.Health += healVal;
+            MessageBox.Show($"Healed {healVal} health from {charac.Name}, {intervals} intervals remaining");
             intervals--;
             if (intervals == 0)
             {
-                target.CharStatEffects.Remove(this);
+                charac.CharStatEffects.Remove(this);
             }
         }
 
