@@ -305,4 +305,51 @@ namespace ComProg2Finals
             }
         }
     }
+    public class MasterGooway : Events
+    {
+        int choice;
+        public override void Perform(Bloo bloo)
+        {
+            choice = 0;
+            switch (choice)
+            {
+                case 0:
+                    MessageBox.Show("Split");
+                    break;
+                case 1:
+                    MessageBox.Show("Element Book");
+                    break;
+                case 2:
+                    MessageBox.Show("Mog");
+                    break;
+                case 3:
+                    MessageBox.Show("Bounce");
+                    break;
+            }
+        }
+    }
+    public class Shopkeeper: Events
+    {
+        int choice;
+        public override void Perform(Bloo bloo)
+        {
+            choice = 0;
+
+            switch (choice)
+            {
+                case 0:
+                    MessageBox.Show("Life Potion");
+                    break;
+                case 1:
+                    MessageBox.Show("Mystery Potion");
+                    break;
+                case 2:
+                    MessageBox.Show("Hard Helmet");
+                    break;
+                case 3:
+                    MessageBox.Show("Spiked Helmet");
+                    break;
+            }
+        }
+    }
 }
