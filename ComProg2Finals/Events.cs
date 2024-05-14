@@ -38,18 +38,21 @@ namespace ComProg2Finals
                 if (bloo.Lives < 5) {
                     bloo.Lives += 1;
                         }
+                MessageBox.Show("You found a Life Potion!");
             }
             else if (randomNumber <= lifePotChance + rizzChance)
             {
                 bloo.Rizz += gainedRizz;
-                MessageBox.Show("You found a Rizz!");
+                MessageBox.Show("You gained some Rizz!");
             }
             else if (randomNumber <= lifePotChance + rizzChance + coinChance)
             {
+                bloo.Coins += 50;
                 MessageBox.Show("You found some coins!");
             }
             else
             {
+                // fight chest logic
                 MessageBox.Show("You won all loot!");
             }
 
@@ -83,22 +86,46 @@ namespace ComProg2Finals
             else if (randomNumber <= loseLifeChance + debuffChance)
             {
                 // insert debuff logic
+                Random rand = new Random();
+                int chance = rand.Next(0, 4);
+                switch (chance)
+                {
+                    case 0:
+                        bloo.Health -= 20;
+                        MessageBox.Show("You hit your head inside the cave. Health reduced by 20.");
+                        break;
+                    case 1:
+                        bloo.AttackDamage -= 20;
+                        MessageBox.Show("You cut your hand inside the cave. Attack Damage reduced by 20.");
+                        break;
+                    case 2:
+                        bloo.Coins -= 20;
+                        MessageBox.Show("A man inside the cave mugged you. Lost 20 coins");
+                        break;
+                    case 3:
+                        bloo.Rizz -= 20;
+                        MessageBox.Show("The cave scared you. Rizz reduced by 20.");
+                        break;
+                }
                 MessageBox.Show("You got a debuff!");
             }
             else if (randomNumber <= loseLifeChance + debuffChance + coinChance)
             {
-                // insert coin logic
+                
+                bloo.Coins += 50;
                 MessageBox.Show("You found some coins!");
             }
             else if (randomNumber <= loseLifeChance + debuffChance + coinChance + rizzChance)
             {
-                // insert rizz logic
+                
                 bloo.Rizz += gainedRizz;
                 MessageBox.Show("You found a Rizz!");
             }
             else if (randomNumber <= totalChances)
             {
-                // insert rogue free pass
+                
+                StrangeGem strangegem = new StrangeGem();
+                strangegem.Acquired(bloo);
                 MessageBox.Show("You found a Rare Gem!");
             }
             else
@@ -120,12 +147,13 @@ namespace ComProg2Finals
 
             if (randomNumber <= pullChance)
             {
-                // insert excalibur item logic
+                Excalibur excalibur = new Excalibur();
+                excalibur.Acquired(bloo);
                 MessageBox.Show("You pulled the excalibur sword");
             }
             else
             {
-                MessageBox.Show("weak");
+                MessageBox.Show("The sword wont budge.");
             }
 
         }
@@ -136,6 +164,7 @@ namespace ComProg2Finals
         {
             if (bloo.Lives < 5)
             {
+                MessageBox.Show("You feel rested. Lives increased");
                 bloo.Lives += 1;
             }
         }
@@ -145,6 +174,7 @@ namespace ComProg2Finals
         int choice;
         public override void Perform(Bloo bloo)
         {
+            // 33.3 percent chance eachhhhh
             choice = 0;
             switch (choice) {
                 case 0:
@@ -176,6 +206,31 @@ namespace ComProg2Finals
         public override void Perform(Bloo bloo)
         {
             MessageBox.Show($"Seer");
+            int choice = 0;
+            switch (choice)
+            {
+                case 0:
+                    bloo.Rizz -= bloo.Rizz * .3;
+                    // messagebox.show next enemy
+                    break;
+                case 1:
+                    bloo.Coins -= 150;
+                    // add status effect final boss 30% atk dmg boost for bloo
+                    break;
+                case 2:
+                    bloo.Coins -= 100;
+                    // add status effect next boss 15% atk dmg boost for bloo
+                    break;
+                case 3:
+                    bloo.Coins -= 50;
+                    // add status effect, lower accuracy of next boss
+                    break;
+                case 4:
+                    bloo.Coins -= 50;
+                    // add status effect, +20 def for bloo on next boss 
+                    break;
+            }
+
         }
     }
     public class WishingWell : Events
@@ -202,7 +257,9 @@ namespace ComProg2Finals
                         }
                         else if (randomNumber >= 26 && randomNumber <= 30)
                         {
-                            // add holy water item (priest free pass here)
+                            
+                            HolyWater holywater = new HolyWater();
+                            holywater.Acquired(bloo);
                             MessageBox.Show("Holy Water Acquired!");
                         }
                         else
@@ -250,7 +307,7 @@ namespace ComProg2Finals
             
         }
     }
-    public class Goblet : Events
+    public class GobletEvent : Events
     {
         int choice;
         public override void Perform(Bloo bloo)
@@ -267,6 +324,8 @@ namespace ComProg2Finals
                     if (randomNumber <= 5)
                     {
                         // insert wizard free pass item logic here
+                        Goblet goblet = new Goblet();
+                        goblet.Acquired(bloo);
                         MessageBox.Show("Ignited! Wizard pass gained.");
                     }
                     else
@@ -282,7 +341,7 @@ namespace ComProg2Finals
         int choice;
         public override void Perform(Bloo bloo)
         {
-            choice = 0;
+            choice = 1;
             switch (choice)
             {
                 case 0:
@@ -291,9 +350,12 @@ namespace ComProg2Finals
                 case 1:
                     Random random = new Random();
                     int randomNumber = random.Next(100);
-                    if (randomNumber <= 24)
+                    if (randomNumber <= 25)
                     {
-                        // insert archer free pass logic here
+                      
+                        GoldenArrow goldenArrow = new GoldenArrow();
+                        
+                        goldenArrow.Acquired(bloo);
                         MessageBox.Show("Golden Arrow acquired!");
                     }
                     else
@@ -310,20 +372,24 @@ namespace ComProg2Finals
         int choice;
         public override void Perform(Bloo bloo)
         {
-            choice = 0;
+            choice = 2;
             switch (choice)
             {
                 case 0:
+                    bloo.CharSkills.Add(new Split());
                     MessageBox.Show("Split");
                     break;
                 case 1:
                     MessageBox.Show("Element Book");
+                    bloo.CharSkills.Add(new ElementBook());
                     break;
                 case 2:
                     MessageBox.Show("Mog");
+                    bloo.CharSkills.Add(new Mog());
                     break;
                 case 3:
                     MessageBox.Show("Bounce");
+                    bloo.CharSkills.Add(new Bounce());
                     break;
             }
         }
@@ -339,15 +405,23 @@ namespace ComProg2Finals
             {
                 case 0:
                     MessageBox.Show("Life Potion");
+                    LifePotion lifepotion = new LifePotion();
+                    lifepotion.Acquired(bloo);
                     break;
                 case 1:
                     MessageBox.Show("Mystery Potion");
+                    MysteryPotion mysterypotion = new MysteryPotion();
+                    mysterypotion.Acquired(bloo);
                     break;
                 case 2:
                     MessageBox.Show("Hard Helmet");
+                    HardHelmet hardHelmet = new HardHelmet();
+                    hardHelmet.Acquired(bloo);
                     break;
                 case 3:
                     MessageBox.Show("Spiked Helmet");
+                    SpikedHelmet spikedHelmet = new SpikedHelmet();
+                    spikedHelmet.Acquired(bloo);
                     break;
             }
         }

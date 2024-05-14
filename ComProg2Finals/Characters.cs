@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ComProg2Finals
 {
@@ -13,18 +14,28 @@ namespace ComProg2Finals
         public double Accuracy { get; set; }
         public double AttackDamage { get; set; }
         public double Speed{ get; set; }
-        public Skill[] CharSkills { get; set; }
+        public List<Skill> CharSkills { get; set; }
         public double Rizz{ get; set; }
         public string Image { get; set; }
         public double Defense { get; set; }
         public List<StatusEffect> CharStatEffects { get; set; }
         public Character Opposition { get; set; }
         public double CritChance { get; set; }
+        public double CritDamage { get; set; }
+        public List<Items> PlayerItems { get; set; }
         Form1 battleForm = Form1.Instance;
+        public double Multiplier { get; set; }
+        public bool isBlocking { get; set; }
+        public bool hasTurn { get; set; }
+        public string elementType { get; set; }
         public Character(string name)
         {
             
             Name = name;
+            Multiplier = 1;
+            CritDamage = 1.5;
+            hasTurn = true;
+            isBlocking = false;
             /*
             Health = health;
             Accuracy = accuracy;
@@ -52,50 +63,90 @@ namespace ComProg2Finals
             CharSkills[3].Perform(target);
         }
         // for this part, gamit kayo ng negative value for 'double value' para maconsider sya bawas and postive value for dagdag//
-        public void UpdateHealth(double value, Character target)
+        public void DamageCharac(double dmgValue, Character user)
         {
-            // target.defense is 10
-            double attack = value;
+            //MessageBox.Show("multiplier sa formula: "+ user.Multiplier.ToString());
+            if (user.Opposition.isBlocking)
+            {
+                MessageBox.Show($"{user.Opposition.Name} was unscathed!");
+                user.Opposition.isBlocking = false;
+            }
+            else
+            {
+                double totalDamage = ((user.AttackDamage * dmgValue) / user.Opposition.Defense) * user.Multiplier;
 
-
-            double totalDamage = attack;
-
-
-            target.Health += totalDamage;
+                Random random = new Random();
+                int randomNumber = random.Next(0, 101);
+                if (randomNumber <= user.CritChance)
+                {
+                    MessageBox.Show("CRIT!");
+                    totalDamage *= user.CritDamage;
+                }
+                MessageBox.Show( user.Name+ " dealt " + totalDamage + " damage to " + user.Opposition.Name);
+                user.Opposition.Health -= totalDamage;
+            }
             battleForm.updateLabels();
         }
-        public void UpdateAccuracy(double value, Character target)
+        public void ElementDamageCharac(double dmgValue, Character user, string dmgType)
         {
-            target.Accuracy += value;
+            switch (dmgType)
+            {
+                case "Fire":
+                    switch (user.Opposition.elementType)
+                    {
+                        case "Wind":
+                            dmgValue *= 2;
+                            MessageBox.Show("its super effective");
+                            break;
+                        case "Water":
+                            dmgValue /= 2;
+                            MessageBox.Show("it wasnt very effective");
+                            break;
+                    }
+                    break;
+                case "Water":
+                    switch (user.Opposition.elementType)
+                    {
+                        case "Fire":
+                            dmgValue *= 2;
+                            MessageBox.Show("its super effective");
+                            break;
+                        case "Earth":
+                            dmgValue /= 2;
+                            MessageBox.Show("it wasnt very effective");
+                            break;
+                    }
+                    break;
+                case "Wind":
+                    switch (user.Opposition.elementType)
+                    {
+                        case "Earth":
+                            dmgValue *= 2;
+                            MessageBox.Show("its super effective");
+                            break;
+                        case "Fire":
+                            dmgValue /= 2;
+                            MessageBox.Show("it wasnt very effective");
+                            break;
+                    }
+                    break;
+                case "Earth":
+                    switch (user.Opposition.elementType)
+                    {
+                        case "Water":
+                            dmgValue *= 2;
+                            MessageBox.Show("its super effective");
+                            break;
+                        case "Wind":
+                            dmgValue /= 2;
+                            MessageBox.Show("it wasnt very effective");
+                            break;
+                    }
+                    break;
+            }
+            DamageCharac(dmgValue, user);
         }
-        public void UpdateAttackDamage(double value, Character target)
-        {
-            target.AttackDamage += value;
-        }
-        public void UpdateSpeed(double value, Character target)
-        {
-            target.Speed += value;
-        }
-        public void UpdateRizz(double value, Character target)
-        {
-            target.Rizz += value;
-        }
-        public void UpdateDefense(double value, Character target)
-        {
-            target.Defense += value;
-        }
-        public void UpdateCoin(double value, Bloo bloo)
-        {
-            bloo.Defense += value;
-        }
-        public void UpdateLives(double value, Bloo bloo)
-        {
-            bloo.Lives += value;
-        }
-        public void UpdateCritChance(double value, Character target)
-        {
-            target.Defense += value;
-        }
+
         /////////////////////////////////
     }
     
@@ -108,9 +159,9 @@ namespace ComProg2Finals
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 10;
+            AttackDamage = 20;
             Speed = 10;
-            CharSkills = new Skill[] { new Tackle(), new Goo()};
+            CharSkills = new List<Skill> { new Tackle(), new Goo(), new Bounce()};
             Rizz = 20;
             Image = "blooIdle.gif";
             Defense = 10;
@@ -118,7 +169,9 @@ namespace ComProg2Finals
             Coins = 100;
             Lives = 3;
             CritChance = 0;
-            
+            PlayerItems = new List<Items> { };
+            elementType = "Fire";
+
         }
     }
 
@@ -129,27 +182,28 @@ namespace ComProg2Finals
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 10;
+            AttackDamage = 20;
             Speed = 10;
-            CharSkills = new Skill[] { new Slash(),new Block(), new ShieldBash()};
+            CharSkills = new List<Skill> { new Slash(),new Block(), new ShieldBash()};
             Rizz = 5;
             Image = "knight.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
-            CritChance = 0;
+            CritChance = 100;
         }
 
     }
     public class Wizard : Character
     {
+        public string wizardType;
         public Wizard(string name) : base(name)
         {
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 10;
+            AttackDamage = 1;
             Speed = 10;
-            CharSkills = new Skill[] { new Fireball(), new RockHurl(), new WindSlice(), new WaterBlast() };
+            CharSkills = new List<Skill> { new Fireball(), new RockHurl(), new WindSlice(), new WaterBlast() };
             Rizz = 5;
             Image = "wiz.png";
             Defense = 10;
@@ -157,7 +211,41 @@ namespace ComProg2Finals
             CritChance = 0;
         }
 
+
     }
+    public class FireWizard : Wizard
+    {
+        public FireWizard(string name): base(name)
+        {
+            Image = "firewizard.png";
+            elementType = "Fire";
+        }
+    }
+    public class WaterWizard : Wizard
+    {
+        public WaterWizard(string name) : base(name)
+        {
+            Image = "waterwizard.png";
+            elementType = "Water";
+        }
+    }
+    public class WindWizard : Wizard
+    {
+        public WindWizard(string name) : base(name)
+        {
+            Image = "windwizard.png";
+            elementType = "Wind";
+        }
+    }
+    public class EarthWizard : Wizard
+    {
+        public EarthWizard(string name) : base(name)
+        {
+            Image = "earthwizard.png";
+            elementType = "Earth";
+        }
+    }
+
     public class Priest: Character
     {
         public Priest(string name) : base(name)
@@ -165,9 +253,9 @@ namespace ComProg2Finals
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 10;
+            AttackDamage = 1;
             Speed = 10;
-            CharSkills = new Skill[] { new Heal(), new Smite(), new Baptize()};
+            CharSkills = new List<Skill> { new Heal(), new Smite(), new Baptize()};
             Rizz = 5;
             Image = "priest.png";
             Defense = 10;
@@ -183,11 +271,11 @@ namespace ComProg2Finals
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 10;
+            AttackDamage = 1;
             Speed = 10;
-            CharSkills = new Skill[] { new Stealth(), new Poison(), new Dagger()};
+            CharSkills = new List<Skill> { new Stealth(), new Poison(), new Dagger()};
             Rizz = 5;
-            Image = "wiz.png";
+            Image = "rogue.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
@@ -201,11 +289,29 @@ namespace ComProg2Finals
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 10;
+            AttackDamage = 1;
             Speed = 10;
-            CharSkills = new Skill[] { new Lock(), new Volley(), new Shoot()};
+            CharSkills = new List<Skill> { new Lock(), new Volley(), new Shoot()};
             Rizz = 5;
             Image = "archer.png";
+            Defense = 10;
+            CharStatEffects = new List<StatusEffect> { };
+            CritChance = 0;
+        }
+
+    }
+    public class HostileChest : Character
+    {
+        public HostileChest(string name) : base(name)
+        {
+            Name = name;
+            Health = 100;
+            Accuracy = 100;
+            AttackDamage = 1;
+            Speed = 10;
+            CharSkills = new List<Skill> { new Chomp(), new Haul()};
+            Rizz = 5;
+            Image = "evilchest.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
