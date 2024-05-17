@@ -383,7 +383,7 @@ namespace ComProg2Finals
             EncounterDialogue = "Bloo stumbles upon the greatest king in the world, King Miguel! " +
                 "Bloo kneels immediately and devotes his loyalty and pledges his sword and promises to give his life protecting THE ONE TRUE KING, KING MIGUEL! HAIL KING MIGUEL! HAIL!" +
                 " MAY HE BE BLESSED AND LONG MAY HE REIGN!";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Kneel", "Bow down", "Praise" };
         }
         int choice;
         public override void Perform(Bloo bloo)

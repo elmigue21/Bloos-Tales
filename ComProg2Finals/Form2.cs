@@ -313,7 +313,7 @@ namespace ComProg2Finals
                 flowLayoutPanel1.Controls.Add(button);
             }
 
-
+            label1.Text = currentEncounter.Name;
             dialogueTextBox.Text = currentEncounter.EncounterDialogue;
             charactersPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
             encounterCount++;
@@ -328,6 +328,7 @@ namespace ComProg2Finals
 
         private void button1_Click(object sender, EventArgs e)
         {
+            label1.Text = "";
             dialogueTextBox.Text = "";
             flowLayoutPanel1.Controls.Clear();
             charactersPictureBox.Image = null;
