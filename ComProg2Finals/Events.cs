@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.PerformanceData;
+using System.Drawing;
 using System.Linq;
 using System.Media;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,8 +13,10 @@ using System.Xml.Serialization;
 
 namespace ComProg2Finals
 {
-    public class Events
+    
+    public class Events : EncounterClass
     {
+       // public string picImage { get; set; }
         public virtual void Perform(Bloo bloo)
         {
             MessageBox.Show($"Events");
@@ -21,6 +25,13 @@ namespace ComProg2Finals
     }
     public class Chest : Events
     {
+        public Chest()
+        {
+            Name = "Chest";
+            picImage = "chest.png";
+            EncounterDialogue = "Bloo stumbles upon a chest!";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+        }
         int lifePotChance = 10;
         int rizzChance = 20;
         int coinChance = 30;
@@ -60,6 +71,13 @@ namespace ComProg2Finals
     }
     public class Cave : Events
     {
+        public Cave()
+        {
+            Name = "Cave";
+            picImage = "cave.png";
+            EncounterDialogue = "I MINE ALL DAY";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+        }
         int totalChances = 800;
         int loseLifeChance = 180;
         int debuffChance = 180;
@@ -136,6 +154,14 @@ namespace ComProg2Finals
     }
     public class SwordInStone : Events
     {
+
+        public SwordInStone()
+        {
+            Name = "SwordInStone";
+            picImage = "swordinstone.png";
+            EncounterDialogue = "I AM THE CHOSEN ONE";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+        }
         int pullChance = 5;
 
         int randomNumber;
@@ -160,6 +186,13 @@ namespace ComProg2Finals
     }
     public class Bonfire : Events
     {
+        public Bonfire()
+        {
+            Name = "Bonfire";
+            picImage = "bonfire.png";
+            EncounterDialogue = "Bloo stumbles upon a BONfire";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+        }
         public override void Perform(Bloo bloo)
         {
             if (bloo.Lives < 5)
@@ -171,6 +204,13 @@ namespace ComProg2Finals
     }
     public class MysteriousMan : Events
     {
+        public MysteriousMan()
+        {
+            Name = "Mysterious man";
+            picImage = "mysteriousman.png";
+            EncounterDialogue = "SHHHHHH";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+        }
         int choice;
         public override void Perform(Bloo bloo)
         {
@@ -195,6 +235,13 @@ namespace ComProg2Finals
     }
     public class Jester : Events
     {
+        public Jester()
+        {
+            Name = "Jester";
+            picImage = "wishingwell.png";
+            EncounterDialogue = "KWAK";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+        }
         public override void Perform(Bloo bloo)
         {
             bloo.Coins -= bloo.Coins * .75;
@@ -203,6 +250,13 @@ namespace ComProg2Finals
     }
     public class Seer : Events
     {
+        public Seer()
+        {
+            Name = "Seer";
+            picImage = "seer.png";
+            EncounterDialogue = "O.O";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+        }
         public override void Perform(Bloo bloo)
         {
             MessageBox.Show($"Seer");
@@ -236,7 +290,52 @@ namespace ComProg2Finals
     public class WishingWell : Events
     {
         int choice;
-        int multiplier;
+        int multiplier = 1;
+
+
+        public WishingWell()
+        {
+            Name = "Wishing well";
+            this.picImage = "wishingwell.png";
+            Interactions = new string[] { "Make Wish", "Ignore" };
+            EncounterDialogue = "WISHING WASHING";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            //this.multiplier = 1;
+        }
+        public override void EventAction1(Bloo bloo)
+        {
+            bloo.Coins -= 2 * multiplier;
+            MessageBox.Show($"Threw {2 * multiplier} coins in the wishing well!");
+            Random random = new Random();
+            int randomNumber = random.Next(100);
+            if (randomNumber >= 1 && randomNumber <= 25)
+            {
+                // insert random mystery potion buff logic here
+                MessageBox.Show("Gained random mystery potion buff");
+            }
+            else if (randomNumber >= 26 && randomNumber <= 30)
+            {
+
+                HolyWater holywater = new HolyWater();
+                holywater.Acquired(bloo);
+                MessageBox.Show("Holy Water Acquired!");
+            }
+            else
+            {
+                MessageBox.Show($"Nothing Happened");
+            }
+            multiplier++;
+        }
+
+
+
+
+      
+
+
+
+
+
         public override void Perform(Bloo bloo)
         {
             multiplier = 1;
@@ -277,6 +376,15 @@ namespace ComProg2Finals
     }
     public class King : Events
     {
+        public King()
+        {
+            Name = "KING MIGUEL";
+            picImage = "king.png";
+            EncounterDialogue = "Bloo stumbles upon the greatest king in the world, King Miguel! " +
+                "Bloo kneels immediately and devotes his loyalty and pledges his sword and promises to give his life protecting THE ONE TRUE KING, KING MIGUEL! HAIL KING MIGUEL! HAIL!" +
+                " MAY HE BE BLESSED AND LONG MAY HE REIGN!";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+        }
         int choice;
         public override void Perform(Bloo bloo)
         {
@@ -309,6 +417,13 @@ namespace ComProg2Finals
     }
     public class GobletEvent : Events
     {
+        public GobletEvent()
+        {
+            Name = "Goblet";
+            picImage = "goblet.png";
+            EncounterDialogue = "GOBLET";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+        }
         int choice;
         public override void Perform(Bloo bloo)
         {
@@ -338,6 +453,13 @@ namespace ComProg2Finals
     }
     public class AppleTree : Events
     {
+        public AppleTree()
+        {
+            Name = "Apple Tree";
+            picImage = "appletree.png";
+            EncounterDialogue = "GRAVITY";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+        }
         int choice;
         public override void Perform(Bloo bloo)
         {
@@ -369,6 +491,13 @@ namespace ComProg2Finals
     }
     public class MasterGooway : Events
     {
+        public MasterGooway()
+        {
+            picImage = "mastergooway.png";
+            Interactions = new string[] { "Cook into Turtle soup", "Eat" };
+            EncounterDialogue = "Gooway I am";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+        }
         int choice;
         public override void Perform(Bloo bloo)
         {
@@ -396,6 +525,12 @@ namespace ComProg2Finals
     }
     public class Shopkeeper: Events
     {
+        public Shopkeeper()
+        {
+            picImage = "wishingwell.png";
+            EncounterDialogue = "SHOPPEEDOOPEE";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+        }
         int choice;
         public override void Perform(Bloo bloo)
         {

@@ -116,12 +116,22 @@ namespace ComProg2Finals
 
         public override void Trigger(Character user)
         {
-            user.isBlocking = true;
-            if (intrvl == 0){
-                user.isBlocking = false;
+           // user.isBlocking = true;
+            if (intrvl == 0) {
+                //user.isBlocking = false;
                 user.CharStatEffects.Remove(this);
+                Random random = new Random();
+                int rand = random.Next(0,2);
+                rand = 0;
+                switch (rand) {
+                    case 0:
                 MessageBox.Show("Bloo lands and damages the enemy!");
-                user.DamageCharac(15, user);
+                battleForm.skillsQueue.Add(()=>user.Opposition.DamageCharac(15, user)  );
+                        break;
+                    case 1:
+                        MessageBox.Show("Bloo lands and tries to attack the enemy but missed!");
+                        break;
+                }
             }
             else
             {

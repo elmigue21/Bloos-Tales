@@ -1,33 +1,74 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ComProg2Finals
 {
-    public class Character
-    {
+
+    public class EncounterClass {
         public string Name { get; set; }
+        public string picImage { get; set; }
+        public string[] Interactions { get; set; }
+        public string EncounterDialogue { get; set; }
+       // public Action<Bloo>[] EncounterActions{ get; set; }
+
+        public virtual void EventAction1(Bloo bloo)
+        {
+
+        }
+        public virtual void EventAction2(Bloo bloo)
+        {
+
+        }
+        public virtual void EventAction3(Bloo bloo)
+        {
+
+        }
+        public virtual void EventAction4(Bloo bloo)
+        {
+
+        }
+        public virtual void EventAction5(Bloo bloo)
+        {
+
+        }
+        public virtual void EventAction6(Bloo bloo)
+        {
+
+        }
+
+
+    }
+    public class Character : EncounterClass
+    {
+        //public string Name { get; set; }
         public double Health { get; set; }
         public double Accuracy { get; set; }
         public double AttackDamage { get; set; }
         public double Speed{ get; set; }
         public List<Skill> CharSkills { get; set; }
         public double Rizz{ get; set; }
-        public string Image { get; set; }
+        //public string Image { get; set; }
         public double Defense { get; set; }
         public List<StatusEffect> CharStatEffects { get; set; }
         public Character Opposition { get; set; }
         public double CritChance { get; set; }
         public double CritDamage { get; set; }
         public List<Items> PlayerItems { get; set; }
-        Form1 battleForm = Form1.Instance;
+        public Form1 battleForm = Form1.Instance;
+        public Form2 form2 = Form2.Instance;
         public double Multiplier { get; set; }
         public bool isBlocking { get; set; }
         public bool hasTurn { get; set; }
         public string elementType { get; set; }
+        public Skill skillQueued { get; set; }
+        public int[] skillProbability { get; set; }
+        public Character PlayerInstance { get; set; }
         public Character(string name)
         {
             
@@ -36,14 +77,7 @@ namespace ComProg2Finals
             CritDamage = 1.5;
             hasTurn = true;
             isBlocking = false;
-            /*
-            Health = health;
-            Accuracy = accuracy;
-            AttackDamage = atkdmg;
-            Speed = speed;
-            CharSkills = skills;
-            Rizz = rizz;
-        */
+            PlayerInstance = Form2.Player;
         }
 
         public virtual void UseSkill1(Character target)
@@ -62,31 +96,49 @@ namespace ComProg2Finals
         {
             CharSkills[3].Perform(target);
         }
-        // for this part, gamit kayo ng negative value for 'double value' para maconsider sya bawas and postive value for dagdag//
-        public void DamageCharac(double dmgValue, Character user)
+        
+        public virtual void DamageCharac(double dmgValue, Character user)
         {
-            //MessageBox.Show("multiplier sa formula: "+ user.Multiplier.ToString());
-            if (user.Opposition.isBlocking)
+            Random accRandom = new Random();
+            int accuracyRandom = accRandom.Next(0, 100);
+            if (accuracyRandom <= user.Accuracy)
             {
-                MessageBox.Show($"{user.Opposition.Name} was unscathed!");
-                user.Opposition.isBlocking = false;
+
+
+
+
+                if (user.Opposition.isBlocking)
+                {
+                    MessageBox.Show($"{user.Opposition.Name} was unscathed!");
+                    user.Opposition.isBlocking = false;
+                }
+                else
+                {
+
+
+                    double totalDamage = ((user.AttackDamage * dmgValue) / user.Opposition.Defense) * user.Multiplier;
+
+                    Random random = new Random();
+                    int randomNumber = random.Next(0, 101);
+                    if (randomNumber <= user.CritChance)
+                    {
+                        MessageBox.Show("CRIT!");
+                        totalDamage *= user.CritDamage;
+                    }
+                    MessageBox.Show(user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name);
+                    user.Opposition.Health -= totalDamage;
+                }
+
             }
             else
             {
-                double totalDamage = ((user.AttackDamage * dmgValue) / user.Opposition.Defense) * user.Multiplier;
-
-                Random random = new Random();
-                int randomNumber = random.Next(0, 101);
-                if (randomNumber <= user.CritChance)
-                {
-                    MessageBox.Show("CRIT!");
-                    totalDamage *= user.CritDamage;
-                }
-                MessageBox.Show( user.Name+ " dealt " + totalDamage + " damage to " + user.Opposition.Name);
-                user.Opposition.Health -= totalDamage;
+                MessageBox.Show($"{user.Name} tries to attack but misses!");
             }
             battleForm.updateLabels();
         }
+        
+
+      
         public void ElementDamageCharac(double dmgValue, Character user, string dmgType)
         {
             switch (dmgType)
@@ -163,14 +215,15 @@ namespace ComProg2Finals
             Speed = 10;
             CharSkills = new List<Skill> { new Tackle(), new Goo(), new Bounce()};
             Rizz = 20;
-            Image = "blooIdle.gif";
+            picImage = "blooIdle.gif";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             Coins = 100;
             Lives = 3;
             CritChance = 0;
             PlayerItems = new List<Items> { };
-            elementType = "Fire";
+            elementType = "Wind";
+            skillProbability = new int[]{ -1,-1,-1,-1};
 
         }
     }
@@ -182,14 +235,31 @@ namespace ComProg2Finals
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 20;
+            AttackDamage = 10;
             Speed = 10;
             CharSkills = new List<Skill> { new Slash(),new Block(), new ShieldBash()};
             Rizz = 5;
-            Image = "knight.png";
+            picImage = "knight.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 100;
+            skillProbability = new int[] { 33, 33,33, -1};
+            EncounterDialogue = "Who goes there";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore"};
+        }
+        public override void EventAction1(Bloo bloo)
+        {
+            Form1 f1 = new Form1();
+            f1.Enemy = this;
+            f1.Show();
+        }
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show(bloo.Name +" uses Rizz");
+        }
+        public override void EventAction3(Bloo bloo)
+        {
+            MessageBox.Show( bloo.Name+" ignores");
         }
 
     }
@@ -201,14 +271,35 @@ namespace ComProg2Finals
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 1;
+            AttackDamage = 10;
             Speed = 10;
             CharSkills = new List<Skill> { new Fireball(), new RockHurl(), new WindSlice(), new WaterBlast() };
             Rizz = 5;
-            Image = "wiz.png";
+            picImage = "wiz.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
+            EncounterDialogue = "MAGIICCCCC";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            switch (PlayerInstance.elementType)
+            {
+                case "Fire":
+                    skillProbability = new int[] { 10, 10, 10, 70 };
+                    break;
+                case "Earth":
+                    skillProbability = new int[] { 10, 10, 70, 10 };
+                    break;
+                case "Wind":
+                    skillProbability = new int[] { 70, 0, 10, 10 };
+                    break;
+                case "Water":
+                    skillProbability = new int[] { 10, 70, 10, 70 };
+                    break;
+                default:
+                    skillProbability = new int[] { 25, 25, 25, 25 };
+                    break;
+            }
+
         }
 
 
@@ -217,7 +308,7 @@ namespace ComProg2Finals
     {
         public FireWizard(string name): base(name)
         {
-            Image = "firewizard.png";
+            picImage = "firewizard.png";
             elementType = "Fire";
         }
     }
@@ -225,7 +316,7 @@ namespace ComProg2Finals
     {
         public WaterWizard(string name) : base(name)
         {
-            Image = "waterwizard.png";
+            picImage = "waterwizard.png";
             elementType = "Water";
         }
     }
@@ -233,7 +324,7 @@ namespace ComProg2Finals
     {
         public WindWizard(string name) : base(name)
         {
-            Image = "windwizard.png";
+            picImage = "windwizard.png";
             elementType = "Wind";
         }
     }
@@ -241,7 +332,7 @@ namespace ComProg2Finals
     {
         public EarthWizard(string name) : base(name)
         {
-            Image = "earthwizard.png";
+            picImage = "earthwizard.png";
             elementType = "Earth";
         }
     }
@@ -257,10 +348,13 @@ namespace ComProg2Finals
             Speed = 10;
             CharSkills = new List<Skill> { new Heal(), new Smite(), new Baptize()};
             Rizz = 5;
-            Image = "priest.png";
+            picImage = "priest.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
+            skillProbability = new int[] { 33, 33, 33, -1 };
+            EncounterDialogue = "Healing prayers for you!";
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
         }
 
     }
@@ -271,14 +365,17 @@ namespace ComProg2Finals
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 1;
+            AttackDamage = 10;
             Speed = 10;
             CharSkills = new List<Skill> { new Stealth(), new Poison(), new Dagger()};
             Rizz = 5;
-            Image = "rogue.png";
+            picImage = "rogue.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
+            skillProbability = new int[] { 25, 25, 25, 25 };
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            EncounterDialogue = "ROGUEEEE";
         }
 
     }
@@ -289,14 +386,17 @@ namespace ComProg2Finals
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 1;
+            AttackDamage = 10;
             Speed = 10;
             CharSkills = new List<Skill> { new Lock(), new Volley(), new Shoot()};
             Rizz = 5;
-            Image = "archer.png";
+            picImage = "archer.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
+            skillProbability = new int[] { 33, 33, 33, -1 };
+            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            EncounterDialogue = "LEGOLAS DIFF";
         }
 
     }
@@ -307,16 +407,68 @@ namespace ComProg2Finals
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 1;
+            AttackDamage = 10;
             Speed = 10;
             CharSkills = new List<Skill> { new Chomp(), new Haul()};
             Rizz = 5;
-            Image = "evilchest.png";
+            picImage = "evilchest.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
+            skillProbability = new int[] { 50, 50, -1, -1 };
+            EncounterDialogue = "KWAK";
+        }
+
+        public override void DamageCharac(double dmgValue, Character user)
+        {
+            //MessageBox.Show("multiplier sa formula: "+ user.Multiplier.ToString());
+            Random accRandom = new Random();
+            int accuracyRandom = accRandom.Next(0, 100);
+            if (accuracyRandom <= user.Accuracy)
+            {
+
+
+                if (user.Opposition.isBlocking)
+                {
+                    MessageBox.Show($"{user.Opposition.Name} was unscathed!");
+                    user.Opposition.isBlocking = false;
+                }
+                else
+                {
+
+
+                    double totalDamage = ((user.AttackDamage * dmgValue) / user.Opposition.Defense) * user.Multiplier;
+                    Random random = new Random();
+                    int randomNumber = random.Next(0, 101);
+                    if (randomNumber <= user.CritChance)
+                    {
+                        MessageBox.Show("CRIT!");
+                        totalDamage *= user.CritDamage;
+                    }
+                    MessageBox.Show(user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name);
+                    user.Opposition.Health -= totalDamage;
+                    Random rand = new Random();
+                    int rando = new Random().Next(0, 101);
+                    if (rando <= 100)
+                    {
+                        user.Health -= totalDamage;
+                        MessageBox.Show(user.Opposition.Name + " reflected the damage!");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show($"{user.Name} tries to attack but misses!");
+            }
+        
+            battleForm.updateLabels();
         }
 
     }
+
+
+
+
+
 
 }

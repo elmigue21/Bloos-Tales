@@ -18,3 +18,4 @@ C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2F
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.CoreCompileInputs.cache
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.exe
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.pdb
+C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form2.resources

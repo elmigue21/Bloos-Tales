@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="GameFlow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GameFlow.Designer.cs">
+      <DependentUpon>GameFlow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GameFlow.resx">
+      <DependentUpon>GameFlow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -112,6 +112,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\trees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scroll.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\815-8153991_ancient-pixel-scroll-scroll-pixel-art.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wizard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rizz.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paladin.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

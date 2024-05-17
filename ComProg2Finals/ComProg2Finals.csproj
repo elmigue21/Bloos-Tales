@@ -54,6 +54,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Items.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,6 +67,9 @@
     <Compile Include="StatusEffect.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -87,6 +96,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00Sky.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\01cloudsBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\02cloudsFront.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\03hillsBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\04hillsFront.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\05platform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\815-8153991_ancient-pixel-scroll-scroll-pixel-art.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blooBouncing.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blooIdle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blooWalking.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bushes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paladin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rizz.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scroll.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wizard.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

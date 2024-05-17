@@ -14,10 +14,10 @@ namespace ComProg2Finals
 {
     public partial class Form1 : Form
     {
-        Bloo Player;
+        public Bloo Player;
         string directory;
 
-        Character Enemy { get; set; }
+        public Character Enemy { get; set; }
 
         List<Character> characters;
 
@@ -25,6 +25,10 @@ namespace ComProg2Finals
 
 
         Character currentTurn;
+
+
+
+        public List<Action> skillsQueue = new List<Action>();
 
 
 
@@ -92,10 +96,10 @@ namespace ComProg2Finals
             comboBox1.Items.Add("Wind Wizard");
             comboBox1.Items.Add("Earth Wizard");
             comboBox1.Items.Add("Hostile Chest");
-            comboBox1.SelectedIndex = 4;
+            comboBox1.SelectedIndex = 0;
 
 
-            Enemy = characters[comboBox1.SelectedIndex];
+            //Enemy = characters[comboBox1.SelectedIndex];
             Player.Opposition = Enemy;
             Enemy.Opposition = Player;
 
@@ -107,8 +111,12 @@ namespace ComProg2Finals
             directory = AppDomain.CurrentDomain.BaseDirectory;
             playerPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
 
+
             updateLabels();
-            runTurn();
+            // runTurn();
+
+
+            testButton.Enabled = false;
 
         }
         private void runTurn()
@@ -118,13 +126,32 @@ namespace ComProg2Finals
 
 
             // pag trigger ng status effects sa character
+
+            /*
             for (int i = 0; i < currentTurn.CharStatEffects.Count; i++)
             {
                 currentTurn.CharStatEffects[i].Trigger(currentTurn);
             }
 
+            
+
+            */
+
+            //////////
+            /*
+            if (currentTurn.Opposition.hasTurn)
+            {
+                currentTurn = currentTurn.Opposition;
+            }
+            else
+            {
+                currentTurn.Opposition.hasTurn = true;
+            }
+            */
+            ////////////
             // pag set ng buttons text according sa skills ng current turn na character
-            for(int i = 0; i < 4; i++)
+            /*
+            for (int i = 0; i < 4; i++)
             {
                 if (i >= currentTurn.CharSkills.Count)
                 {
@@ -135,22 +162,60 @@ namespace ComProg2Finals
                     skillButtons[i].Text = currentTurn.CharSkills[i].Name;
                 }
             }
+            */
 
+
+                runEnemy();
             
+
+   
+                testButton_Click(null, EventArgs.Empty);
+            
+
+
+
+
+
+
+        }
+        private void runEnemy()
+        {
+            Random random = new Random();
+            int chance = random.Next(0, 101);
+
+            if(chance <= Enemy.skillProbability[0] && chance >= 0)
+            {
+
+                //Enemy.skillQueued = Enemy.CharSkills[0];
+                Enemy.CharSkills[0].Perform(Enemy);
+            }
+            else if(chance > Enemy.skillProbability[0] && chance <= Enemy.skillProbability[1] + Enemy.skillProbability[0])
+            {
+                Enemy.CharSkills[1].Perform(Enemy);
+                //Enemy.skillQueued = Enemy.CharSkills[1];
+            }
+            else if(chance > Enemy.skillProbability[1] && chance <= Enemy.skillProbability[2] + Enemy.skillProbability[1] + Enemy.skillProbability[0])
+            {
+                Enemy.CharSkills[2].Perform(Enemy);
+                // Enemy.skillQueued = Enemy.CharSkills[2];
+            }
+            else if(chance > Enemy.skillProbability[2] && chance <= Enemy.skillProbability[3] + Enemy.skillProbability[2] + Enemy.skillProbability[1] + Enemy.skillProbability[0])
+            {
+                Enemy.CharSkills[3].Perform(Enemy);
+                // Enemy.skillQueued = Enemy.CharSkills[3];
+            }
+
+
         }
         // buttons para sa skills
         private void button1_Click(object sender, EventArgs e)
         {
+            //currentTurn.UseSkill1(currentTurn);
             if (currentTurn.CharSkills.Count >= 1)
             {
-                currentTurn.UseSkill1(currentTurn);
-                if (currentTurn.Opposition.hasTurn)
+                if (Player.hasTurn)
                 {
-                    currentTurn = currentTurn.Opposition;
-                }
-                else
-                {
-                    currentTurn.Opposition.hasTurn = true;
+                    currentTurn.UseSkill1(currentTurn);
                 }
                 if (Player.Health <= 0)
                 {
@@ -164,8 +229,20 @@ namespace ComProg2Finals
                 }
                 else
                 {
+                   // currentTurn.skillQueued = currentTurn.CharSkills[0];
+                    //runEnemy();
                     runTurn();
                 }
+                /*
+                if (currentTurn.Opposition.hasTurn)
+                {
+                    currentTurn = currentTurn.Opposition;
+                }
+                else
+                {
+                    currentTurn.Opposition.hasTurn = true;
+                }
+                */
                 updateLabels();
             }
 
@@ -176,14 +253,7 @@ namespace ComProg2Finals
             if (currentTurn.CharSkills.Count >= 2)
             {
                 currentTurn.UseSkill2(currentTurn);
-                if (currentTurn.Opposition.hasTurn)
-                {
-                    currentTurn = currentTurn.Opposition;
-                }
-                else
-                {
-                    currentTurn.Opposition.hasTurn = true;
-                }
+
                 if (Player.Health <= 0)
                 {
                     MessageBox.Show("Bloo has lost!");
@@ -196,8 +266,19 @@ namespace ComProg2Finals
                 }
                 else
                 {
+                    currentTurn.skillQueued = currentTurn.CharSkills[1];
                     runTurn();
                 }
+                /*
+                if (currentTurn.Opposition.hasTurn)
+                {
+                    currentTurn = currentTurn.Opposition;
+                }
+                else
+                {
+                    currentTurn.Opposition.hasTurn = true;
+                }
+                */
                 updateLabels();
             }
         }
@@ -207,14 +288,7 @@ namespace ComProg2Finals
             if (currentTurn.CharSkills.Count >= 3)
             {
                 currentTurn.UseSkill3(currentTurn);
-                if (currentTurn.Opposition.hasTurn)
-                {
-                    currentTurn = currentTurn.Opposition;
-                }
-                else
-                {
-                    currentTurn.Opposition.hasTurn = true;
-                }
+
                 if (Player.Health <= 0)
                 {
                     MessageBox.Show("Bloo has lost!");
@@ -227,8 +301,18 @@ namespace ComProg2Finals
                 }
                 else
                 {
+                    currentTurn.skillQueued = currentTurn.CharSkills[2];
                     runTurn();
                 }
+                /*
+                if (currentTurn.Opposition.hasTurn)
+                {
+                    currentTurn = currentTurn.Opposition;
+                }
+                else
+                {
+                    currentTurn.Opposition.hasTurn = true;
+                }*/
                 updateLabels();
             }
         }
@@ -237,15 +321,9 @@ namespace ComProg2Finals
         {
             if (currentTurn.CharSkills.Count >= 4)
             {
+
                 currentTurn.UseSkill4(currentTurn);
-                if (currentTurn.Opposition.hasTurn)
-                {
-                    currentTurn = currentTurn.Opposition;
-                }
-                else
-                {
-                    currentTurn.Opposition.hasTurn = true;
-                }
+
 
                 if (Player.Health <= 0)
                 {
@@ -259,8 +337,19 @@ namespace ComProg2Finals
                 }
                 else
                 {
+                    currentTurn.skillQueued = currentTurn.CharSkills[3];
                     runTurn();
                 }
+                /*
+
+                if (currentTurn.Opposition.hasTurn)
+                {
+                    currentTurn = currentTurn.Opposition;
+                }
+                else
+                {
+                    currentTurn.Opposition.hasTurn = true;
+                }*/
                 updateLabels();
             }
         }
@@ -279,7 +368,7 @@ namespace ComProg2Finals
             playerLabelDefense.Text = "Defense:" + Player.Defense.ToString();
             playerLabelLives.Text = "Lives:" + Player.Lives.ToString();
             playerLabelCoins.Text = "Coins:" + Player.Coins.ToString();
-            playerPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Player.Image));
+            playerPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Player.picImage));
 
             enemyLabelName.Text = Enemy.Name;
             enemyLabelHealth.Text = "Health:" + Enemy.Health.ToString();
@@ -288,7 +377,7 @@ namespace ComProg2Finals
             enemyLabelSpeed.Text = "Speed:" + Enemy.Speed.ToString();
             enemyLabelRizz.Text = "Rizz:" + Enemy.Rizz.ToString();
             enemyLabelDefense.Text = "Defense:" + Enemy.Defense.ToString();
-            enemyPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Enemy.Image));
+            enemyPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Enemy.picImage));
 
             /*
             if (Player.Health <= 0)
@@ -312,12 +401,73 @@ namespace ComProg2Finals
         {
             //MasterGooway master = new MasterGooway();
             //master.Perform(Player);
-
+            /*
             AppleTree appletree = new AppleTree();
             appletree.Perform(Player);
             if (Player.PlayerItems.Count > 0)
             {
                 MessageBox.Show(Player.PlayerItems[0].ToString());
+            }
+            */
+
+
+           // Form gameFlow = new GameFlow();
+
+            for (int i = 0; i < Player.CharStatEffects.Count; i++)
+            {
+                Player.CharStatEffects[i].Trigger(Player);
+            }
+            for (int i = 0; i < Enemy.CharStatEffects.Count; i++)
+            {
+                Enemy.CharStatEffects[i].Trigger(Enemy);
+            }
+
+
+
+
+            foreach(Action skills in skillsQueue)
+            {
+                skills();
+                //MessageBox.Show("qweqwew");
+            }
+
+            skillsQueue.Clear();
+
+            //MessageBox.Show(skillsQueue[0].ToString());
+
+
+
+            if (Player.hasTurn)
+            {
+                //Player.skillQueued.Perform(Player);
+                if (Player.Health <= 0)
+                {
+                    MessageBox.Show("Bloo has lost!");
+                    this.Close();
+                }
+                else if (Enemy.Health <= 0)
+                {
+                    MessageBox.Show("Bloo has won!");
+                    this.Close();
+                }
+            }
+            else
+            {
+                //Player.hasTurn = true;
+            }
+            if (Enemy.hasTurn)
+            {
+               // Enemy.skillQueued.Perform(Enemy);
+                if (Player.Health <= 0)
+                {
+                    MessageBox.Show("Bloo has lost!");
+                    this.Close();
+                }
+                else if (Enemy.Health <= 0)
+                {
+                    MessageBox.Show("Bloo has won!");
+                    this.Close();
+                }
             }
             updateLabels();
         }
@@ -363,6 +513,30 @@ namespace ComProg2Finals
             }
             Player.Opposition = Enemy;
             Enemy.Opposition = Player;
+
+            
+            if(currentTurn == Player)
+            {
+
+            }
+            else
+            {
+                currentTurn = Enemy;
+            }
+            
+
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (i >= currentTurn.CharSkills.Count)
+                {
+                    skillButtons[i].Text = "";
+                }
+                else
+                {
+                    skillButtons[i].Text = currentTurn.CharSkills[i].Name;
+                }
+            }
             updateLabels();
         }
     }
