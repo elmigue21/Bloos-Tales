@@ -135,7 +135,7 @@
             // 
             this.flowLayoutPanel1.Location = new System.Drawing.Point(656, 296);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(108, 100);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(108, 160);
             this.flowLayoutPanel1.TabIndex = 16;
             // 
             // label1

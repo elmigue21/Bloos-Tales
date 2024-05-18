@@ -274,8 +274,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-
-
+            currentEncounter = new Knight("qweqwe");
             for(int i = 0; i < currentEncounter.Interactions.Length; i++)
             {
                 Button button = new Button();

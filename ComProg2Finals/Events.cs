@@ -30,7 +30,19 @@ namespace ComProg2Finals
             Name = "Chest";
             picImage = "chest.png";
             EncounterDialogue = "Bloo stumbles upon a chest!";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Encounter", "Open", "Skip" };
+        }
+        public override void EventAction1(Bloo bloo)
+        {
+            MessageBox.Show("bloo encounter");
+        }
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("bloo open");
+        }
+        public override void EventAction3(Bloo bloo)
+        {
+            MessageBox.Show("bloo skip");
         }
         int lifePotChance = 10;
         int rizzChance = 20;
@@ -76,7 +88,7 @@ namespace ComProg2Finals
             Name = "Cave";
             picImage = "cave.png";
             EncounterDialogue = "I MINE ALL DAY";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Enter", "Ignore"};
         }
         int totalChances = 800;
         int loseLifeChance = 180;

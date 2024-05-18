@@ -99,7 +99,7 @@ namespace ComProg2Finals
             comboBox1.SelectedIndex = 0;
 
 
-            //Enemy = characters[comboBox1.SelectedIndex];
+            Enemy = characters[comboBox1.SelectedIndex];
             Player.Opposition = Enemy;
             Enemy.Opposition = Player;
 
@@ -114,6 +114,19 @@ namespace ComProg2Finals
 
             updateLabels();
             // runTurn();
+
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (i >= Player.CharSkills.Count)
+                {
+                    skillButtons[i].Text = "";
+                }
+                else
+                {
+                    skillButtons[i].Text = Player.CharSkills[i].Name;
+                }
+            }
 
 
             testButton.Enabled = false;

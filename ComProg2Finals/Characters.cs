@@ -280,7 +280,7 @@ namespace ComProg2Finals
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
             EncounterDialogue = "MAGIICCCCC";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Attack", "Rizz", "Ignore","VANISH" };
             switch (PlayerInstance.elementType)
             {
                 case "Fire":

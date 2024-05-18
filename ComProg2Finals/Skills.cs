@@ -9,7 +9,7 @@ namespace ComProg2Finals
 {
     public class Skill
     {
-        Form1 battleForm = Form1.Instance;
+        public Form1 battleForm = Form1.Instance;
         public List<Action> skillsQueue;
         public string Name { get; protected set; }
 
@@ -37,7 +37,7 @@ namespace ComProg2Finals
         {
             MessageBox.Show($"Used {Name}");
 
-            skillsQueue.Add(() => user.Opposition.DamageCharac(10, user));
+            battleForm.skillsQueue.Add(() => user.Opposition.DamageCharac(10, user));
             /*
             double damageValue = -25;
             MessageBox.Show($"Used {Name} and dealt {damageValue} damage!");
@@ -88,7 +88,7 @@ namespace ComProg2Finals
             {
                 case 0:
                     user.elementType = "Fire";
-                    skillsQueue.Add(() => user.Opposition.CharStatEffects.Add(new DmgPerTurn("Burn", 10, 5)));
+                    battleForm.skillsQueue.Add(() => user.Opposition.CharStatEffects.Add(new DmgPerTurn("Burn", 10, 5)));
                     break;
                 case 1:
                     user.elementType = "Earth";
@@ -196,7 +196,7 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            skillsQueue.Add(() => user.Opposition.DamageCharac(10, user));
+            battleForm.skillsQueue.Add(() => user.Opposition.DamageCharac(10, user));
             //user.Opposition.Health -= 50;
 
         }
@@ -228,7 +228,7 @@ namespace ComProg2Finals
         {
             MessageBox.Show($"Used {Name}");
             //user.CharStatEffects.Add(new DmgPerTurn("Burn", 10, 5));
-            skillsQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Fire"));
+            battleForm.skillsQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Fire"));
         }
     }
     public class RockHurl : Skill
@@ -256,7 +256,7 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            skillsQueue.Add(() => skillsQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Wind")));
+            battleForm.skillsQueue.Add(() => skillsQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Wind")));
         }
     }
     public class WaterBlast : Skill
@@ -269,7 +269,7 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            skillsQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Water"));
+            battleForm.skillsQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Water"));
         }
     }
 
@@ -302,15 +302,15 @@ namespace ComProg2Finals
 
             if (user.Rizz < 50)
             {
-                skillsQueue.Add(() => user.Opposition.DamageCharac(40, user));
+                battleForm.skillsQueue.Add(() => user.Opposition.DamageCharac(40, user));
             }
             else if (user.Rizz < 60)
             {
-                skillsQueue.Add(() => user.Opposition.DamageCharac(20, user));
+                battleForm.skillsQueue.Add(() => user.Opposition.DamageCharac(20, user));
             }
             else
             {
-                skillsQueue.Add(() => user.Opposition.DamageCharac(10, user));
+                battleForm.skillsQueue.Add(() => user.Opposition.DamageCharac(10, user));
             }
         }
     }
@@ -373,7 +373,7 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            skillsQueue.Add(() => user.Opposition.DamageCharac(10, user));
+            battleForm.skillsQueue.Add(() => user.Opposition.DamageCharac(10, user));
         }
     }
 
@@ -412,7 +412,7 @@ namespace ComProg2Finals
             {
                 //MessageBox.Show("hit " + i);
 
-                skillsQueue.Add(() => user.Opposition.DamageCharac(10, user));
+                battleForm.skillsQueue.Add(() => user.Opposition.DamageCharac(10, user));
                 await Task.Delay(200);
             }
         }
@@ -427,7 +427,7 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            skillsQueue.Add(() => user.DamageCharac(5, user));
+            battleForm.skillsQueue.Add(() => user.DamageCharac(5, user));
         }
     }
 
@@ -442,7 +442,7 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            skillsQueue.Add(() => skillsQueue.Add(() => user.Opposition.DamageCharac(5, user)));
+           battleForm.skillsQueue.Add(() => user.Opposition.DamageCharac(5, user));
         }
     }
 
@@ -465,7 +465,7 @@ namespace ComProg2Finals
                     oppositionBloo.Coins += 50;
                   
                     MessageBox.Show($"{user.Name} threw coins at {user.Opposition.Name}!");
-                    skillsQueue.Add(() => user.DamageCharac(5, user));
+                    battleForm.skillsQueue.Add(() => user.DamageCharac(5, user));
                 }
                 else{
                     MessageBox.Show($"{user.Name} missed!");
