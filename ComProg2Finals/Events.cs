@@ -508,7 +508,6 @@ namespace ComProg2Finals
             picImage = "mastergooway.png";
             Interactions = new string[] { "Cook into Turtle soup", "Eat" };
             EncounterDialogue = "Gooway I am";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
         }
         int choice;
         public override void Perform(Bloo bloo)
