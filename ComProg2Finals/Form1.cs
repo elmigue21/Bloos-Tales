@@ -6,6 +6,7 @@ using System.Data.SqlTypes;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -55,7 +56,9 @@ namespace ComProg2Finals
             Bloo bloo = new Bloo("Bloo");
             Player = bloo;
             ////
-
+            string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
+            SoundPlayer battlemusicplayer = new SoundPlayer(soundFilePath);
+            battlemusicplayer.Play();
 
 
 
