@@ -330,6 +330,18 @@ namespace ComProg2Finals
 
         private void button1_Click(object sender, EventArgs e)
         {
+            /*
+            label1.Text = "";
+            dialogueTextBox.Text = "";
+            flowLayoutPanel1.Controls.Clear();
+            charactersPictureBox.Image = null;
+            playerPictureBox.Image = Properties.Resources.blooBouncing;
+            timer.Start();
+            */
+            runNextEncounter();
+        }
+        public void runNextEncounter()
+        {
             label1.Text = "";
             dialogueTextBox.Text = "";
             flowLayoutPanel1.Controls.Clear();

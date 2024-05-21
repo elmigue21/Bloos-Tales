@@ -6,6 +6,8 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+
 
 namespace ComProg2Finals
 {
@@ -15,7 +17,9 @@ namespace ComProg2Finals
         public string picImage { get; set; }
         public string[] Interactions { get; set; }
         public string EncounterDialogue { get; set; }
-       // public Action<Bloo>[] EncounterActions{ get; set; }
+        public Form1 battleForm = Form1.Instance;
+        public Form2 form2 = Form2.Instance;
+        // public Action<Bloo>[] EncounterActions{ get; set; }
 
         public virtual void EventAction1(Bloo bloo)
         {
@@ -60,8 +64,8 @@ namespace ComProg2Finals
         public double CritChance { get; set; }
         public double CritDamage { get; set; }
         public List<Items> PlayerItems { get; set; }
-        public Form1 battleForm = Form1.Instance;
-        public Form2 form2 = Form2.Instance;
+       // public Form1 battleForm = Form1.Instance;
+       // public Form2 form2 = Form2.Instance;
         public double Multiplier { get; set; }
         public bool isBlocking { get; set; }
         public bool hasTurn { get; set; }
@@ -263,6 +267,7 @@ namespace ComProg2Finals
         public override void EventAction3(Bloo bloo)
         {
             MessageBox.Show( bloo.Name+" ignores");
+            form2.runNextEncounter();
         }
 
     }
