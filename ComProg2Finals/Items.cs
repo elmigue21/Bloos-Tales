@@ -15,9 +15,17 @@ namespace ComProg2Finals
             MessageBox.Show($"Items");
 
         }
+        public virtual void Encountered()
+        {
+            
+        }
         public virtual void Lost(Bloo charac)
         {
             MessageBox.Show("item lost");
+        }
+        public virtual void BattleAddItem(Bloo charac)
+        {
+            
         }
     }
     public class Rock : Items
@@ -26,6 +34,19 @@ namespace ComProg2Finals
         {
             MessageBox.Show($"It does nothing");
             charac.PlayerItems.Add(this);
+        }
+        public override void Encountered()
+        {
+            MessageBox.Show("Rock item encounter method triggered.");
+        }
+
+        public override void Lost(Bloo charac)
+        {
+            MessageBox.Show("You lost your rock, it did nothing.");
+        }
+        public override void BattleAddItem(Bloo charac)
+        {
+            charac.CharStatEffects.Add(new HealPerTurn("HEALINGGGG", 1000, 20));
         }
     }
     public class SacrificeRing : Items

@@ -17,7 +17,7 @@ namespace ComProg2Finals
         public string picImage { get; set; }
         public string[] Interactions { get; set; }
         public string EncounterDialogue { get; set; }
-        public Form1 battleForm = Form1.Instance;
+        public Form1 battleForm = Form1.GetInstance();
         public Form2 form2 = Form2.Instance;
         // public Action<Bloo>[] EncounterActions{ get; set; }
 
@@ -256,9 +256,7 @@ namespace ComProg2Finals
         }
         public override void EventAction1(Bloo bloo)
         {
-            Form1 f1 = new Form1();
-            f1.Enemy = this;
-            f1.Show();
+            form2.EnterBattle();
         }
         public override void EventAction2(Bloo bloo)
         {
@@ -308,6 +306,11 @@ namespace ComProg2Finals
                     break;
             }
 
+
+        }
+        public override void EventAction1(Bloo bloo)
+        {
+            form2.EnterBattle();
         }
 
 

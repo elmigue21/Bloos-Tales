@@ -19,6 +19,7 @@ namespace ComProg2Finals
         string directory;
 
         public Character Enemy { get; set; }
+        //public Character Enemy;
 
         List<Character> characters;
 
@@ -34,6 +35,7 @@ namespace ComProg2Finals
 
 
         public static Form1 Instance { get; private set; }
+        private static Form1 instance;
 
         public Form1()
         {
@@ -48,13 +50,21 @@ namespace ComProg2Finals
 
 
         }
+        public static Form1 GetInstance()
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new Form1();
+            }
+            return instance;
+        }
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
             // pag call kay bloo/player from the characters class
-            Bloo bloo = new Bloo("Bloo");
-            Player = bloo;
+            //Bloo bloo = new Bloo("Bloo");
+            //Player = bloo;
             ////
             string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             SoundPlayer battlemusicplayer = new SoundPlayer(soundFilePath);
@@ -67,6 +77,7 @@ namespace ComProg2Finals
             currentTurn = Player;
 
             // pag call ng enemy from characters class
+            /*
             Knight soulknight = new Knight("Soul Knight");
             Wizard wizard = new Wizard("wizard");
             Priest priest = new Priest("priest");
@@ -100,11 +111,11 @@ namespace ComProg2Finals
             comboBox1.Items.Add("Earth Wizard");
             comboBox1.Items.Add("Hostile Chest");
             comboBox1.SelectedIndex = 0;
+            */
 
-
-            Enemy = characters[comboBox1.SelectedIndex];
-            Player.Opposition = Enemy;
-            Enemy.Opposition = Player;
+            //Enemy = characters[comboBox1.SelectedIndex];
+            //Player.Opposition = Enemy;
+           // Enemy.Opposition = Player;
 
             currentTurn = Player;
 
@@ -133,6 +144,11 @@ namespace ComProg2Finals
 
 
             testButton.Enabled = false;
+
+            Player.Opposition = Enemy;
+            Enemy.Opposition = Player;
+            MessageBox.Show(this.Enemy.ToString());
+            MessageBox.Show(this.Enemy.Opposition.ToString());
 
         }
         private void runTurn()

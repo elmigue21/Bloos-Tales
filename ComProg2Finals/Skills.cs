@@ -9,7 +9,8 @@ namespace ComProg2Finals
 {
     public class Skill
     {
-        public Form1 battleForm = Form1.Instance;
+        //public Form1 battleForm = Form1.Instance;
+        public Form1 battleForm = Form1.GetInstance();
         public List<Action> skillsQueue;
         public string Name { get; protected set; }
 

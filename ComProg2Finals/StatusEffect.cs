@@ -13,7 +13,8 @@ namespace ComProg2Finals
     public class StatusEffect
     {
         public string Name { get; protected set; }
-        public Form1 battleForm = Form1.Instance;
+        //public Form1 battleForm = Form1.Instance;
+        public Form1 battleForm = Form1.GetInstance();
         public StatusEffect(string name) { 
 
         }
