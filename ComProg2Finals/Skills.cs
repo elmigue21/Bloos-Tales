@@ -37,7 +37,7 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-
+            MessageBox.Show(battleForm.ToString());
             battleForm.skillsQueue.Add(() => user.Opposition.DamageCharac(10, user));
             /*
             double damageValue = -25;
@@ -244,7 +244,7 @@ namespace ComProg2Finals
             MessageBox.Show($"Used {Name}");
             // test
 
-            user.Opposition.ElementDamageCharac(20, user, "Earth");
+            battleForm.skillsQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Earth"));
         }
     }
     public class WindSlice : Skill

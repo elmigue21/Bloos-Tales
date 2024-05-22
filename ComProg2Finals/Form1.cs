@@ -33,7 +33,7 @@ namespace ComProg2Finals
         public List<Action> skillsQueue = new List<Action>();
 
 
-
+        public Form2 form2 = Form2.Instance;
         public static Form1 Instance { get; private set; }
         private static Form1 instance;
 
@@ -252,18 +252,23 @@ namespace ComProg2Finals
                 if (Player.Health <= 0)
                 {
                     MessageBox.Show("Bloo has lost!");
+                    form2.runNextEncounter();
                     this.Close();
+                    //form2.runNextEncounter();
                 }
                 else if (Enemy.Health <= 0)
                 {
                     MessageBox.Show("Bloo has won!");
+                    form2.runNextEncounter();
                     this.Close();
+                    //form2.runNextEncounter();
                 }
                 else
                 {
-                   // currentTurn.skillQueued = currentTurn.CharSkills[0];
+                    currentTurn.skillQueued = currentTurn.CharSkills[0];
                     //runEnemy();
                     runTurn();
+                    updateLabels();
                 }
                 /*
                 if (currentTurn.Opposition.hasTurn)
@@ -275,7 +280,7 @@ namespace ComProg2Finals
                     currentTurn.Opposition.hasTurn = true;
                 }
                 */
-                updateLabels();
+                //updateLabels();
             }
 
         }
@@ -300,6 +305,7 @@ namespace ComProg2Finals
                 {
                     currentTurn.skillQueued = currentTurn.CharSkills[1];
                     runTurn();
+                    updateLabels();
                 }
                 /*
                 if (currentTurn.Opposition.hasTurn)
@@ -311,7 +317,7 @@ namespace ComProg2Finals
                     currentTurn.Opposition.hasTurn = true;
                 }
                 */
-                updateLabels();
+               // updateLabels();
             }
         }
 
@@ -335,6 +341,7 @@ namespace ComProg2Finals
                 {
                     currentTurn.skillQueued = currentTurn.CharSkills[2];
                     runTurn();
+                    updateLabels();
                 }
                 /*
                 if (currentTurn.Opposition.hasTurn)
@@ -345,7 +352,7 @@ namespace ComProg2Finals
                 {
                     currentTurn.Opposition.hasTurn = true;
                 }*/
-                updateLabels();
+                //updateLabels();
             }
         }
 
@@ -371,6 +378,7 @@ namespace ComProg2Finals
                 {
                     currentTurn.skillQueued = currentTurn.CharSkills[3];
                     runTurn();
+                    updateLabels();
                 }
                 /*
 
@@ -382,7 +390,7 @@ namespace ComProg2Finals
                 {
                     currentTurn.Opposition.hasTurn = true;
                 }*/
-                updateLabels();
+               // updateLabels();
             }
         }
         /////////

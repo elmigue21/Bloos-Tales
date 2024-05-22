@@ -282,7 +282,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-            currentEncounter = new Knight("knight");
+           currentEncounter = new Cave();
             for(int i = 0; i < currentEncounter.Interactions.Length; i++)
             {
                 Button button = new Button();
@@ -312,14 +312,14 @@ namespace ComProg2Finals
                         break;
 
                 }
-
-               
-
                 
+
+
+
+
 
                 flowLayoutPanel1.Controls.Add(button);
             }
-
             label1.Text = currentEncounter.Name;
             dialogueTextBox.Text = currentEncounter.EncounterDialogue;
             charactersPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
@@ -331,10 +331,15 @@ namespace ComProg2Finals
             {
                 Player.PlayerItems[i].BattleAddItem(Player);
             }
-            Form1 f1 = new Form1();
+            Form1 f1 = Form1.GetInstance();
             f1.Enemy = currentEncounter as Character;
             f1.Player = Player;
+            /*
+            f1.Player.Opposition = f1.Enemy;
+            f1.Enemy.Opposition = f1.Player;
+            */
             f1.Show();
+            
         }
 
 

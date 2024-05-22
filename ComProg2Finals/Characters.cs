@@ -218,7 +218,7 @@ namespace ComProg2Finals
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 20;
+            AttackDamage = 999;
             Speed = 10;
             CharSkills = new List<Skill> { new Tackle(), new Goo(), new Bounce()};
             Rizz = 20;
@@ -257,6 +257,7 @@ namespace ComProg2Finals
         public override void EventAction1(Bloo bloo)
         {
             form2.EnterBattle();
+            //form2.runNextEncounter();
         }
         public override void EventAction2(Bloo bloo)
         {
