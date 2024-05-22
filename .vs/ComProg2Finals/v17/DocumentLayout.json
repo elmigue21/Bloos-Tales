@@ -3,23 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|c:\\users\\john\\documents\\github\\comprog2finals\\comprog2finals\\characters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\characters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|c:\\users\\john\\documents\\github\\comprog2finals\\comprog2finals\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|c:\\users\\john\\documents\\github\\comprog2finals\\comprog2finals\\characters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\characters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|c:\\users\\john\\documents\\github\\comprog2finals\\comprog2finals\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|c:\\users\\john\\documents\\github\\comprog2finals\\comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -30,17 +30,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form1.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\Form1.cs",
               "ToolTip": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form1.cs",
               "RelativeToolTip": "ComProg2Finals\\Form1.cs",
-              "ViewState": "AQIAAKoBAAAAAAAAAAAiwMwBAAAJAAAA",
+              "ViewState": "AQIAAJsBAAAAAAAAAAAiwMwBAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-09T11:41:07.876Z",
               "IsPinned": true,
@@ -52,13 +52,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Characters.cs",
               "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Characters.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\Characters.cs",
               "ToolTip": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Characters.cs",
               "RelativeToolTip": "ComProg2Finals\\Characters.cs",
-              "ViewState": "AQIAAO8AAAAAAAAAAAAAwP8AAABaAAAA",
+              "ViewState": "AQIAADsBAAAAAAAAAAAiwBMBAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-22T12:06:58.366Z",
               "EditorCaption": ""
@@ -71,14 +71,14 @@
               "RelativeDocumentMoniker": "ComProg2Finals\\Form2.cs",
               "ToolTip": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form2.cs",
               "RelativeToolTip": "ComProg2Finals\\Form2.cs",
-              "ViewState": "AQIAAK0BAAAAAAAAAAAAAL4BAAAAAAAA",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAEwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-22T12:03:30.635Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Form2.cs [Design]",
               "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form2.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\Form2.cs",

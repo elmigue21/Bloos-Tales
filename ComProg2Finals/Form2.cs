@@ -74,7 +74,6 @@ namespace ComProg2Finals
 
             Bloo bloo = new Bloo("Bloo");
             Player = bloo;
-
             encounterCount = 1;
 
            // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
