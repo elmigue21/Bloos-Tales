@@ -215,6 +215,8 @@ namespace ComProg2Finals
     {
         public double Coins;
         public double Lives;
+        public int coinGainMultiplier;
+        public int rizzGainMultiplier;
         public Bloo(string name) : base(name)
         {
             Name = name;
@@ -233,7 +235,18 @@ namespace ComProg2Finals
             PlayerItems = new List<Items> { };
             elementType = "Wind";
             skillProbability = new int[]{ -1,-1,-1,-1};
+            coinGainMultiplier = 1;
+            rizzGainMultiplier = 1;
 
+
+        }
+        public void GainRizz(double value)
+        {
+            this.Rizz += value * rizzGainMultiplier;
+        }
+        public void GainCoin(double value)
+        {
+            this.Coins += value * coinGainMultiplier;
         }
     }
 
