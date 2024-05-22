@@ -17,7 +17,7 @@ namespace ComProg2Finals
     {
         public Bloo Player;
         string directory;
-
+        bool PlayerWin;
         public Character Enemy { get; set; }
         //public Character Enemy;
 
@@ -66,9 +66,9 @@ namespace ComProg2Finals
             //Bloo bloo = new Bloo("Bloo");
             //Player = bloo;
             ////
-            string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
-            SoundPlayer battlemusicplayer = new SoundPlayer(soundFilePath);
-            battlemusicplayer.Play();
+           // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
+           // SoundPlayer battlemusicplayer = new SoundPlayer(soundFilePath);
+          //  battlemusicplayer.Play();
 
 
 
@@ -147,8 +147,6 @@ namespace ComProg2Finals
 
             Player.Opposition = Enemy;
             Enemy.Opposition = Player;
-            MessageBox.Show(this.Enemy.ToString());
-            MessageBox.Show(this.Enemy.Opposition.ToString());
 
         }
         private void runTurn()
@@ -243,29 +241,27 @@ namespace ComProg2Finals
         private void button1_Click(object sender, EventArgs e)
         {
             //currentTurn.UseSkill1(currentTurn);
-            if (currentTurn.CharSkills.Count >= 1)
+            if (Player.CharSkills.Count >= 1)
             {
                 if (Player.hasTurn)
                 {
-                    currentTurn.UseSkill1(currentTurn);
+                    Player.UseSkill1(Player);
                 }
                 if (Player.Health <= 0)
                 {
                     MessageBox.Show("Bloo has lost!");
-                    form2.runNextEncounter();
                     this.Close();
                     //form2.runNextEncounter();
                 }
                 else if (Enemy.Health <= 0)
                 {
                     MessageBox.Show("Bloo has won!");
-                    form2.runNextEncounter();
                     this.Close();
                     //form2.runNextEncounter();
                 }
                 else
                 {
-                    currentTurn.skillQueued = currentTurn.CharSkills[0];
+                    //Player.skillQueued = Player.CharSkills[0];
                     //runEnemy();
                     runTurn();
                     updateLabels();
@@ -287,9 +283,9 @@ namespace ComProg2Finals
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (currentTurn.CharSkills.Count >= 2)
+            if (Player.CharSkills.Count >= 2)
             {
-                currentTurn.UseSkill2(currentTurn);
+                Player.UseSkill2(Player);
 
                 if (Player.Health <= 0)
                 {
@@ -303,7 +299,7 @@ namespace ComProg2Finals
                 }
                 else
                 {
-                    currentTurn.skillQueued = currentTurn.CharSkills[1];
+                    //currentTurn.skillQueued = currentTurn.CharSkills[1];
                     runTurn();
                     updateLabels();
                 }
@@ -323,9 +319,9 @@ namespace ComProg2Finals
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (currentTurn.CharSkills.Count >= 3)
+            if (Player.CharSkills.Count >= 3)
             {
-                currentTurn.UseSkill3(currentTurn);
+                Player.UseSkill3(Player);
 
                 if (Player.Health <= 0)
                 {
@@ -339,7 +335,7 @@ namespace ComProg2Finals
                 }
                 else
                 {
-                    currentTurn.skillQueued = currentTurn.CharSkills[2];
+                    //currentTurn.skillQueued = currentTurn.CharSkills[2];
                     runTurn();
                     updateLabels();
                 }
@@ -358,10 +354,10 @@ namespace ComProg2Finals
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (currentTurn.CharSkills.Count >= 4)
+            if (Player.CharSkills.Count >= 4)
             {
 
-                currentTurn.UseSkill4(currentTurn);
+                Player.UseSkill4(Player);
 
 
                 if (Player.Health <= 0)
@@ -376,7 +372,7 @@ namespace ComProg2Finals
                 }
                 else
                 {
-                    currentTurn.skillQueued = currentTurn.CharSkills[3];
+                    //currentTurn.skillQueued = currentTurn.CharSkills[3];
                     runTurn();
                     updateLabels();
                 }
@@ -476,7 +472,7 @@ namespace ComProg2Finals
             //MessageBox.Show(skillsQueue[0].ToString());
 
 
-
+            
             if (Player.hasTurn)
             {
                 //Player.skillQueued.Perform(Player);
@@ -508,6 +504,15 @@ namespace ComProg2Finals
                     MessageBox.Show("Bloo has won!");
                     this.Close();
                 }
+            }
+            
+            if (!Player.hasTurn)
+            {
+                Player.hasTurn = true;
+            }
+            if (!Enemy.hasTurn)
+            {
+                Enemy.hasTurn = true;
             }
             updateLabels();
         }
@@ -578,6 +583,11 @@ namespace ComProg2Finals
                 }
             }
             updateLabels();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            form2.runNextEncounter();
         }
     }
 }

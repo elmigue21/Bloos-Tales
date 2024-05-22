@@ -77,9 +77,9 @@ namespace ComProg2Finals
 
             encounterCount = 1;
 
-            string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
-            SoundPlayer player = new SoundPlayer(soundFilePath);
-            player.Play();
+           // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
+            //SoundPlayer player = new SoundPlayer(soundFilePath);
+           // player.Play();
             Player.PlayerItems.Add(new Rock());
 
         }
@@ -282,7 +282,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-           currentEncounter = new Cave();
+           currentEncounter = new Knight("qqq");
             for(int i = 0; i < currentEncounter.Interactions.Length; i++)
             {
                 Button button = new Button();

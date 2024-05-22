@@ -103,9 +103,9 @@ namespace ComProg2Finals
         
         public virtual void DamageCharac(double dmgValue, Character user)
         {
-            string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "swordsound.wav");
-            SoundPlayer player = new SoundPlayer(soundFilePath);
-            player.Play();
+            //string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "swordsound.wav");
+           // SoundPlayer player = new SoundPlayer(soundFilePath);
+           // player.Play();
             Random accRandom = new Random();
             int accuracyRandom = accRandom.Next(0, 100);
             if (accuracyRandom <= user.Accuracy)
