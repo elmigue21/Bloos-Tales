@@ -443,7 +443,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-            currentEncounter = new Jester();
+            currentEncounter = new GobletEvent();
 
             label1.Text = "";
             dialogueTextBox.Text = currentEncounter.befEncounter;

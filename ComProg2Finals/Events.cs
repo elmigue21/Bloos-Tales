@@ -377,7 +377,6 @@ namespace ComProg2Finals
                     // add status effect, +20 def for bloo on next boss 
                     break;
             }
-
         }
     }
     public class WishingWell : Events
@@ -385,16 +384,16 @@ namespace ComProg2Finals
         int choice;
         int multiplier = 1;
 
-
         public WishingWell()
         {
             Name = "Wishing well";
             this.picImage = "wishingwell.png";
             Interactions = new string[] { "Make Wish", "Ignore" };
             EncounterDialogue = "WISHING WASHING";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Wish", "Ignore" };
             //this.multiplier = 1;
         }
+
         public override void EventAction1(Bloo bloo)
         {
             bloo.Coins -= 2 * multiplier;
@@ -420,14 +419,11 @@ namespace ComProg2Finals
             multiplier++;
         }
 
-
-
-
-      
-
-
-
-
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("Bloo got sad…");
+            form2.runNextEncounter();
+        }
 
         public override void Perform(Bloo bloo)
         {
@@ -515,16 +511,19 @@ namespace ComProg2Finals
             Name = "Goblet";
             picImage = "goblet.png";
             EncounterDialogue = "GOBLET";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Obtain", "Put", "Ignore" };
         }
         int choice;
-        public override void Perform(Bloo bloo)
+
+        public override void EventAction1(Bloo bloo)
         {
+            MessageBox.Show("The goblet of fire is calling Bloo..");
             choice = 0;
             switch (choice)
             {
                 case 0:
                     bloo.Coins += 50;
+                    MessageBox.Show("Bloo felt wealthy!");
                     break;
                 case 1:
                     Random random = new Random();
@@ -534,7 +533,7 @@ namespace ComProg2Finals
                         // insert wizard free pass item logic here
                         Goblet goblet = new Goblet();
                         goblet.Acquired(bloo);
-                        MessageBox.Show("Ignited! Wizard pass gained.");
+                        MessageBox.Show("The goblet of fire burst into flames! But nothing happened?...");
                     }
                     else
                     {
@@ -542,6 +541,20 @@ namespace ComProg2Finals
                     }
                     break;
             }
+        }
+
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("Bloo puts his name on the goblet...");
+        }
+        public override void EventAction3(Bloo bloo)
+        {
+            MessageBox.Show("Bloo ignored a movie reference…");
+            form2.runNextEncounter();
+        }
+        public override void Perform(Bloo bloo)
+        {
+
         }
     }
     public class AppleTree : Events
