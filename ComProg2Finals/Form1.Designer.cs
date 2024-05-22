@@ -53,19 +53,17 @@
             this.playerLabelLives = new System.Windows.Forms.Label();
             this.playerLabelCoins = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.platform05 = new System.Windows.Forms.PictureBox();
             this.clouds01Back = new System.Windows.Forms.PictureBox();
             this.clouds02Front = new System.Windows.Forms.PictureBox();
             this.hills03Back = new System.Windows.Forms.PictureBox();
-            this.hills04Front = new System.Windows.Forms.PictureBox();
+            this.platform05 = new System.Windows.Forms.Panel();
+            this.hills04Front = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.platform05)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clouds01Back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clouds02Front)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hills03Back)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hills04Front)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -312,15 +310,6 @@
             this.comboBox1.TabIndex = 26;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // platform05
-            // 
-            this.platform05.BackColor = System.Drawing.Color.Transparent;
-            this.platform05.Location = new System.Drawing.Point(0, 0);
-            this.platform05.Name = "platform05";
-            this.platform05.Size = new System.Drawing.Size(798, 456);
-            this.platform05.TabIndex = 27;
-            this.platform05.TabStop = false;
-            // 
             // clouds01Back
             // 
             this.clouds01Back.BackColor = System.Drawing.Color.Transparent;
@@ -348,14 +337,23 @@
             this.hills03Back.TabIndex = 30;
             this.hills03Back.TabStop = false;
             // 
+            // platform05
+            // 
+            this.platform05.BackColor = System.Drawing.Color.Transparent;
+            this.platform05.ForeColor = System.Drawing.Color.Transparent;
+            this.platform05.Location = new System.Drawing.Point(0, 5);
+            this.platform05.Name = "platform05";
+            this.platform05.Size = new System.Drawing.Size(798, 451);
+            this.platform05.TabIndex = 32;
+            // 
             // hills04Front
             // 
             this.hills04Front.BackColor = System.Drawing.Color.Transparent;
+            this.hills04Front.ForeColor = System.Drawing.Color.Transparent;
             this.hills04Front.Location = new System.Drawing.Point(0, 0);
             this.hills04Front.Name = "hills04Front";
-            this.hills04Front.Size = new System.Drawing.Size(798, 456);
-            this.hills04Front.TabIndex = 31;
-            this.hills04Front.TabStop = false;
+            this.hills04Front.Size = new System.Drawing.Size(798, 451);
+            this.hills04Front.TabIndex = 33;
             // 
             // Form1
             // 
@@ -400,11 +398,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.platform05)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clouds01Back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clouds02Front)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hills03Back)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hills04Front)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,11 +433,11 @@
         private System.Windows.Forms.Label playerLabelLives;
         private System.Windows.Forms.Label playerLabelCoins;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.PictureBox platform05;
         private System.Windows.Forms.PictureBox clouds01Back;
         private System.Windows.Forms.PictureBox clouds02Front;
         private System.Windows.Forms.PictureBox hills03Back;
-        private System.Windows.Forms.PictureBox hills04Front;
+        private System.Windows.Forms.Panel platform05;
+        private System.Windows.Forms.Panel hills04Front;
     }
 }
 

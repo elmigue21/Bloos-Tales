@@ -50,6 +50,8 @@ namespace ComProg2Finals
 
 
         }
+
+       
         public static Form1 GetInstance()
         {
             if (instance == null || instance.IsDisposed)
@@ -72,11 +74,11 @@ namespace ComProg2Finals
             // form instance
             Instance.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "00Sky.png"));
 
-            platform05.Image = Image.FromFile(Path.Combine(directory, "assets", "05platform.png"));
+            platform05.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "05platform.png"));
             clouds01Back.Image = Image.FromFile(Path.Combine(directory, "assets", "01cloudsBack.png"));
             clouds02Front.Image = Image.FromFile(Path.Combine(directory, "assets", "02cloudsFront.png"));
             hills03Back.Image = Image.FromFile(Path.Combine(directory, "assets", "03hillsBack.png"));
-            hills04Front.Image = Image.FromFile(Path.Combine(directory, "assets", "04hillsFront.png"));
+            hills04Front.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "04hillsFront.png"));
             //MessageBox.Show
             // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             // SoundPlayer battlemusicplayer = new SoundPlayer(soundFilePath);
