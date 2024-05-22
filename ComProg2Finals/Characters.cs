@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.IO.Ports;
 
 
 namespace ComProg2Finals
@@ -17,6 +18,7 @@ namespace ComProg2Finals
         public string picImage { get; set; }
         public string[] Interactions { get; set; }
         public string EncounterDialogue { get; set; }
+        public string befEncounter { get; set; }
         public Form1 battleForm = Form1.GetInstance();
         public Form2 form2 = Form2.Instance;
         // public Action<Bloo>[] EncounterActions{ get; set; }
@@ -251,8 +253,9 @@ namespace ComProg2Finals
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 100;
             skillProbability = new int[] { 33, 33,33, -1};
-            EncounterDialogue = "Who goes there";
+            EncounterDialogue = "I, the honorable knight, shall vanquish this lowly slime!";
             Interactions = new string[] { "Attack", "Rizz", "Ignore"};
+            befEncounter = "As Bloo was bouncing his way, a faint sound of clinking metal echoed through the forest…";
         }
         public override void EventAction1(Bloo bloo)
         {
@@ -286,8 +289,9 @@ namespace ComProg2Finals
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
-            EncounterDialogue = "MAGIICCCCC";
+            EncounterDialogue = "OOH! What kind of slime is this? Is it a water type? A fire type? An earth type? Or maybe a wind type?";
             Interactions = new string[] { "Attack", "Rizz", "Ignore","VANISH" };
+            befEncounter = "Bloo bounces his way forward, when suddenly he feels a fearful presence tingling on his gooeyness…";
             switch (PlayerInstance.elementType)
             {
                 case "Fire":
@@ -365,8 +369,9 @@ namespace ComProg2Finals
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
             skillProbability = new int[] { 33, 33, 33, -1 };
-            EncounterDialogue = "Healing prayers for you!";
+            EncounterDialogue = "What a cute little creature! But alas, your monstrous nature belies your charm.";
             Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            befEncounter = "As Bloo continued his journey, Bloo began to feel warm… As if he was bouncing through endless purity…";
         }
 
     }
@@ -387,7 +392,8 @@ namespace ComProg2Finals
             CritChance = 0;
             skillProbability = new int[] { 25, 25, 25, 25 };
             Interactions = new string[] { "Attack", "Rizz", "Ignore" };
-            EncounterDialogue = "ROGUEEEE";
+            EncounterDialogue = "Man, I’m tired of getting worthless loot…";
+            befEncounter = "As the shadows of the forest enveloped Bloo, he noticed a man stalking through the shadows…";
         }
 
     }
@@ -408,7 +414,8 @@ namespace ComProg2Finals
             CritChance = 0;
             skillProbability = new int[] { 33, 33, 33, -1 };
             Interactions = new string[] { "Attack", "Rizz", "Ignore" };
-            EncounterDialogue = "LEGOLAS DIFF";
+            EncounterDialogue = "In every draw of my bow, fate whispers through the wind, a constant companion to death's embrace.";
+            befEncounter = "Bloo felt a slight breeze as he bounces through the grassy fields…";
         }
 
     }

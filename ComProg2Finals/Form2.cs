@@ -204,6 +204,7 @@ namespace ComProg2Finals
             }
             playerPictureBox.Image = Properties.Resources.blooIdle;
             timer.Stop();
+            /*
             switch (encounterCount % 5)
             {
                 case 0:
@@ -282,7 +283,8 @@ namespace ComProg2Finals
                     }
                     break;
             }
-           currentEncounter = new Knight("qqq");
+            */
+          // currentEncounter = new Knight("qqq");
             for(int i = 0; i < currentEncounter.Interactions.Length; i++)
             {
                 Button button = new Button();
@@ -363,8 +365,89 @@ namespace ComProg2Finals
         }
         public void runNextEncounter()
         {
+
+            switch (encounterCount % 5)
+            {
+                case 0:
+                    Random rand1 = new Random();
+                    int qqq1 = rand1.Next(0, 5);
+                    switch (qqq1)
+                    {
+                        case 0:
+                            currentEncounter = new Knight("knightt");
+                            break;
+                        case 1:
+                            currentEncounter = new Wizard("gaanddaaalfff");
+                            break;
+                        case 2:
+                            currentEncounter = new Rogue("miroguel");
+                            break;
+                        case 3:
+                            currentEncounter = new Archer("legolas");
+                            break;
+                        case 4:
+                            currentEncounter = new Priest("rafaella");
+                            break;
+                    }
+                    break;
+                case 4:
+                    Random rand2 = new Random();
+                    int qqq2 = rand2.Next(0, 2);
+                    switch (qqq2)
+                    {
+                        case 0:
+                            currentEncounter = new Shopkeeper();
+                            break;
+                        case 1:
+                            currentEncounter = new MasterGooway();
+                            break;
+                    }
+                    break;
+                default:
+                    Random rand3 = new Random();
+                    int qqq3 = rand3.Next(0, 11);
+                    switch (qqq3)
+                    {
+                        case 0:
+                            currentEncounter = new Chest();
+                            break;
+                        case 1:
+                            currentEncounter = new Cave();
+                            break;
+                        case 2:
+                            currentEncounter = new SwordInStone();
+                            break;
+                        case 3:
+                            currentEncounter = new Bonfire();
+                            break;
+                        case 4:
+                            currentEncounter = new MysteriousMan();
+                            break;
+                        case 5:
+                            currentEncounter = new Jester();
+                            break;
+                        case 6:
+                            currentEncounter = new Seer();
+                            break;
+                        case 7:
+                            currentEncounter = new WishingWell();
+                            break;
+                        case 8:
+                            currentEncounter = new King();
+                            break;
+                        case 9:
+                            currentEncounter = new GobletEvent();
+                            break;
+                        case 10:
+                            currentEncounter = new AppleTree();
+                            break;
+                    }
+                    break;
+            }
+
+
             label1.Text = "";
-            dialogueTextBox.Text = "";
+            dialogueTextBox.Text = currentEncounter.befEncounter;
             flowLayoutPanel1.Controls.Clear();
             charactersPictureBox.Image = null;
             playerPictureBox.Image = Properties.Resources.blooBouncing;
