@@ -20,7 +20,6 @@ namespace ComProg2Finals
         public virtual void Perform(Bloo bloo)
         {
             MessageBox.Show($"Events");
-
         }
     }
     public class Chest : Events
@@ -30,29 +29,52 @@ namespace ComProg2Finals
             Name = "Chest";
             picImage = "chest.png";
             EncounterDialogue = "Bloo stumbles upon a chest!";
-            Interactions = new string[] { "Encounter", "Open", "Skip" };
+            Interactions = new string[] { "Open", "Skip" };
         }
         public override void EventAction1(Bloo bloo)
         {
-            MessageBox.Show("bloo encounter");
+            MessageBox.Show("bloo opens the chest");
+            Random random = new Random();
+            randomNumber = random.Next(100);
+
+            if (randomNumber <= lifePotChance)
+            {
+                if (bloo.Lives < 5)
+                {
+                    bloo.Lives += 1;
+                }
+                MessageBox.Show("You found a Life Potion!");
+            }
+            else if (randomNumber <= lifePotChance + rizzChance)
+            {
+                bloo.Rizz += gainedRizz;
+                MessageBox.Show("You gained some Rizz!");
+            }
+            else if (randomNumber <= lifePotChance + rizzChance + coinChance)
+            {
+                bloo.Coins += 50;
+                MessageBox.Show("You found some coins!");
+            }
+            else
+            {
+                // fight chest logic
+                MessageBox.Show("You won all loot!");
+            }
         }
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("bloo open");
-        }
-        public override void EventAction3(Bloo bloo)
-        {
-            MessageBox.Show("bloo skip");
+            MessageBox.Show("bloo ignores the chest");
+            form2.runNextEncounter();
         }
         int lifePotChance = 10;
         int rizzChance = 20;
         int coinChance = 30;
-
         int gainedRizz = 20;
-
         int randomNumber;
+
         public override void Perform(Bloo bloo)
         {
+            /*
             Random random = new Random();
             randomNumber = random.Next(100);
 
@@ -78,7 +100,7 @@ namespace ComProg2Finals
                 // fight chest logic
                 MessageBox.Show("You won all loot!");
             }
-
+            */
         }
     }
     public class Cave : Events
@@ -90,23 +112,11 @@ namespace ComProg2Finals
             EncounterDialogue = "I MINE ALL DAY";
             Interactions = new string[] { "Enter", "Ignore"};
         }
-        int totalChances = 800;
-        int loseLifeChance = 180;
-        int debuffChance = 180;
-        int coinChance = 180;
-        int rizzChance = 180;
-        int gemChance = 80;
 
-        int gainedRizz = 20;
-
-        int randomNumber;
-
-        public override void Perform(Bloo bloo)
+        public override void EventAction1(Bloo bloo)
         {
             Random random = new Random();
-
             randomNumber = random.Next(1, totalChances + 1);
-
             // Check which outcome occurs based on the random number
             if (randomNumber <= loseLifeChance)
             {
@@ -141,19 +151,19 @@ namespace ComProg2Finals
             }
             else if (randomNumber <= loseLifeChance + debuffChance + coinChance)
             {
-                
+
                 bloo.Coins += 50;
                 MessageBox.Show("You found some coins!");
             }
             else if (randomNumber <= loseLifeChance + debuffChance + coinChance + rizzChance)
             {
-                
+
                 bloo.Rizz += gainedRizz;
                 MessageBox.Show("You found a Rizz!");
             }
             else if (randomNumber <= totalChances)
             {
-                
+
                 StrangeGem strangegem = new StrangeGem();
                 strangegem.Acquired(bloo);
                 MessageBox.Show("You found a Rare Gem!");
@@ -162,11 +172,30 @@ namespace ComProg2Finals
             {
                 MessageBox.Show("You explored the cave and found nothing.");
             }
+
+        }
+
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("Bloo got scared of the dark…");
+            form2.runNextEncounter();
+        }
+
+        int totalChances = 800;
+        int loseLifeChance = 180;
+        int debuffChance = 180;
+        int coinChance = 180;
+        int rizzChance = 180;
+        int gemChance = 80;
+        int gainedRizz = 20;
+        int randomNumber;
+        public override void Perform(Bloo bloo)
+        {
+
         }
     }
     public class SwordInStone : Events
     {
-
         public SwordInStone()
         {
             Name = "SwordInStone";
@@ -175,7 +204,6 @@ namespace ComProg2Finals
             Interactions = new string[] { "Attack", "Rizz", "Ignore" };
         }
         int pullChance = 5;
-
         int randomNumber;
         public override void Perform(Bloo bloo)
         {
