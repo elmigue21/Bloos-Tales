@@ -80,7 +80,7 @@ namespace ComProg2Finals
            // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             //SoundPlayer player = new SoundPlayer(soundFilePath);
            // player.Play();
-            Player.PlayerItems.Add(new Rock());
+            //Player.PlayerItems.Add(new Rock());
 
         }
         bool right, hold = true;

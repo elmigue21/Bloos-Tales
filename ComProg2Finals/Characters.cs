@@ -218,12 +218,12 @@ namespace ComProg2Finals
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 999;
+            AttackDamage = 1;
             Speed = 10;
             CharSkills = new List<Skill> { new Tackle(), new Goo(), new Bounce()};
             Rizz = 20;
             picImage = "blooIdle.gif";
-            Defense = 10;
+            Defense = 999;
             CharStatEffects = new List<StatusEffect> { };
             Coins = 100;
             Lives = 3;
