@@ -201,26 +201,34 @@ namespace ComProg2Finals
             Name = "SwordInStone";
             picImage = "swordinstone.png";
             EncounterDialogue = "I AM THE CHOSEN ONE";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Pull", "Ignore" };
+        }
+
+        public override void EventAction1(Bloo bloo)
+        {
+            Random random = new Random();
+            randomNumber = random.Next(100);
+            if (randomNumber <= pullChance)
+            {
+                Excalibur excalibur = new Excalibur();
+                excalibur.Acquired(bloo);
+                MessageBox.Show("Bloo was shocked as he pulled the sword effortlessly.");
+                }
+            else
+            {
+                MessageBox.Show("Bloo tried his best to pull the sword, but in his dismay, he wasn’t the chosen one.");
+            }
+        }
+                
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("Bloo wasn’t interested in a mere sword…");
+            form2.runNextEncounter();
         }
         int pullChance = 5;
         int randomNumber;
         public override void Perform(Bloo bloo)
         {
-            Random random = new Random();
-
-            randomNumber = random.Next(100);
-
-            if (randomNumber <= pullChance)
-            {
-                Excalibur excalibur = new Excalibur();
-                excalibur.Acquired(bloo);
-                MessageBox.Show("You pulled the excalibur sword");
-            }
-            else
-            {
-                MessageBox.Show("The sword wont budge.");
-            }
 
         }
     }
@@ -231,15 +239,28 @@ namespace ComProg2Finals
             Name = "Bonfire";
             picImage = "bonfire.png";
             EncounterDialogue = "Bloo stumbles upon a BONfire";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Obtain", "Ignore" };
         }
-        public override void Perform(Bloo bloo)
+
+        public override void EventAction1(Bloo bloo)
         {
+            MessageBox.Show("Praise the sun!");
             if (bloo.Lives < 5)
             {
                 MessageBox.Show("You feel rested. Lives increased");
                 bloo.Lives += 1;
             }
+        }
+
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("Bloo ignores a game reference…");
+            form2.runNextEncounter();
+        }
+
+        public override void Perform(Bloo bloo)
+        {
+
         }
     }
     public class MysteriousMan : Events
@@ -252,25 +273,46 @@ namespace ComProg2Finals
             Interactions = new string[] { "Attack", "Rizz", "Ignore" };
         }
         int choice;
-        public override void Perform(Bloo bloo)
+
+        public override void EventAction1(Bloo bloo)
         {
+            MessageBox.Show("An ominous figure appeared… ");
+            MessageBox.Show($"Mysterious Man");
+        }
+
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("Bloo’s mom taught him to never talk to strangers…");
             // 33.3 percent chance eachhhhh
             choice = 0;
-            switch (choice) {
+            switch (choice)
+            {
                 case 0:
                     bloo.Health -= bloo.Health * .25;
                     bloo.AttackDamage += 20;
+                    MessageBox.Show("Bloo picked the blue pill and felt something…");
                     break;
                 case 1:
                     bloo.Accuracy -= 25;
                     bloo.CritChance += 25;
+                    MessageBox.Show("Bloo picked the red pill and felt something…");
                     break;
                 case 2:
+                    MessageBox.Show("Bloo’s mom taught him to never talk to strangers…");
                     // coin income boost ()
                     // rizz income debuff (mababawasan lahat ng coin income)
                     break;
             }
-            MessageBox.Show($"Mysterious Man");
+        }
+        public override void EventAction3(Bloo bloo)
+        {
+            MessageBox.Show("Bloo’s mom taught him to never talk to strangers…");
+            form2.runNextEncounter();
+        }
+
+        public override void Perform(Bloo bloo)
+        {
+
         }
     }
     public class Jester : Events
@@ -280,11 +322,22 @@ namespace ComProg2Finals
             Name = "Jester";
             picImage = "wishingwell.png";
             EncounterDialogue = "KWAK";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Talk", "Ignore" };
         }
+        public override void EventAction1(Bloo bloo)
+        {
+            MessageBox.Show("I have a little mystery box for you giggles. What's inside? What’s inside? Oh, the excitement! Well, that’s the fun part, isn’t it? It could be a delightful surprise... or a dreadful shock!” *giggles louder");
+            bloo.Coins -= bloo.Coins * .75;
+        }
+
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("Bloo dislikes clowns. He thinks they are scary and weird…");
+            form2.runNextEncounter();
+        }
+
         public override void Perform(Bloo bloo)
         {
-            bloo.Coins -= bloo.Coins * .75;
             // insert random item (mystery box) logic here
         }
     }
@@ -295,7 +348,7 @@ namespace ComProg2Finals
             Name = "Seer";
             picImage = "seer.png";
             EncounterDialogue = "O.O";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Tell", "Rizz", "Ignore" };
         }
         public override void Perform(Bloo bloo)
         {
