@@ -62,10 +62,26 @@ namespace ComProg2Finals
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
-           // SoundPlayer battlemusicplayer = new SoundPlayer(soundFilePath);
-          //  battlemusicplayer.Play();
-           // currentTurn = Player;
+            // pag set ng image ng picturebox
+            string programDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            directory = AppDomain.CurrentDomain.BaseDirectory;
+            playerPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+
+
+
+            // form instance
+            Instance.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "00Sky.png"));
+
+            platform05.Image = Image.FromFile(Path.Combine(directory, "assets", "05platform.png"));
+            clouds01Back.Image = Image.FromFile(Path.Combine(directory, "assets", "01cloudsBack.png"));
+            clouds02Front.Image = Image.FromFile(Path.Combine(directory, "assets", "02cloudsFront.png"));
+            hills03Back.Image = Image.FromFile(Path.Combine(directory, "assets", "03hillsBack.png"));
+            hills04Front.Image = Image.FromFile(Path.Combine(directory, "assets", "04hillsFront.png"));
+            //MessageBox.Show
+            // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
+            // SoundPlayer battlemusicplayer = new SoundPlayer(soundFilePath);
+            //  battlemusicplayer.Play();
+            // currentTurn = Player;
 
             // pag call ng enemy from characters class
             /*
@@ -106,16 +122,11 @@ namespace ComProg2Finals
 
             //Enemy = characters[comboBox1.SelectedIndex];
             //Player.Opposition = Enemy;
-           // Enemy.Opposition = Player;
+            // Enemy.Opposition = Player;
 
             currentTurn = Player;
 
-
-            // pag set ng image ng picturebox
-            string programDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            directory = AppDomain.CurrentDomain.BaseDirectory;
-            playerPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-
+        
 
             updateLabels();
             // runTurn();
