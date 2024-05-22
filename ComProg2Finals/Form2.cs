@@ -443,7 +443,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-            currentEncounter = new GobletEvent();
+            currentEncounter = new MasterGooway();
 
             label1.Text = "";
             dialogueTextBox.Text = currentEncounter.befEncounter;

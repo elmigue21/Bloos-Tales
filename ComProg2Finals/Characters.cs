@@ -112,10 +112,6 @@ namespace ComProg2Finals
             int accuracyRandom = accRandom.Next(0, 100);
             if (accuracyRandom <= user.Accuracy)
             {
-
-
-
-
                 if (user.Opposition.isBlocking)
                 {
                     MessageBox.Show($"{user.Opposition.Name} was unscathed!");
@@ -123,10 +119,7 @@ namespace ComProg2Finals
                 }
                 else
                 {
-
-
                     double totalDamage = ((user.AttackDamage * dmgValue) / user.Opposition.Defense) * user.Multiplier;
-
                     Random random = new Random();
                     int randomNumber = random.Next(0, 101);
                     if (randomNumber <= user.CritChance)
@@ -137,7 +130,6 @@ namespace ComProg2Finals
                     MessageBox.Show(user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name);
                     user.Opposition.Health -= totalDamage;
                 }
-
             }
             else
             {
@@ -146,8 +138,6 @@ namespace ComProg2Finals
             battleForm.updateLabels();
         }
         
-
-      
         public void ElementDamageCharac(double dmgValue, Character user, string dmgType)
         {
             switch (dmgType)
@@ -207,7 +197,6 @@ namespace ComProg2Finals
             }
             DamageCharac(dmgValue, user);
         }
-
         /////////////////////////////////
     }
     
@@ -237,8 +226,6 @@ namespace ComProg2Finals
             skillProbability = new int[]{ -1,-1,-1,-1};
             coinGainMultiplier = 1;
             rizzGainMultiplier = 1;
-
-
         }
         public void GainRizz(double value)
         {
@@ -249,7 +236,6 @@ namespace ComProg2Finals
             this.Coins += value * coinGainMultiplier;
         }
     }
-
     public class Knight : Character
     {
         public Knight(string name) : base(name)
@@ -272,19 +258,17 @@ namespace ComProg2Finals
         }
         public override void EventAction1(Bloo bloo)
         {
-            form2.EnterBattle();
-            //form2.runNextEncounter();
+            MessageBox.Show("Let us fight to our deaths!");
         }
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show(bloo.Name +" uses Rizz");
+            MessageBox.Show("By the gods, this slime is the most beautiful creature next to the princess I have ever seen. I would marry you if I were as gooey as you.");
         }
         public override void EventAction3(Bloo bloo)
         {
-            MessageBox.Show( bloo.Name+" ignores");
-            form2.runNextEncounter();
+            MessageBox.Show("By the heavens! Is that the sword from the stone? The Excalibur?");
+            MessageBox.Show("Please, I’m not as worthy as you, humble slime. This honorable knight cannot claim the Excalibur. Use it in your journey and conquer your enemies.");
         }
-
     }
     public class Wizard : Character
     {
@@ -323,16 +307,22 @@ namespace ComProg2Finals
                     skillProbability = new int[] { 25, 25, 25, 25 };
                     break;
             }
-
-
         }
         public override void EventAction1(Bloo bloo)
         {
-            form2.EnterBattle();
+            MessageBox.Show("It’s big brain time.");
         }
-
-
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("From a genius to a genius! Please tell me more about four elementalisms, elucidating the intricacies of earthism, waterism, airism, and fireism, as they intertwine in the grand tapestry of existenceism.");
+        }
+        public override void EventAction3(Bloo bloo)
+        {
+            MessageBox.Show("You! Did you put your name on the goblet of fire?! *calmly*");
+            MessageBox.Show("Marvelous! What wondrous feats this slime has made, embraced by the goblet’s embrace! A conundrum of magicism and mysterism!");
+        }
     }
+
     public class FireWizard : Wizard
     {
         public FireWizard(string name): base(name)
@@ -365,7 +355,6 @@ namespace ComProg2Finals
             elementType = "Earth";
         }
     }
-
     public class Priest: Character
     {
         public Priest(string name) : base(name)
@@ -386,7 +375,18 @@ namespace ComProg2Finals
             Interactions = new string[] { "Attack", "Rizz", "Ignore" };
             befEncounter = "As Bloo continued his journey, Bloo began to feel warm… As if he was bouncing through endless purity…";
         }
-
+        public override void EventAction1(Bloo bloo)
+        {
+            MessageBox.Show("Your form is an embodiment of evil itself. Fear not, for I shall cleanse thee of its malevolence!");
+        }
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("OH MY GOD! Mr. Slime, you are the most adorable thing in the world. I just want to pinch those cheeks!");
+        }
+        public override void EventAction3(Bloo bloo)
+        {
+            MessageBox.Show("Divine blessings! This holy water, gifted by thy humble slime, carries the purity of innocence and thy wisdom of unexpected allies. You have my thanks…");
+        }
     }
     public class Rogue: Character
     {
@@ -408,7 +408,19 @@ namespace ComProg2Finals
             EncounterDialogue = "Man, I’m tired of getting worthless loot…";
             befEncounter = "As the shadows of the forest enveloped Bloo, he noticed a man stalking through the shadows…";
         }
-
+        public override void EventAction1(Bloo bloo)
+        {
+            MessageBox.Show("Let’s see how much gold I can take from this mere slime.");
+        }
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("I see… A slime outsmarting me. This is beyond embarrassing, but I admit my inferiority, slime.");
+        }
+        public override void EventAction3(Bloo bloo)
+        {
+            MessageBox.Show("...");
+            MessageBox.Show("You slime, has made me the richest man in all the land! This is by far one of the rarest gems or might even be the rarest gem!");
+        }
     }
     public class Archer : Character
     {
@@ -430,7 +442,19 @@ namespace ComProg2Finals
             EncounterDialogue = "In every draw of my bow, fate whispers through the wind, a constant companion to death's embrace.";
             befEncounter = "Bloo felt a slight breeze as he bounces through the grassy fields…";
         }
-
+        public override void EventAction1(Bloo bloo)
+        {
+            MessageBox.Show("Behold the wind's wrath!");
+        }
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("Ah, dear slime, your colors dance so vividly. Would you care for a stroll together? I find your company quite... enchanting.");
+        }
+        public override void EventAction3(Bloo bloo)
+        {
+            MessageBox.Show("In a sea of dullness, a gleaming arrow is in your hands. May I take a look?");
+            MessageBox.Show("By the gods, it's returned to me! This arrow, lost to time's grasp, now rests once more in my hands. With you, old friend, my aim finds its truest mark once again.");
+        }
     }
     public class HostileChest : Character
     {
@@ -450,7 +474,6 @@ namespace ComProg2Finals
             skillProbability = new int[] { 50, 50, -1, -1 };
             EncounterDialogue = "KWAK";
         }
-
         public override void DamageCharac(double dmgValue, Character user)
         {
             //MessageBox.Show("multiplier sa formula: "+ user.Multiplier.ToString());

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ComProg2Finals
 {
@@ -564,11 +565,13 @@ namespace ComProg2Finals
             Name = "Apple Tree";
             picImage = "appletree.png";
             EncounterDialogue = "GRAVITY";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Tackle", "Climb" };
         }
         int choice;
-        public override void Perform(Bloo bloo)
+
+        public override void EventAction1(Bloo bloo)
         {
+            MessageBox.Show("Bloo, with all his might, tackled the tree.");
             choice = 1;
             switch (choice)
             {
@@ -580,32 +583,60 @@ namespace ComProg2Finals
                     int randomNumber = random.Next(100);
                     if (randomNumber <= 25)
                     {
-                      
                         GoldenArrow goldenArrow = new GoldenArrow();
-                        
                         goldenArrow.Acquired(bloo);
                         MessageBox.Show("Golden Arrow acquired!");
-                    }
-                    else
-                    {
-                        MessageBox.Show($"{bloo.Name} fell from the tree.");
                     }
 
                     break;
             }
         }
+
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("Bloo ignores a game reference…");
+            choice = 1;
+            switch (choice)
+            {
+                case 0:
+                    bloo.Rizz += 5;
+                    break;
+                case 1:
+                    Random random = new Random();
+                    int randomNumber = random.Next(100);
+                    if (randomNumber <= 25)
+                    {
+                        MessageBox.Show("Bloo fell down…");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bloo noticed something shiny!");
+                    }
+                    break;
+
+                    // DI BA DAT MAGRECURSE DITO
+            }
+        }
+
+        public override void Perform(Bloo bloo)
+        {
+
+        }
     }
+
     public class MasterGooway : Events
     {
         public MasterGooway()
         {
             picImage = "mastergooway.png";
-            Interactions = new string[] { "Cook into Turtle soup", "Eat" };
+            Interactions = new string[] { "Buy", "Skip", "Cook into Turtle soup", "Eat" };
             EncounterDialogue = "Gooway I am";
         }
         int choice;
-        public override void Perform(Bloo bloo)
+
+        public override void EventAction1(Bloo bloo)
         {
+            MessageBox.Show("Use your skills for good, dragon war– oops, wrong student… May that help you in your journey, young one.");
             choice = 2;
             switch (choice)
             {
@@ -627,6 +658,17 @@ namespace ComProg2Finals
                     break;
             }
         }
+
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("Perhaps you are not ready to learn my ways, young one.");
+            form2.runNextEncounter();
+        }
+
+        public override void Perform(Bloo bloo)
+        {
+
+        }
     }
     public class Shopkeeper: Events
     {
@@ -634,9 +676,21 @@ namespace ComProg2Finals
         {
             picImage = "wishingwell.png";
             EncounterDialogue = "SHOPPEEDOOPEE";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Buy", "Skip" };
         }
         int choice;
+        public override void EventAction1(Bloo bloo)
+        {
+            MessageBox.Show("That all pal? If ya ever need more help, I’m just around the corner!");
+        }
+
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("Aight pal, if ya ever found ya self in a sticky situation, I’m just a bounce away.");
+            form2.runNextEncounter();
+        }
+
+
         public override void Perform(Bloo bloo)
         {
             choice = 0;
