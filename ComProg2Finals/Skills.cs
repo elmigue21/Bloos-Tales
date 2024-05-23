@@ -24,6 +24,11 @@ namespace ComProg2Finals
             MessageBox.Show($"{Name} skill performed.");
 
         }
+        public void Learn(Bloo bloo)
+        {
+            bloo.CharSkills.Add(this);
+            MessageBox.Show("added " + this + " to bloos skills");
+        }
     }
 
     // BLOO SKILLS
@@ -45,6 +50,7 @@ namespace ComProg2Finals
             user.UpdateHealth(damageValue, user.Opposition);
             */
         }
+
     }
     public class Goo : Skill
     {
