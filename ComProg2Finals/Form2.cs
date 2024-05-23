@@ -76,10 +76,11 @@ namespace ComProg2Finals
             Player = bloo;
             encounterCount = 1;
 
-           // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
+            // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             //SoundPlayer player = new SoundPlayer(soundFilePath);
-           // player.Play();
-            //Player.PlayerItems.Add(new Rock());
+            // player.Play();
+            Rock rock = new Rock();
+            rock.Acquired(Player);
 
         }
         bool right, hold = true;
@@ -199,7 +200,7 @@ namespace ComProg2Finals
         {
             for(int i = 0; i < Player.PlayerItems.Count; i++)
             {
-                Player.PlayerItems[i].Encountered();
+                Player.PlayerItems[i].Encountered(Player);
             }
             playerPictureBox.Image = Properties.Resources.blooIdle;
             timer.Stop();
@@ -443,7 +444,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-            currentEncounter = new MasterGooway();
+            currentEncounter = new King();
 
             label1.Text = "";
             dialogueTextBox.Text = currentEncounter.befEncounter;

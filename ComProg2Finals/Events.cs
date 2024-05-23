@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Media;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -266,23 +267,60 @@ namespace ComProg2Finals
     }
     public class MysteriousMan : Events
     {
+        int rand;
         public MysteriousMan()
         {
             Name = "Mysterious man";
             picImage = "mysteriousman.png";
             EncounterDialogue = "SHHHHHH";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Blue pill", "Red Pill"};
+            Random random = new Random();
+            rand = random.Next(0, 2);
+            
         }
         int choice;
+        
+
 
         public override void EventAction1(Bloo bloo)
         {
-            MessageBox.Show("An ominous figure appeared… ");
-            MessageBox.Show($"Mysterious Man");
+            switch (rand)
+            {
+                case 0:
+                    MessageBox.Show("Bloo took the blue pill");
+                    bloo.Health -= bloo.Health * .25;
+                    break;
+                case 1:
+                    MessageBox.Show("Bloo took the blue pill");
+                    bloo.Accuracy -= 25;
+                    break;
+                case 2:
+                    MessageBox.Show("Bloo took the blue pill");
+                    bloo.coinGainMultiplier /= 2;
+                    // minus coin income
+                    break;
+            }
         }
 
         public override void EventAction2(Bloo bloo)
         {
+            switch (rand)
+            {
+                case 0:
+                    MessageBox.Show("Bloo took the red pill");
+                    bloo.AttackDamage += 20;
+                    break;
+                case 1:
+                    MessageBox.Show("Bloo took the red pill");
+                    bloo.CritChance += 25;
+                    break;
+                case 2:
+                    MessageBox.Show("Bloo took the red pill");
+                    // buff rizz income
+                    bloo.rizzGainMultiplier *= 2;
+                    break;
+            }
+            /*
             MessageBox.Show("Bloo’s mom taught him to never talk to strangers…");
             // 33.3 percent chance eachhhhh
             choice = 0;
@@ -301,15 +339,17 @@ namespace ComProg2Finals
                 case 2:
                     MessageBox.Show("Bloo’s mom taught him to never talk to strangers…");
                     // coin income boost ()
-                    // rizz income debuff (mababawasan lahat ng coin income)
+                    // rizz income debuff (mababawasan l`ahat ng coin income)
                     break;
             }
+            */
         }
+        /*
         public override void EventAction3(Bloo bloo)
         {
             MessageBox.Show("Bloo’s mom taught him to never talk to strangers…");
             form2.runNextEncounter();
-        }
+        }*/
 
         public override void Perform(Bloo bloo)
         {
@@ -349,13 +389,14 @@ namespace ComProg2Finals
             Name = "Seer";
             picImage = "seer.png";
             EncounterDialogue = "O.O";
-            Interactions = new string[] { "Tell", "Rizz", "Ignore" };
+            Interactions = new string[] { "Talk", "Ignore" };   
         }
-        public override void Perform(Bloo bloo)
+        public override void EventAction1(Bloo bloo)
         {
             MessageBox.Show($"Seer");
-            int choice = 0;
-            switch (choice)
+            Random random = new Random();
+            int rand = random.Next(0, 4);
+            switch (rand)
             {
                 case 0:
                     bloo.Rizz -= bloo.Rizz * .3;
@@ -378,6 +419,37 @@ namespace ComProg2Finals
                     // add status effect, +20 def for bloo on next boss 
                     break;
             }
+        }
+        public override void Perform(Bloo bloo)
+        {
+            /*
+            MessageBox.Show($"Seer");
+            Random random = new Random();
+            int rand = random.Next(0, 4);
+            switch (rand)
+            {
+                case 0:
+                    bloo.Rizz -= bloo.Rizz * .3;
+                    // messagebox.show next enemy
+                    break;
+                case 1:
+                    bloo.Coins -= 150;
+                    // add status effect final boss 30% atk dmg boost for bloo
+                    break;
+                case 2:
+                    bloo.Coins -= 100;
+                    // add status effect next boss 15% atk dmg boost for bloo
+                    break;
+                case 3:
+                    bloo.Coins -= 50;
+                    // add status effect, lower accuracy of next boss
+                    break;
+                case 4:
+                    bloo.Coins -= 50;
+                    // add status effect, +20 def for bloo on next boss 
+                    break;
+            }
+            */
         }
     }
     public class WishingWell : Events
@@ -572,36 +644,13 @@ namespace ComProg2Finals
         public override void EventAction1(Bloo bloo)
         {
             MessageBox.Show("Bloo, with all his might, tackled the tree.");
-            choice = 1;
-            switch (choice)
-            {
-                case 0:
-                    bloo.Rizz += 5;
-                    break;
-                case 1:
-                    Random random = new Random();
-                    int randomNumber = random.Next(100);
-                    if (randomNumber <= 25)
-                    {
-                        GoldenArrow goldenArrow = new GoldenArrow();
-                        goldenArrow.Acquired(bloo);
-                        MessageBox.Show("Golden Arrow acquired!");
-                    }
-
-                    break;
-            }
+            MessageBox.Show("An apple fell from the tree.");
+            // add plus rizz
         }
 
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("Bloo ignores a game reference…");
-            choice = 1;
-            switch (choice)
-            {
-                case 0:
-                    bloo.Rizz += 5;
-                    break;
-                case 1:
+
                     Random random = new Random();
                     int randomNumber = random.Next(100);
                     if (randomNumber <= 25)
@@ -612,10 +661,8 @@ namespace ComProg2Finals
                     {
                         MessageBox.Show("Bloo noticed something shiny!");
                     }
-                    break;
-
-                    // DI BA DAT MAGRECURSE DITO
-            }
+  
+            
         }
 
         public override void Perform(Bloo bloo)
@@ -629,7 +676,7 @@ namespace ComProg2Finals
         public MasterGooway()
         {
             picImage = "mastergooway.png";
-            Interactions = new string[] { "Buy", "Skip", "Cook into Turtle soup", "Eat" };
+            Interactions = new string[] { "Buy", "Skip"};
             EncounterDialogue = "Gooway I am";
         }
         int choice;

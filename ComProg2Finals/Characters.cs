@@ -226,7 +226,9 @@ namespace ComProg2Finals
             skillProbability = new int[]{ -1,-1,-1,-1};
             coinGainMultiplier = 1;
             rizzGainMultiplier = 1;
+            canGainCoin = true;
         }
+        bool canGainCoin;
         public void GainRizz(double value)
         {
             this.Rizz += value * rizzGainMultiplier;

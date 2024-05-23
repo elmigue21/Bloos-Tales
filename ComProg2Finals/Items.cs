@@ -15,7 +15,7 @@ namespace ComProg2Finals
             MessageBox.Show($"Items");
 
         }
-        public virtual void Encountered()
+        public virtual void Encountered(Bloo charac)
         {
             
         }
@@ -30,19 +30,34 @@ namespace ComProg2Finals
     }
     public class Rock : Items
     {
+        int iter;
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"It does nothing");
+            iter = 5;
+            charac.AttackDamage += 50;
+            MessageBox.Show($"bloo acquired rock, It does nothing");
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered()
+        public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Rock item encounter method triggered.");
+
+            if(iter == 0)
+            {
+                Lost(charac);
+            }
+            else
+            {
+                MessageBox.Show("ITER--");
+                iter--;
+            }
+            MessageBox.Show(charac.AttackDamage.ToString());
         }
 
         public override void Lost(Bloo charac)
         {
             MessageBox.Show("You lost your rock, it did nothing.");
+            charac.PlayerItems.Remove(this);
+            charac.AttackDamage -= 50;
         }
         public override void BattleAddItem(Bloo charac)
         {
