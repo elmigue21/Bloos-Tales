@@ -3,15 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|c:\\users\\john\\documents\\github\\comprog2finals\\comprog2finals\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|c:\\users\\john\\documents\\github\\comprog2finals\\comprog2finals\\items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|c:\\users\\john\\documents\\github\\comprog2finals\\comprog2finals\\statuseffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\statuseffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\statuseffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -23,15 +27,11 @@
       "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\characters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\comprog2finals\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|c:\\users\\john\\documents\\github\\comprog2finals\\comprog2finals\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35A6CF8A-7CBF-4FCC-83EF-4A51C29C82D6}|ComProg2Finals\\ComProg2Finals.csproj|solutionrelative:comprog2finals\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -50,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
@@ -63,8 +63,7 @@
               "ViewState": "AQIAAJoBAAAAAAAAAAAkwNABAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-09T11:41:07.876Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -80,12 +79,11 @@
               "RelativeToolTip": "ComProg2Finals\\Form2.cs",
               "ViewState": "AQIAAC4BAAAAAAAAAAAQwEUBAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T12:03:30.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-22T12:03:30.635Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Skills.cs",
               "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Skills.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\Skills.cs",
@@ -93,12 +91,11 @@
               "RelativeToolTip": "ComProg2Finals\\Skills.cs",
               "ViewState": "AQIAAFYAAAAAAAAAAAAAwGsAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T06:31:57.628Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-23T06:31:57.628Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Program.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\Program.cs",
@@ -111,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Characters.cs",
               "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Characters.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\Characters.cs",
@@ -119,8 +116,7 @@
               "RelativeToolTip": "ComProg2Finals\\Characters.cs",
               "ViewState": "AQIAAB0BAAAAAAAAAAAgwCoBAAB4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T12:06:58.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-22T12:06:58.366Z"
             },
             {
               "$type": "Document",
@@ -131,24 +127,22 @@
               "ToolTip": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form2.cs [Design]",
               "RelativeToolTip": "ComProg2Finals\\Form2.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T12:03:27.864Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-05-22T12:03:27.864Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form1.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\Form1.cs",
               "ToolTip": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Form1.cs [Design]",
               "RelativeToolTip": "ComProg2Finals\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T10:42:19.795Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-05-09T10:42:19.795Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "StatusEffect.cs",
               "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\StatusEffect.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\StatusEffect.cs",
@@ -156,18 +150,17 @@
               "RelativeToolTip": "ComProg2Finals\\StatusEffect.cs",
               "ViewState": "AQIAALsAAAAAAAAAAAAQwM4AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T10:40:09.774Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-23T10:40:09.774Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Items.cs",
               "DocumentMoniker": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Items.cs",
               "RelativeDocumentMoniker": "ComProg2Finals\\Items.cs",
               "ToolTip": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Items.cs",
               "RelativeToolTip": "ComProg2Finals\\Items.cs",
-              "ViewState": "AQIAAKgBAAAAAAAAAAAuwNoBAABAAAAA",
+              "ViewState": "AQIAAJEAAAAAAAAAAAAuwBAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-23T01:05:24.566Z",
               "EditorCaption": ""
@@ -201,7 +194,7 @@
               "RelativeDocumentMoniker": "ComProg2Finals\\Events.cs",
               "ToolTip": "C:\\Users\\John\\Documents\\GitHub\\ComProg2Finals\\ComProg2Finals\\Events.cs",
               "RelativeToolTip": "ComProg2Finals\\Events.cs",
-              "ViewState": "AQIAAJABAAAAAAAAAAAcwKwBAAA9AAAA",
+              "ViewState": "AQIAAJABAAAAAAAAAAA0wKwBAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-22T13:02:17.411Z",
               "EditorCaption": ""
