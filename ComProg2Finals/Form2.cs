@@ -282,7 +282,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-           currentEncounter = new Cave();
+          // currentEncounter = new Cave();
             for(int i = 0; i < currentEncounter.Interactions.Length; i++)
             {
                 Button button = new Button();

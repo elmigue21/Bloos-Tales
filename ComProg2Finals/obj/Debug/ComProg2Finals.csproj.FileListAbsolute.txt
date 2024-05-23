@@ -30,3 +30,14 @@ C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\
 C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.CoreCompileInputs.cache
 C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.exe
 C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.pdb
+C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe.config
+C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe
+C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.pdb
+C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.AssemblyReference.cache
+C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form1.resources
+C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form2.resources
+C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Properties.Resources.resources
+C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.GenerateResource.cache
+C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.CoreCompileInputs.cache
+C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.exe
+C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.pdb
