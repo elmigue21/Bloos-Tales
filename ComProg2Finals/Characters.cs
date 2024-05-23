@@ -21,6 +21,10 @@ namespace ComProg2Finals
         public string befEncounter { get; set; }
         public Form1 battleForm = Form1.GetInstance();
         public Form2 form2 = Form2.Instance;
+        private Bloo Player = Form2.Player;
+
+
+        public List<Action<Bloo>> EventActions { get; set; }
         // public Action<Bloo>[] EncounterActions{ get; set; }
 
         public virtual void EventAction1(Bloo bloo)
@@ -257,6 +261,8 @@ namespace ComProg2Finals
             EncounterDialogue = "I, the honorable knight, shall vanquish this lowly slime!";
             Interactions = new string[] { "Attack", "Rizz", "Ignore"};
             befEncounter = "As Bloo was bouncing his way, a faint sound of clinking metal echoed through the forest…";
+            //EventActions.Add(Player => EventAction1(Player));
+            //EventActions.Add(Player => EventAction2(Player));
         }
         public override void EventAction1(Bloo bloo)
         {
@@ -266,11 +272,13 @@ namespace ComProg2Finals
         {
             MessageBox.Show("By the gods, this slime is the most beautiful creature next to the princess I have ever seen. I would marry you if I were as gooey as you.");
         }
+        /*
         public override void EventAction3(Bloo bloo)
         {
             MessageBox.Show("By the heavens! Is that the sword from the stone? The Excalibur?");
             MessageBox.Show("Please, I’m not as worthy as you, humble slime. This honorable knight cannot claim the Excalibur. Use it in your journey and conquer your enemies.");
         }
+        */
     }
     public class Wizard : Character
     {

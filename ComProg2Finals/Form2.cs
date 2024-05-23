@@ -27,6 +27,10 @@ namespace ComProg2Finals
         public EncounterClass currentEncounter;
         int encounterCount;
         private System.Windows.Forms.Timer timer;
+
+
+        Shopkeeper shopkeeper = new Shopkeeper();
+        MasterGooway mastergooway = new MasterGooway();
         public Form2()
         {
             Instance = this;
@@ -35,6 +39,10 @@ namespace ComProg2Finals
 
             dialogueTextBox.ReadOnly = true;
             // MessageBox.Show(Player.Name);
+
+            Bloo bloo = new Bloo("Bloo");
+            Player = bloo;
+
 
             //Instance = this;
             Instance = this;
@@ -72,18 +80,24 @@ namespace ComProg2Finals
             timer.Interval = 2000;
             timer.Tick += Timer_Tick;
 
-            Bloo bloo = new Bloo("Bloo");
-            Player = bloo;
+            //Bloo bloo = new Bloo("Bloo");
+            //Player = bloo;
             encounterCount = 1;
 
             // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             //SoundPlayer player = new SoundPlayer(soundFilePath);
             // player.Play();
-            //Rock rock = new Rock();
+            Rock rock = new Rock();
+            rock.Acquired(Player);
 
-            Cologne rizz = new Cologne();
 
-            rizz.Acquired(Player);
+
+            mastergooway.skillshop = new Skill[] { new Bounce(), new Split(), new Mog(), new ElementBook() };
+            foreach(Skill s in mastergooway.skillshop)
+            {
+                
+            }
+            shopkeeper.itemshop = new Items[] { new LifePotion(), new MysteryPotion(), new RizzBooster(), new HealthBoosterPotion(), new DefenseDown50percentPotion(), new DuctTapePotion(), new PocketHolePotion(), new OneShotPotion(), new HardHelmet(), new SpikedHelmet()};
 
         }
         bool right, hold = true;
@@ -201,95 +215,13 @@ namespace ComProg2Finals
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            timer.Stop();
-            for (int i = 0; i < Player.PlayerItems.Count; i++)
+            for(int i = 0; i < Player.PlayerItems.Count; i++)
             {
                 Player.PlayerItems[i].Encountered(Player);
             }
             playerPictureBox.Image = Properties.Resources.blooIdle;
-           
-            /*
-            switch (encounterCount % 5)
-            {
-                case 0:
-                    Random rand1 = new Random();
-                    int qqq1 = rand1.Next(0, 5);
-                    switch (qqq1)
-                    {
-                        case 0:
-                            currentEncounter = new Knight("knightt");
-                            break;
-                        case 1:
-                            currentEncounter = new Wizard("gaanddaaalfff");
-                            break;
-                        case 2:
-                            currentEncounter = new Rogue("miroguel");
-                            break;
-                        case 3:
-                            currentEncounter = new Archer("legolas");
-                            break;
-                        case 4:
-                            currentEncounter = new Priest("rafaella");
-                            break;
-                    }
-                    break;
-                case 4:
-                    Random rand2 = new Random();
-                    int qqq2 = rand2.Next(0, 2);
-                    switch (qqq2)
-                    {
-                        case 0:
-                            currentEncounter = new Shopkeeper();
-                            break;
-                        case 1:
-                            currentEncounter = new MasterGooway();
-                            break;
-                    }
-                    break;
-                default:
-                    Random rand3 = new Random();
-                    int qqq3 = rand3.Next(0, 11);
-                    switch (qqq3)
-                    {
-                        case 0:
-                            currentEncounter = new Chest();
-                            break;
-                        case 1:
-                            currentEncounter = new Cave();
-                            break;
-                        case 2:
-                            currentEncounter = new SwordInStone();
-                            break;
-                        case 3:
-                            currentEncounter = new Bonfire();
-                            break;
-                        case 4:
-                            currentEncounter = new MysteriousMan();
-                            break;
-                        case 5:
-                            currentEncounter = new Jester();
-                            break;
-                        case 6:
-                            currentEncounter = new Seer();
-                            break;
-                        case 7:
-                            currentEncounter = new WishingWell();
-                            break;
-                        case 8:
-                            currentEncounter = new King();
-                            break;
-                        case 9:
-                            currentEncounter = new GobletEvent();
-                            break;
-                        case 10:
-                            currentEncounter = new AppleTree();
-                            break;
-                    }
-                    break;
-            }
-            */
-            
-          // currentEncounter = new Knight("qqq");
+            timer.Stop();
+    
             for(int i = 0; i < currentEncounter.Interactions.Length; i++)
             {
                 Button button = new Button();
@@ -297,6 +229,10 @@ namespace ComProg2Finals
                 button.Text = currentEncounter.Interactions[i];
 
 
+                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventActions[i](Player));
+
+
+                
                 switch (i)
                 {
                     case 0:
@@ -320,7 +256,7 @@ namespace ComProg2Finals
 
                 }
                 
-
+                
 
 
 
@@ -338,7 +274,6 @@ namespace ComProg2Finals
             {
                 Player.PlayerItems[i].BattleAddItem(Player);
             }
-           
             Form1 f1 = Form1.GetInstance();
             f1.Enemy = currentEncounter as Character;
             f1.Player = Player;
@@ -402,10 +337,10 @@ namespace ComProg2Finals
                     switch (qqq2)
                     {
                         case 0:
-                            currentEncounter = new Shopkeeper();
+                            currentEncounter = shopkeeper;
                             break;
                         case 1:
-                            currentEncounter = new MasterGooway();
+                            currentEncounter = mastergooway;
                             break;
                     }
                     break;
@@ -417,7 +352,7 @@ namespace ComProg2Finals
                         case 0:
                             currentEncounter = new Chest();
                             break;
-                        case 1:
+                        case 1: 
                             currentEncounter = new Cave();
                             break;
                         case 2:
@@ -450,7 +385,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-            currentEncounter = new King();
+            currentEncounter = new Knight("qweqwe");
 
             label1.Text = "";
             dialogueTextBox.Text = currentEncounter.befEncounter;
