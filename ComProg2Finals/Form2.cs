@@ -215,12 +215,13 @@ namespace ComProg2Finals
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            for(int i = 0; i < Player.PlayerItems.Count; i++)
+            timer.Stop();
+            for (int i = 0; i < Player.PlayerItems.Count; i++)
             {
                 Player.PlayerItems[i].Encountered(Player);
             }
             playerPictureBox.Image = Properties.Resources.blooIdle;
-            timer.Stop();
+            
     
             for(int i = 0; i < currentEncounter.Interactions.Length; i++)
             {
