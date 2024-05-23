@@ -411,20 +411,24 @@ public class Seer : Events
                 break;
             case 1:
                 bloo.Coins -= 150;
+                    bloo.PlayerItems.Add(new SeerBuff(rand));
                 // add status effect final boss 30% atk dmg boost for bloo
                 break;
             case 2:
                 bloo.Coins -= 100;
-                // add status effect next boss 15% atk dmg boost for bloo
-                break;
+                    bloo.PlayerItems.Add(new SeerBuff(rand));
+                    // add status effect next boss 15% atk dmg boost for bloo
+                    break;
             case 3:
                 bloo.Coins -= 50;
-                // add status effect, lower accuracy of next boss
-                break;
+                    bloo.PlayerItems.Add(new SeerBuff(rand));
+                    // add status effect, lower accuracy of next boss
+                    break;
             case 4:
                 bloo.Coins -= 50;
-                // add status effect, +20 def for bloo on next boss 
-                break;
+                    bloo.PlayerItems.Add(new SeerBuff(rand));
+                    // add status effect, +20 def for bloo on next boss 
+                    break;
         }
     }
     public override void Perform(Bloo bloo)
@@ -547,14 +551,45 @@ public class King : Events
 {
     public King()
     {
-        Name = "KING MIGUEL";
+        Name = "KING";
         picImage = "king.png";
-        EncounterDialogue = "Bloo stumbles upon the greatest king in the world, King Miguel! " +
-            "Bloo kneels immediately and devotes his loyalty and pledges his sword and promises to give his life protecting THE ONE TRUE KING, KING MIGUEL! HAIL KING MIGUEL! HAIL!" +
-            " MAY HE BE BLESSED AND LONG MAY HE REIGN!";
-        Interactions = new string[] { "Kneel", "Bow down", "Praise" };
+        EncounterDialogue = "What manner of odd creature are you… Say, my kingdom has come to ruins, would you mind making a trade to this daring king?";
+        Interactions = new string[] { "Accept", "Decline" };
     }
-    int choice;
+        public override void EventAction1(Bloo bloo)
+        {
+            Random random = new Random();
+            int randomNumber = random.Next(3);
+
+            switch (randomNumber)
+            {
+                case 0:
+                    bloo.Coins += 500;
+                    MessageBox.Show("gained 500 coins but next 3 items are not claimable");
+                    // add status effect that items are not claimable logic here
+
+                    break;
+                case 1:
+                    bloo.Rizz += 50;
+                    bloo.Lives = 1;
+                    MessageBox.Show("gained 50 rizz, lost lives");
+                    break;
+                case 2:
+                    bloo.Lives = 5;
+                    bloo.Coins -= bloo.Coins * .75;
+                    bloo.Rizz -= bloo.Rizz * .75;
+                    MessageBox.Show("gained 5 lives, lost 75% coins and 75% rizz");
+                    break;
+            }
+        }
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("Bloo declines");
+        }
+
+
+        int choice;
+        /*
     public override void Perform(Bloo bloo)
     {
 
@@ -583,6 +618,7 @@ public class King : Events
         }
             
     }
+        */
 }
 public class GobletEvent : Events
 {

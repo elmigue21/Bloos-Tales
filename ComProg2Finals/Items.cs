@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,6 +12,7 @@ namespace ComProg2Finals
 {
     public class Items
     {
+        Form1 battleForm = Form1.GetInstance();
         public virtual void Acquired(Bloo charac)
         {
             MessageBox.Show($"Items");
@@ -274,7 +276,7 @@ namespace ComProg2Finals
             }
             MessageBox.Show(charac.Defense.ToString());
         }
-        public virtual void Lost(Bloo charac)
+        public override void Lost(Bloo charac)
         {
             MessageBox.Show("Defense Down lost");
             charac.Defense += defenseDebuff;
@@ -449,4 +451,39 @@ namespace ComProg2Finals
         }
 
     }
+    
+    public class SeerBuff : Items
+    {
+        int index;
+        public SeerBuff(int ind)
+        {
+            index = ind;
+        }
+        public override void BattleAddItem(Bloo charac)
+        {
+            switch (index)
+            {
+                case 1:
+                    // if final boss, add stat effect
+                    break;
+                case 2:
+                    charac.CharStatEffects.Add(new AttackBoost("Seer buff", 0.15));
+                    MessageBox.Show("Bloo attacks are enhanced");
+                    charac.PlayerItems.Remove(this);
+                    break;
+                case 3:
+                    // add charac.opposition before triggering//
+                    charac.Opposition.Accuracy -= 50;
+                    MessageBox.Show("Bloo's enemy is feeling dizzy");
+                    charac.PlayerItems.Remove(this);
+                    break;
+                case 4:
+                    charac.CharStatEffects.Add(new DefenseBoost("Seer buff", 20));
+                    MessageBox.Show("Bloo feels tougher");
+                    charac.PlayerItems.Remove(this);
+                    break;
+            }
+        }
+    }
+    
 }

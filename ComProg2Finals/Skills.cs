@@ -90,23 +90,41 @@ namespace ComProg2Finals
 
         public override void Perform(Character user)
         {
-            int choice = 0;
-            switch (choice)
+            Random random = new Random();
+            int rand = random.Next(0, 4);
+            switch (user.Opposition.elementType)
+            {
+                case "Fire":
+                    break;
+                case "Earth":
+                    break;
+                case "Wind":
+                    break;
+                case "Water":
+                    break;
+                default:
+                    break;
+            }
+            switch (rand)
             {
                 case 0:
+                    MessageBox.Show("Element Book used, Burn inflicted on " + user.Opposition.Name);
                     user.elementType = "Fire";
                     battleForm.skillsQueue.Add(() => user.Opposition.CharStatEffects.Add(new DmgPerTurn("Burn", 10, 5)));
                     break;
                 case 1:
+                    MessageBox.Show("Element book used, " + user.Name + " defense raised.");
                     user.elementType = "Earth";
                     user.Defense += 20;
                     break;
                 case 2:
+                    MessageBox.Show("Element book used, Wind used");
                     user.elementType = "Wind";
                     // dagdag ng stat effect na multi hit
                     //user.CharStatEffects.Add(/*multi hit*/);
                     break;
                 case 3:
+                    MessageBox.Show("Element book used, " + user.Opposition.Name + "'s Accuracy reduced");
                     user.elementType = "Water";
                     user.Opposition.Accuracy -= 20;
                     break;

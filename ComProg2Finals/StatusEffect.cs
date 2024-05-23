@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Media;
 using System.Runtime.Serialization.Formatters;
 using System.Text;
 using System.Threading.Tasks;
@@ -192,6 +193,20 @@ namespace ComProg2Finals
         {
 
         }
-}
+    }
+
+    public class AttackBoost : StatusEffect
+    {
+        public AttackBoost(string name, double multip) : base (name){
+            battleForm.Player.AttackDamage += battleForm.Player.AttackDamage * multip;
+        }
+    }
+    public class DefenseBoost : StatusEffect
+    {
+        public DefenseBoost(string name, double val) : base(name)
+        {
+            battleForm.Player.Defense += val;
+        }
+    }
 
 }

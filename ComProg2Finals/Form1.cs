@@ -125,7 +125,7 @@ namespace ComProg2Finals
             //Enemy = characters[comboBox1.SelectedIndex];
             //Player.Opposition = Enemy;
             // Enemy.Opposition = Player;
-
+            Player.CharStatEffects.Add(new AttackBoost("Attackboost", 0.3));
             currentTurn = Player;
 
         
