@@ -16,60 +16,60 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace ComProg2Finals
 {
     
-public class Events : EncounterClass
-{
-    // public string picImage { get; set; }
-    public virtual void Perform(Bloo bloo)
+    public class Events : EncounterClass
     {
-        MessageBox.Show($"Events");
+        // public string picImage { get; set; }
+        public virtual void Perform(Bloo bloo)
+        {
+            MessageBox.Show($"Events");
+        }
     }
-}
-public class Chest : Events
-{
-    public Chest()
+    public class Chest : Events
     {
-        Name = "Chest";
-        picImage = "chest.png";
-        EncounterDialogue = "Bloo stumbles upon a chest!";
-        Interactions = new string[] { "Open", "Skip" };
-    }
-    public override void EventAction1(Bloo bloo)
-    {
-        MessageBox.Show("bloo opens the chest");
-        Random random = new Random();
-        randomNumber = random.Next(100);
+        public Chest()
+        {
+            Name = "Chest";
+            picImage = "chest.png";
+            EncounterDialogue = "Bloo stumbles upon a chest!";
+            Interactions = new string[] { "Open", "Skip" };
+        }
+        public override void EventAction1(Bloo bloo)
+        {
+            MessageBox.Show("bloo opens the chest");
+            Random random = new Random();
+            randomNumber = random.Next(100);
 
-        if (randomNumber <= lifePotChance)
-        {
-            if (bloo.Lives < 5)
+            if (randomNumber <= lifePotChance)
             {
-                bloo.Lives += 1;
+                if (bloo.Lives < 5)
+                {
+                    bloo.Lives += 1;
+                }
+                MessageBox.Show("You found a Life Potion!");
             }
-            MessageBox.Show("You found a Life Potion!");
+            else if (randomNumber <= lifePotChance + rizzChance)
+            {
+                bloo.Rizz += gainedRizz;
+                MessageBox.Show("You gained some Rizz!");
+            }
+            else if (randomNumber <= lifePotChance + rizzChance + coinChance)
+            {
+                bloo.Coins += 50;
+                MessageBox.Show("You found some coins!");
+            }
+            else
+            {
+                    // fight chest logic
+                    Form2 form2 = Form2.Instance;
+                    Form1 form1 = Form1.GetInstance();
+                    form1.Enemy = new HostileChest("CHESTY");
+                    form1.Enemy.Opposition = bloo;
+                    form1.Player = bloo;
+                    form1.Player.Opposition = form1.Enemy;
+                    form1.Show();
+                MessageBox.Show("You won all loot!");
+            }
         }
-        else if (randomNumber <= lifePotChance + rizzChance)
-        {
-            bloo.Rizz += gainedRizz;
-            MessageBox.Show("You gained some Rizz!");
-        }
-        else if (randomNumber <= lifePotChance + rizzChance + coinChance)
-        {
-            bloo.Coins += 50;
-            MessageBox.Show("You found some coins!");
-        }
-        else
-        {
-                // fight chest logic
-                Form2 form2 = Form2.Instance;
-                Form1 form1 = Form1.GetInstance();
-                form1.Enemy = new HostileChest("CHESTY");
-                form1.Enemy.Opposition = bloo;
-                form1.Player = bloo;
-                form1.Player.Opposition = form1.Enemy;
-                form1.Show();
-            MessageBox.Show("You won all loot!");
-        }
-    }
     public override void EventAction2(Bloo bloo)
     {
         MessageBox.Show("bloo ignores the chest");
