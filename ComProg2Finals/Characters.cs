@@ -217,7 +217,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 1;
             Speed = 10;
-            CharSkills = new List<Skill> { new Tackle(), new Goo(), new Bounce()};
+            CharSkills = new List<Skill> { new Tackle(), new Goo()};
             Rizz = 20;
             picImage = "blooIdle.gif";
             Defense = 999;

@@ -675,14 +675,14 @@ public class AppleTree : Events
 
 public class MasterGooway : Events
 {
-        public Skill[] skillshop;
+        public List<Skill> skillshop;
     public MasterGooway()
     {
         picImage = "mastergooway.png";
         //Interactions = new string[] { "Buy", "Skip"};
         EncounterDialogue = "Gooway I am";
-            skillshop = new Skill[] { new Bounce(), new Split(), new Mog(), new ElementBook() };
-        }
+        skillshop = new List<Skill> {new Bounce(), new Split(), new Mog(), new ElementBook() };
+    }
     int choice;
 
     public override void EventAction1(Bloo bloo)
@@ -730,7 +730,7 @@ public class MasterGooway : Events
 }
 public class Shopkeeper: Events
 {
-        public Items[] itemshop;
+        public List<Skill> itemshop;
     public Shopkeeper()
     {
         picImage = "wishingwell.png";

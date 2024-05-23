@@ -47,6 +47,8 @@ namespace ComProg2Finals
             //Instance = this;
             Instance = this;
 
+            //mastergooway.skillshop = new Skill[] { new Bounce(), new Split(), new Mog(), new ElementBook() };
+            //shopkeeper.itemshop = new Items[] { new LifePotion(), new MysteryPotion(), new RizzBooster(), new HealthBoosterPotion(), new DefenseDown50percentPotion(), new DuctTapePotion(), new PocketHolePotion(), new OneShotPotion(), new HardHelmet(), new SpikedHelmet() };
 
 
         }
@@ -92,12 +94,8 @@ namespace ComProg2Finals
 
 
 
-            mastergooway.skillshop = new Skill[] { new Bounce(), new Split(), new Mog(), new ElementBook() };
-            foreach(Skill s in mastergooway.skillshop)
-            {
-                
-            }
-            shopkeeper.itemshop = new Items[] { new LifePotion(), new MysteryPotion(), new RizzBooster(), new HealthBoosterPotion(), new DefenseDown50percentPotion(), new DuctTapePotion(), new PocketHolePotion(), new OneShotPotion(), new HardHelmet(), new SpikedHelmet()};
+            //mastergooway.skillshop = new Skill[] { new Bounce(), new Split(), new Mog(), new ElementBook() };
+            //shopkeeper.itemshop = new Items[] { new LifePotion(), new MysteryPotion(), new RizzBooster(), new HealthBoosterPotion(), new DefenseDown50percentPotion(), new DuctTapePotion(), new PocketHolePotion(), new OneShotPotion(), new HardHelmet(), new SpikedHelmet()};
 
         }
         bool right, hold = true;
@@ -222,48 +220,110 @@ namespace ComProg2Finals
             }
             playerPictureBox.Image = Properties.Resources.blooIdle;
             
-    
-            for(int i = 0; i < currentEncounter.Interactions.Length; i++)
+
+
+            if (currentEncounter != mastergooway && currentEncounter != shopkeeper)
             {
-                Button button = new Button();
-
-                button.Text = currentEncounter.Interactions[i];
-
-
-                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventActions[i](Player));
-
-
-                
-                switch (i)
+                for (int i = 0; i < currentEncounter.Interactions.Length; i++)
                 {
-                    case 0:
-                        button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction1(Player));
-                        break;
-                    case 1:
-                        button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction2(Player));
-                        break;
-                    case 2:
-                        button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction3(Player));
-                        break;
-                    case 3:
-                        button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction4(Player));
-                        break;
-                    case 4:
-                        button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction5(Player));
-                        break;
-                    case 5:
-                        button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction6(Player));
-                        break;
+                    Button button = new Button();
 
+                    button.Text = currentEncounter.Interactions[i];
+
+
+                  //  button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventActions[i](Player));
+
+
+                  //  if (encounterCount % 5 != 4)
+                    //{
+                        switch (i)
+                        {
+                            case 0:
+                                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction1(Player));
+                                break;
+                            case 1:
+                                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction2(Player));
+                                break;
+                            case 2:
+                                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction3(Player));
+                                break;
+                            case 3:
+                                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction4(Player));
+                                break;
+                            case 4:
+                                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction5(Player));
+                                break;
+                            case 5:
+                                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction6(Player));
+                                break;
+
+                        }
+                    /*
+                    }
+                    else
+                    {
+                        if (currentEncounter == shopkeeper)
+                        {
+                            for (int z = 0; z < shopkeeper.itemshop.Length; z++)
+                            {
+
+                            }
+                        }
+                        else if (currentEncounter == mastergooway)
+                        {
+                            for (int z = 0; z < mastergooway.skillshop.Length; z++)
+                            {
+
+                            }
+                        }
+                    }
+
+                    */
+
+
+
+                    flowLayoutPanel1.Controls.Add(button);
                 }
-                
-                
-
-
-
-
-                flowLayoutPanel1.Controls.Add(button);
             }
+            else
+            {
+                if(currentEncounter == shopkeeper)
+                {
+                    for(int i = 0; i < shopkeeper.itemshop.Count; i++)
+                    {
+                        Button button = new Button();
+                        //button.Text = shopkeeper.itemshop[i]
+                    }
+                }
+                else if(currentEncounter == mastergooway)
+                {
+                    for(int i = 0; i < mastergooway.skillshop.Count; i++)
+                    {
+                        int index = i;
+                        Button button = new Button();
+                        button.Text = mastergooway.skillshop[i].Name;
+                        button.Click += (Btnsender, args) =>
+                        {
+                            // Call the Learn() method
+                            MessageBox.Show(mastergooway.skillshop[index].ToString());
+                            mastergooway.skillshop[index].Learn(Player);
+                            mastergooway.skillshop.Remove(mastergooway.skillshop[index]);
+                        };
+                        flowLayoutPanel1.Controls.Add(button);
+                    }
+                }
+            }
+            
+            Button btncheck = new Button();
+            btncheck.Text = "fightttt";
+            
+            btncheck.Click += (qqqsender, qe) =>
+            {
+                currentEncounter = new Knight("qweqwe");
+                EnterBattle();
+            };
+            flowLayoutPanel1.Controls.Add(btncheck);
+            
             label1.Text = currentEncounter.Name;
             dialogueTextBox.Text = currentEncounter.EncounterDialogue;
             charactersPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
@@ -386,7 +446,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-            currentEncounter = new Knight("qweqwe");
+            currentEncounter = mastergooway;
 
             label1.Text = "";
             dialogueTextBox.Text = currentEncounter.befEncounter;
