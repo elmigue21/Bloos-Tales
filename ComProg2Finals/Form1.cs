@@ -17,7 +17,7 @@ namespace ComProg2Finals
     {
         public Bloo Player;
         string directory;
-
+        bool PlayerWin;
         public Character Enemy { get; set; }
         //public Character Enemy;
 
@@ -50,6 +50,8 @@ namespace ComProg2Finals
 
 
         }
+
+       
         public static Form1 GetInstance()
         {
             if (instance == null || instance.IsDisposed)
@@ -62,19 +64,26 @@ namespace ComProg2Finals
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // pag call kay bloo/player from the characters class
-            //Bloo bloo = new Bloo("Bloo");
-            //Player = bloo;
-            ////
-            string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
-            SoundPlayer battlemusicplayer = new SoundPlayer(soundFilePath);
-            battlemusicplayer.Play();
+            // pag set ng image ng picturebox
+            string programDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            directory = AppDomain.CurrentDomain.BaseDirectory;
+            playerPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
 
 
 
+            // form instance
+            Instance.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "00Sky.png"));
 
-            ////
-            currentTurn = Player;
+            platform05.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "05platform.png"));
+            clouds01Back.Image = Image.FromFile(Path.Combine(directory, "assets", "01cloudsBack.png"));
+            clouds02Front.Image = Image.FromFile(Path.Combine(directory, "assets", "02cloudsFront.png"));
+            hills03Back.Image = Image.FromFile(Path.Combine(directory, "assets", "03hillsBack.png"));
+            hills04Front.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "04hillsFront.png"));
+            //MessageBox.Show
+            // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
+            // SoundPlayer battlemusicplayer = new SoundPlayer(soundFilePath);
+            //  battlemusicplayer.Play();
+            // currentTurn = Player;
 
             // pag call ng enemy from characters class
             /*
@@ -115,16 +124,11 @@ namespace ComProg2Finals
 
             //Enemy = characters[comboBox1.SelectedIndex];
             //Player.Opposition = Enemy;
-           // Enemy.Opposition = Player;
+            // Enemy.Opposition = Player;
 
             currentTurn = Player;
 
-
-            // pag set ng image ng picturebox
-            string programDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            directory = AppDomain.CurrentDomain.BaseDirectory;
-            playerPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-
+        
 
             updateLabels();
             // runTurn();
@@ -147,67 +151,12 @@ namespace ComProg2Finals
 
             Player.Opposition = Enemy;
             Enemy.Opposition = Player;
-            MessageBox.Show(this.Enemy.ToString());
-            MessageBox.Show(this.Enemy.Opposition.ToString());
 
         }
         private void runTurn()
         {
-            // effects only trigger on current turn character, may need fix
-
-
-
-            // pag trigger ng status effects sa character
-
-            /*
-            for (int i = 0; i < currentTurn.CharStatEffects.Count; i++)
-            {
-                currentTurn.CharStatEffects[i].Trigger(currentTurn);
-            }
-
-            
-
-            */
-
-            //////////
-            /*
-            if (currentTurn.Opposition.hasTurn)
-            {
-                currentTurn = currentTurn.Opposition;
-            }
-            else
-            {
-                currentTurn.Opposition.hasTurn = true;
-            }
-            */
-            ////////////
-            // pag set ng buttons text according sa skills ng current turn na character
-            /*
-            for (int i = 0; i < 4; i++)
-            {
-                if (i >= currentTurn.CharSkills.Count)
-                {
-                    skillButtons[i].Text = "";
-                }
-                else
-                {
-                    skillButtons[i].Text = currentTurn.CharSkills[i].Name;
-                }
-            }
-            */
-
-
                 runEnemy();
-            
-
-   
                 testButton_Click(null, EventArgs.Empty);
-            
-
-
-
-
-
 
         }
         private void runEnemy()
@@ -242,54 +191,49 @@ namespace ComProg2Finals
         // buttons para sa skills
         private void button1_Click(object sender, EventArgs e)
         {
-            //currentTurn.UseSkill1(currentTurn);
-            if (currentTurn.CharSkills.Count >= 1)
+            if (Player.CharSkills.Count >= 1)
             {
                 if (Player.hasTurn)
                 {
-                    currentTurn.UseSkill1(currentTurn);
+                    Player.UseSkill1(Player);
+                }
+                else
+                {
+                    Player.hasTurn = true;
                 }
                 if (Player.Health <= 0)
                 {
                     MessageBox.Show("Bloo has lost!");
-                    form2.runNextEncounter();
                     this.Close();
-                    //form2.runNextEncounter();
                 }
                 else if (Enemy.Health <= 0)
                 {
                     MessageBox.Show("Bloo has won!");
-                    form2.runNextEncounter();
                     this.Close();
-                    //form2.runNextEncounter();
                 }
                 else
                 {
-                    currentTurn.skillQueued = currentTurn.CharSkills[0];
                     //runEnemy();
                     runTurn();
                     updateLabels();
                 }
-                /*
-                if (currentTurn.Opposition.hasTurn)
-                {
-                    currentTurn = currentTurn.Opposition;
-                }
-                else
-                {
-                    currentTurn.Opposition.hasTurn = true;
-                }
-                */
-                //updateLabels();
             }
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (currentTurn.CharSkills.Count >= 2)
+            if (Player.CharSkills.Count >= 2)
             {
-                currentTurn.UseSkill2(currentTurn);
+
+                if (Player.hasTurn)
+                {
+                    Player.UseSkill2(Player);
+                }
+                else
+                {
+                    Player.hasTurn = true;
+                }
 
                 if (Player.Health <= 0)
                 {
@@ -303,29 +247,24 @@ namespace ComProg2Finals
                 }
                 else
                 {
-                    currentTurn.skillQueued = currentTurn.CharSkills[1];
                     runTurn();
                     updateLabels();
                 }
-                /*
-                if (currentTurn.Opposition.hasTurn)
-                {
-                    currentTurn = currentTurn.Opposition;
-                }
-                else
-                {
-                    currentTurn.Opposition.hasTurn = true;
-                }
-                */
-               // updateLabels();
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (currentTurn.CharSkills.Count >= 3)
+            if (Player.CharSkills.Count >= 3)
             {
-                currentTurn.UseSkill3(currentTurn);
+                if (Player.hasTurn)
+                {
+                    Player.UseSkill3(Player);
+                }
+                else
+                {
+                    Player.hasTurn = true;
+                }
 
                 if (Player.Health <= 0)
                 {
@@ -339,30 +278,25 @@ namespace ComProg2Finals
                 }
                 else
                 {
-                    currentTurn.skillQueued = currentTurn.CharSkills[2];
                     runTurn();
                     updateLabels();
                 }
-                /*
-                if (currentTurn.Opposition.hasTurn)
-                {
-                    currentTurn = currentTurn.Opposition;
-                }
-                else
-                {
-                    currentTurn.Opposition.hasTurn = true;
-                }*/
-                //updateLabels();
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (currentTurn.CharSkills.Count >= 4)
+            if (Player.CharSkills.Count >= 4)
             {
 
-                currentTurn.UseSkill4(currentTurn);
-
+                if (Player.hasTurn)
+                {
+                    Player.UseSkill4(Player);
+                }
+                else
+                {
+                    Player.hasTurn = true;
+                }
 
                 if (Player.Health <= 0)
                 {
@@ -376,21 +310,10 @@ namespace ComProg2Finals
                 }
                 else
                 {
-                    currentTurn.skillQueued = currentTurn.CharSkills[3];
                     runTurn();
                     updateLabels();
                 }
-                /*
 
-                if (currentTurn.Opposition.hasTurn)
-                {
-                    currentTurn = currentTurn.Opposition;
-                }
-                else
-                {
-                    currentTurn.Opposition.hasTurn = true;
-                }*/
-               // updateLabels();
             }
         }
         /////////
@@ -418,41 +341,10 @@ namespace ComProg2Finals
             enemyLabelRizz.Text = "Rizz:" + Enemy.Rizz.ToString();
             enemyLabelDefense.Text = "Defense:" + Enemy.Defense.ToString();
             enemyPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Enemy.picImage));
-
-            /*
-            if (Player.Health <= 0)
-            {
-                MessageBox.Show("Bloo has lost!");
-                this.Close();
-            }
-            else if (Enemy.Health <= 0)
-            {
-                MessageBox.Show("Bloo has won!");
-                this.Close();
-            }
-            */
-
-
-
-
         }
 
         private void testButton_Click(object sender, EventArgs e)
         {
-            //MasterGooway master = new MasterGooway();
-            //master.Perform(Player);
-            /*
-            AppleTree appletree = new AppleTree();
-            appletree.Perform(Player);
-            if (Player.PlayerItems.Count > 0)
-            {
-                MessageBox.Show(Player.PlayerItems[0].ToString());
-            }
-            */
-
-
-           // Form gameFlow = new GameFlow();
-
             for (int i = 0; i < Player.CharStatEffects.Count; i++)
             {
                 Player.CharStatEffects[i].Trigger(Player);
@@ -461,25 +353,15 @@ namespace ComProg2Finals
             {
                 Enemy.CharStatEffects[i].Trigger(Enemy);
             }
-
-
-
-
             foreach(Action skills in skillsQueue)
             {
                 skills();
-                //MessageBox.Show("qweqwew");
             }
 
             skillsQueue.Clear();
-
-            //MessageBox.Show(skillsQueue[0].ToString());
-
-
-
+            
             if (Player.hasTurn)
             {
-                //Player.skillQueued.Perform(Player);
                 if (Player.Health <= 0)
                 {
                     MessageBox.Show("Bloo has lost!");
@@ -493,11 +375,9 @@ namespace ComProg2Finals
             }
             else
             {
-                //Player.hasTurn = true;
             }
             if (Enemy.hasTurn)
             {
-               // Enemy.skillQueued.Perform(Enemy);
                 if (Player.Health <= 0)
                 {
                     MessageBox.Show("Bloo has lost!");
@@ -578,6 +458,11 @@ namespace ComProg2Finals
                 }
             }
             updateLabels();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            form2.runNextEncounter();
         }
     }
 }

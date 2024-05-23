@@ -15,7 +15,7 @@ namespace ComProg2Finals
             MessageBox.Show($"Items");
 
         }
-        public virtual void Encountered()
+        public virtual void Encountered(Bloo charac)
         {
             
         }
@@ -30,20 +30,34 @@ namespace ComProg2Finals
     }
     public class Rock : Items
     {
+        int iter;
         public override void Acquired(Bloo charac)
         {
-           // MessageBox.Show($"Bloo obtained a rock!");
-            MessageBox.Show($"It does nothing");
+            iter = 5;
+            charac.AttackDamage += 50;
+            MessageBox.Show($"bloo acquired rock, It does nothing");
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered()
+        public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Rock item encounter method triggered.");
+
+            if(iter == 0)
+            {
+                Lost(charac);
+            }
+            else
+            {
+                MessageBox.Show("ITER--");
+                iter--;
+            }
+            MessageBox.Show(charac.AttackDamage.ToString());
         }
 
         public override void Lost(Bloo charac)
         {
             MessageBox.Show("You lost your rock, it did nothing.");
+            charac.PlayerItems.Remove(this);
+            charac.AttackDamage -= 50;
         }
         public override void BattleAddItem(Bloo charac)
         {
@@ -62,7 +76,7 @@ namespace ComProg2Finals
             //MessageBox.Show($" -{change}% Gold Income, -{change}% Rizz Income");
 
         }
-        public override void Encountered()
+        public override void Encountered(Bloo charac)
         {
             MessageBox.Show("Rock item encounter method triggered.");
         }
@@ -79,10 +93,7 @@ namespace ComProg2Finals
             //MessageBox.Show($" -{change}% Accuracy, +{change}% Double Damage");
 
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+        
     }
     public class Behelith : Items
     {
@@ -99,10 +110,7 @@ namespace ComProg2Finals
             charac.PlayerItems.Add(this);
             //MessageBox.Show($"One life, +{change}% Gold Income, -{change}% Rizz Income");
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+        
     }
     public class Cologne : Items
     {
@@ -113,10 +121,7 @@ namespace ComProg2Finals
             charac.PlayerItems.Add(this);
             //MessageBox.Show($"+20 Permanent Rizz");
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+        
     }
     public class Piggybank : Items
     {
@@ -127,10 +132,7 @@ namespace ComProg2Finals
             charac.PlayerItems.Add(this);
             //MessageBox.Show($"+10 Coins");
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+        
 
 
     }
@@ -147,10 +149,7 @@ namespace ComProg2Finals
             charac.PlayerItems.Add(this);
             //MessageBox.Show($"Extra Life");
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+     
     }
     public class MysteryPotion : Items
     {
@@ -160,10 +159,7 @@ namespace ComProg2Finals
             charac.PlayerItems.Add(this);
 
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+      
     }
     public class RizzBooster : Items
     {
@@ -175,10 +171,7 @@ namespace ComProg2Finals
             charac.PlayerItems.Add(this);
             //MessageBox.Show($"+{change}% Permanent Rizz");
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+   
     }
     public class HealthBoosterPotion : Items
     {
@@ -201,10 +194,7 @@ namespace ComProg2Finals
             charac.PlayerItems.Add(this);
             //MessageBox.Show($"+{change}% Defense");
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+    
     }
     public class DuctTapePotion : Items
     {
@@ -213,10 +203,7 @@ namespace ComProg2Finals
             MessageBox.Show($"Duct Tape Potion, can’t use rizz");
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+     
     }
     public class PocketHolePotion : Items
     {
@@ -225,10 +212,7 @@ namespace ComProg2Finals
             MessageBox.Show($"Pocket Hole Potion, can’t use money");
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+      
     }
     public class OneShotPotion : Items
     {
@@ -237,10 +221,7 @@ namespace ComProg2Finals
             MessageBox.Show($"One Shot Potion");
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+      
     }
     public class HardHelmet : Items
     {
@@ -250,10 +231,7 @@ namespace ComProg2Finals
             charac.Defense += 15;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+      
     }
     public class SpikedHelmet : Items
     {
@@ -263,10 +241,7 @@ namespace ComProg2Finals
             charac.Defense += 5;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+      
     }
     public class Excalibur : Items
     {
@@ -275,10 +250,7 @@ namespace ComProg2Finals
             charac.AttackDamage += 50;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+       
     }
     public class StrangeGem : Items
     {
@@ -288,10 +260,7 @@ namespace ComProg2Finals
             charac.Coins += charac.Coins * .50;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+       
     }
     public class GoldenArrow : Items
     {
@@ -301,10 +270,7 @@ namespace ComProg2Finals
             charac.PlayerItems.Add(this);
             MessageBox.Show($"{charac.Name}'s crit chance is now {charac.CritChance}");
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+      
     }
     public class HolyWater : Items
     {
@@ -313,10 +279,7 @@ namespace ComProg2Finals
             MessageBox.Show($"Holy Water");
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+       
     }
     public class Goblet : Items
     {
@@ -325,9 +288,6 @@ namespace ComProg2Finals
             MessageBox.Show($"Goblet");
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered()
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
+       
     }
 }

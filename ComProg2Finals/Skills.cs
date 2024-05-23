@@ -37,7 +37,7 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            MessageBox.Show(battleForm.ToString());
+            //MessageBox.Show(battleForm.ToString());
             battleForm.skillsQueue.Add(() => user.Opposition.DamageCharac(10, user));
             /*
             double damageValue = -25;

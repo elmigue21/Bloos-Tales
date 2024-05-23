@@ -53,14 +53,22 @@
             this.playerLabelLives = new System.Windows.Forms.Label();
             this.playerLabelCoins = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.clouds01Back = new System.Windows.Forms.PictureBox();
+            this.clouds02Front = new System.Windows.Forms.PictureBox();
+            this.hills03Back = new System.Windows.Forms.PictureBox();
+            this.platform05 = new System.Windows.Forms.Panel();
+            this.hills04Front = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clouds01Back)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clouds02Front)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hills03Back)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(61, 314);
+            this.button1.Location = new System.Drawing.Point(52, 342);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 45);
             this.button1.TabIndex = 0;
@@ -69,7 +77,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(214, 314);
+            this.button2.Location = new System.Drawing.Point(190, 342);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(132, 45);
             this.button2.TabIndex = 1;
@@ -78,7 +86,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(61, 377);
+            this.button3.Location = new System.Drawing.Point(52, 393);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(132, 45);
             this.button3.TabIndex = 2;
@@ -87,7 +95,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(214, 377);
+            this.button4.Location = new System.Drawing.Point(190, 393);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(132, 45);
             this.button4.TabIndex = 3;
@@ -98,7 +106,7 @@
             // 
             this.playerLabelName.AutoSize = true;
             this.playerLabelName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelName.Location = new System.Drawing.Point(68, 157);
+            this.playerLabelName.Location = new System.Drawing.Point(177, 14);
             this.playerLabelName.Name = "playerLabelName";
             this.playerLabelName.Size = new System.Drawing.Size(84, 13);
             this.playerLabelName.TabIndex = 5;
@@ -106,7 +114,8 @@
             // 
             // enemyPictureBox
             // 
-            this.enemyPictureBox.Location = new System.Drawing.Point(639, 37);
+            this.enemyPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.enemyPictureBox.Location = new System.Drawing.Point(674, 217);
             this.enemyPictureBox.Name = "enemyPictureBox";
             this.enemyPictureBox.Size = new System.Drawing.Size(100, 97);
             this.enemyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -115,7 +124,8 @@
             // 
             // playerPictureBox
             // 
-            this.playerPictureBox.Location = new System.Drawing.Point(71, 37);
+            this.playerPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.playerPictureBox.Location = new System.Drawing.Point(52, 217);
             this.playerPictureBox.Name = "playerPictureBox";
             this.playerPictureBox.Size = new System.Drawing.Size(100, 97);
             this.playerPictureBox.TabIndex = 8;
@@ -125,7 +135,7 @@
             // 
             this.playerLabelHealth.AutoSize = true;
             this.playerLabelHealth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelHealth.Location = new System.Drawing.Point(68, 170);
+            this.playerLabelHealth.Location = new System.Drawing.Point(177, 27);
             this.playerLabelHealth.Name = "playerLabelHealth";
             this.playerLabelHealth.Size = new System.Drawing.Size(87, 13);
             this.playerLabelHealth.TabIndex = 9;
@@ -135,7 +145,7 @@
             // 
             this.enemyLabelName.AutoSize = true;
             this.enemyLabelName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelName.Location = new System.Drawing.Point(636, 157);
+            this.enemyLabelName.Location = new System.Drawing.Point(487, 53);
             this.enemyLabelName.Name = "enemyLabelName";
             this.enemyLabelName.Size = new System.Drawing.Size(84, 13);
             this.enemyLabelName.TabIndex = 10;
@@ -145,7 +155,7 @@
             // 
             this.enemyLabelHealth.AutoSize = true;
             this.enemyLabelHealth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelHealth.Location = new System.Drawing.Point(636, 170);
+            this.enemyLabelHealth.Location = new System.Drawing.Point(487, 66);
             this.enemyLabelHealth.Name = "enemyLabelHealth";
             this.enemyLabelHealth.Size = new System.Drawing.Size(87, 13);
             this.enemyLabelHealth.TabIndex = 11;
@@ -155,7 +165,7 @@
             // 
             this.playerLabelAccuracy.AutoSize = true;
             this.playerLabelAccuracy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelAccuracy.Location = new System.Drawing.Point(68, 183);
+            this.playerLabelAccuracy.Location = new System.Drawing.Point(177, 40);
             this.playerLabelAccuracy.Name = "playerLabelAccuracy";
             this.playerLabelAccuracy.Size = new System.Drawing.Size(101, 13);
             this.playerLabelAccuracy.TabIndex = 12;
@@ -165,7 +175,7 @@
             // 
             this.playerLabelAttackDamage.AutoSize = true;
             this.playerLabelAttackDamage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelAttackDamage.Location = new System.Drawing.Point(68, 196);
+            this.playerLabelAttackDamage.Location = new System.Drawing.Point(177, 53);
             this.playerLabelAttackDamage.Name = "playerLabelAttackDamage";
             this.playerLabelAttackDamage.Size = new System.Drawing.Size(130, 13);
             this.playerLabelAttackDamage.TabIndex = 13;
@@ -175,7 +185,7 @@
             // 
             this.playerLabelSpeed.AutoSize = true;
             this.playerLabelSpeed.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelSpeed.Location = new System.Drawing.Point(68, 209);
+            this.playerLabelSpeed.Location = new System.Drawing.Point(177, 66);
             this.playerLabelSpeed.Name = "playerLabelSpeed";
             this.playerLabelSpeed.Size = new System.Drawing.Size(87, 13);
             this.playerLabelSpeed.TabIndex = 14;
@@ -185,7 +195,7 @@
             // 
             this.playerLabelRizz.AutoSize = true;
             this.playerLabelRizz.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelRizz.Location = new System.Drawing.Point(68, 222);
+            this.playerLabelRizz.Location = new System.Drawing.Point(177, 79);
             this.playerLabelRizz.Name = "playerLabelRizz";
             this.playerLabelRizz.Size = new System.Drawing.Size(73, 13);
             this.playerLabelRizz.TabIndex = 15;
@@ -195,7 +205,7 @@
             // 
             this.playerLabelDefense.AutoSize = true;
             this.playerLabelDefense.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelDefense.Location = new System.Drawing.Point(68, 235);
+            this.playerLabelDefense.Location = new System.Drawing.Point(177, 92);
             this.playerLabelDefense.Name = "playerLabelDefense";
             this.playerLabelDefense.Size = new System.Drawing.Size(93, 13);
             this.playerLabelDefense.TabIndex = 16;
@@ -205,7 +215,7 @@
             // 
             this.enemyLabelDefense.AutoSize = true;
             this.enemyLabelDefense.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelDefense.Location = new System.Drawing.Point(636, 235);
+            this.enemyLabelDefense.Location = new System.Drawing.Point(487, 131);
             this.enemyLabelDefense.Name = "enemyLabelDefense";
             this.enemyLabelDefense.Size = new System.Drawing.Size(93, 13);
             this.enemyLabelDefense.TabIndex = 21;
@@ -215,7 +225,7 @@
             // 
             this.enemyLabelRizz.AutoSize = true;
             this.enemyLabelRizz.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelRizz.Location = new System.Drawing.Point(636, 222);
+            this.enemyLabelRizz.Location = new System.Drawing.Point(487, 118);
             this.enemyLabelRizz.Name = "enemyLabelRizz";
             this.enemyLabelRizz.Size = new System.Drawing.Size(73, 13);
             this.enemyLabelRizz.TabIndex = 20;
@@ -225,7 +235,7 @@
             // 
             this.enemyLabelSpeed.AutoSize = true;
             this.enemyLabelSpeed.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelSpeed.Location = new System.Drawing.Point(636, 209);
+            this.enemyLabelSpeed.Location = new System.Drawing.Point(487, 105);
             this.enemyLabelSpeed.Name = "enemyLabelSpeed";
             this.enemyLabelSpeed.Size = new System.Drawing.Size(87, 13);
             this.enemyLabelSpeed.TabIndex = 19;
@@ -235,7 +245,7 @@
             // 
             this.enemyLabelAttackDamage.AutoSize = true;
             this.enemyLabelAttackDamage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelAttackDamage.Location = new System.Drawing.Point(636, 196);
+            this.enemyLabelAttackDamage.Location = new System.Drawing.Point(487, 92);
             this.enemyLabelAttackDamage.Name = "enemyLabelAttackDamage";
             this.enemyLabelAttackDamage.Size = new System.Drawing.Size(130, 13);
             this.enemyLabelAttackDamage.TabIndex = 18;
@@ -245,7 +255,7 @@
             // 
             this.enemyLabelAccuracy.AutoSize = true;
             this.enemyLabelAccuracy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelAccuracy.Location = new System.Drawing.Point(636, 183);
+            this.enemyLabelAccuracy.Location = new System.Drawing.Point(487, 79);
             this.enemyLabelAccuracy.Name = "enemyLabelAccuracy";
             this.enemyLabelAccuracy.Size = new System.Drawing.Size(101, 13);
             this.enemyLabelAccuracy.TabIndex = 17;
@@ -263,7 +273,8 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(493, 65);
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Location = new System.Drawing.Point(360, 40);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 97);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -274,7 +285,7 @@
             // 
             this.playerLabelLives.AutoSize = true;
             this.playerLabelLives.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelLives.Location = new System.Drawing.Point(68, 248);
+            this.playerLabelLives.Location = new System.Drawing.Point(177, 105);
             this.playerLabelLives.Name = "playerLabelLives";
             this.playerLabelLives.Size = new System.Drawing.Size(78, 13);
             this.playerLabelLives.TabIndex = 24;
@@ -284,7 +295,7 @@
             // 
             this.playerLabelCoins.AutoSize = true;
             this.playerLabelCoins.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelCoins.Location = new System.Drawing.Point(68, 261);
+            this.playerLabelCoins.Location = new System.Drawing.Point(177, 118);
             this.playerLabelCoins.Name = "playerLabelCoins";
             this.playerLabelCoins.Size = new System.Drawing.Size(79, 13);
             this.playerLabelCoins.TabIndex = 25;
@@ -293,11 +304,56 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(549, 303);
+            this.comboBox1.Location = new System.Drawing.Point(490, 163);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 26;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // clouds01Back
+            // 
+            this.clouds01Back.BackColor = System.Drawing.Color.Transparent;
+            this.clouds01Back.Location = new System.Drawing.Point(0, 0);
+            this.clouds01Back.Name = "clouds01Back";
+            this.clouds01Back.Size = new System.Drawing.Size(798, 456);
+            this.clouds01Back.TabIndex = 28;
+            this.clouds01Back.TabStop = false;
+            // 
+            // clouds02Front
+            // 
+            this.clouds02Front.BackColor = System.Drawing.Color.Transparent;
+            this.clouds02Front.Location = new System.Drawing.Point(0, 0);
+            this.clouds02Front.Name = "clouds02Front";
+            this.clouds02Front.Size = new System.Drawing.Size(798, 451);
+            this.clouds02Front.TabIndex = 29;
+            this.clouds02Front.TabStop = false;
+            // 
+            // hills03Back
+            // 
+            this.hills03Back.BackColor = System.Drawing.Color.Transparent;
+            this.hills03Back.Location = new System.Drawing.Point(0, 0);
+            this.hills03Back.Name = "hills03Back";
+            this.hills03Back.Size = new System.Drawing.Size(798, 456);
+            this.hills03Back.TabIndex = 30;
+            this.hills03Back.TabStop = false;
+            // 
+            // platform05
+            // 
+            this.platform05.BackColor = System.Drawing.Color.Transparent;
+            this.platform05.ForeColor = System.Drawing.Color.Transparent;
+            this.platform05.Location = new System.Drawing.Point(0, 5);
+            this.platform05.Name = "platform05";
+            this.platform05.Size = new System.Drawing.Size(798, 451);
+            this.platform05.TabIndex = 32;
+            // 
+            // hills04Front
+            // 
+            this.hills04Front.BackColor = System.Drawing.Color.Transparent;
+            this.hills04Front.ForeColor = System.Drawing.Color.Transparent;
+            this.hills04Front.Location = new System.Drawing.Point(0, 0);
+            this.hills04Front.Name = "hills04Front";
+            this.hills04Front.Size = new System.Drawing.Size(798, 451);
+            this.hills04Front.TabIndex = 33;
             // 
             // Form1
             // 
@@ -330,12 +386,21 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.platform05);
+            this.Controls.Add(this.hills04Front);
+            this.Controls.Add(this.hills03Back);
+            this.Controls.Add(this.clouds02Front);
+            this.Controls.Add(this.clouds01Back);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clouds01Back)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clouds02Front)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hills03Back)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,6 +433,11 @@
         private System.Windows.Forms.Label playerLabelLives;
         private System.Windows.Forms.Label playerLabelCoins;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.PictureBox clouds01Back;
+        private System.Windows.Forms.PictureBox clouds02Front;
+        private System.Windows.Forms.PictureBox hills03Back;
+        private System.Windows.Forms.Panel platform05;
+        private System.Windows.Forms.Panel hills04Front;
     }
 }
 
