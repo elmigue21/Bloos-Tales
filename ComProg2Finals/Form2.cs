@@ -79,8 +79,11 @@ namespace ComProg2Finals
             // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             //SoundPlayer player = new SoundPlayer(soundFilePath);
             // player.Play();
-            Rock rock = new Rock();
-            rock.Acquired(Player);
+            //Rock rock = new Rock();
+
+            Cologne rizz = new Cologne();
+
+            rizz.Acquired(Player);
 
         }
         bool right, hold = true;
@@ -198,12 +201,13 @@ namespace ComProg2Finals
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            for(int i = 0; i < Player.PlayerItems.Count; i++)
+            timer.Stop();
+            for (int i = 0; i < Player.PlayerItems.Count; i++)
             {
                 Player.PlayerItems[i].Encountered(Player);
             }
             playerPictureBox.Image = Properties.Resources.blooIdle;
-            timer.Stop();
+           
             /*
             switch (encounterCount % 5)
             {
@@ -334,6 +338,7 @@ namespace ComProg2Finals
             {
                 Player.PlayerItems[i].BattleAddItem(Player);
             }
+           
             Form1 f1 = Form1.GetInstance();
             f1.Enemy = currentEncounter as Character;
             f1.Player = Player;
