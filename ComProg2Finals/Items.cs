@@ -13,6 +13,8 @@ namespace ComProg2Finals
     public class Items
     {
         Form1 battleForm = Form1.GetInstance();
+        public string Name { get; protected set; }
+
         public virtual void Acquired(Bloo charac)
         {
             MessageBox.Show($"Items");
@@ -33,6 +35,12 @@ namespace ComProg2Finals
     }
     public class Rock : Items
     {
+        public Rock()
+        {
+            this.Name = "Rock";
+        }
+
+
         int iter;
         public override void Acquired(Bloo charac)
         {
@@ -67,6 +75,10 @@ namespace ComProg2Finals
     }
     public class SacrificeRing : Items
     {
+        public SacrificeRing()
+        {
+            this.Name = "Sacrifice Ring";
+        }
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Bloo obtained the Sacrifice Ring!");
@@ -81,6 +93,10 @@ namespace ComProg2Finals
     }
     public class BerserkAmulet : Items
     {
+        public BerserkAmulet()
+        {
+            this.Name = "Berserk Amulet";
+        }
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Bloo obtained the Berserk Amulet!");
@@ -99,6 +115,10 @@ namespace ComProg2Finals
     }
     public class Behelith : Items
     {
+        public Behelith()
+        {
+            this.Name = "Behelith";
+        }
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Bloo obtained the Behelith");
@@ -121,6 +141,10 @@ namespace ComProg2Finals
 
     public class Cologne : Items
     {
+        public Cologne()
+        {
+            this.Name = "Cologne";
+        }
         int limit = 20;
         int gainedRizz = 0;
         public override void Acquired(Bloo charac)
@@ -141,6 +165,10 @@ namespace ComProg2Finals
     }
     public class Piggybank : Items
     {
+        public Piggybank()
+        {
+            this.Name = "Piggybank";
+        }
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Bloo obtained a Piggy bank!");
@@ -160,6 +188,10 @@ namespace ComProg2Finals
     }
     public class LifePotion : Items
     {
+        public LifePotion()
+        {
+            this.Name = "Life Potion";
+        }
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Bloo obtained a Life Potion!");
@@ -175,6 +207,10 @@ namespace ComProg2Finals
     }
     public class MysteryPotion : Items
     {
+        public MysteryPotion()
+        {
+            this.Name = "Mystery Potion";
+        }
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Mystery Potion");
@@ -185,6 +221,10 @@ namespace ComProg2Finals
     }
     public class RizzBooster : Items
     {
+        public RizzBooster()
+        {
+            this.Name = "Rizz Booster";
+        }
         int iter;
         double rizzBuff;
         public override void Acquired(Bloo charac)
@@ -220,6 +260,10 @@ namespace ComProg2Finals
     }
     public class HealthBoosterPotion : Items
     {
+        public HealthBoosterPotion()
+        {
+            this.Name = "Health Booster Potion";
+        }
         int iter;
         double healthBuff;
 
@@ -254,6 +298,10 @@ namespace ComProg2Finals
     }
     public class DefenseDown50percentPotion : Items
     {
+        public DefenseDown50percentPotion()
+        {
+            this.Name = "Defense Down 50% Potion";
+        }
         int iter;
         double defenseDebuff;
         public override void Acquired(Bloo charac)
@@ -288,6 +336,11 @@ namespace ComProg2Finals
     }
     public class DuctTapePotion : Items
     {
+        public DuctTapePotion()
+        {
+            this.Name = "Duct Tape Potion";
+        }
+
         int iter = 3;
         public override void Acquired(Bloo charac)
         {
@@ -315,6 +368,10 @@ namespace ComProg2Finals
     }
     public class PocketHolePotion : Items
     {
+        public PocketHolePotion()
+        {
+            this.Name = "Pocket Holw Potion";
+        }
         int iter;
         
         public override void Acquired(Bloo charac)
@@ -339,13 +396,15 @@ namespace ComProg2Finals
         {
             MessageBox.Show("Pocket Hole Potion lost");
             charac.PlayerItems.Remove(this);
-        
-
         }
 
     }
     public class OneShotPotion : Items
     {
+        public OneShotPotion()
+        {
+            this.Name = "One Shot Potion";
+        }
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"One Shot Potion");
@@ -359,6 +418,11 @@ namespace ComProg2Finals
     }
     public class HardHelmet : Items
     {
+        public HardHelmet()
+        {
+            this.Name = "Hard Helmet";
+        }
+
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Hard Helmet");
@@ -373,6 +437,10 @@ namespace ComProg2Finals
     }
     public class SpikedHelmet : Items
     {
+        public SpikedHelmet()
+        {
+            this.Name = "Spiked Helmet";
+        }
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Spiked Helmet");
@@ -386,6 +454,11 @@ namespace ComProg2Finals
     }
     public class Excalibur : Items
     {
+        public Excalibur()
+        {
+            this.Name = "Excalibur";
+        }
+
         public override void Acquired(Bloo charac)
         {
             charac.AttackDamage += 50;
@@ -399,6 +472,10 @@ namespace ComProg2Finals
     }
     public class StrangeGem : Items
     {
+        public StrangeGem()
+        {
+            this.Name = "Strange Gem";
+        }
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Strange Gem");
@@ -413,6 +490,10 @@ namespace ComProg2Finals
     }
     public class GoldenArrow : Items
     {
+        public GoldenArrow()
+        {
+            this.Name = "Golden Arrow";
+        }
         public override void Acquired(Bloo charac)
         {
             charac.CritChance += 20;
@@ -427,6 +508,10 @@ namespace ComProg2Finals
     }
     public class HolyWater : Items
     {
+        public HolyWater()
+        {
+            this.Name = "Holy Water";
+        }
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Holy Water");
@@ -440,6 +525,10 @@ namespace ComProg2Finals
     }
     public class Goblet : Items
     {
+        public Goblet()
+        {
+            this.Name = "Goblet";
+        }
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Goblet");
