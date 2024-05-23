@@ -210,6 +210,8 @@ namespace ComProg2Finals
         public double Lives;
         public int coinGainMultiplier;
         public int rizzGainMultiplier;
+        public bool canGainCoin;
+        public bool canUseRizz;
         public Bloo(string name) : base(name)
         {
             Name = name;
@@ -231,8 +233,9 @@ namespace ComProg2Finals
             coinGainMultiplier = 1;
             rizzGainMultiplier = 1;
             canGainCoin = true;
+            canUseRizz = true;
         }
-        bool canGainCoin;
+        
         public void GainRizz(double value)
         {
             this.Rizz += value * rizzGainMultiplier;

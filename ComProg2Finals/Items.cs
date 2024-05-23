@@ -100,18 +100,11 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Bloo obtained the Berserk Amulet!");
-            double change = 25;
-            charac.Accuracy -= charac.Accuracy * (change / 100);
-            charac.AttackDamage += charac.AttackDamage * (change / 100);
+            charac.Accuracy -= charac.Accuracy * .25;
+            charac.AttackDamage += charac.AttackDamage * 25;
             charac.PlayerItems.Add(this);
-            //MessageBox.Show($" -{change}% Accuracy, +{change}% Double Damage");
-
         }
-        public override void Encountered(Bloo charac)
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
-        }
-
+      
     }
     public class Behelith : Items
     {
@@ -122,20 +115,13 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Bloo obtained the Behelith");
-            double change = 30;
             if (charac.Lives < 5)
             {
                 charac.Lives++;
             }
-            charac.Coins += charac.Coins * (change / 100);
-            charac.Rizz -= charac.Rizz * (change / 100);
+            charac.Coins += charac.Coins * .30;
+            charac.Rizz -= charac.Rizz * .30;
             charac.PlayerItems.Add(this);
-            //MessageBox.Show($"One life, +{change}% Gold Income, -{change}% Rizz Income");
-        }
-
-        public override void Encountered(Bloo charac)
-        {
-            MessageBox.Show("Rock item encounter method triggered.");
         }
     }
 
@@ -345,7 +331,7 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Duct Tape Potion, can’t use rizz");
-            //
+            charac.canUseRizz = false;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
@@ -358,10 +344,12 @@ namespace ComProg2Finals
             {
                 iter--;
             }
+            MessageBox.Show($"Use Rizz? {charac.canUseRizz}");
         }
         public virtual void Lost(Bloo charac)
         {
             MessageBox.Show("Duct Tape Potion lost");
+            charac.canUseRizz = true;
             charac.PlayerItems.Remove(this);
         }
 
@@ -370,14 +358,15 @@ namespace ComProg2Finals
     {
         public PocketHolePotion()
         {
-            this.Name = "Pocket Holw Potion";
+            this.Name = "Pocket Hole Potion";
         }
         int iter;
         
         public override void Acquired(Bloo charac)
         {
-            iter = 2;
+            iter = 3;
             MessageBox.Show($"Bloo obtained a Pocket Hole, can't use money");
+            charac.canGainCoin = false;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
@@ -395,6 +384,7 @@ namespace ComProg2Finals
         public virtual void Lost(Bloo charac)
         {
             MessageBox.Show("Pocket Hole Potion lost");
+            charac.canGainCoin = true;
             charac.PlayerItems.Remove(this);
         }
 
