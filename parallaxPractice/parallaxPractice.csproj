@@ -84,9 +84,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\00Sky.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\blooWalking.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -94,21 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\blooBouncing.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\01cloudsBack.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\02cloudsFront.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\03hillsBack.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\04hillsFront.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\05platform.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bushes.png" />
@@ -141,6 +123,9 @@
     <None Include="Resources\Layer8_Platform.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Archer.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\AudioButton1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -168,13 +153,13 @@
     <None Include="Resources\titleScreen.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\BlooWalkRight.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\BlooIdleRight.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Archer.png" />
+    <None Include="Resources\BlooWalkRight.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ButtonClicked.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

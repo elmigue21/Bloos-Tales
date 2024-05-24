@@ -123,6 +123,16 @@ namespace parallaxPractice.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ButtonClicked {
+            get {
+                object obj = ResourceManager.GetObject("ButtonClicked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Layer1_Sky {
             get {
                 object obj = ResourceManager.GetObject("Layer1_Sky", resourceCulture);

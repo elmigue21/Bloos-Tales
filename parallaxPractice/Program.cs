@@ -16,7 +16,8 @@ namespace parallaxPractice
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GameFlow());
+            //Application.Run(new GameFlow());
+            Application.Run(new Form1());
         }
     }
 }
