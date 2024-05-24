@@ -226,7 +226,7 @@ namespace ComProg2Finals
                     charac.skillQueue.Add(charac.skillQueue[0]);
                 }
             }
-
+            charac.CharStatEffects.Remove(this);
         }
     }
 
