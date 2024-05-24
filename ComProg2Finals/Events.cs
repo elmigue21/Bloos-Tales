@@ -365,12 +365,14 @@ public class MysteriousMan : Events
 }
 public class Jester : Events
 {
+    Dialogue characDialogue;
     public Jester()
     {
         Name = "Jester";
         picImage = "wishingwell.png";
         EncounterDialogue = "KWAK";
-        Interactions = new string[] { "Talk", "Ignore" };
+        this.characDialogue = new JesterDialogue();
+        Interactions = new string[] { "Tlk", "Ignore" };
     }
     public override void EventAction1(Bloo bloo)
     {
