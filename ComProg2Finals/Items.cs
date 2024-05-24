@@ -39,8 +39,6 @@ namespace ComProg2Finals
         {
             this.Name = "Rock";
         }
-
-
         int iter;
         public override void Acquired(Bloo charac)
         {
@@ -50,7 +48,6 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-
             if(iter == 0)
             {
                 Lost(charac);
@@ -62,7 +59,6 @@ namespace ComProg2Finals
             }
             MessageBox.Show(charac.AttackDamage.ToString());
         }
-
         public override void Lost(Bloo charac)
         {
             MessageBox.Show("You lost your rock, it did nothing.");
@@ -87,9 +83,7 @@ namespace ComProg2Finals
             charac.AttackDamage += change;
             charac.PlayerItems.Add(this);
             //MessageBox.Show($" -{change}% Gold Income, -{change}% Rizz Income");
-
         }
-
     }
     public class BerserkAmulet : Items
     {
@@ -157,13 +151,11 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Bloo obtained a Piggy bank!");
-            
+            MessageBox.Show($"Bloo obtained a Piggy bank!");          
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
-        {
-            
+        {            
             charac.Coins += 10;
             MessageBox.Show("+10 Bonus");
             MessageBox.Show(charac.Coins.ToString());
@@ -189,7 +181,6 @@ namespace ComProg2Finals
             charac.PlayerItems.Add(this);
             //MessageBox.Show($"Extra Life");
         }
-
     }
     public class MysteryPotion : Items
     {
@@ -201,9 +192,7 @@ namespace ComProg2Finals
         {
             MessageBox.Show($"Mystery Potion");
             charac.PlayerItems.Add(this);
-
-        }
-      
+        }    
     }
     public class RizzBooster : Items
     {
@@ -239,10 +228,7 @@ namespace ComProg2Finals
             charac.Rizz -= rizzBuff;
             charac.PlayerItems.Remove(this);
             MessageBox.Show("From lost: " + charac.Rizz.ToString());
-
         }
-
-
     }
     public class HealthBoosterPotion : Items
     {
@@ -279,7 +265,6 @@ namespace ComProg2Finals
             charac.Health -= healthBuff;
             charac.PlayerItems.Remove(this);
             MessageBox.Show("From Lost - Health: " + charac.Health.ToString());
-
         }
     }
     public class DefenseDown50percentPotion : Items
@@ -316,9 +301,7 @@ namespace ComProg2Finals
             charac.Defense += defenseDebuff;
             charac.PlayerItems.Remove(this);
             MessageBox.Show("From Lost - Defense: " + charac.Defense.ToString());
-
         }
-
     }
     public class DuctTapePotion : Items
     {
@@ -352,7 +335,6 @@ namespace ComProg2Finals
             charac.canUseRizz = true;
             charac.PlayerItems.Remove(this);
         }
-
     }
     public class PocketHolePotion : Items
     {
@@ -360,8 +342,7 @@ namespace ComProg2Finals
         {
             this.Name = "Pocket Hole Potion";
         }
-        int iter;
-        
+        int iter;        
         public override void Acquired(Bloo charac)
         {
             iter = 3;
@@ -387,7 +368,6 @@ namespace ComProg2Finals
             charac.canGainCoin = true;
             charac.PlayerItems.Remove(this);
         }
-
     }
     public class OneShotPotion : Items
     {
@@ -404,7 +384,6 @@ namespace ComProg2Finals
         {
             MessageBox.Show("Rock item encounter method triggered.");
         }
-
     }
     public class HardHelmet : Items
     {
@@ -412,18 +391,27 @@ namespace ComProg2Finals
         {
             this.Name = "Hard Helmet";
         }
-
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Hard Helmet");
             charac.Defense += 15;
             charac.PlayerItems.Add(this);
+            /*
+            MessageBox.Show($"Character's damage somehow refected back!");
+            if (Character == Priest)
+            {
+                ReflectDamage = 1;
+            }
+            else
+            {
+                ReflectDamage = 5;
+            }
+            */
         }
         public override void Encountered(Bloo charac)
         {
             MessageBox.Show("Rock item encounter method triggered.");
         }
-
     }
     public class SpikedHelmet : Items
     {
@@ -448,7 +436,6 @@ namespace ComProg2Finals
         {
             this.Name = "Excalibur";
         }
-
         public override void Acquired(Bloo charac)
         {
             charac.AttackDamage += 50;
@@ -458,7 +445,6 @@ namespace ComProg2Finals
         {
             MessageBox.Show("Rock item encounter method triggered.");
         }
-
     }
     public class StrangeGem : Items
     {
@@ -476,7 +462,6 @@ namespace ComProg2Finals
         {
             MessageBox.Show("Rock item encounter method triggered.");
         }
-
     }
     public class GoldenArrow : Items
     {
@@ -494,7 +479,6 @@ namespace ComProg2Finals
         {
             MessageBox.Show("Rock item encounter method triggered.");
         }
-
     }
     public class HolyWater : Items
     {
@@ -511,7 +495,6 @@ namespace ComProg2Finals
         {
             MessageBox.Show("Rock item encounter method triggered.");
         }
-
     }
     public class Goblet : Items
     {
@@ -528,7 +511,6 @@ namespace ComProg2Finals
         {
             MessageBox.Show("Rock item encounter method triggered.");
         }
-
     }
     
     public class SeerBuff : Items
@@ -563,6 +545,5 @@ namespace ComProg2Finals
                     break;
             }
         }
-    }
-    
+    }    
 }
