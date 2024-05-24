@@ -76,9 +76,10 @@ namespace ComProg2Finals
         public bool isBlocking { get; set; }
         public bool hasTurn { get; set; }
         public string elementType { get; set; }
-        public Skill skillQueued { get; set; }
+        public Skill[] skillQueued { get; set; }
         public int[] skillProbability { get; set; }
         public Character PlayerInstance { get; set; }
+        public double DamageTaken { get; set; }
         public Character(string name)
         {
             
@@ -133,6 +134,7 @@ namespace ComProg2Finals
                     }
                     MessageBox.Show(user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name);
                     user.Opposition.Health -= totalDamage;
+                    
                 }
             }
             else
