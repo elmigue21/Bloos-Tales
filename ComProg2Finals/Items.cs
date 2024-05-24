@@ -18,7 +18,6 @@ namespace ComProg2Finals
         public virtual void Acquired(Bloo charac)
         {
             MessageBox.Show($"Items");
-
         }
         public virtual void Encountered(Bloo charac)
         {
@@ -488,8 +487,18 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
+            charac.Health += 10;
             MessageBox.Show($"Holy Water");
             charac.PlayerItems.Add(this);
+            if (charac.Health < 100)
+            {
+                charac.Health += 10;
+                if (charac.Health > 100)
+                {
+                    double Excess = charac.Health - 100;
+                    charac.Health -= Excess;
+                }
+            }
         }
         public override void Encountered(Bloo charac)
         {
