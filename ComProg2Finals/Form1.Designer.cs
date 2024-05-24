@@ -64,11 +64,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.clouds01Back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clouds02Front)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hills03Back)).BeginInit();
+            this.platform05.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(52, 342);
+            this.button1.Location = new System.Drawing.Point(269, 338);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 45);
             this.button1.TabIndex = 0;
@@ -77,7 +78,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(190, 342);
+            this.button2.Location = new System.Drawing.Point(407, 338);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(132, 45);
             this.button2.TabIndex = 1;
@@ -86,7 +87,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(52, 393);
+            this.button3.Location = new System.Drawing.Point(269, 389);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(132, 45);
             this.button3.TabIndex = 2;
@@ -95,7 +96,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(190, 393);
+            this.button4.Location = new System.Drawing.Point(407, 389);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(132, 45);
             this.button4.TabIndex = 3;
@@ -340,6 +341,10 @@
             // platform05
             // 
             this.platform05.BackColor = System.Drawing.Color.Transparent;
+            this.platform05.Controls.Add(this.button2);
+            this.platform05.Controls.Add(this.button1);
+            this.platform05.Controls.Add(this.button3);
+            this.platform05.Controls.Add(this.button4);
             this.platform05.ForeColor = System.Drawing.Color.Transparent;
             this.platform05.Location = new System.Drawing.Point(0, 5);
             this.platform05.Name = "platform05";
@@ -382,10 +387,6 @@
             this.Controls.Add(this.playerPictureBox);
             this.Controls.Add(this.enemyPictureBox);
             this.Controls.Add(this.playerLabelName);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.platform05);
             this.Controls.Add(this.hills04Front);
             this.Controls.Add(this.hills03Back);
@@ -401,6 +402,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.clouds01Back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clouds02Front)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hills03Back)).EndInit();
+            this.platform05.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
