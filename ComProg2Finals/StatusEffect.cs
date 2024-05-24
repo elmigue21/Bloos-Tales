@@ -230,4 +230,33 @@ namespace ComProg2Finals
         }
     }
 
+
+
+
+    /*
+     * 
+     * class dialogue
+     * 
+     * 
+     * 
+     * entrancedialogue
+     * lose dialogue
+     * windialogue
+     * 
+     * fight dialogue
+     * 
+     * 
+     * KnightDialogue{
+     * this.entrancedialogue = "sdfasdfasdf"
+     * 
+     * 
+     * }
+     * WizardDialogue{
+     * 
+     * 
+     * }
+     * 
+     * 
+     * 
+    */
 }

@@ -449,6 +449,9 @@ namespace ComProg2Finals
             currentEncounter = mastergooway;
 
             label1.Text = "";
+            List<string> diag = new List<string>();
+            KnightDialogue knightdiag = new KnightDialogue();
+            diag.Add(knightdiag.EntranceDialogue);
             dialogueTextBox.Text = currentEncounter.befEncounter;
             flowLayoutPanel1.Controls.Clear();
             charactersPictureBox.Image = null;
