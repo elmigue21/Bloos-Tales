@@ -223,7 +223,7 @@ namespace ComProg2Finals
         }
         public virtual void Lost(Bloo charac)
         {
-            MessageBox.Show("RizzBooster lost");
+            MessageBox.Show("RizzBooster lost.");
             charac.Rizz -= rizzBuff;
             charac.PlayerItems.Remove(this);
             MessageBox.Show("From lost: " + charac.Rizz.ToString());
@@ -241,7 +241,7 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 2;
-            MessageBox.Show($"Bloo obtained a Health Booster Potion");
+            MessageBox.Show($"Bloo obtained a Health Booster Potion.");
             healthBuff = charac.Health * .50;
             charac.Health += healthBuff;
             charac.PlayerItems.Add(this);
@@ -260,7 +260,7 @@ namespace ComProg2Finals
         }
         public virtual void Lost(Bloo charac)
         {
-            MessageBox.Show("Health Booster lost");
+            MessageBox.Show("Health Booster lost.");
             charac.Health -= healthBuff;
             charac.PlayerItems.Remove(this);
             MessageBox.Show("From Lost - Health: " + charac.Health.ToString());
@@ -277,7 +277,7 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 3;
-            MessageBox.Show($"Bloo obtained a Defense Down 50% Potion");
+            MessageBox.Show($"Bloo obtained a Defense Down 50% Potion.");
             defenseDebuff = charac.Defense * .50;
             charac.Defense -= defenseDebuff;
             charac.PlayerItems.Add(this);
@@ -296,7 +296,7 @@ namespace ComProg2Finals
         }
         public override void Lost(Bloo charac)
         {
-            MessageBox.Show("Defense Down lost");
+            MessageBox.Show("Defense Down lost.");
             charac.Defense += defenseDebuff;
             charac.PlayerItems.Remove(this);
             MessageBox.Show("From Lost - Defense: " + charac.Defense.ToString());
@@ -312,7 +312,7 @@ namespace ComProg2Finals
         int iter = 3;
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Duct Tape Potion, can’t use rizz");
+            MessageBox.Show($"Duct Tape Potion, can’t use rizz.");
             charac.canUseRizz = false;
             charac.PlayerItems.Add(this);
         }
@@ -330,7 +330,7 @@ namespace ComProg2Finals
         }
         public virtual void Lost(Bloo charac)
         {
-            MessageBox.Show("Duct Tape Potion lost");
+            MessageBox.Show("Duct Tape Potion lost.");
             charac.canUseRizz = true;
             charac.PlayerItems.Remove(this);
         }
@@ -345,7 +345,7 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 3;
-            MessageBox.Show($"Bloo obtained a Pocket Hole, can't use money");
+            MessageBox.Show($"Bloo obtained a Pocket Hole, can't use money.");
             charac.canGainCoin = false;
             charac.PlayerItems.Add(this);
         }
@@ -363,7 +363,7 @@ namespace ComProg2Finals
         }
         public virtual void Lost(Bloo charac)
         {
-            MessageBox.Show("Pocket Hole Potion lost");
+            MessageBox.Show("Pocket Hole Potion lost.");
             charac.canGainCoin = true;
             charac.PlayerItems.Remove(this);
         }
@@ -381,7 +381,7 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Rock item encounter method triggered.");
+            MessageBox.Show("Bloo found a One Shot Potion, ");
         }
     }
     public class HardHelmet : Items
@@ -409,7 +409,7 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Rock item encounter method triggered.");
+            MessageBox.Show("Bloo found a Hard Helmet, Bloo's defense has increased by 15%.");
         }
     }
     public class SpikedHelmet : Items
@@ -426,7 +426,7 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Rock item encounter method triggered.");
+            MessageBox.Show("Bloo found a Spiked Helmet, Bloo's defense has increased by 5%.");
         }
     }
     public class Excalibur : Items
@@ -442,7 +442,7 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Rock item encounter method triggered.");
+            MessageBox.Show("Bloo found the Excalibur, Bloo's attack has increased by 50%.");
         }
     }
     public class StrangeGem : Items
@@ -459,7 +459,7 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Rock item encounter method triggered.");
+            MessageBox.Show("Bloo found a Strange Gem, n% discount on all gold related items.");
         }
     }
     public class GoldenArrow : Items
@@ -476,7 +476,7 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Rock item encounter method triggered.");
+            MessageBox.Show("Bloo found a Strange Gem, crit chance has increased by 20%.");
         }
     }
     public class HolyWater : Items
@@ -502,7 +502,7 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Rock item encounter method triggered.");
+            MessageBox.Show("Bloo received Holy Water, Bloo's gains +10 Health every turn.");
         }
     }
     public class Goblet : Items
@@ -518,7 +518,7 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Rock item encounter method triggered.");
+            MessageBox.Show("Bloo found a Goblet, Bloo gains +5% on all elements.");
         }
     }
     
