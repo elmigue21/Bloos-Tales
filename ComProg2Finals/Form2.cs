@@ -350,15 +350,9 @@ namespace ComProg2Finals
             {
                 Player.PlayerItems[i].BattleAddItem(Player);
             }
-
-            // Form1 f1 = Form1.GetInstance();
-            //f1.form2 = this.
             f1.Enemy = currentEncounter as Character;
             f1.Player = Player;
-            /*
-            f1.Player.Opposition = f1.Enemy;
-            f1.Enemy.Opposition = f1.Player;
-            */
+
             f1.Show();
             
         }
