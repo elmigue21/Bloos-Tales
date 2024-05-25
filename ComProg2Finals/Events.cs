@@ -46,19 +46,19 @@ namespace ComProg2Finals
                 {
                     bloo.Lives += 1;
                 }
-                MessageBox.Show("You found a Life Potion!");
+                form2.dialogueTextBox.Text = ChestyDiag.CommitEvent1;
                 form2.runNextEncounter();
             }
             else if (randomNumber <= lifePotChance + rizzChance)
             {
                 bloo.Rizz += gainedRizz;
-                MessageBox.Show("You gained some Rizz!");
+                form2.dialogueTextBox.Text = ChestyDiag.CommitEvent2;
                 form2.runNextEncounter();
             }
             else if (randomNumber <= lifePotChance + rizzChance + coinChance)
             {
                 bloo.Coins += 50;
-                MessageBox.Show("You found some coins!");
+                form2.dialogueTextBox.Text = ChestyDiag.CommitEvent3;
                 form2.runNextEncounter();
             }
             else
@@ -71,14 +71,13 @@ namespace ComProg2Finals
                     form1.Player = bloo;
                     form1.Player.Opposition = form1.Enemy;
                     form1.Show();
-                MessageBox.Show("You won all loot!");
+                form2.dialogueTextBox.Text = ChestyDiag.CommitEvent5;
             }
 
         }
         public override void EventAction2(Bloo bloo)
         {
             form2.dialogueTextBox.Text = ChestyDiag.IgnoreDialogue;
-            MessageBox.Show("bloo ignores the chest");
             form2.runNextEncounter();
         }
         int lifePotChance = 10;
@@ -107,53 +106,53 @@ namespace ComProg2Finals
             if (randomNumber <= loseLifeChance)
             {
                 bloo.Lives--;
-                MessageBox.Show("You lost 1 life!");
+                form2.dialogueTextBox.Text = CaveDiag.CommitEvent1;
             }
             else if (randomNumber <= loseLifeChance + debuffChance)
             {
                 // insert debuff logic
+                EncounterDialogue = CaveDiag.CommitEvent2;
                 Random rand = new Random();
                 int chance = rand.Next(0, 4);
                 switch (chance)
                 {
                     case 0:
                         bloo.Health -= 20;
-                        MessageBox.Show("You hit your head inside the cave. Health reduced by 20.");
+                        form2.dialogueTextBox.Text = CaveDiag.CommitEvent6;
                         break;
                     case 1:
                         bloo.AttackDamage -= 20;
-                        MessageBox.Show("You cut your hand inside the cave. Attack Damage reduced by 20.");
+                        form2.dialogueTextBox.Text = CaveDiag.CommitEvent7;
                         break;
                     case 2:
                         bloo.Coins -= 20;
-                        MessageBox.Show("A man inside the cave mugged you. Lost 20 coins");
+                        form2.dialogueTextBox.Text = CaveDiag.CommitEvent8;
                         break;
                     case 3:
                         bloo.Rizz -= 20;
-                        MessageBox.Show("The cave scared you. Rizz reduced by 20.");
+                        form2.dialogueTextBox.Text = CaveDiag.CommitEvent9;
                         break;
                 }
-                MessageBox.Show("You got a debuff!");
             }
             else if (randomNumber <= loseLifeChance + debuffChance + coinChance)
             {
                 bloo.Coins += 50;
-                MessageBox.Show("You found some coins!");
+                form2.dialogueTextBox.Text = CaveDiag.CommitEvent3;
             }
             else if (randomNumber <= loseLifeChance + debuffChance + coinChance + rizzChance)
             {
                 bloo.Rizz += gainedRizz;
-                MessageBox.Show("You found a Rizz!");
+                form2.dialogueTextBox.Text = CaveDiag.CommitEvent4;
             }
             else if (randomNumber <= totalChances)
             {
                 StrangeGem strangegem = new StrangeGem();
                 strangegem.Acquired(bloo);
-                MessageBox.Show("You found a Rare Gem!");
+                form2.dialogueTextBox.Text = CaveDiag.CommitEvent5;
             }
             else
             {
-                MessageBox.Show("You explored the cave and found nothing.");
+                form2.dialogueTextBox.Text = CaveDiag.CommitEvent9;
             }
             form2.runNextEncounter();
         }
@@ -233,7 +232,7 @@ namespace ComProg2Finals
             form2.dialogueTextBox.Text = BonFireDiag.Option1Dialogue;
             if (bloo.Lives < 5)
             {
-                MessageBox.Show("You feel rested. Lives increased");
+                form2.dialogueTextBox.Text = BonFireDiag.CommitEvent1;
                 bloo.Lives += 1;
             }
             form2.runNextEncounter();
@@ -270,15 +269,15 @@ namespace ComProg2Finals
             switch (rand)
             {
                 case 0:
-                    MessageBox.Show("Bloo took the blue pill, health reduced by 25%");
+                    form2.dialogueTextBox.Text = MysteriousManDiag.CommitEvent1;
                     bloo.Health -= bloo.Health * .25;
                     break;
                 case 1:
-                    MessageBox.Show("Bloo took the blue pill, bloo's accuracy reduced by 25%");
+                    form2.dialogueTextBox.Text = MysteriousManDiag.CommitEvent2;
                     bloo.Accuracy -= 25;
                     break;
                 case 2:
-                    MessageBox.Show("Bloo took the blue pill, bloo's coin gain reduced");
+                    form2.dialogueTextBox.Text = MysteriousManDiag.CommitEvent3;
                     bloo.coinGainMultiplier /= 2;
                     // minus coin income
                     break;
@@ -291,15 +290,15 @@ namespace ComProg2Finals
             switch (rand)
             {
                 case 0:
-                    MessageBox.Show("Bloo took the red pill, bloo's attack damage increased by 20");
+                    form2.dialogueTextBox.Text = MysteriousManDiag.CommitEvent4;
                     bloo.AttackDamage += 20;
                     break;
                 case 1:
-                    MessageBox.Show("Bloo took the red pill, bloo's crit chance increased by 25");
+                    form2.dialogueTextBox.Text = MysteriousManDiag.CommitEvent5;
                     bloo.CritChance += 25;
                     break;
                 case 2:
-                    MessageBox.Show("Bloo took the red pill, bloos rizz gain increased");
+                    form2.dialogueTextBox.Text = MysteriousManDiag.CommitEvent6;
                     // buff rizz income
                     bloo.rizzGainMultiplier *= 2;
                     break;
@@ -325,14 +324,14 @@ namespace ComProg2Finals
         public override void EventAction1(Bloo bloo)
         {
             // add mystery box logic
-            EncounterDialogue = JesterDiag.EntranceDialogue;
+            form2.dialogueTextBox.Text = JesterDiag.EntranceDialogue;
             bloo.Coins -= bloo.Coins * .75;
             form2.runNextEncounter();
         }
 
         public override void EventAction2(Bloo bloo)
         {
-            EncounterDialogue = JesterDiag.IgnoreDialogue;
+            form2.dialogueTextBox.Text = JesterDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
 
@@ -353,33 +352,37 @@ namespace ComProg2Finals
         }
         public override void EventAction1(Bloo bloo)
         {
-            EncounterDialogue = SeerDiag.Option1Dialogue;
+            form2.dialogueTextBox.Text = SeerDiag.Option1Dialogue;
             Random random = new Random();
             int rand = random.Next(0, 4);
             switch (rand)
             {
                 case 0:
                     bloo.Rizz -= bloo.Rizz * .3;
-                    // messagebox.show next enemy
+                    form2.dialogueTextBox.Text = SeerDiag.CommitEvent1;
                     break;
                 case 1:
                     bloo.Coins -= 150;
-                        bloo.PlayerItems.Add(new SeerBuff(rand));
+                    form2.dialogueTextBox.Text = SeerDiag.CommitEvent2;
+                    bloo.PlayerItems.Add(new SeerBuff(rand));
                     // add status effect final boss 30% atk dmg boost for bloo
                     break;
                 case 2:
                     bloo.Coins -= 100;
-                        bloo.PlayerItems.Add(new SeerBuff(rand));
+                    form2.dialogueTextBox.Text = SeerDiag.CommitEvent3;
+                    bloo.PlayerItems.Add(new SeerBuff(rand));
                         // add status effect next boss 15% atk dmg boost for bloo
                         break;
                 case 3:
                     bloo.Coins -= 50;
-                        bloo.PlayerItems.Add(new SeerBuff(rand));
+                    form2.dialogueTextBox.Text = SeerDiag.CommitEvent4;
+                    bloo.PlayerItems.Add(new SeerBuff(rand));
                         // add status effect, lower accuracy of next boss
                         break;
                 case 4:
                     bloo.Coins -= 50;
-                        bloo.PlayerItems.Add(new SeerBuff(rand));
+                    form2.dialogueTextBox.Text = SeerDiag.CommitEvent5;
+                    bloo.PlayerItems.Add(new SeerBuff(rand));
                         // add status effect, +20 def for bloo on next boss 
                         break;
             }
@@ -387,7 +390,7 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            EncounterDialogue = SeerDiag.IgnoreDialogue;
+            form2.dialogueTextBox.Text = SeerDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
         public override void Perform(Bloo bloo)
@@ -427,6 +430,7 @@ namespace ComProg2Finals
         int choice;
         int multiplier = 1;
         WishingWellDialogue WishingWellDiag = new WishingWellDialogue();
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public WishingWell()
         {
             Name = "Wishing well";
@@ -440,7 +444,7 @@ namespace ComProg2Finals
         public override void EventAction1(Bloo bloo)
         {
             bloo.Coins -= 2 * multiplier;
-            EncounterDialogue = WishingWellDiag.Option1Dialogue;
+            form2.dialogueTextBox.Text = WishingWellDiag.Option1Dialogue;
             Random random = new Random();
             int randomNumber = random.Next(100);
             if (randomNumber >= 1 && randomNumber <= 25)
@@ -463,7 +467,7 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            EncounterDialogue = WishingWellDiag.IgnoreDialogue;
+            form2.dialogueTextBox.Text = WishingWellDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
       
@@ -487,27 +491,27 @@ namespace ComProg2Finals
                 {
                     case 0:
                         bloo.Coins += 500;
-                        EncounterDialogue = KingDiag.Option1Dialogue;
+                    form2.dialogueTextBox.Text = KingDiag.Option1Dialogue;
                         // add status effect that items are not claimable logic here
 
                     break;
                     case 1:
                         bloo.Rizz += 50;
                         bloo.Lives = 1;
-                        EncounterDialogue = KingDiag.Option2Dialogue;
+                    form2.dialogueTextBox.Text = KingDiag.Option2Dialogue;
                         break;
                     case 2:
                         bloo.Lives = 5;
                         bloo.Coins -= bloo.Coins * .75;
                         bloo.Rizz -= bloo.Rizz * .75;
-                        EncounterDialogue = KingDiag.Option3Dialogue;
+                    form2.dialogueTextBox.Text = KingDiag.Option3Dialogue;
                         break;
                 }
             form2.runNextEncounter();
         }
             public override void EventAction2(Bloo bloo)
         {
-            EncounterDialogue = KingDiag.IgnoreDialogue;
+            form2.dialogueTextBox.Text = KingDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
 
@@ -533,7 +537,7 @@ namespace ComProg2Finals
             //bloo.Coins += 50;
             //MessageBox.Show("Bloo felt wealthy!");
 
-            EncounterDialogue = GobletDiag.Option1Dialogue;
+            form2.dialogueTextBox.Text = GobletDiag.Option1Dialogue;
             Random random = new Random();
                     int randomNumber = random.Next(100);
                     if (randomNumber <= 15)
@@ -541,24 +545,24 @@ namespace ComProg2Finals
                         // insert wizard free pass item logic here
                         Goblet goblet = new Goblet();
                         goblet.Acquired(bloo);
-                        MessageBox.Show("The goblet of fire burst into flames! But nothing happened?...");
-                    }
+                form2.dialogueTextBox.Text = GobletDiag.CommitEvent1;
+            }
                     else if(randomNumber > 15 && randomNumber <= 65)
                     {
                             bloo.Coins += 50;
-                            MessageBox.Show("Bloo felt wealthy!");
-                    }
+                form2.dialogueTextBox.Text = GobletDiag.CommitEvent2;
+            }
                     else
-                    {
-                        MessageBox.Show($"Nothing happened.");
-                    }
+            {
+                form2.dialogueTextBox.Text = GobletDiag.CommitEvent3;
+            }
             form2.runNextEncounter();
 
         }   
 
         public override void EventAction2(Bloo bloo)
         {
-            EncounterDialogue = GobletDiag.IgnoreDialogue;
+            form2.dialogueTextBox.Text = GobletDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
 
@@ -581,25 +585,25 @@ namespace ComProg2Finals
 
         public override void EventAction1(Bloo bloo)
         {
-            EncounterDialogue = AppleTreeDiag.Option1Dialogue;
-            MessageBox.Show("An apple fell from the tree.");
+            form2.dialogueTextBox.Text = AppleTreeDiag.Option1Dialogue;
+            form2.dialogueTextBox.Text = AppleTreeDiag.CommitEvent1;
             // add plus rizz
             form2.runNextEncounter();
         }
 
         public override void EventAction2(Bloo bloo)
         {
-            EncounterDialogue = AppleTreeDiag.Option2Dialogue;
+            form2.dialogueTextBox.Text = AppleTreeDiag.Option2Dialogue;
 
             Random random = new Random();
                     int randomNumber = random.Next(100);
                     if (randomNumber <= 25)
-                    {
-                        MessageBox.Show("Bloo fell down…");
-                    }
+            {
+                form2.dialogueTextBox.Text = AppleTreeDiag.CommitEvent2;
+            }
                     else
-                    {
-                        MessageBox.Show("Bloo noticed something shiny!");
+            {
+                form2.dialogueTextBox.Text = AppleTreeDiag.CommitEvent3;
                 GoldenArrow goldenarrow = new GoldenArrow();
                 goldenarrow.Acquired(bloo);
                     }
@@ -616,6 +620,7 @@ namespace ComProg2Finals
     {
             public List<Skill> skillshop;
         MasterGoowayDialogue MasterGoowayDiag = new MasterGoowayDialogue();
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public MasterGooway()
         {
             picImage = "mastergooway.png";
@@ -632,26 +637,26 @@ namespace ComProg2Finals
             {
                 case 0:
                     bloo.CharSkills.Add(new Split());
-                    MessageBox.Show("Split");
+                    form2.dialogueTextBox.Text = ItemsDiag.SplitSkillDialogue;
                     break;
                 case 1:
-                    MessageBox.Show("Element Book");
+                    form2.dialogueTextBox.Text = ItemsDiag.ElementSkillDialogue;
                     bloo.CharSkills.Add(new ElementBook());
                     break;
                 case 2:
-                    MessageBox.Show("Mog");
+                    form2.dialogueTextBox.Text = ItemsDiag.MogSkillDialogue;
                     bloo.CharSkills.Add(new Mog());
                     break;
                 case 3:
-                    MessageBox.Show("Bounce");
+                    form2.dialogueTextBox.Text = ItemsDiag.BounceSkillDialogue;
                     bloo.CharSkills.Add(new Bounce());
                     break;
             }
-            EncounterDialogue = MasterGoowayDiag.EntranceDialogue;
+            form2.dialogueTextBox.Text = MasterGoowayDiag.EntranceDialogue;
         }
         public override void EventAction2(Bloo bloo)
         {
-            EncounterDialogue = MasterGoowayDiag.IgnoreDialogue;
+            form2.dialogueTextBox.Text = MasterGoowayDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
 
@@ -664,6 +669,7 @@ namespace ComProg2Finals
     {
         public List<Items> itemshop;
         ShopkeeperDialogue ShopKeeperDiag = new ShopkeeperDialogue();
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public Shopkeeper()
         {
             picImage = "wishingwell.png";
@@ -675,12 +681,12 @@ namespace ComProg2Finals
         int choice;
         public override void EventAction1(Bloo bloo)
         {
-            EncounterDialogue = ShopKeeperDiag.Option1Dialogue;
+            form2.dialogueTextBox.Text = ShopKeeperDiag.Option1Dialogue;
         }
 
         public override void EventAction2(Bloo bloo)
         {
-            EncounterDialogue = ShopKeeperDiag.IgnoreDialogue;
+            form2.dialogueTextBox.Text = ShopKeeperDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
         public override void Perform(Bloo bloo)
@@ -690,22 +696,21 @@ namespace ComProg2Finals
             switch (choice)
             {
                 case 0:
-                    MessageBox.Show("Life Potion");
+                    form2.dialogueTextBox.Text = ItemsDiag.LifeDialogue;
                     LifePotion lifepotion = new LifePotion();
                     lifepotion.Acquired(bloo);
                     break;
                 case 1:
-                    MessageBox.Show("Mystery Potion");
                     MysteryPotion mysterypotion = new MysteryPotion();
                     mysterypotion.Acquired(bloo);
                     break;
                 case 2:
-                    MessageBox.Show("Hard Helmet");
+                    form2.dialogueTextBox.Text = ItemsDiag.HardHelmentDialogue;
                     HardHelmet hardHelmet = new HardHelmet();
                     hardHelmet.Acquired(bloo);
                     break;
                 case 3:
-                    MessageBox.Show("Spiked Helmet");
+                    form2.dialogueTextBox.Text = ItemsDiag.SpikedHelmetDialogue;
                     SpikedHelmet spikedHelmet = new SpikedHelmet();
                     spikedHelmet.Acquired(bloo);
                     break;

@@ -35,7 +35,6 @@ namespace ComProg2Finals
     }
     public class Rock : Items
     {
-
         public Rock()
         {
             this.Name = "Rock";    
@@ -44,7 +43,6 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 5;
-            MessageBox.Show($"bloo acquired rock, It does nothing");
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
@@ -62,7 +60,6 @@ namespace ComProg2Finals
         }
         public override void Lost(Bloo charac)
         {
-            MessageBox.Show("You lost your rock, it did nothing.");
             charac.PlayerItems.Remove(this);
         }
         public override void BattleAddItem(Bloo charac)
@@ -72,6 +69,7 @@ namespace ComProg2Finals
     }
     public class SacrificeRing : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public SacrificeRing()
         {
             this.Name = "Sacrifice Ring";
@@ -88,6 +86,7 @@ namespace ComProg2Finals
     }
     public class BerserkAmulet : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public BerserkAmulet()
         {
             this.Name = "Berserk Amulet";
@@ -103,6 +102,7 @@ namespace ComProg2Finals
     }
     public class Behelith : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public Behelith()
         {
             this.Name = "Behelith";
@@ -122,6 +122,7 @@ namespace ComProg2Finals
 
     public class Cologne : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public Cologne()
         {
             this.Name = "Cologne";
@@ -146,6 +147,7 @@ namespace ComProg2Finals
     }
     public class Piggybank : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public Piggybank()
         {
             this.Name = "Piggybank";
@@ -167,6 +169,7 @@ namespace ComProg2Finals
     }
     public class LifePotion : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public LifePotion()
         {
             this.Name = "Life Potion";
@@ -186,6 +189,7 @@ namespace ComProg2Finals
     }
     public class MysteryPotion : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         private static Random random = new Random();
         public MysteryPotion()
         {
@@ -229,6 +233,7 @@ namespace ComProg2Finals
     }
     public class RizzBooster : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public RizzBooster()
         {
             this.Name = "Rizz Booster";
@@ -265,6 +270,7 @@ namespace ComProg2Finals
     }
     public class HealthBoosterPotion : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public HealthBoosterPotion()
         {
             this.Name = "Health Booster Potion";
@@ -302,6 +308,7 @@ namespace ComProg2Finals
     }
     public class DefenseDown50percentPotion : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public DefenseDown50percentPotion()
         {
             this.Name = "Defense Down 50% Potion";
@@ -338,6 +345,7 @@ namespace ComProg2Finals
     }
     public class DuctTapePotion : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public DuctTapePotion()
         {
             this.Name = "Duct Tape Potion";
@@ -371,6 +379,7 @@ namespace ComProg2Finals
     }
     public class PocketHolePotion : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public PocketHolePotion()
         {
             this.Name = "Pocket Hole Potion";
@@ -404,6 +413,7 @@ namespace ComProg2Finals
     }
     public class OneShotPotion : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public OneShotPotion()
         {
             this.Name = "One Shot Potion";
@@ -437,6 +447,7 @@ namespace ComProg2Finals
     }
     public class HardHelmet : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public HardHelmet()
         {
             this.Name = "Hard Helmet";
@@ -466,6 +477,7 @@ namespace ComProg2Finals
     }
     public class SpikedHelmet : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public SpikedHelmet()
         {
             this.Name = "Spiked Helmet";
@@ -484,6 +496,7 @@ namespace ComProg2Finals
     }
     public class Excalibur : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public Excalibur()
         {
             this.Name = "Excalibur";
@@ -500,6 +513,7 @@ namespace ComProg2Finals
     }
     public class StrangeGem : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public StrangeGem()
         {
             this.Name = "Strange Gem";
@@ -517,6 +531,7 @@ namespace ComProg2Finals
     }
     public class GoldenArrow : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public GoldenArrow()
         {
             this.Name = "Golden Arrow";
@@ -534,6 +549,7 @@ namespace ComProg2Finals
     }
     public class HolyWater : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public HolyWater()
         {
             this.Name = "Holy Water";
@@ -560,6 +576,7 @@ namespace ComProg2Finals
     }
     public class Goblet : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public Goblet()
         {
             this.Name = "Goblet";
@@ -577,6 +594,7 @@ namespace ComProg2Finals
     
     public class SeerBuff : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         int index;
         public SeerBuff(int ind)
         {
@@ -610,6 +628,7 @@ namespace ComProg2Finals
     }
     public class MysteryBox : Items
     {
+        ItemsDialogue ItemsDiag = new ItemsDialogue();
         private static Random random = new Random();
         public MysteryBox()
         {
