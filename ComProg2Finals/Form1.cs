@@ -125,7 +125,7 @@ namespace ComProg2Finals
             //Enemy = characters[comboBox1.SelectedIndex];
             //Player.Opposition = Enemy;
             // Enemy.Opposition = Player;
-            Player.CharStatEffects.Add(new MultiHitChance("Attackboost"));
+           // Player.CharStatEffects.Add(new MultiHitChance("Attackboost"));
             
             currentTurn = Player;
 
@@ -157,7 +157,7 @@ namespace ComProg2Finals
         }
         private void runTurn()
         {
-                runEnemy();
+               // runEnemy();
                 testButton_Click(null, EventArgs.Empty);
 
         }
@@ -371,7 +371,10 @@ namespace ComProg2Finals
             
             Player.skillQueue.Clear();
 
-            
+
+            runEnemy();
+
+
             foreach (Action skills in Enemy.skillQueue)
             {
                 skills();

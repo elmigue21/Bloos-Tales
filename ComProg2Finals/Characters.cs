@@ -131,10 +131,11 @@ namespace ComProg2Finals
                 {
                     double totalDamage = ((user.AttackDamage * dmgValue) / user.Opposition.Defense) * user.Multiplier;
                     Random random = new Random();
+                    
                     int randomNumber = random.Next(0, 101);
                     if (randomNumber <= user.CritChance)
                     {
-                        MessageBox.Show("CRIT!");
+                        //MessageBox.Show("CRIT!");
                         totalDamage *= user.CritDamage;
                     }
                     MessageBox.Show(user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name);

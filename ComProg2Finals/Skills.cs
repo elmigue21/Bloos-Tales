@@ -63,7 +63,7 @@ namespace ComProg2Finals
 
         public override void Perform(Character user)
         {
-            MessageBox.Show($"Used {Name}");
+            //MessageBox.Show($"Used {Name}");
 
            // user.Opposition.Accuracy -= 20;
             user.skillQueue.Add(() => user.Opposition.LoweringAccuracy(20, user));
