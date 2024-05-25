@@ -259,7 +259,7 @@ namespace ComProg2Finals
             picImage = "blooIdle.gif";
             Defense = 40;
             CharStatEffects = new List<StatusEffect> { };
-            Coins = 100;
+            Coins = 500;
             Lives = 3;
             CritChance = 0;
             PlayerItems = new List<Items> { };
@@ -311,8 +311,15 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("By the gods, this slime is the most beautiful creature next to the princess I have ever seen. I would marry you if I were as gooey as you.");
-           // form2.runNextEncounter();
+            if (bloo.Rizz == 100 && bloo.canUseRizz)
+            {
+                MessageBox.Show("By the gods, this slime is the most beautiful creature next to the princess I have ever seen. I would marry you if I were as gooey as you.");
+            }
+            else
+            {
+                EventAction1(bloo);
+            }
+            // form2.runNextEncounter();
         }
         /*
         public override void EventAction3(Bloo bloo)
@@ -368,7 +375,14 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("From a genius to a genius! Please tell me more about four elementalisms, elucidating the intricacies of earthism, waterism, airism, and fireism, as they intertwine in the grand tapestry of existenceism.");
+            if (bloo.Rizz == 100 && bloo.canUseRizz)
+            {
+                MessageBox.Show("From a genius to a genius! Please tell me more about four elementalisms, elucidating the intricacies of earthism, waterism, airism, and fireism, as they intertwine in the grand tapestry of existenceism.");
+            }
+            else
+            {
+                EventAction1(bloo);
+            }
         }
         public override void EventAction3(Bloo bloo)
         {
@@ -437,7 +451,14 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("OH MY GOD! Mr. Slime, you are the most adorable thing in the world. I just want to pinch those cheeks!");
+            if (bloo.Rizz == 100 && bloo.canUseRizz)
+            {
+                MessageBox.Show("OH MY GOD! Mr. Slime, you are the most adorable thing in the world. I just want to pinch those cheeks!");
+            }
+            else
+            {
+                EventAction1(bloo);
+            }
         }
         public override void EventAction3(Bloo bloo)
         {
@@ -472,7 +493,14 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("I see… A slime outsmarting me. This is beyond embarrassing, but I admit my inferiority, slime.");
+            if (bloo.Rizz == 100 && bloo.canUseRizz)
+            {
+                MessageBox.Show("I see… A slime outsmarting me. This is beyond embarrassing, but I admit my inferiority, slime.");
+            }
+            else
+            {
+                EventAction1(bloo);
+            }
         }
         public override void EventAction3(Bloo bloo)
         {
@@ -508,7 +536,14 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("Ah, dear slime, your colors dance so vividly. Would you care for a stroll together? I find your company quite... enchanting.");
+            if (bloo.Rizz == 100 && bloo.canUseRizz)
+            {
+                MessageBox.Show("Ah, dear slime, your colors dance so vividly. Would you care for a stroll together? I find your company quite... enchanting.");
+            }
+            else
+            {
+                EventAction1(bloo);
+            }
         }
         public override void EventAction3(Bloo bloo)
         {
@@ -589,6 +624,20 @@ namespace ComProg2Finals
         public Peech(string name) : base(name)
         {
             Name = "Peech";
+            Interactions = new string[]{"Talk"};
+            picImage = "peech.png";
+
+        }
+        public override void EventAction1(Bloo bloo)
+        {
+            if(bloo.Rizz == 100)
+            {
+                MessageBox.Show("Win!");
+            }
+            else
+            {
+                MessageBox.Show("Lose, not enough Rizz");
+            }
         }
     }
 

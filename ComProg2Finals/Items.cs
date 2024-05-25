@@ -415,7 +415,7 @@ namespace ComProg2Finals
         {
             iter = 1;
             MessageBox.Show($"Bloo obtained One Shot Potion");
-            charac.AttackDamage = 9999;
+            charac.AttackDamage += 9999;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
@@ -428,14 +428,15 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show(charac.AttackDamage.ToString());
+           // MessageBox.Show(charac.AttackDamage.ToString());
         }
         public override void Lost(Bloo charac)
         {
             MessageBox.Show("One Shot Potion lost.");
-            charac.AttackDamage = 1;
+            charac.AttackDamage -= 9999;
             charac.PlayerItems.Remove(this);
         }
+  
     }
     public class HardHelmet : Items
     {
@@ -484,6 +485,10 @@ namespace ComProg2Finals
         public override void Encountered(Bloo charac)
         {
             //MessageBox.Show("Bloo found a Spiked Helmet, Bloo's defense has increased by 5%.");
+        }
+        public override void BattleAddItem(Bloo charac)
+        {
+            
         }
     }
     public class Excalibur : Items
@@ -613,12 +618,12 @@ namespace ComProg2Finals
                     if(bossIndex == 3)
                     {
                         MessageBox.Show("Final boss, bloo's attacks are enhanced");
-                        charac.CharStatEffects.Add(new AttackBoost("Seer buff", 0.30));
+                        charac.CharStatEffects.Add(new AttackBoost("Seer buff", 0.30, charac));
                         charac.PlayerItems.Remove(this);
                     }
                     break;
                 case 2:
-                    charac.CharStatEffects.Add(new AttackBoost("Seer buff", 0.15));
+                    charac.CharStatEffects.Add(new AttackBoost("Seer buff", 0.15, charac));
                     MessageBox.Show("Bloo attacks are enhanced");
                     charac.PlayerItems.Remove(this);
                     break;
@@ -629,7 +634,7 @@ namespace ComProg2Finals
                     charac.PlayerItems.Remove(this);
                     break;
                 case 4:
-                    charac.CharStatEffects.Add(new DefenseBoost("Seer buff", 20));
+                    charac.CharStatEffects.Add(new DefenseBoost("Seer buff", 20, charac));
                     MessageBox.Show("Bloo feels tougher");
                     charac.PlayerItems.Remove(this);
                     break;
