@@ -374,6 +374,13 @@ namespace ComProg2Finals
 
 
             //runEnemy();
+            /*
+            if (Enemy.Health <= 0)
+            {
+                MessageBox.Show("Bloo won");
+                this.Close();
+            }
+            */
 
 
             foreach (Action skills in Enemy.skillQueue)

@@ -319,6 +319,8 @@ namespace ComProg2Finals
         {
             // add mystery box logic
             MessageBox.Show("I have a little mystery box for you giggles. What's inside? What’s inside? Oh, the excitement! Well, that’s the fun part, isn’t it? It could be a delightful surprise... or a dreadful shock!” *giggles louder");
+            MysteryBox mysterybox = new MysteryBox();
+            mysterybox.Acquired(bloo);
             bloo.Coins -= bloo.Coins * .75;
             form2.runNextEncounter();
         }
@@ -329,10 +331,6 @@ namespace ComProg2Finals
             form2.runNextEncounter();
         }
 
-        public override void Perform(Bloo bloo)
-        {
-            // insert random item (mystery box) logic here
-        }
     }
     public class Seer : Events
     {
@@ -348,13 +346,13 @@ namespace ComProg2Finals
             MessageBox.Show($"Seer");
             Random random = new Random();
             int rand = random.Next(0, 4);
-            //rand = 0;
+           // rand = 0;
             switch (rand)
             {
                 case 0:
                     int bossCount = form2.encounterCount / 5;
                     bloo.Rizz -= bloo.Rizz * .3;
-                   // MessageBox.Show($"next encounter is {form2.bossFights[bossCount]}");
+                    MessageBox.Show($"next encounter is {form2.bossFights[bossCount]}");
                     // messagebox.show next enemy
                     break;
                 case 1:

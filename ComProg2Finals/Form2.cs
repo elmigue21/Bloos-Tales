@@ -29,7 +29,7 @@ namespace ComProg2Finals
         private System.Windows.Forms.Timer timer;
         private static Form2 instance;
         Form1 f1 = Form1.GetInstance();
-
+        public List<Character> bossFights = new List<Character>();
         public Shopkeeper shopkeeper = new Shopkeeper();
         public MasterGooway mastergooway = new MasterGooway();
         public Form2()
@@ -84,15 +84,51 @@ namespace ComProg2Finals
 
             //Bloo bloo = new Bloo("Bloo");
             //Player = bloo;
-            encounterCount = 4;
+            encounterCount = 1;
+
+
+            Random rand1 = new Random();
+            for (int i = 0; i < 3; i++)
+            {
+                Character boss = new Character("boss");
+                // Random rand1 = new Random();
+                int qqq1 = rand1.Next(0, 5);
+                switch (qqq1)
+                {
+                    case 0:
+                        boss = new Knight("Knight");
+                        break;
+                    case 1:
+                        boss = new Wizard("Wizard");
+                        break;
+                    case 2:
+                        boss = new Rogue("Rogue");
+                        break;
+                    case 3:
+                        boss = new Archer("Archer");
+                        break;
+                    case 4:
+                        boss = new Priest("Priest");
+                        break;
+                }
+                bossFights.Add(boss);
+            }
+
+            bossFights.Add(new Peech("Peech"));
+            /*
+            foreach(Character boss in bossFights)
+            {
+                MessageBox.Show(boss.Name);
+            }
+            */
 
             // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             //SoundPlayer player = new SoundPlayer(soundFilePath);
             // player.Play();
-          //  HolyWater rock = new HolyWater();
-          //  rock.Acquired(Player);
+            //  HolyWater rock = new HolyWater();
+            //  rock.Acquired(Player);
 
-     
+
 
 
 
@@ -348,13 +384,14 @@ namespace ComProg2Finals
         }
         public void EnterBattle()
         {
+            f1 = Form1.GetInstance();
+            f1.Enemy = currentEncounter as Character;
+            f1.Player = Player;
             for (int i = 0; i < Player.PlayerItems.Count; i++)
             {
                 Player.PlayerItems[i].BattleAddItem(Player);
             }
-            f1.Enemy = currentEncounter as Character;
-            f1.Player = Player;
-
+          
             f1.Show();
             
         }
@@ -384,6 +421,7 @@ namespace ComProg2Finals
             switch (encounterCount % 5)
             {
                 case 0:
+                    /*
                     Random rand1 = new Random();
                     int qqq1 = rand1.Next(0, 5);
                     switch (qqq1)
@@ -404,14 +442,23 @@ namespace ComProg2Finals
                             currentEncounter = new Priest("rafaella");
                             break;
                     }
-
-                    for(int i = 0; i < Player.PlayerItems.Count; i++)
+                    */
+                    int bossIndex = encounterCount / 5;
+                    if (bossIndex > 3)
                     {
-                        if (Player.PlayerItems[i].GetType() == currentEncounter.KeyItem)
+                        MessageBox.Show("Peech");
+                    }
+                    else
+                    {
+                        currentEncounter = bossFights[bossIndex];
+                        for (int i = 0; i < Player.PlayerItems.Count; i++)
                         {
-                            MessageBox.Show("PLAYER HAS KEY ITEM");
-                            runNextEncounter();
-                            break;
+                            if (Player.PlayerItems[i].GetType() == currentEncounter.KeyItem)
+                            {
+                                MessageBox.Show("PLAYER HAS KEY ITEM");
+                                runNextEncounter();
+                                break;
+                            }
                         }
                     }
 
@@ -476,7 +523,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-          // currentEncounter = new Knight("");
+           //currentEncounter = new Seer();
 
             label1.Text = "";
             /*

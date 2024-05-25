@@ -123,7 +123,7 @@ namespace ComProg2Finals
                 case 2:
                     MessageBox.Show("Element book used, Wind used");
                     user.elementType = "Wind";
-                    user.CharStatEffects.Add(new MultiHitChance("WindHit"));
+                    user.CharStatEffects.Add(new MultiHitChance("WindHit", user));
                     // dagdag ng stat effect na multi hit
                     //user.CharStatEffects.Add(/*multi hit*/);
                     break;
