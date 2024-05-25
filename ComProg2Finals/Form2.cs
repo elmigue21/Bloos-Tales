@@ -84,9 +84,9 @@ namespace ComProg2Finals
 
             //Bloo bloo = new Bloo("Bloo");
             //Player = bloo;
-            encounterCount = 5;
-            SpikedHelmet spiked = new SpikedHelmet();
-            spiked.Acquired(Player);
+            encounterCount = 0;
+          //  SpikedHelmet spiked = new SpikedHelmet();
+           // spiked.Acquired(Player);
 
             Random rand1 = new Random();
             for (int i = 0; i < 3; i++)
@@ -418,6 +418,14 @@ namespace ComProg2Finals
         }
         public void runNextEncounter()
         {
+            if(Player.Health <= 0 && Player.Lives > 0)
+            {
+                Player.Lives--;
+            }
+            if(Player.Lives <= 0)
+            {
+                MessageBox.Show("Lose");
+            }
 
             switch (encounterCount % 5)
             {
