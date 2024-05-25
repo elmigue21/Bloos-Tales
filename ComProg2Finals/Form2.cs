@@ -84,7 +84,7 @@ namespace ComProg2Finals
 
             //Bloo bloo = new Bloo("Bloo");
             //Player = bloo;
-            encounterCount = 4;
+            encounterCount = 1;
 
             // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             //SoundPlayer player = new SoundPlayer(soundFilePath);
@@ -355,7 +355,7 @@ namespace ComProg2Finals
             f1.Player.Opposition = f1.Enemy;
             f1.Enemy.Opposition = f1.Player;
 
-
+            f1.updateLabels();
             f1.Show();
             
         }
@@ -476,7 +476,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-           currentEncounter = new Knight("");
+          // currentEncounter = new Knight("");
 
             label1.Text = "";
             /*
