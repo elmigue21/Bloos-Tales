@@ -81,6 +81,7 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
             user.isBlocking = true;
+            MessageBox.Show("Bloo splits and makes other slimes to soak up damage!");
         }
     }
     public class ElementBook : Skill
@@ -123,6 +124,7 @@ namespace ComProg2Finals
                 case 2:
                     MessageBox.Show("Element book used, Wind used");
                     user.elementType = "Wind";
+                    user.CharStatEffects.Add(new MultiHitChance("WindHit"));
                     // dagdag ng stat effect na multi hit
                     //user.CharStatEffects.Add(/*multi hit*/);
                     break;
