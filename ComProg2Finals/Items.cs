@@ -183,6 +183,7 @@ namespace ComProg2Finals
     }
     public class MysteryPotion : Items
     {
+        private static Random random = new Random();
         public MysteryPotion()
         {
             this.Name = "Mystery Potion";
@@ -190,8 +191,37 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Mystery Potion");
-            charac.PlayerItems.Add(this);
-        }    
+
+            // List of possible potions
+            Items selectedPotion;
+            int randomIndex = random.Next(6);
+            switch (randomIndex)
+            {
+                case 0:
+                    selectedPotion = new RizzBooster();
+                    break;
+                case 1:
+                    selectedPotion = new HealthBoosterPotion();
+                    break;
+                case 2:
+                    selectedPotion = new DefenseDown50percentPotion();
+                    break;
+                case 3:
+                    selectedPotion = new DuctTapePotion();
+                    break;
+                case 4:
+                    selectedPotion = new PocketHolePotion();
+                    break;
+                case 5:
+                    selectedPotion = new OneShotPotion();
+                    break;
+                default:
+                    throw new Exception("Unexpected potion selection.");
+
+            }
+            // Apply the effect of the selected potion
+            selectedPotion.Acquired(charac);
+        }
     }
     public class RizzBooster : Items
     {
@@ -374,14 +404,31 @@ namespace ComProg2Finals
         {
             this.Name = "One Shot Potion";
         }
+        int iter;
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"One Shot Potion");
+            iter = 1;
+            MessageBox.Show($"Bloo obtained One Shot Potion");
+            charac.AttackDamage = 9999;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found a One Shot Potion, ");
+            if (iter == 0)
+            {
+                Lost(charac);
+            }
+            else
+            {
+                iter--;
+            }
+            MessageBox.Show(charac.AttackDamage.ToString());
+        }
+        public virtual void Lost(Bloo charac)
+        {
+            MessageBox.Show("One Shot Potion lost.");
+            charac.AttackDamage = 1;
+            charac.PlayerItems.Remove(this);
         }
     }
     public class HardHelmet : Items
@@ -554,5 +601,76 @@ namespace ComProg2Finals
                     break;
             }
         }
-    }    
+    }
+    public class MysteryBox : Items
+    {
+        private static Random random = new Random();
+        public MysteryBox()
+        {
+            this.Name = "Mystery Box";
+        }
+        public override void Acquired(Bloo charac)
+        {
+            MessageBox.Show($"you got a mystery box!!");
+
+            // List of possible potions
+            Items selectedPotion;
+            int randomIndex = random.Next(15);
+            switch (randomIndex)
+            {
+                case 0:
+                    selectedPotion = new Rock();
+                    break;
+                case 1:
+                    selectedPotion = new SacrificeRing();
+                    break;
+                case 2:
+                    selectedPotion = new BerserkAmulet();
+                    break;
+                case 3:
+                    selectedPotion = new Behelith();
+                    break;
+                case 4:
+                    selectedPotion = new Cologne();
+                    break;
+                case 5:
+                    selectedPotion = new Piggybank();
+                    break;
+                case 6:
+                    selectedPotion = new LifePotion();
+                    break;
+                case 7:
+                    selectedPotion = new MysteryPotion();
+                    break;
+                case 8:
+                    selectedPotion = new HardHelmet();
+                    break;
+                case 9:
+                    selectedPotion = new SpikedHelmet();
+                    break;
+                case 10:
+                    selectedPotion = new Excalibur();
+                    break;
+                case 11:
+                    selectedPotion = new StrangeGem();
+                    break;
+                case 12:
+                    selectedPotion = new GoldenArrow();
+                    break;
+                case 13:
+                    selectedPotion = new HolyWater();
+                    break;
+                case 14:
+                    selectedPotion = new Goblet();
+                    break;
+                default:
+                    throw new Exception("Unexpected potion selection.");
+
+            }
+            // Apply the effect of the selected potion
+            selectedPotion.Acquired(charac);
+        }
+    }
+
+
 }
