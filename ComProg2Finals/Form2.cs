@@ -27,7 +27,8 @@ namespace ComProg2Finals
         public EncounterClass currentEncounter;
         int encounterCount;
         private System.Windows.Forms.Timer timer;
-
+        private static Form2 instance;
+        Form1 f1 = Form1.GetInstance();
 
         public Shopkeeper shopkeeper = new Shopkeeper();
         public MasterGooway mastergooway = new MasterGooway();
@@ -42,7 +43,7 @@ namespace ComProg2Finals
 
             Bloo bloo = new Bloo("Bloo");
             Player = bloo;
-
+            f1.form2 = this;
 
             //Instance = this;
             Instance = this;
@@ -64,7 +65,6 @@ namespace ComProg2Finals
         int s1 = 0, s2 = 1277, cb1 = 0, cb2 = 1277, cf1 = 0, cf2 = 1277, hb1 = 0, hb2 = 1277, hf1 = 0, hf2 = 1277, p1 = 0, p2 = 1277, t1 = 0, t2 = 1277, b1 = 0, b2 = 1277;
 
         Image imgChar = null;
-
         private void player_Click(object sender, EventArgs e)
         {
 
@@ -346,11 +346,13 @@ namespace ComProg2Finals
         }
         public void EnterBattle()
         {
-            for(int i = 0; i < Player.PlayerItems.Count; i++)
+            for (int i = 0; i < Player.PlayerItems.Count; i++)
             {
                 Player.PlayerItems[i].BattleAddItem(Player);
             }
-            Form1 f1 = Form1.GetInstance();
+
+            // Form1 f1 = Form1.GetInstance();
+            //f1.form2 = this.
             f1.Enemy = currentEncounter as Character;
             f1.Player = Player;
             /*
@@ -477,8 +479,8 @@ namespace ComProg2Finals
                     }
                     break;
             }
-           //currentEncounter = new Knight("");
-
+            //currentEncounter = new Knight("");
+           // currentEncounter = new Knight("qwe");
             label1.Text = "";
             /*
             List<string> diag = new List<string>();

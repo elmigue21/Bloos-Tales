@@ -240,7 +240,7 @@ namespace ComProg2Finals
             Name = name;
             Health = 100;
             Accuracy = 100;
-            AttackDamage = 1;
+            AttackDamage = 100;
             Speed = 10;
             CharSkills = new List<Skill> { new Tackle(), new Goo()};
             Rizz = 20;
@@ -294,10 +294,12 @@ namespace ComProg2Finals
         public override void EventAction1(Bloo bloo)
         {
             MessageBox.Show("Let us fight to our deaths!");
+            form2.EnterBattle();
         }
         public override void EventAction2(Bloo bloo)
         {
             MessageBox.Show("By the gods, this slime is the most beautiful creature next to the princess I have ever seen. I would marry you if I were as gooey as you.");
+           // form2.runNextEncounter();
         }
         /*
         public override void EventAction3(Bloo bloo)

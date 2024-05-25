@@ -384,11 +384,13 @@ namespace ComProg2Finals
                 if (Player.Health <= 0)
                 {
                     MessageBox.Show("Bloo has lost!");
+                    form2.runNextEncounter();
                     this.Close();
                 }
                 else if (Enemy.Health <= 0)
                 {
                     MessageBox.Show("Bloo has won!");
+                    form2.runNextEncounter();
                     this.Close();
                 }
             }
@@ -481,7 +483,7 @@ namespace ComProg2Finals
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            form2.runNextEncounter();
+           form2.runNextEncounter();
         }
     }
 }
