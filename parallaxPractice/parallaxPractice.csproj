@@ -96,6 +96,7 @@
     <None Include="Resources\bushes.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\PressStart2P-Regular.ttf" />
     <None Include="Resources\trees.png" />
   </ItemGroup>
   <ItemGroup>
