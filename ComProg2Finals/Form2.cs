@@ -84,13 +84,15 @@ namespace ComProg2Finals
 
             //Bloo bloo = new Bloo("Bloo");
             //Player = bloo;
-            encounterCount = 4;
+            encounterCount = 0;
 
             // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             //SoundPlayer player = new SoundPlayer(soundFilePath);
             // player.Play();
-           // DuctTapePotion rock = new DuctTapePotion();
-           // rock.Acquired(Player);
+            HolyWater rock = new HolyWater();
+            rock.Acquired(Player);
+
+     
 
 
 
@@ -473,7 +475,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-           currentEncounter = new Knight("");
+          // currentEncounter = new Knight("");
 
             label1.Text = "";
             /*
@@ -497,11 +499,11 @@ namespace ComProg2Finals
                 button.Text = shopkeeper.itemshop[i].Name;
                 button.Click += (Btnsender, args) =>
                 {
-                    if (shopkeeper.itemshop[index].Price <= Player.Coins)
+                    if ((shopkeeper.itemshop[index].Price * Player.discount) <= Player.Coins)
                     {
                         shopkeeper.itemshop[index].Acquired(Player);
-                        Player.Coins -= shopkeeper.itemshop[index].Price;
-                        MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nCoins left : {Player.Coins}");
+                        Player.Coins -= shopkeeper.itemshop[index].Price * Player.discount;
+                        MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nDiscounted Price: {shopkeeper.itemshop[index].Price * Player.discount}\n\"Coins left : {Player.Coins}");
 
                         shopkeeper.itemshop.Remove(shopkeeper.itemshop[index]);
                         //flowLayoutPanel1.Controls.Remove(button);
@@ -510,7 +512,7 @@ namespace ComProg2Finals
                     else
                     {
                         MessageBox.Show("You don't have enough coins");
-                        MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nCoins left : {Player.Coins}");
+                        MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nDiscounted Price: {shopkeeper.itemshop[index].Price * Player.discount}\nCoins left : {Player.Coins}");
                         LoadItemShop();
                     }
                 };
@@ -544,17 +546,18 @@ namespace ComProg2Finals
                     //MessageBox.Show(mastergooway.skillshop[index].ToString());
                     if (Player.CharSkills.Count < 4)
                     {
-                        if (mastergooway.skillshop[index].Price <= Player.Coins)
+                        if (mastergooway.skillshop[index].Price * Player.discount <= Player.Coins)
                         {
-                            Player.Coins -= mastergooway.skillshop[index].Price;
+                            Player.Coins -= mastergooway.skillshop[index].Price * Player.discount;
                             mastergooway.skillshop[index].Learn(Player);
+                            MessageBox.Show($"Price: {mastergooway.skillshop[index].Price}\nDiscounted Price: {mastergooway.skillshop[index].Price * Player.discount}\nCoins left : {Player.Coins}");
                             mastergooway.skillshop.Remove(mastergooway.skillshop[index]);
                             LoadSkillShop();
                         }
                         else
                         {
                             MessageBox.Show("You don't have enough coins");
-                            MessageBox.Show($"Price: {mastergooway.skillshop[index].Price}\nCoins left : {Player.Coins}");
+                            MessageBox.Show($"Price: {mastergooway.skillshop[index].Price}\nDiscounted Price: {mastergooway.skillshop[index].Price * Player.discount}\nCoins left : {Player.Coins}");
                             LoadSkillShop();
                         }
                     }
