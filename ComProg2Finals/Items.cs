@@ -711,5 +711,30 @@ namespace ComProg2Finals
         }
     }
 
+    public class KingDebuff : Items
+    {
+        int interval;
+        public KingDebuff()
+        {
+            interval = 3;
+        }
+        public override void Acquired(Bloo charac)
+        {
+            charac.canGetItem = false;
+        }
+        public override void Encountered(Bloo charac)
+        {
+            interval--;
+            if(interval == 0)
+            {
+                this.Lost(charac);
+            }
+        }
+        public override void Lost(Bloo charac)
+        {
+            charac.canGetItem = true;
+        }
+    }
+
 
 }

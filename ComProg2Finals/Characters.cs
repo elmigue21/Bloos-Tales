@@ -150,6 +150,10 @@ namespace ComProg2Finals
                         MessageBox.Show(user.Name + " dealt " + totalDamage + " critical damage to " + user.Opposition.Name);
                     }
                     user.Opposition.Health -= totalDamage;
+
+                    if (user.Opposition.GetType() == typeof(Bloo) && user.PlayerItems.Any(item => item.GetType() == typeof(SpikedHelmet))) {
+                        user.Health -= totalDamage / 2;
+                    }
                     
                 }
             }
@@ -247,6 +251,7 @@ namespace ComProg2Finals
         public double discount;
         public bool canGainCoin;
         public bool canUseRizz;
+        public bool canGetItem;
         public Bloo(string name) : base(name)
         {
             Name = name;
@@ -274,11 +279,22 @@ namespace ComProg2Finals
         
         public void GainRizz(double value)
         {
-            this.Rizz += value * rizzGainMultiplier;
+            if(this.Rizz + value < 100)
+            {
+                this.Rizz += value * rizzGainMultiplier;
+            }
+            else
+            {
+                this.Rizz = 100;
+            }
+            
         }
         public void GainCoin(double value)
         {
-            this.Coins += value * coinGainMultiplier;
+            if (this.canGainCoin)
+            {
+                this.Coins += value * coinGainMultiplier;
+            }
         }
     }
     public class Knight : Character
@@ -384,11 +400,6 @@ namespace ComProg2Finals
                 EventAction1(bloo);
             }
         }
-        public override void EventAction3(Bloo bloo)
-        {
-            MessageBox.Show("You! Did you put your name on the goblet of fire?! *calmly*");
-            MessageBox.Show("Marvelous! What wondrous feats this slime has made, embraced by the goblet’s embrace! A conundrum of magicism and mysterism!");
-        }
     }
 
     public class FireWizard : Wizard
@@ -460,10 +471,6 @@ namespace ComProg2Finals
                 EventAction1(bloo);
             }
         }
-        public override void EventAction3(Bloo bloo)
-        {
-            MessageBox.Show("Divine blessings! This holy water, gifted by thy humble slime, carries the purity of innocence and thy wisdom of unexpected allies. You have my thanks…");
-        }
     }
     public class Rogue: Character
     {
@@ -502,11 +509,7 @@ namespace ComProg2Finals
                 EventAction1(bloo);
             }
         }
-        public override void EventAction3(Bloo bloo)
-        {
-            MessageBox.Show("...");
-            MessageBox.Show("You slime, has made me the richest man in all the land! This is by far one of the rarest gems or might even be the rarest gem!");
-        }
+
     }
     public class Archer : Character
     {
@@ -544,11 +547,6 @@ namespace ComProg2Finals
             {
                 EventAction1(bloo);
             }
-        }
-        public override void EventAction3(Bloo bloo)
-        {
-            MessageBox.Show("In a sea of dullness, a gleaming arrow is in your hands. May I take a look?");
-            MessageBox.Show("By the gods, it's returned to me! This arrow, lost to time's grasp, now rests once more in my hands. With you, old friend, my aim finds its truest mark once again.");
         }
     }
     public class HostileChest : Character
