@@ -266,7 +266,7 @@ namespace ComProg2Finals
         {
            // MessageBox.Show($"Used {Name}");
             //user.CharStatEffects.Add(new DmgPerTurn("Burn", 10, 5));
-            user.skillQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Fire"));
+            user.skillQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Fire", this.Name));
            // user.Opposition.ElementDamageCharac(20, user, "Fire");
         }
     }
@@ -282,7 +282,7 @@ namespace ComProg2Finals
             //MessageBox.Show($"Used {Name}");
             // test
 
-            user.skillQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Earth"));
+            user.skillQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Earth", this.Name));
            // user.Opposition.ElementDamageCharac(20, user, "Earth");
         }
     }
@@ -296,7 +296,7 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
            // MessageBox.Show($"Used {Name}");
-            user.skillQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Wind"));
+            user.skillQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Wind", this.Name));
            //user.Opposition.ElementDamageCharac(20, user, "Wind");
         }
     }
@@ -310,7 +310,7 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
            // MessageBox.Show($"Used {Name}");
-           user.skillQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Water"));
+           user.skillQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Water", this.Name));
            // user.Opposition.ElementDamageCharac(20, user, "Water");
         }
     }

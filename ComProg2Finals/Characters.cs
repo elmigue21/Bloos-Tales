@@ -175,7 +175,7 @@ namespace ComProg2Finals
             }
         }
 
-            public void ElementDamageCharac(double dmgValue, Character user, string dmgType)
+            public void ElementDamageCharac(double dmgValue, Character user, string dmgType, string skillName)
         {
             switch (dmgType)
             {
@@ -232,7 +232,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-            DamageCharac(dmgValue, user, this.Name);
+            DamageCharac(dmgValue, user, skillName);
         }
         /////////////////////////////////
     }
