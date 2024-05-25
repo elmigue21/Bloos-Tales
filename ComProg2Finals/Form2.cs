@@ -25,10 +25,12 @@ namespace ComProg2Finals
         //public Bloo Player;
         string directory;
         public EncounterClass currentEncounter;
-        int encounterCount;
+        public int encounterCount;
         private System.Windows.Forms.Timer timer;
         private static Form2 instance;
         Form1 f1 = Form1.GetInstance();
+
+       public List<Character> bossFights = new List<Character>();
 
         public Shopkeeper shopkeeper = new Shopkeeper();
         public MasterGooway mastergooway = new MasterGooway();
@@ -44,6 +46,41 @@ namespace ComProg2Finals
             Bloo bloo = new Bloo("Bloo");
             Player = bloo;
             //f1.form2 = this;
+
+            Random rand1 = new Random();
+            for (int i = 0; i < 3; i++)
+            {
+                Character boss = new Character("boss");
+               // Random rand1 = new Random();
+                int qqq1 = rand1.Next(0, 5);
+                switch (qqq1)
+                {
+                    case 0:
+                        boss = new Knight("Knight");
+                        break;
+                    case 1:
+                        boss = new Wizard("Wizard");
+                        break;
+                    case 2:
+                        boss = new Rogue("Rogue");
+                        break;
+                    case 3:
+                        boss = new Archer("Archer");
+                        break;
+                    case 4:
+                        boss = new Priest("Priest");
+                        break;
+                }
+                bossFights.Add(boss);
+            }
+            
+            bossFights.Add(new Peech("Peech"));
+            /*
+            foreach(Character boss in bossFights)
+            {
+                MessageBox.Show(boss.Name);
+            }
+            */
 
             //Instance = this;
             Instance = this;
@@ -85,6 +122,9 @@ namespace ComProg2Finals
             //Bloo bloo = new Bloo("Bloo");
             //Player = bloo;
             encounterCount = 1;
+
+
+
 
             // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             //SoundPlayer player = new SoundPlayer(soundFilePath);
@@ -386,35 +426,47 @@ namespace ComProg2Finals
 
             switch (encounterCount % 5)
             {
-                case 0:
-                    Random rand1 = new Random();
-                    int qqq1 = rand1.Next(0, 5);
-                    switch (qqq1)
-                    {
-                        case 0:
-                            currentEncounter = new Knight("knightt");
-                            break;
-                        case 1:
-                            currentEncounter = new Wizard("gaanddaaalfff");
-                            break;
-                        case 2:
-                            currentEncounter = new Rogue("miroguel");
-                            break;
-                        case 3:
-                            currentEncounter = new Archer("legolas");
-                            break;
-                        case 4:
-                            currentEncounter = new Priest("rafaella");
-                            break;
-                    }
 
-                    for(int i = 0; i < Player.PlayerItems.Count; i++)
+                case 0:
+
+                    int bossCount = encounterCount / 5;
+                    if (bossCount > 3)
                     {
-                        if (Player.PlayerItems[i].GetType() == currentEncounter.KeyItem)
+                        MessageBox.Show("PEECH");
+                    }
+                    else
+                    {
+                        currentEncounter = bossFights[bossCount];
+                        /*
+                        Random rand1 = new Random();
+                        int qqq1 = rand1.Next(0, 5);
+                        switch (qqq1)
                         {
-                            MessageBox.Show("PLAYER HAS KEY ITEM");
-                            runNextEncounter();
-                            break;
+                            case 0:
+                                currentEncounter = new Knight("knightt");
+                                break;
+                            case 1:
+                                currentEncounter = new Wizard("gaanddaaalfff");
+                                break;
+                            case 2:
+                                currentEncounter = new Rogue("miroguel");
+                                break;
+                            case 3:
+                                currentEncounter = new Archer("legolas");
+                                break;
+                            case 4:
+                                currentEncounter = new Priest("rafaella");
+                                break;
+                        }
+                        */
+                        for (int i = 0; i < Player.PlayerItems.Count; i++)
+                        {
+                            if (Player.PlayerItems[i].GetType() == currentEncounter.KeyItem)
+                            {
+                                MessageBox.Show("PLAYER HAS KEY ITEM");
+                                runNextEncounter();
+                                break;
+                            }
                         }
                     }
 
@@ -478,7 +530,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-          // currentEncounter = new Knight("");
+         //  currentEncounter = new Seer();
 
             label1.Text = "";
             /*

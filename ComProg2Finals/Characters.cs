@@ -577,9 +577,17 @@ namespace ComProg2Finals
         }
 
 
+
     }
 
 
+    public class Peech : Character
+    {
+        public Peech(string name) : base(name)
+        {
+            Name = "Peech";
+        }
+    }
 
 
 
