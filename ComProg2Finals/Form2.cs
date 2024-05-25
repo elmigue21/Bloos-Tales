@@ -477,7 +477,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-           //currentEncounter = new Knight("");
+           currentEncounter = new Knight("");
 
             label1.Text = "";
             /*

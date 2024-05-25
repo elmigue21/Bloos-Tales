@@ -523,7 +523,7 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found a Strange Gem, crit chance has increased by 20%.");
+            MessageBox.Show("Bloo found a Golden Arrow, crit chance has increased by 20%.");
         }
     }
     public class HolyWater : Items

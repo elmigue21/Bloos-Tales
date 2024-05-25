@@ -238,14 +238,14 @@ namespace ComProg2Finals
         public Bloo(string name) : base(name)
         {
             Name = name;
-            Health = 100;
+            Health = 50;
             Accuracy = 100;
-            AttackDamage = 1;
+            AttackDamage = 20;
             Speed = 10;
             CharSkills = new List<Skill> { new Tackle(), new Goo()};
             Rizz = 20;
             picImage = "blooIdle.gif";
-            Defense = 999;
+            Defense = 40;
             CharStatEffects = new List<StatusEffect> { };
             Coins = 100;
             Lives = 3;
@@ -399,7 +399,7 @@ namespace ComProg2Finals
         public Priest(string name) : base(name)
         {
             Name = name;
-            Health = 100;
+            Health = 50;
             Accuracy = 100;
             AttackDamage = 1;
             Speed = 10;
@@ -477,7 +477,7 @@ namespace ComProg2Finals
             CharSkills = new List<Skill> { new Lock(), new Volley(), new Shoot()};
             Rizz = 5;
             picImage = "archer.png";
-            Defense = 10;
+            Defense = 25;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
             skillProbability = new int[] { 33, 33, 33, -1 };
