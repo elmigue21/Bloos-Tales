@@ -81,6 +81,7 @@ namespace ComProg2Finals
         public int[] skillProbability { get; set; }
         public Character PlayerInstance { get; set; }
         public double DamageTaken { get; set; }
+        public double ElementMultiplier = 2;
         public Character(string name)
         {
             
@@ -183,7 +184,7 @@ namespace ComProg2Finals
                     switch (user.Opposition.elementType)
                     {
                         case "Wind":
-                            dmgValue *= 2;
+                            dmgValue *= ElementMultiplier;
                             MessageBox.Show("its super effective");
                             break;
                         case "Water":
@@ -196,7 +197,7 @@ namespace ComProg2Finals
                     switch (user.Opposition.elementType)
                     {
                         case "Fire":
-                            dmgValue *= 2;
+                            dmgValue *= ElementMultiplier;
                             MessageBox.Show("its super effective");
                             break;
                         case "Earth":
@@ -209,7 +210,7 @@ namespace ComProg2Finals
                     switch (user.Opposition.elementType)
                     {
                         case "Earth":
-                            dmgValue *= 2;
+                            dmgValue *= ElementMultiplier;
                             MessageBox.Show("its super effective");
                             break;
                         case "Fire":
@@ -222,7 +223,7 @@ namespace ComProg2Finals
                     switch (user.Opposition.elementType)
                     {
                         case "Water":
-                            dmgValue *= 2;
+                            dmgValue *= ElementMultiplier;
                             MessageBox.Show("its super effective");
                             break;
                         case "Wind":
