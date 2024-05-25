@@ -125,8 +125,10 @@ namespace ComProg2Finals
             //Enemy = characters[comboBox1.SelectedIndex];
             //Player.Opposition = Enemy;
             // Enemy.Opposition = Player;
-            Player.CharStatEffects.Add(new AttackBoost("Attackboost", 0.3));
+            Player.CharStatEffects.Add(new MultiHitChance("Attackboost"));
+            
             currentTurn = Player;
+
 
         
 
@@ -168,20 +170,24 @@ namespace ComProg2Finals
             {
 
                 //Enemy.skillQueued = Enemy.CharSkills[0];
+               // Enemy.skillQueue.Add(() => Enemy.CharSkills[0].Perform(Enemy));
                 Enemy.CharSkills[0].Perform(Enemy);
             }
             else if(chance > Enemy.skillProbability[0] && chance <= Enemy.skillProbability[1] + Enemy.skillProbability[0])
             {
+               // Enemy.skillQueue.Add(() => Enemy.CharSkills[1].Perform(Enemy));
                 Enemy.CharSkills[1].Perform(Enemy);
                 //Enemy.skillQueued = Enemy.CharSkills[1];
             }
             else if(chance > Enemy.skillProbability[1] && chance <= Enemy.skillProbability[2] + Enemy.skillProbability[1] + Enemy.skillProbability[0])
             {
+               // Enemy.skillQueue.Add(() => Enemy.CharSkills[2].Perform(Enemy));
                 Enemy.CharSkills[2].Perform(Enemy);
                 // Enemy.skillQueued = Enemy.CharSkills[2];
             }
             else if(chance > Enemy.skillProbability[2] && chance <= Enemy.skillProbability[3] + Enemy.skillProbability[2] + Enemy.skillProbability[1] + Enemy.skillProbability[0])
             {
+               // Enemy.skillQueue.Add(() => Enemy.CharSkills[3].Perform(Enemy));
                 Enemy.CharSkills[3].Perform(Enemy);
                 // Enemy.skillQueued = Enemy.CharSkills[3];
             }
@@ -195,6 +201,7 @@ namespace ComProg2Finals
             {
                 if (Player.hasTurn)
                 {
+                   // Player.skillQueue.Add(() => Player.CharSkills[0].Perform(Player));
                     Player.UseSkill1(Player);
                 }
                 else
@@ -228,6 +235,7 @@ namespace ComProg2Finals
 
                 if (Player.hasTurn)
                 {
+                   // Player.skillQueue.Add(() => Player.CharSkills[0].Perform(Player));
                     Player.UseSkill2(Player);
                 }
                 else
@@ -353,13 +361,24 @@ namespace ComProg2Finals
             {
                 Enemy.CharStatEffects[i].Trigger(Enemy);
             }
-            foreach(Action skills in skillsQueue)
+            
+
+            
+            foreach (Action skills in Player.skillQueue)
             {
                 skills();
             }
-
-            skillsQueue.Clear();
             
+            Player.skillQueue.Clear();
+
+            
+            foreach (Action skills in Enemy.skillQueue)
+            {
+                skills();
+            }
+            
+            Enemy.skillQueue.Clear();
+
             if (Player.hasTurn)
             {
                 if (Player.Health <= 0)

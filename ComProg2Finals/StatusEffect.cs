@@ -127,8 +127,8 @@ namespace ComProg2Finals
                 rand = 0;
                 switch (rand) {
                     case 0:
-                MessageBox.Show("Bloo lands and damages the enemy!");
-                battleForm.skillsQueue.Add(()=>user.Opposition.DamageCharac(15, user)  );
+                MessageBox.Show("Bloo lands and attacks the enemy!");
+                user.skillQueue.Add(()=>user.Opposition.DamageCharac(15, user)  );
                         break;
                     case 1:
                         MessageBox.Show("Bloo lands and tries to attack the enemy but missed!");
@@ -206,6 +206,27 @@ namespace ComProg2Finals
         public DefenseBoost(string name, double val) : base(name)
         {
             battleForm.Player.Defense += val;
+        }
+    }
+    public class MultiHitChance : StatusEffect
+    {
+        public int multiHitCount;
+        public MultiHitChance(string name) : base(name)
+        {
+            Random random = new Random();
+            multiHitCount = random.Next(4);
+            MessageBox.Show(multiHitCount.ToString());
+        }
+        public override void Trigger(Character charac)
+        {
+            if (charac.skillQueue.Count > 0)
+            {
+                for (int i = 0; i < multiHitCount; i++)
+                {
+                    charac.skillQueue.Add(charac.skillQueue[0]);
+                }
+            }
+            charac.CharStatEffects.Remove(this);
         }
     }
 

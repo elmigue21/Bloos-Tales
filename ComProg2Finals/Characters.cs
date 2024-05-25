@@ -76,7 +76,7 @@ namespace ComProg2Finals
         public bool isBlocking { get; set; }
         public bool hasTurn { get; set; }
         public string elementType { get; set; }
-        public Skill[] skillQueued { get; set; }
+        public List<Action> skillQueue = new List<Action>();
         public int[] skillProbability { get; set; }
         public Character PlayerInstance { get; set; }
         public double DamageTaken { get; set; }
@@ -91,21 +91,25 @@ namespace ComProg2Finals
             PlayerInstance = Form2.Player;
         }
 
-        public virtual void UseSkill1(Character target)
+        public virtual void UseSkill1(Character player)
         {
-            CharSkills[0].Perform(target);
+            //player.skillQueue.Add(() => CharSkills[0].Perform(player));
+            CharSkills[0].Perform(player);
         }
-        public virtual void UseSkill2(Character target)
+        public virtual void UseSkill2(Character player)
         {
-            CharSkills[1].Perform(target);
+           // player.skillQueue.Add(() => CharSkills[1].Perform(player));
+            CharSkills[1].Perform(player);
         }
-        public virtual void UseSkill3(Character target)
+        public virtual void UseSkill3(Character player)
         {
-            CharSkills[2].Perform(target);
+           // player.skillQueue.Add(() => CharSkills[2].Perform(player));
+            CharSkills[2].Perform(player);
         }
-        public virtual void UseSkill4(Character target)
+        public virtual void UseSkill4(Character player)
         {
-            CharSkills[3].Perform(target);
+            //player.skillQueue.Add(() => CharSkills[3].Perform(player));
+            CharSkills[3].Perform(player);
         }
         
         public virtual void DamageCharac(double dmgValue, Character user)
