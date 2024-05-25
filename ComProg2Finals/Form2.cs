@@ -25,12 +25,10 @@ namespace ComProg2Finals
         //public Bloo Player;
         string directory;
         public EncounterClass currentEncounter;
-        public int encounterCount;
+        int encounterCount;
         private System.Windows.Forms.Timer timer;
         private static Form2 instance;
         Form1 f1 = Form1.GetInstance();
-
-       public List<Character> bossFights = new List<Character>();
 
         public Shopkeeper shopkeeper = new Shopkeeper();
         public MasterGooway mastergooway = new MasterGooway();
@@ -45,42 +43,7 @@ namespace ComProg2Finals
 
             Bloo bloo = new Bloo("Bloo");
             Player = bloo;
-            //f1.form2 = this;
-
-            Random rand1 = new Random();
-            for (int i = 0; i < 3; i++)
-            {
-                Character boss = new Character("boss");
-               // Random rand1 = new Random();
-                int qqq1 = rand1.Next(0, 5);
-                switch (qqq1)
-                {
-                    case 0:
-                        boss = new Knight("Knight");
-                        break;
-                    case 1:
-                        boss = new Wizard("Wizard");
-                        break;
-                    case 2:
-                        boss = new Rogue("Rogue");
-                        break;
-                    case 3:
-                        boss = new Archer("Archer");
-                        break;
-                    case 4:
-                        boss = new Priest("Priest");
-                        break;
-                }
-                bossFights.Add(boss);
-            }
-            
-            bossFights.Add(new Peech("Peech"));
-            /*
-            foreach(Character boss in bossFights)
-            {
-                MessageBox.Show(boss.Name);
-            }
-            */
+            f1.form2 = this;
 
             //Instance = this;
             Instance = this;
@@ -121,16 +84,15 @@ namespace ComProg2Finals
 
             //Bloo bloo = new Bloo("Bloo");
             //Player = bloo;
-            encounterCount = 1;
-
-
-
+            encounterCount = 0;
 
             // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             //SoundPlayer player = new SoundPlayer(soundFilePath);
             // player.Play();
-           // DuctTapePotion rock = new DuctTapePotion();
-           // rock.Acquired(Player);
+            HolyWater rock = new HolyWater();
+            rock.Acquired(Player);
+
+     
 
 
 
@@ -390,14 +352,9 @@ namespace ComProg2Finals
             {
                 Player.PlayerItems[i].BattleAddItem(Player);
             }
-            Form1 f1 = Form1.GetInstance();
-            f1.form2 = this;
             f1.Enemy = currentEncounter as Character;
             f1.Player = Player;
-            f1.Player.Opposition = f1.Enemy;
-            f1.Enemy.Opposition = f1.Player;
 
-            f1.updateLabels();
             f1.Show();
             
         }
@@ -426,47 +383,35 @@ namespace ComProg2Finals
 
             switch (encounterCount % 5)
             {
-
                 case 0:
-
-                    int bossCount = encounterCount / 5;
-                    if (bossCount > 3)
+                    Random rand1 = new Random();
+                    int qqq1 = rand1.Next(0, 5);
+                    switch (qqq1)
                     {
-                        MessageBox.Show("PEECH");
+                        case 0:
+                            currentEncounter = new Knight("knightt");
+                            break;
+                        case 1:
+                            currentEncounter = new Wizard("gaanddaaalfff");
+                            break;
+                        case 2:
+                            currentEncounter = new Rogue("miroguel");
+                            break;
+                        case 3:
+                            currentEncounter = new Archer("legolas");
+                            break;
+                        case 4:
+                            currentEncounter = new Priest("rafaella");
+                            break;
                     }
-                    else
+
+                    for(int i = 0; i < Player.PlayerItems.Count; i++)
                     {
-                        currentEncounter = bossFights[bossCount];
-                        /*
-                        Random rand1 = new Random();
-                        int qqq1 = rand1.Next(0, 5);
-                        switch (qqq1)
+                        if (Player.PlayerItems[i].GetType() == currentEncounter.KeyItem)
                         {
-                            case 0:
-                                currentEncounter = new Knight("knightt");
-                                break;
-                            case 1:
-                                currentEncounter = new Wizard("gaanddaaalfff");
-                                break;
-                            case 2:
-                                currentEncounter = new Rogue("miroguel");
-                                break;
-                            case 3:
-                                currentEncounter = new Archer("legolas");
-                                break;
-                            case 4:
-                                currentEncounter = new Priest("rafaella");
-                                break;
-                        }
-                        */
-                        for (int i = 0; i < Player.PlayerItems.Count; i++)
-                        {
-                            if (Player.PlayerItems[i].GetType() == currentEncounter.KeyItem)
-                            {
-                                MessageBox.Show("PLAYER HAS KEY ITEM");
-                                runNextEncounter();
-                                break;
-                            }
+                            MessageBox.Show("PLAYER HAS KEY ITEM");
+                            runNextEncounter();
+                            break;
                         }
                     }
 
@@ -530,7 +475,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-         //  currentEncounter = new Seer();
+          // currentEncounter = new Knight("");
 
             label1.Text = "";
             /*
@@ -554,11 +499,11 @@ namespace ComProg2Finals
                 button.Text = shopkeeper.itemshop[i].Name;
                 button.Click += (Btnsender, args) =>
                 {
-                    if (shopkeeper.itemshop[index].Price <= Player.Coins)
+                    if ((shopkeeper.itemshop[index].Price * Player.discount) <= Player.Coins)
                     {
                         shopkeeper.itemshop[index].Acquired(Player);
-                        Player.Coins -= shopkeeper.itemshop[index].Price;
-                        MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nCoins left : {Player.Coins}");
+                        Player.Coins -= shopkeeper.itemshop[index].Price * Player.discount;
+                        MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nDiscounted Price: {shopkeeper.itemshop[index].Price * Player.discount}\n\"Coins left : {Player.Coins}");
 
                         shopkeeper.itemshop.Remove(shopkeeper.itemshop[index]);
                         //flowLayoutPanel1.Controls.Remove(button);
@@ -567,7 +512,7 @@ namespace ComProg2Finals
                     else
                     {
                         MessageBox.Show("You don't have enough coins");
-                        MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nCoins left : {Player.Coins}");
+                        MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nDiscounted Price: {shopkeeper.itemshop[index].Price * Player.discount}\nCoins left : {Player.Coins}");
                         LoadItemShop();
                     }
                 };
@@ -601,17 +546,18 @@ namespace ComProg2Finals
                     //MessageBox.Show(mastergooway.skillshop[index].ToString());
                     if (Player.CharSkills.Count < 4)
                     {
-                        if (mastergooway.skillshop[index].Price <= Player.Coins)
+                        if (mastergooway.skillshop[index].Price * Player.discount <= Player.Coins)
                         {
-                            Player.Coins -= mastergooway.skillshop[index].Price;
+                            Player.Coins -= mastergooway.skillshop[index].Price * Player.discount;
                             mastergooway.skillshop[index].Learn(Player);
+                            MessageBox.Show($"Price: {mastergooway.skillshop[index].Price}\nDiscounted Price: {mastergooway.skillshop[index].Price * Player.discount}\nCoins left : {Player.Coins}");
                             mastergooway.skillshop.Remove(mastergooway.skillshop[index]);
                             LoadSkillShop();
                         }
                         else
                         {
                             MessageBox.Show("You don't have enough coins");
-                            MessageBox.Show($"Price: {mastergooway.skillshop[index].Price}\nCoins left : {Player.Coins}");
+                            MessageBox.Show($"Price: {mastergooway.skillshop[index].Price}\nDiscounted Price: {mastergooway.skillshop[index].Price * Player.discount}\nCoins left : {Player.Coins}");
                             LoadSkillShop();
                         }
                     }

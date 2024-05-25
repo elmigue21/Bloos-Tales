@@ -516,8 +516,8 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Strange Gem");
-            charac.Coins += charac.Coins * .50;
+            //MessageBox.Show("Bloo found a Strange Gem, n% discount on all gold related items.");
+            charac.discount = .80;
             charac.PlayerItems.Add(this);
             MessageBox.Show("Bloo found a Strange Gem, n% discount on all gold related items.");
         }
@@ -561,23 +561,11 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-            charac.Health += 10;
-            MessageBox.Show($"Holy Water");
+            MessageBox.Show($"Bloo received Holy Water, Bloo's gains +10 Health every turn.");
             charac.PlayerItems.Add(this);
-            if (charac.Health < 100)
-            {
-                charac.Health += 10;
-                if (charac.Health > 100)
-                {
-                    double Excess = charac.Health - 100;
-                    charac.Health -= Excess;
-                }
-            }
+          
         }
-        public override void Encountered(Bloo charac)
-        {
-            MessageBox.Show("Bloo received Holy Water, Bloo's gains +10 Health every turn.");
-        }
+
         public override void BattleAddItem(Bloo charac)
         {
             charac.CharStatEffects.Add(new HealPerTurn("HolyWater", 10, 999));

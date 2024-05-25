@@ -144,9 +144,16 @@ namespace ComProg2Finals
     }
     public class HolyWaterHeal : StatusEffect
     {
-        public HolyWaterHeal(string name) : base(name)
+        double healVal;
+        public HolyWaterHeal(string name, double heal) : base(name)
         {
-            
+            healVal = heal;
+        }
+        
+        public override void Trigger(Character charac)
+        {
+            charac.Health += healVal;
+            MessageBox.Show($"Healed {healVal} health from {charac.Name}");
         }
 
     }
