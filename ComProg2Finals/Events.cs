@@ -29,7 +29,7 @@ namespace ComProg2Finals
         public Chest()
         {
             Name = "Chest";
-            picImage = "chest.png";
+            picImage = "chesty_close.png";
             EncounterDialogue = "Bloo stumbles upon a chest!";
             Interactions = new string[] { "Open", "Skip" };
         }
@@ -179,7 +179,7 @@ namespace ComProg2Finals
         public SwordInStone()
         {
             Name = "SwordInStone";
-            picImage = "swordinstone.png";
+            picImage = "sword_in_stone.png";
             EncounterDialogue = "I AM THE CHOSEN ONE";
             Interactions = new string[] { "Pull", "Ignore" };
         }
@@ -218,7 +218,7 @@ namespace ComProg2Finals
         public Bonfire()
         {
             Name = "Bonfire";
-            picImage = "bonfire.png";
+            picImage = "bonfire.gif";
             EncounterDialogue = "Bloo stumbles upon a BONfire";
             Interactions = new string[] { "Obtain", "Ignore" };
         }
@@ -251,7 +251,7 @@ namespace ComProg2Finals
         public MysteriousMan()
         {
             Name = "Mysterious man";
-            picImage = "mysteriousman.png";
+            picImage = "mysterious_man.png";
             EncounterDialogue = "SHHHHHH";
             Interactions = new string[] { "Blue pill", "Red Pill"};
             Random random = new Random();
@@ -426,7 +426,7 @@ namespace ComProg2Finals
         public WishingWell()
         {
             Name = "Wishing well";
-            this.picImage = "wishingwell.png";
+            this.picImage = "wishing_well.png";
             Interactions = new string[] { "Make Wish", "Ignore" };
             EncounterDialogue = "WISHING WASHING";
             Interactions = new string[] { "Wish", "Ignore" };
@@ -469,7 +469,7 @@ namespace ComProg2Finals
         public King()
         {
             Name = "KING";
-            picImage = "king.png";
+            picImage = "king.gif";
             EncounterDialogue = "What manner of odd creature are you… Say, my kingdom has come to ruins, would you mind making a trade to this daring king?";
             Interactions = new string[] { "Accept", "Decline" };
         }
@@ -565,7 +565,7 @@ namespace ComProg2Finals
         public AppleTree()
         {
             Name = "Apple Tree";
-            picImage = "appletree.png";
+            picImage = "apple_tree.png";
             EncounterDialogue = "GRAVITY";
             Interactions = new string[] { "Tackle", "Climb" };
         }
@@ -655,7 +655,7 @@ namespace ComProg2Finals
         public List<Items> itemshop;
         public Shopkeeper()
         {
-            picImage = "wishingwell.png";
+            picImage = "shop_keeper_idle.gif";
             EncounterDialogue = "SHOPPEEDOOPEE";
             itemshop = new List<Items> { new LifePotion(), new MysteryPotion(), new HardHelmet(), new SpikedHelmet() };
 

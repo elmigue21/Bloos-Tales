@@ -118,61 +118,64 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="blooBouncing" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blooBouncing.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blooIdle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blooIdle.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blooWalking" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blooWalking.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bushes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bushes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="paladin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\paladin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="R" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\R.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="R1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\R.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rizz" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rizz.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="scroll" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\scroll.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="trees" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\trees.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wizard" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wizard.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_00Sky" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\00Sky.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_01cloudsBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\01cloudsBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_02cloudsFront" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\02cloudsFront.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_03hillsBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\03hillsBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="blooIdle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blooIdle.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blooBouncing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blooBouncing.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_04hillsFront" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\04hillsFront.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_05platform" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\05platform.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bushes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bushes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_815_8153991_ancient_pixel_scroll_scroll_pixel_art" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\815-8153991_ancient-pixel-scroll-scroll-pixel-art.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rizz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rizz.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_03hillsBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\03hillsBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blooWalking" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blooWalking.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="scroll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\scroll.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wizard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wizard.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_01cloudsBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\01cloudsBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trees" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trees.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paladin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paladin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="R1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\R.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_05platform" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\05platform.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_00Sky" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00Sky.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="statsPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\statsPanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

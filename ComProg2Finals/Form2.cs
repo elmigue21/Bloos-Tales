@@ -84,7 +84,7 @@ namespace ComProg2Finals
 
             //Bloo bloo = new Bloo("Bloo");
             //Player = bloo;
-            encounterCount = 0;
+            encounterCount = 1;
           //  SpikedHelmet spiked = new SpikedHelmet();
            // spiked.Acquired(Player);
 
@@ -116,6 +116,12 @@ namespace ComProg2Finals
             }
 
             bossFights.Add(new Peech("Peech"));
+
+
+            dialoguePanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "scroll.png"));
+            statsPanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "statsPanel.png"));
+            dialoguePanel.BackgroundImageLayout = ImageLayout.Stretch;
+            statsPanel.BackgroundImageLayout = ImageLayout.Zoom;
             /*
             foreach(Character boss in bossFights)
             {
@@ -135,7 +141,7 @@ namespace ComProg2Finals
 
             //mastergooway.skillshop = new Skill[] { new Bounce(), new Split(), new Mog(), new ElementBook() };
             //shopkeeper.itemshop = new Items[] { new LifePotion(), new MysteryPotion(), new RizzBooster(), new HealthBoosterPotion(), new DefenseDown50percentPotion(), new DuctTapePotion(), new PocketHolePotion(), new OneShotPotion(), new HardHelmet(), new SpikedHelmet()};
-
+            UpdateStats();
         }
         bool right, hold = true;
 
@@ -268,14 +274,16 @@ namespace ComProg2Finals
                     Button button = new Button();
 
                     button.Text = currentEncounter.Interactions[i];
+                    button.Width = 200;
+                    button.Image = Image.FromFile(Path.Combine(directory, "assets", "Button.png"));
+                    button.BackColor = Color.Transparent;
+
+                    //  button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventActions[i](Player));
 
 
-                  //  button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventActions[i](Player));
-
-
-                  //  if (encounterCount % 5 != 4)
+                    //  if (encounterCount % 5 != 4)
                     //{
-                        switch (i)
+                    switch (i)
                         {
                             case 0:
                                 button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction1(Player));
@@ -388,6 +396,8 @@ namespace ComProg2Finals
             f1 = Form1.GetInstance();
             f1.Enemy = currentEncounter as Character;
             f1.Player = Player;
+            f1.Player.Opposition = f1.Enemy;
+            f1.Enemy.Opposition = f1.Player;
             for (int i = 0; i < Player.PlayerItems.Count; i++)
             {
                 Player.PlayerItems[i].BattleAddItem(Player);
@@ -401,6 +411,7 @@ namespace ComProg2Finals
         private void HandleButtonClick(object sender, EventArgs e, Action eventAction)
         {
             eventAction?.Invoke();
+            UpdateStats();
         }
 
 
@@ -418,6 +429,7 @@ namespace ComProg2Finals
         }
         public void runNextEncounter()
         {
+            UpdateStats();
             if(Player.Health <= 0 && Player.Lives > 0)
             {
                 Player.Lives--;
@@ -553,7 +565,10 @@ namespace ComProg2Finals
             {
                 int index = i;
                 Button button = new Button();
-                button.Text = shopkeeper.itemshop[i].Name;
+                button.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "Button.png"));
+                
+                button.Width = 200;
+                button.Text = shopkeeper.itemshop[i].Name + " $" + (shopkeeper.itemshop[index].Price*Player.discount).ToString();
                 button.Click += (Btnsender, args) =>
                 {
                     if ((shopkeeper.itemshop[index].Price * Player.discount) <= Player.Coins)
@@ -588,6 +603,7 @@ namespace ComProg2Finals
                 runNextEncounter();
             };
             flowLayoutPanel1.Controls.Add(btncheck);
+            UpdateStats();
         }
         public void LoadSkillShop()
         {
@@ -596,7 +612,9 @@ namespace ComProg2Finals
             {
                 int index = i;
                 Button button = new Button();
-                button.Text = mastergooway.skillshop[i].Name;
+                button.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "Button.png"));
+                button.Width = 200;
+                button.Text = mastergooway.skillshop[i].Name + " $" + (mastergooway.skillshop[index].Price *Player.discount).ToString();
                 button.Click += (Btnsender, args) =>
                 {
                     // Call the Learn() method
@@ -637,6 +655,14 @@ namespace ComProg2Finals
                 runNextEncounter();
             };
             flowLayoutPanel1.Controls.Add(btncheck);
+            UpdateStats();
+        }
+        public void UpdateStats()
+        {
+            rizzStat.Text = Player.Rizz.ToString();
+            coinStat.Text = Player.Coins.ToString();
+            atkStat.Text = Player.AttackDamage.ToString();
+            defStat.Text = Player.Defense.ToString();
         }
         private void Form1_Paint(object sender, PaintEventArgs e)
         {

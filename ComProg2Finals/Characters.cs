@@ -490,7 +490,7 @@ namespace ComProg2Finals
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
-            skillProbability = new int[] { 25, 25, 25, 25 };
+            skillProbability = new int[] { 33, 33, 33, -1 };
             Interactions = new string[] { "Attack", "Rizz"};
             EncounterDialogue = "Man, I’m tired of getting worthless loot…";
             befEncounter = "As the shadows of the forest enveloped Bloo, he noticed a man stalking through the shadows…";
@@ -563,7 +563,7 @@ namespace ComProg2Finals
             Speed = 10;
             CharSkills = new List<Skill> { new Chomp(), new Haul()};
             Rizz = 5;
-            picImage = "evilchest.png";
+            picImage = "chesty_mimic.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
@@ -600,9 +600,9 @@ namespace ComProg2Finals
                     user.Opposition.Health -= totalDamage;
                     Random rand = new Random();
                     int rando = new Random().Next(0, 101);
-                    if (rando <= 100)
+                    if (rando <= 30)
                     {
-                        user.Health -= totalDamage;
+                        user.Health -= totalDamage / 2;
                         MessageBox.Show(user.Opposition.Name + " reflected the damage!");
                     }
                 }
@@ -626,7 +626,7 @@ namespace ComProg2Finals
         {
             Name = "Peech";
             Interactions = new string[]{"Talk"};
-            picImage = "peech.png";
+            picImage = "peech_idle.gif";
 
         }
         public override void EventAction1(Bloo bloo)

@@ -345,8 +345,8 @@ namespace ComProg2Finals
         }
         private void playerRunBtn(object sender, EventArgs e)
         {
-            this.Hide();
-            form2.runNextEncounter();
+            this.Close();
+           // form2.runNextEncounter();
         }
         private void testButton_Click(object sender, EventArgs e)
         {
