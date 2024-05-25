@@ -14,6 +14,7 @@ namespace ComProg2Finals
     {
         Form1 battleForm = Form1.GetInstance();
         public string Name { get; protected set; }
+        public int Price { get; set; }
 
         public virtual void Acquired(Bloo charac)
         {
@@ -34,9 +35,10 @@ namespace ComProg2Finals
     }
     public class Rock : Items
     {
+
         public Rock()
         {
-            this.Name = "Rock";
+            this.Name = "Rock";    
         }
         int iter;
         public override void Acquired(Bloo charac)
@@ -168,6 +170,7 @@ namespace ComProg2Finals
         public LifePotion()
         {
             this.Name = "Life Potion";
+            this.Price = 51;
         }
         public override void Acquired(Bloo charac)
         {
@@ -187,6 +190,7 @@ namespace ComProg2Finals
         public MysteryPotion()
         {
             this.Name = "Mystery Potion";
+            this.Price = 30;
         }
         public override void Acquired(Bloo charac)
         {
@@ -436,6 +440,7 @@ namespace ComProg2Finals
         public HardHelmet()
         {
             this.Name = "Hard Helmet";
+            this.Price = 10;
         }
         public override void Acquired(Bloo charac)
         {
@@ -464,6 +469,7 @@ namespace ComProg2Finals
         public SpikedHelmet()
         {
             this.Name = "Spiked Helmet";
+            this.Price = 10;
         }
         public override void Acquired(Bloo charac)
         {
