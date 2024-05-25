@@ -84,7 +84,7 @@ namespace ComProg2Finals
 
             //Bloo bloo = new Bloo("Bloo");
             //Player = bloo;
-            encounterCount = 1;
+            encounterCount = 4;
 
             // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             //SoundPlayer player = new SoundPlayer(soundFilePath);
@@ -503,10 +503,22 @@ namespace ComProg2Finals
                 button.Text = shopkeeper.itemshop[i].Name;
                 button.Click += (Btnsender, args) =>
                 {
-                    shopkeeper.itemshop[index].Acquired(Player);
-                    shopkeeper.itemshop.Remove(shopkeeper.itemshop[index]);
-                    //flowLayoutPanel1.Controls.Remove(button);
-                    LoadItemShop();
+                    if (shopkeeper.itemshop[index].Price <= Player.Coins)
+                    {
+                        shopkeeper.itemshop[index].Acquired(Player);
+                        Player.Coins -= shopkeeper.itemshop[index].Price;
+                        MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nCoins left : {Player.Coins}");
+
+                        shopkeeper.itemshop.Remove(shopkeeper.itemshop[index]);
+                        //flowLayoutPanel1.Controls.Remove(button);
+                        LoadItemShop();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You don't have enough coins");
+                        MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nCoins left : {Player.Coins}");
+                        LoadItemShop();
+                    }
                 };
                 flowLayoutPanel1.Controls.Add(button);
             }
@@ -538,9 +550,19 @@ namespace ComProg2Finals
                     //MessageBox.Show(mastergooway.skillshop[index].ToString());
                     if (Player.CharSkills.Count < 4)
                     {
-                        mastergooway.skillshop[index].Learn(Player);
-                        mastergooway.skillshop.Remove(mastergooway.skillshop[index]);
-                        LoadSkillShop();
+                        if (mastergooway.skillshop[index].Price <= Player.Coins)
+                        {
+                            Player.Coins -= mastergooway.skillshop[index].Price;
+                            mastergooway.skillshop[index].Learn(Player);
+                            mastergooway.skillshop.Remove(mastergooway.skillshop[index]);
+                            LoadSkillShop();
+                        }
+                        else
+                        {
+                            MessageBox.Show("You don't have enough coins");
+                            MessageBox.Show($"Price: {mastergooway.skillshop[index].Price}\nCoins left : {Player.Coins}");
+                            LoadSkillShop();
+                        }
                     }
                     else
                     {

@@ -647,14 +647,14 @@ namespace ComProg2Finals
     }
     public class Shopkeeper: Events
     {
-            public List<Items> itemshop;
+        public List<Items> itemshop;
         public Shopkeeper()
         {
             picImage = "wishingwell.png";
             EncounterDialogue = "SHOPPEEDOOPEE";
             itemshop = new List<Items> { new LifePotion(), new MysteryPotion(), new HardHelmet(), new SpikedHelmet() };
 
-            //Interactions = new string[] { "Buy", "Skip" };
+            //Interactions = new string[] { "Buy", "Skip" };    
         }
         int choice;
         public override void EventAction1(Bloo bloo)
@@ -694,6 +694,7 @@ namespace ComProg2Finals
                     spikedHelmet.Acquired(bloo);
                     break;
             }
+           
         }
     }
 }
