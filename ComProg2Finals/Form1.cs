@@ -150,7 +150,8 @@ namespace ComProg2Finals
             }
 
 
-            testButton.Enabled = false;
+            //testButton.Enabled = false;
+            testButton.ForeColor = Color.Black;
 
             Player.Opposition = Enemy;
             Enemy.Opposition = Player;
@@ -158,7 +159,7 @@ namespace ComProg2Finals
         }
         private void runTurn()
         {
-               // runEnemy();
+                runEnemy();
                 testButton_Click(null, EventArgs.Empty);
 
         }
@@ -169,16 +170,11 @@ namespace ComProg2Finals
 
             if(chance <= Enemy.skillProbability[0] && chance >= 0)
             {
-
-                //Enemy.skillQueued = Enemy.CharSkills[0];
-               // Enemy.skillQueue.Add(() => Enemy.CharSkills[0].Perform(Enemy));
                 Enemy.CharSkills[0].Perform(Enemy);
             }
             else if(chance > Enemy.skillProbability[0] && chance <= Enemy.skillProbability[1] + Enemy.skillProbability[0])
             {
-               // Enemy.skillQueue.Add(() => Enemy.CharSkills[1].Perform(Enemy));
                 Enemy.CharSkills[1].Perform(Enemy);
-                //Enemy.skillQueued = Enemy.CharSkills[1];
             }
             else if(chance > Enemy.skillProbability[1] && chance <= Enemy.skillProbability[2] + Enemy.skillProbability[1] + Enemy.skillProbability[0])
             {
@@ -351,7 +347,11 @@ namespace ComProg2Finals
             enemyLabelDefense.Text = "Defense:" + Enemy.Defense.ToString();
             enemyPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Enemy.picImage));
         }
-
+        private void playerRunBtn(object sender, EventArgs e)
+        {
+            this.Hide();
+            form2.runNextEncounter();
+        }
         private void testButton_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < Player.CharStatEffects.Count; i++)
@@ -373,7 +373,7 @@ namespace ComProg2Finals
             Player.skillQueue.Clear();
 
 
-            runEnemy();
+            //runEnemy();
 
 
             foreach (Action skills in Enemy.skillQueue)

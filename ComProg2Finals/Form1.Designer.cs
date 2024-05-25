@@ -268,13 +268,13 @@
             // 
             // testButton
             // 
-            this.testButton.Location = new System.Drawing.Point(337, 163);
+            this.testButton.Location = new System.Drawing.Point(642, 374);
             this.testButton.Name = "testButton";
             this.testButton.Size = new System.Drawing.Size(132, 45);
             this.testButton.TabIndex = 22;
-            this.testButton.Text = "TEST";
+            this.testButton.Text = "RUN";
             this.testButton.UseVisualStyleBackColor = true;
-            this.testButton.Click += new System.EventHandler(this.testButton_Click);
+            this.testButton.Click += new System.EventHandler(this.playerRunBtn);
             // 
             // pictureBox3
             // 
@@ -349,6 +349,7 @@
             this.platform05.Controls.Add(this.button1);
             this.platform05.Controls.Add(this.button3);
             this.platform05.Controls.Add(this.button4);
+            this.platform05.Controls.Add(this.testButton);
             this.platform05.ForeColor = System.Drawing.Color.Transparent;
             this.platform05.Location = new System.Drawing.Point(0, 5);
             this.platform05.Name = "platform05";
@@ -374,7 +375,6 @@
             this.Controls.Add(this.playerLabelCoins);
             this.Controls.Add(this.playerLabelLives);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.testButton);
             this.Controls.Add(this.enemyLabelDefense);
             this.Controls.Add(this.enemyLabelRizz);
             this.Controls.Add(this.enemyLabelSpeed);
