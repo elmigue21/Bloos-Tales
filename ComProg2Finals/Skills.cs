@@ -64,8 +64,8 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
             //MessageBox.Show($"Used {Name}");
-
-           // user.Opposition.Accuracy -= 20;
+            MessageBox.Show("Used " + this.Name);
+            // user.Opposition.Accuracy -= 20;
             user.skillQueue.Add(() => user.Opposition.LoweringAccuracy(20, user));
 
             //user.Opposition.CharStatEffects.Add(new DmgPerTurn("Goo", 10, 2));
@@ -82,6 +82,7 @@ namespace ComProg2Finals
 
         public override void Perform(Character user)
         {
+            MessageBox.Show("Used " + this.Name);
             user.isBlocking = true;
             MessageBox.Show("Bloo splits and makes other slimes to soak up damage!");
         }
@@ -178,6 +179,7 @@ namespace ComProg2Finals
 
         public override void Perform(Character user)
         {
+            MessageBox.Show("Used " + this.Name);
             // add status effect na nagbabawas  ng rizz per turn
             user.Health -= 50;
             user.Defense -= 5;
@@ -197,6 +199,7 @@ namespace ComProg2Finals
 
         public override void Perform(Character user)
         {
+            MessageBox.Show("Used " + this.Name);
             user.isBlocking = true;
 
             BounceSkill bounceSkill = new BounceSkill("Bounce");
