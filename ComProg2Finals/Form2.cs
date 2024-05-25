@@ -352,6 +352,9 @@ namespace ComProg2Finals
             }
             f1.Enemy = currentEncounter as Character;
             f1.Player = Player;
+            f1.Player.Opposition = f1.Enemy;
+            f1.Enemy.Opposition = f1.Player;
+
 
             f1.Show();
             

@@ -113,8 +113,9 @@ namespace ComProg2Finals
             CharSkills[3].Perform(player);
         }
         
-        public virtual void DamageCharac(double dmgValue, Character user)
+        public virtual void DamageCharac(double dmgValue, Character user, string skillName)
         {
+            MessageBox.Show(user.Name + " used " + skillName);
             //string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "swordsound.wav");
            // SoundPlayer player = new SoundPlayer(soundFilePath);
            // player.Play();
@@ -231,7 +232,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-            DamageCharac(dmgValue, user);
+            DamageCharac(dmgValue, user, this.Name);
         }
         /////////////////////////////////
     }
@@ -530,7 +531,7 @@ namespace ComProg2Finals
             skillProbability = new int[] { 50, 50, -1, -1 };
             EncounterDialogue = "KWAK";
         }
-        public override void DamageCharac(double dmgValue, Character user)
+        public override void DamageCharac(double dmgValue, Character user, string skillName)
         {
             //MessageBox.Show("multiplier sa formula: "+ user.Multiplier.ToString());
             Random accRandom = new Random();
