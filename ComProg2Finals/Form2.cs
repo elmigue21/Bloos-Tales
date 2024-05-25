@@ -25,7 +25,7 @@ namespace ComProg2Finals
         //public Bloo Player;
         string directory;
         public EncounterClass currentEncounter;
-        int encounterCount;
+        public int encounterCount;
         private System.Windows.Forms.Timer timer;
         private static Form2 instance;
         Form1 f1 = Form1.GetInstance();
@@ -427,8 +427,6 @@ namespace ComProg2Finals
                     switch (qqq2)
                     {
                         case 0:
-                            StrangeGem gem = new StrangeGem();
-                            gem.Acquired(Player);
                             currentEncounter = shopkeeper;
                             break;
                         case 1:
