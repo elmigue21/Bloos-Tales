@@ -16,8 +16,8 @@ namespace ComProg2Finals
         public string Name { get; protected set; }
         //public Form1 battleForm = Form1.Instance;
         public Form1 battleForm = Form1.GetInstance();
-        public StatusEffect(string name) { 
-
+        public StatusEffect(string name) {
+            battleForm = Form1.GetInstance();
         }
         public void Remove()
         {

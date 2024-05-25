@@ -17,6 +17,7 @@ namespace ComProg2Finals
 
         public Skill()
         {
+            battleForm = Form1.GetInstance();
             //this.skillsQueue = battleForm.skillsQueue;
         }
 

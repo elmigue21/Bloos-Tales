@@ -43,7 +43,7 @@ namespace ComProg2Finals
 
             Bloo bloo = new Bloo("Bloo");
             Player = bloo;
-            f1.form2 = this;
+            //f1.form2 = this;
 
             //Instance = this;
             Instance = this;
@@ -350,6 +350,8 @@ namespace ComProg2Finals
             {
                 Player.PlayerItems[i].BattleAddItem(Player);
             }
+            Form1 f1 = Form1.GetInstance();
+            f1.form2 = this;
             f1.Enemy = currentEncounter as Character;
             f1.Player = Player;
             f1.Player.Opposition = f1.Enemy;

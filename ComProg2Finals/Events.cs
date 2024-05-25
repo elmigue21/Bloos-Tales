@@ -70,7 +70,7 @@ namespace ComProg2Finals
                     form1.Player = bloo;
                     form1.Player.Opposition = form1.Enemy;
                     form1.Show();
-                MessageBox.Show("You won all loot!");
+               // MessageBox.Show("You won all loot!");
             }
 
         }
@@ -311,7 +311,7 @@ namespace ComProg2Finals
         public Jester()
         {
             Name = "Jester";
-            picImage = "wishingwell.png";
+            picImage = "jester.png";
             EncounterDialogue = "KWAK";
             Interactions = new string[] { "Talk", "Ignore" };
         }

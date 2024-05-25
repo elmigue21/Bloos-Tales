@@ -250,7 +250,7 @@ namespace ComProg2Finals
             Name = name;
             Health = 50;
             Accuracy = 100;
-            AttackDamage = 20;
+            AttackDamage = 200;
             Speed = 10;
             CharSkills = new List<Skill> { new Tackle(), new Goo()};
             Rizz = 20;
