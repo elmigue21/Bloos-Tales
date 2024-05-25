@@ -89,8 +89,8 @@ namespace ComProg2Finals
             // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             //SoundPlayer player = new SoundPlayer(soundFilePath);
             // player.Play();
-            MysteryBox rock = new MysteryBox();
-            rock.Acquired(Player);
+           // DuctTapePotion rock = new DuctTapePotion();
+           // rock.Acquired(Player);
 
 
 
