@@ -25,7 +25,7 @@ namespace ComProg2Finals
         //public Bloo Player;
         string directory;
         public EncounterClass currentEncounter;
-        int encounterCount;
+        public int encounterCount;
         private System.Windows.Forms.Timer timer;
         private static Form2 instance;
         Form1 f1 = Form1.GetInstance();
@@ -84,13 +84,13 @@ namespace ComProg2Finals
 
             //Bloo bloo = new Bloo("Bloo");
             //Player = bloo;
-            encounterCount = 0;
+            encounterCount = 1;
 
             // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             //SoundPlayer player = new SoundPlayer(soundFilePath);
             // player.Play();
-            HolyWater rock = new HolyWater();
-            rock.Acquired(Player);
+            //HolyWater rock = new HolyWater();
+           // rock.Acquired(Player);
 
      
 
