@@ -84,13 +84,13 @@ namespace ComProg2Finals
 
             //Bloo bloo = new Bloo("Bloo");
             //Player = bloo;
-            encounterCount = 0;
+            encounterCount = 4;
 
             // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
             //SoundPlayer player = new SoundPlayer(soundFilePath);
             // player.Play();
-            HolyWater rock = new HolyWater();
-            rock.Acquired(Player);
+          //  HolyWater rock = new HolyWater();
+          //  rock.Acquired(Player);
 
      
 
@@ -427,9 +427,12 @@ namespace ComProg2Finals
                     switch (qqq2)
                     {
                         case 0:
+                            StrangeGem gem = new StrangeGem();
+                            gem.Acquired(Player);
                             currentEncounter = shopkeeper;
                             break;
                         case 1:
+                            
                             currentEncounter = mastergooway;
                             break;
                     }
