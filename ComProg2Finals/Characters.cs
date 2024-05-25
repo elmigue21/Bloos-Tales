@@ -147,8 +147,24 @@ namespace ComProg2Finals
             }
             battleForm.updateLabels();
         }
-        
-        public void ElementDamageCharac(double dmgValue, Character user, string dmgType)
+        public virtual void LoweringAccuracy(double accuracyValue, Character user)
+        {
+            double oppAccuracy = user.Opposition.Accuracy;
+            oppAccuracy -= accuracyValue;
+
+            if (oppAccuracy >= 40)
+            {
+                user.Opposition.Accuracy -= accuracyValue;
+                MessageBox.Show($"Accuracy of {user.Opposition.Name} became {user.Opposition.Accuracy}");
+            }
+            else
+            {
+                user.Opposition.Accuracy = 40;
+                MessageBox.Show("Accuracy can't get lower than 40");
+            }
+        }
+
+            public void ElementDamageCharac(double dmgValue, Character user, string dmgType)
         {
             switch (dmgType)
             {
@@ -541,6 +557,7 @@ namespace ComProg2Finals
         
             battleForm.updateLabels();
         }
+
 
     }
 

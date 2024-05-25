@@ -64,7 +64,8 @@ namespace ComProg2Finals
         {
             MessageBox.Show($"Used {Name}");
 
-            user.Opposition.Accuracy -= 20;
+           // user.Opposition.Accuracy -= 20;
+            user.skillQueue.Add(() => user.Opposition.LoweringAccuracy(20, user));
 
             //user.Opposition.CharStatEffects.Add(new DmgPerTurn("Goo", 10, 2));
         }
@@ -128,7 +129,8 @@ namespace ComProg2Finals
                 case 3:
                     MessageBox.Show("Element book used, " + user.Opposition.Name + "'s Accuracy reduced");
                     user.elementType = "Water";
-                    user.Opposition.Accuracy -= 20;
+                    //user.Opposition.Accuracy -= 20;
+                    user.skillQueue.Add(() => user.Opposition.LoweringAccuracy(20, user));
                     break;
             }
         }
@@ -173,7 +175,8 @@ namespace ComProg2Finals
             // add status effect na nagbabawas  ng rizz per turn
             user.Health -= 50;
             user.Defense -= 5;
-            user.Accuracy -= 10;
+            //user.Accuracy -= 10;
+            user.skillQueue.Add(() => user.Opposition.LoweringAccuracy(10, user));
             user.Rizz += 100;
         }
     }
