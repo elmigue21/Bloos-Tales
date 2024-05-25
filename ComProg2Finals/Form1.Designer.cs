@@ -69,6 +69,7 @@
             // 
             // button1
             // 
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Location = new System.Drawing.Point(269, 338);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 45);
@@ -78,6 +79,7 @@
             // 
             // button2
             // 
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Location = new System.Drawing.Point(407, 338);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(132, 45);
@@ -87,6 +89,7 @@
             // 
             // button3
             // 
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Location = new System.Drawing.Point(269, 389);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(132, 45);
@@ -96,6 +99,7 @@
             // 
             // button4
             // 
+            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button4.Location = new System.Drawing.Point(407, 389);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(132, 45);
@@ -392,6 +396,7 @@
             this.Controls.Add(this.hills03Back);
             this.Controls.Add(this.clouds02Front);
             this.Controls.Add(this.clouds01Back);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

@@ -268,7 +268,7 @@ namespace ComProg2Finals
             CritChance = 100;
             skillProbability = new int[] { 33, 33,33, -1};
             EncounterDialogue = "I, the honorable knight, shall vanquish this lowly slime!";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore"};
+            Interactions = new string[] { "Attack", "Rizz"};
             befEncounter = "As Bloo was bouncing his way, a faint sound of clinking metal echoed through the forest…";
             //EventActions.Add(Player => EventAction1(Player));
             //EventActions.Add(Player => EventAction2(Player));
@@ -306,7 +306,7 @@ namespace ComProg2Finals
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
             EncounterDialogue = "OOH! What kind of slime is this? Is it a water type? A fire type? An earth type? Or maybe a wind type?";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore","VANISH" };
+            Interactions = new string[] { "Attack", "Rizz"};
             befEncounter = "Bloo bounces his way forward, when suddenly he feels a fearful presence tingling on his gooeyness…";
             switch (PlayerInstance.elementType)
             {
@@ -330,6 +330,7 @@ namespace ComProg2Finals
         public override void EventAction1(Bloo bloo)
         {
             MessageBox.Show("It’s big brain time.");
+            form2.EnterBattle();
         }
         public override void EventAction2(Bloo bloo)
         {
@@ -391,12 +392,13 @@ namespace ComProg2Finals
             CritChance = 0;
             skillProbability = new int[] { 33, 33, 33, -1 };
             EncounterDialogue = "What a cute little creature! But alas, your monstrous nature belies your charm.";
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Attack", "Rizz"};
             befEncounter = "As Bloo continued his journey, Bloo began to feel warm… As if he was bouncing through endless purity…";
         }
         public override void EventAction1(Bloo bloo)
         {
             MessageBox.Show("Your form is an embodiment of evil itself. Fear not, for I shall cleanse thee of its malevolence!");
+            form2.EnterBattle();
         }
         public override void EventAction2(Bloo bloo)
         {
@@ -423,13 +425,14 @@ namespace ComProg2Finals
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
             skillProbability = new int[] { 25, 25, 25, 25 };
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Attack", "Rizz"};
             EncounterDialogue = "Man, I’m tired of getting worthless loot…";
             befEncounter = "As the shadows of the forest enveloped Bloo, he noticed a man stalking through the shadows…";
         }
         public override void EventAction1(Bloo bloo)
         {
             MessageBox.Show("Let’s see how much gold I can take from this mere slime.");
+            form2.EnterBattle();
         }
         public override void EventAction2(Bloo bloo)
         {
@@ -457,13 +460,14 @@ namespace ComProg2Finals
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
             skillProbability = new int[] { 33, 33, 33, -1 };
-            Interactions = new string[] { "Attack", "Rizz", "Ignore" };
+            Interactions = new string[] { "Attack", "Rizz"};
             EncounterDialogue = "In every draw of my bow, fate whispers through the wind, a constant companion to death's embrace.";
             befEncounter = "Bloo felt a slight breeze as he bounces through the grassy fields…";
         }
         public override void EventAction1(Bloo bloo)
         {
             MessageBox.Show("Behold the wind's wrath!");
+            form2.EnterBattle();
         }
         public override void EventAction2(Bloo bloo)
         {
