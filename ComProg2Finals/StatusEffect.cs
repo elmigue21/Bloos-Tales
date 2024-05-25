@@ -16,8 +16,8 @@ namespace ComProg2Finals
         public string Name { get; protected set; }
         //public Form1 battleForm = Form1.Instance;
         public Form1 battleForm = Form1.GetInstance();
-        public StatusEffect(string name) { 
-
+        public StatusEffect(string name) {
+            battleForm = Form1.GetInstance();
         }
         public void Remove()
         {
@@ -128,7 +128,7 @@ namespace ComProg2Finals
                 switch (rand) {
                     case 0:
                 MessageBox.Show("Bloo lands and attacks the enemy!");
-                user.skillQueue.Add(()=>user.Opposition.DamageCharac(15, user)  );
+                user.skillQueue.Add(()=>user.Opposition.DamageCharac(15, user, this.Name)  );
                         break;
                     case 1:
                         MessageBox.Show("Bloo lands and tries to attack the enemy but missed!");

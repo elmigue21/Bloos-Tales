@@ -70,7 +70,7 @@ namespace ComProg2Finals
                     form1.Player = bloo;
                     form1.Player.Opposition = form1.Enemy;
                     form1.Show();
-                MessageBox.Show("You won all loot!");
+               // MessageBox.Show("You won all loot!");
             }
 
         }
@@ -311,7 +311,7 @@ namespace ComProg2Finals
         public Jester()
         {
             Name = "Jester";
-            picImage = "wishingwell.png";
+            picImage = "jester.png";
             EncounterDialogue = "KWAK";
             Interactions = new string[] { "Talk", "Ignore" };
         }
@@ -348,32 +348,39 @@ namespace ComProg2Finals
             MessageBox.Show($"Seer");
             Random random = new Random();
             int rand = random.Next(0, 4);
+            //rand = 0;
             switch (rand)
             {
                 case 0:
+                    int bossCount = form2.encounterCount / 5;
                     bloo.Rizz -= bloo.Rizz * .3;
+                    MessageBox.Show($"next encounter is {form2.bossFights[bossCount]}");
                     // messagebox.show next enemy
                     break;
                 case 1:
                     bloo.Coins -= 150;
                         bloo.PlayerItems.Add(new SeerBuff(rand));
+                    MessageBox.Show("buffed, coins - 150, final boss +30% atk dmg");
                     // add status effect final boss 30% atk dmg boost for bloo
                     break;
                 case 2:
                     bloo.Coins -= 100;
                         bloo.PlayerItems.Add(new SeerBuff(rand));
-                        // add status effect next boss 15% atk dmg boost for bloo
-                        break;
+                    MessageBox.Show("buffed, coins - 100, next boss +15% atk dmg");
+                    // add status effect next boss 15% atk dmg boost for bloo
+                    break;
                 case 3:
                     bloo.Coins -= 50;
                         bloo.PlayerItems.Add(new SeerBuff(rand));
-                        // add status effect, lower accuracy of next boss
-                        break;
+                    MessageBox.Show("buffed, coins - 50, next boss has lowered accuracy");
+                    // add status effect, lower accuracy of next boss
+                    break;
                 case 4:
                     bloo.Coins -= 50;
                         bloo.PlayerItems.Add(new SeerBuff(rand));
-                        // add status effect, +20 def for bloo on next boss 
-                        break;
+                    MessageBox.Show("buffed, coins - 50, +20 def on next fight");
+                    // add status effect, +20 def for bloo on next boss 
+                    break;
             }
             form2.runNextEncounter();
         }

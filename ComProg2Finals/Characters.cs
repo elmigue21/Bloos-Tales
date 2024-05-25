@@ -113,8 +113,9 @@ namespace ComProg2Finals
             CharSkills[3].Perform(player);
         }
         
-        public virtual void DamageCharac(double dmgValue, Character user)
+        public virtual void DamageCharac(double dmgValue, Character user, string skillName)
         {
+            MessageBox.Show(user.Name + " used " + skillName);
             //string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "swordsound.wav");
            // SoundPlayer player = new SoundPlayer(soundFilePath);
            // player.Play();
@@ -174,7 +175,7 @@ namespace ComProg2Finals
             }
         }
 
-            public void ElementDamageCharac(double dmgValue, Character user, string dmgType)
+            public void ElementDamageCharac(double dmgValue, Character user, string dmgType, string skillName)
         {
             switch (dmgType)
             {
@@ -231,7 +232,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-            DamageCharac(dmgValue, user);
+            DamageCharac(dmgValue, user, skillName);
         }
         /////////////////////////////////
     }
@@ -250,7 +251,7 @@ namespace ComProg2Finals
             Name = name;
             Health = 50;
             Accuracy = 100;
-            AttackDamage = 20;
+            AttackDamage = 200;
             Speed = 10;
             CharSkills = new List<Skill> { new Tackle(), new Goo()};
             Rizz = 20;
@@ -532,7 +533,7 @@ namespace ComProg2Finals
             skillProbability = new int[] { 50, 50, -1, -1 };
             EncounterDialogue = "KWAK";
         }
-        public override void DamageCharac(double dmgValue, Character user)
+        public override void DamageCharac(double dmgValue, Character user, string skillName)
         {
             //MessageBox.Show("multiplier sa formula: "+ user.Multiplier.ToString());
             Random accRandom = new Random();
@@ -578,9 +579,17 @@ namespace ComProg2Finals
         }
 
 
+
     }
 
 
+    public class Peech : Character
+    {
+        public Peech(string name) : base(name)
+        {
+            Name = "Peech";
+        }
+    }
 
 
 

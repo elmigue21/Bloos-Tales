@@ -43,12 +43,13 @@ namespace ComProg2Finals
         int iter;
         public override void Acquired(Bloo charac)
         {
-            iter = 5;
+           // iter = 5;
             MessageBox.Show($"bloo acquired rock, It does nothing");
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
         {
+            /*
             if(iter == 0)
             {
                 Lost(charac);
@@ -59,6 +60,7 @@ namespace ComProg2Finals
                 iter--;
             }
             MessageBox.Show(charac.AttackDamage.ToString());
+            */
         }
         public override void Lost(Bloo charac)
         {
@@ -67,7 +69,7 @@ namespace ComProg2Finals
         }
         public override void BattleAddItem(Bloo charac)
         {
-            charac.CharStatEffects.Add(new HealPerTurn("HEALINGGGG", 1000, 20));
+            //charac.CharStatEffects.Add(new HealPerTurn("HEALINGGGG", 1000, 20));
         }
     }
     public class SacrificeRing : Items
@@ -110,10 +112,10 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Bloo obtained the Behelith");
-            if (charac.Lives < 5)
-            {
+            //if (charac.Lives < 5)
+            //{
                 charac.Lives++;
-            }
+            //}
             charac.Coins += charac.Coins * .30;
             charac.Rizz -= charac.Rizz * .30;
             charac.PlayerItems.Add(this);
@@ -255,7 +257,7 @@ namespace ComProg2Finals
             }
             MessageBox.Show(charac.Rizz.ToString());
         }
-        public virtual void Lost(Bloo charac)
+        public override void Lost(Bloo charac)
         {
             MessageBox.Show("RizzBooster lost.");
             charac.Rizz -= rizzBuff;
@@ -292,7 +294,7 @@ namespace ComProg2Finals
             }
             MessageBox.Show(charac.Health.ToString());
         }
-        public virtual void Lost(Bloo charac)
+        public override void Lost(Bloo charac)
         {
             MessageBox.Show("Health Booster lost.");
             charac.Health -= healthBuff;
@@ -362,7 +364,7 @@ namespace ComProg2Finals
             }
             MessageBox.Show($"Use Rizz? {charac.canUseRizz}");
         }
-        public virtual void Lost(Bloo charac)
+        public override void Lost(Bloo charac)
         {
             MessageBox.Show("Duct Tape Potion lost.");
             charac.canUseRizz = true;
@@ -395,7 +397,7 @@ namespace ComProg2Finals
             }
             MessageBox.Show(charac.Coins.ToString());
         }
-        public virtual void Lost(Bloo charac)
+        public override void Lost(Bloo charac)
         {
             MessageBox.Show("Pocket Hole Potion lost.");
             charac.canGainCoin = true;
