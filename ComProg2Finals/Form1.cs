@@ -178,15 +178,11 @@ namespace ComProg2Finals
             }
             else if(chance > Enemy.skillProbability[1] && chance <= Enemy.skillProbability[2] + Enemy.skillProbability[1] + Enemy.skillProbability[0])
             {
-               // Enemy.skillQueue.Add(() => Enemy.CharSkills[2].Perform(Enemy));
                 Enemy.CharSkills[2].Perform(Enemy);
-                // Enemy.skillQueued = Enemy.CharSkills[2];
             }
             else if(chance > Enemy.skillProbability[2] && chance <= Enemy.skillProbability[3] + Enemy.skillProbability[2] + Enemy.skillProbability[1] + Enemy.skillProbability[0])
             {
-               // Enemy.skillQueue.Add(() => Enemy.CharSkills[3].Perform(Enemy));
                 Enemy.CharSkills[3].Perform(Enemy);
-                // Enemy.skillQueued = Enemy.CharSkills[3];
             }
 
 

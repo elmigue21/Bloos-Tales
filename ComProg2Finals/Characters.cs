@@ -151,8 +151,11 @@ namespace ComProg2Finals
                     }
                     user.Opposition.Health -= totalDamage;
 
-                    if (user.Opposition.GetType() == typeof(Bloo) && user.PlayerItems.Any(item => item.GetType() == typeof(SpikedHelmet))) {
+                    if (user.Opposition.GetType() == typeof(Bloo) && user.Opposition.PlayerItems.Any(item => item.GetType() == typeof(SpikedHelmet))) {
+                        
                         user.Health -= totalDamage / 2;
+                        double returnedDamage = totalDamage / 2;
+                        MessageBox.Show("Damage dealt to bloo was reflected due to the spiked helmet! returned " + returnedDamage + " damage");
                     }
                     
                 }

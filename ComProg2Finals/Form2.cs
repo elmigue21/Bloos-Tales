@@ -84,8 +84,9 @@ namespace ComProg2Finals
 
             //Bloo bloo = new Bloo("Bloo");
             //Player = bloo;
-            encounterCount = 1;
-
+            encounterCount = 5;
+            SpikedHelmet spiked = new SpikedHelmet();
+            spiked.Acquired(Player);
 
             Random rand1 = new Random();
             for (int i = 0; i < 3; i++)
