@@ -29,8 +29,8 @@ namespace ComProg2Finals
         private System.Windows.Forms.Timer timer;
 
 
-        Shopkeeper shopkeeper = new Shopkeeper();
-        MasterGooway mastergooway = new MasterGooway();
+        public Shopkeeper shopkeeper = new Shopkeeper();
+        public MasterGooway mastergooway = new MasterGooway();
         public Form2()
         {
             Instance = this;
@@ -289,14 +289,26 @@ namespace ComProg2Finals
             {
                 if(currentEncounter == shopkeeper)
                 {
+                    /*
                     for(int i = 0; i < shopkeeper.itemshop.Count; i++)
                     {
+                        int index = i;
                         Button button = new Button();
-                        //button.Text = shopkeeper.itemshop[i]
+                        button.Text = shopkeeper.itemshop[i].Name;
+                        button.Click += (Btnsender, args) =>
+                        {
+                             //shopkeeper.itemshop[index].Acquired(Player);
+                            //shopkeeper.itemshop.Remove(shopkeeper.itemshop[index]);                       
+                            flowLayoutPanel1.Controls.Remove(button);
+                        };
+                        flowLayoutPanel1.Controls.Add(button);
                     }
+                    */
+                    LoadItemShop();
                 }
                 else if(currentEncounter == mastergooway)
                 {
+                    /*
                     for(int i = 0; i < mastergooway.skillshop.Count; i++)
                     {
                         int index = i;
@@ -305,15 +317,18 @@ namespace ComProg2Finals
                         button.Click += (Btnsender, args) =>
                         {
                             // Call the Learn() method
-                            MessageBox.Show(mastergooway.skillshop[index].ToString());
+                            //MessageBox.Show(mastergooway.skillshop[index].ToString());
                             mastergooway.skillshop[index].Learn(Player);
-                            mastergooway.skillshop.Remove(mastergooway.skillshop[index]);
+                            //mastergooway.skillshop.RemoveAt(mastergooway.skillshop[index]);
+                            flowLayoutPanel1.Controls.Remove(button);
                         };
                         flowLayoutPanel1.Controls.Add(button);
                     }
+                    */
+                    LoadSkillShop();
                 }
             }
-            
+            /*
             Button btncheck = new Button();
             btncheck.Text = "fightttt";
             
@@ -323,7 +338,7 @@ namespace ComProg2Finals
                 EnterBattle();
             };
             flowLayoutPanel1.Controls.Add(btncheck);
-            
+            */
             label1.Text = currentEncounter.Name;
             dialogueTextBox.Text = currentEncounter.EncounterDialogue;
             charactersPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
@@ -446,17 +461,88 @@ namespace ComProg2Finals
                     }
                     break;
             }
-            currentEncounter = mastergooway;
+           // currentEncounter = mastergooway;
 
             label1.Text = "";
+            /*
             List<string> diag = new List<string>();
             KnightDialogue knightdiag = new KnightDialogue();
             diag.Add(knightdiag.EntranceDialogue);
+            */
             dialogueTextBox.Text = currentEncounter.befEncounter;
             flowLayoutPanel1.Controls.Clear();
             charactersPictureBox.Image = null;
             playerPictureBox.Image = Properties.Resources.blooBouncing;
             timer.Start();
+        }
+        public void LoadItemShop()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            for (int i = 0; i < shopkeeper.itemshop.Count; i++)
+            {
+                int index = i;
+                Button button = new Button();
+                button.Text = shopkeeper.itemshop[i].Name;
+                button.Click += (Btnsender, args) =>
+                {
+                    shopkeeper.itemshop[index].Acquired(Player);
+                    shopkeeper.itemshop.Remove(shopkeeper.itemshop[index]);
+                    //flowLayoutPanel1.Controls.Remove(button);
+                    LoadItemShop();
+                };
+                flowLayoutPanel1.Controls.Add(button);
+            }
+
+            Button btncheck = new Button();
+            btncheck.Text = "Next";
+
+            btncheck.Click += (qqqsender, qe) =>
+            {
+                /*
+                currentEncounter = new Knight("qweqwe");
+                EnterBattle();
+                */
+                runNextEncounter();
+            };
+            flowLayoutPanel1.Controls.Add(btncheck);
+        }
+        public void LoadSkillShop()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            for (int i = 0; i < mastergooway.skillshop.Count; i++)
+            {
+                int index = i;
+                Button button = new Button();
+                button.Text = mastergooway.skillshop[i].Name;
+                button.Click += (Btnsender, args) =>
+                {
+                    // Call the Learn() method
+                    //MessageBox.Show(mastergooway.skillshop[index].ToString());
+                    if (Player.CharSkills.Count < 4)
+                    {
+                        mastergooway.skillshop[index].Learn(Player);
+                        mastergooway.skillshop.Remove(mastergooway.skillshop[index]);
+                        LoadSkillShop();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You cannot learn any more skills!");
+                    }
+                    //flowLayoutPanel1.Controls.Remove(button);
+                };
+                flowLayoutPanel1.Controls.Add(button);
+            }
+            Button btncheck = new Button();
+            btncheck.Text = "Next";
+
+            btncheck.Click += (qqqsender, qe) =>
+            {
+                /*
+                currentEncounter = new Knight("qweqwe");
+                EnterBattle();*/
+                runNextEncounter();
+            };
+            flowLayoutPanel1.Controls.Add(btncheck);
         }
         private void Form1_Paint(object sender, PaintEventArgs e)
         {

@@ -46,16 +46,19 @@ namespace ComProg2Finals
                     bloo.Lives += 1;
                 }
                 MessageBox.Show("You found a Life Potion!");
+                form2.runNextEncounter();
             }
             else if (randomNumber <= lifePotChance + rizzChance)
             {
                 bloo.Rizz += gainedRizz;
                 MessageBox.Show("You gained some Rizz!");
+                form2.runNextEncounter();
             }
             else if (randomNumber <= lifePotChance + rizzChance + coinChance)
             {
                 bloo.Coins += 50;
                 MessageBox.Show("You found some coins!");
+                form2.runNextEncounter();
             }
             else
             {
@@ -69,6 +72,7 @@ namespace ComProg2Finals
                     form1.Show();
                 MessageBox.Show("You won all loot!");
             }
+
         }
         public override void EventAction2(Bloo bloo)
         {
@@ -81,36 +85,6 @@ namespace ComProg2Finals
         int gainedRizz = 20;
         int randomNumber;
 
-        public override void Perform(Bloo bloo)
-        {
-            /*
-            Random random = new Random();
-            randomNumber = random.Next(100);
-
-            if (randomNumber <= lifePotChance)
-            {
-                if (bloo.Lives < 5) {
-                    bloo.Lives += 1;
-                        }
-                MessageBox.Show("You found a Life Potion!");
-            }
-            else if (randomNumber <= lifePotChance + rizzChance)
-            {
-                bloo.Rizz += gainedRizz;
-                MessageBox.Show("You gained some Rizz!");
-            }
-            else if (randomNumber <= lifePotChance + rizzChance + coinChance)
-            {
-                bloo.Coins += 50;
-                MessageBox.Show("You found some coins!");
-            }
-            else
-            {
-                // fight chest logic
-                MessageBox.Show("You won all loot!");
-            }
-            */
-        }
     }
     public class Cave : Events
     {
@@ -178,6 +152,7 @@ namespace ComProg2Finals
             {
                 MessageBox.Show("You explored the cave and found nothing.");
             }
+            form2.runNextEncounter();
         }
 
         public override void EventAction2(Bloo bloo)
@@ -223,6 +198,7 @@ namespace ComProg2Finals
             {
                 MessageBox.Show("Bloo tried his best to pull the sword, but in his dismay, he wasn’t the chosen one.");
             }
+            form2.runNextEncounter();
         }
                 
         public override void EventAction2(Bloo bloo)
@@ -255,6 +231,7 @@ namespace ComProg2Finals
                 MessageBox.Show("You feel rested. Lives increased");
                 bloo.Lives += 1;
             }
+            form2.runNextEncounter();
         }
 
         public override void EventAction2(Bloo bloo)
@@ -300,6 +277,7 @@ namespace ComProg2Finals
                     // minus coin income
                     break;
             }
+            form2.runNextEncounter();
         }
 
         public override void EventAction2(Bloo bloo)
@@ -320,36 +298,8 @@ namespace ComProg2Finals
                     bloo.rizzGainMultiplier *= 2;
                     break;
             }
-            /*
-            MessageBox.Show("Bloo’s mom taught him to never talk to strangers…");
-            // 33.3 percent chance eachhhhh
-            choice = 0;
-            switch (choice)
-            {
-                case 0:
-                    bloo.Health -= bloo.Health * .25;
-                    bloo.AttackDamage += 20;
-                    MessageBox.Show("Bloo picked the blue pill and felt something…");
-                    break;
-                case 1:
-                    bloo.Accuracy -= 25;
-                    bloo.CritChance += 25;
-                    MessageBox.Show("Bloo picked the red pill and felt something…");
-                    break;
-                case 2:
-                    MessageBox.Show("Bloo’s mom taught him to never talk to strangers…");
-                    // coin income boost ()
-                    // rizz income debuff (mababawasan l`ahat ng coin income)
-                    break;
-            }
-            */
-        }
-        /*
-        public override void EventAction3(Bloo bloo)
-        {
-            MessageBox.Show("Bloo’s mom taught him to never talk to strangers…");
             form2.runNextEncounter();
-        }*/
+        }
 
         public override void Perform(Bloo bloo)
         {
@@ -367,8 +317,10 @@ namespace ComProg2Finals
         }
         public override void EventAction1(Bloo bloo)
         {
+            // add mystery box logic
             MessageBox.Show("I have a little mystery box for you giggles. What's inside? What’s inside? Oh, the excitement! Well, that’s the fun part, isn’t it? It could be a delightful surprise... or a dreadful shock!” *giggles louder");
             bloo.Coins -= bloo.Coins * .75;
+            form2.runNextEncounter();
         }
 
         public override void EventAction2(Bloo bloo)
@@ -423,6 +375,12 @@ namespace ComProg2Finals
                         // add status effect, +20 def for bloo on next boss 
                         break;
             }
+            form2.runNextEncounter();
+        }
+        public override void EventAction2(Bloo bloo)
+        {
+            MessageBox.Show("Bloo ignores seer");
+            form2.runNextEncounter();
         }
         public override void Perform(Bloo bloo)
         {
@@ -499,43 +457,7 @@ namespace ComProg2Finals
             MessageBox.Show("Bloo got sad…");
             form2.runNextEncounter();
         }
-        public override void Perform(Bloo bloo)
-        {
-            multiplier = 1;
-            while (choice != 1)
-            {
-                choice = Convert.ToInt32(Console.ReadLine());
-                
-                switch (choice) {
-                    case 0:
-                        bloo.Coins -= 2 * multiplier;
-                        MessageBox.Show($"Threw {2 * multiplier} coins in the wishing well!");            
-                        Random random = new Random();
-                        int randomNumber = random.Next(100);
-                        if (randomNumber >= 1 && randomNumber <= 25)
-                        {
-                            // insert random mystery potion buff logic here
-                            MessageBox.Show("Gained random mystery potion buff");
-                        }
-                        else if (randomNumber >= 26 && randomNumber <= 30)
-                        {
-                            
-                            HolyWater holywater = new HolyWater();
-                            holywater.Acquired(bloo);
-                            MessageBox.Show("Holy Water Acquired!");
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Nothing Happened");
-                        }
-                        multiplier++;
-                        break;
-                    case 1:
-                        
-                        break;
-                }
-            }
-        }
+      
     }
     public class King : Events
     {
@@ -571,44 +493,17 @@ namespace ComProg2Finals
                         MessageBox.Show("gained 5 lives, lost 75% coins and 75% rizz");
                         break;
                 }
-            }
+            form2.runNextEncounter();
+        }
             public override void EventAction2(Bloo bloo)
             {
                 MessageBox.Show("Bloo declines");
-            }
+            form2.runNextEncounter();
+        }
 
 
             int choice;
-            /*
-        public override void Perform(Bloo bloo)
-        {
 
-            Random random = new Random();
-            int randomNumber = random.Next(3);
-
-            switch (randomNumber)
-            {
-                case 0:
-                    bloo.Coins += 500;
-                    MessageBox.Show("gained 500 coins but next 3 items are not claimable");
-                    // add status effect that items are not claimable logic here
-
-                    break;
-                case 1:
-                    bloo.Rizz += 50;
-                    bloo.Lives = 1;
-                    MessageBox.Show("gained 50 rizz, lost lives");
-                    break;
-                case 2:
-                    bloo.Lives = 5;
-                    bloo.Coins -= bloo.Coins * .75;
-                    bloo.Rizz -= bloo.Rizz * .75;
-                    MessageBox.Show("gained 5 lives, lost 75% coins and 75% rizz");
-                    break;
-            }
-            
-        }
-            */
     }
     public class GobletEvent : Events
     {
@@ -645,12 +540,14 @@ namespace ComProg2Finals
                     {
                         MessageBox.Show($"Nothing happened.");
                     }
+            form2.runNextEncounter();
 
-            }   
+        }   
 
         public override void EventAction2(Bloo bloo)
         {
             MessageBox.Show("Bloo ignored a movie reference…");
+            form2.runNextEncounter();
         }
 
         public override void Perform(Bloo bloo)
@@ -674,6 +571,7 @@ namespace ComProg2Finals
             MessageBox.Show("Bloo, with all his might, tackled the tree.");
             MessageBox.Show("An apple fell from the tree.");
             // add plus rizz
+            form2.runNextEncounter();
         }
 
         public override void EventAction2(Bloo bloo)
@@ -688,7 +586,10 @@ namespace ComProg2Finals
                     else
                     {
                         MessageBox.Show("Bloo noticed something shiny!");
-                    }             
+                GoldenArrow goldenarrow = new GoldenArrow();
+                goldenarrow.Acquired(bloo);
+                    }
+            form2.runNextEncounter();
         }
 
         public override void Perform(Bloo bloo)
@@ -746,11 +647,12 @@ namespace ComProg2Finals
     }
     public class Shopkeeper: Events
     {
-            public List<Skill> itemshop;
+            public List<Items> itemshop;
         public Shopkeeper()
         {
             picImage = "wishingwell.png";
             EncounterDialogue = "SHOPPEEDOOPEE";
+            itemshop = new List<Items> { new LifePotion(), new MysteryPotion(), new HardHelmet(), new SpikedHelmet() };
 
             //Interactions = new string[] { "Buy", "Skip" };
         }

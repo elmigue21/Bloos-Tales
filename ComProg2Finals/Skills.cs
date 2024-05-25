@@ -287,7 +287,7 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
             MessageBox.Show($"Used {Name}");
-            user.skillQueue.Add(() => skillsQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Wind")));
+            user.skillQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Wind"));
            //user.Opposition.ElementDamageCharac(20, user, "Wind");
         }
     }
