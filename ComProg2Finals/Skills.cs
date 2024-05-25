@@ -13,6 +13,7 @@ namespace ComProg2Finals
         public Form1 battleForm = Form1.GetInstance();
         public List<Action> skillsQueue;
         public string Name { get; protected set; }
+        public int Price { get; set; }
 
         public Skill()
         {
@@ -76,6 +77,7 @@ namespace ComProg2Finals
         public Split()
         {
             this.Name = "Split";
+            this.Price = 69;
         }
 
         public override void Perform(Character user)
@@ -89,6 +91,7 @@ namespace ComProg2Finals
         public ElementBook()
         {
             this.Name = "Element Book";
+            this.Price = 69;
         }
 
         public override void Perform(Character user)
@@ -170,6 +173,7 @@ namespace ComProg2Finals
         public Mog()
         {
             this.Name = "Mog";
+            this.Price = 69;
         }
 
         public override void Perform(Character user)
@@ -188,6 +192,7 @@ namespace ComProg2Finals
         public Bounce()
         {
             this.Name = "Bounce";
+            this.Price = 69;
         }
 
         public override void Perform(Character user)
@@ -256,6 +261,7 @@ namespace ComProg2Finals
         public Fireball()
         {
             this.Name = "Fireball";
+
         }
 
         public override void Perform(Character user)
