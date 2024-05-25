@@ -22,6 +22,7 @@ namespace ComProg2Finals
         public Form1 battleForm = Form1.GetInstance();
         public Form2 form2 = Form2.Instance;
         private Bloo Player = Form2.Player;
+        public Type KeyItem {get;set;}
 
 
         public List<Action<Bloo>> EventActions { get; set; }
@@ -288,6 +289,7 @@ namespace ComProg2Finals
             befEncounter = "As Bloo was bouncing his way, a faint sound of clinking metal echoed through the forest…";
             //EventActions.Add(Player => EventAction1(Player));
             //EventActions.Add(Player => EventAction2(Player));
+            KeyItem = typeof(Excalibur);
         }
         public override void EventAction1(Bloo bloo)
         {
@@ -342,6 +344,7 @@ namespace ComProg2Finals
                     skillProbability = new int[] { 25, 25, 25, 25 };
                     break;
             }
+            KeyItem = typeof(Goblet);
         }
         public override void EventAction1(Bloo bloo)
         {
@@ -410,6 +413,7 @@ namespace ComProg2Finals
             EncounterDialogue = "What a cute little creature! But alas, your monstrous nature belies your charm.";
             Interactions = new string[] { "Attack", "Rizz"};
             befEncounter = "As Bloo continued his journey, Bloo began to feel warm… As if he was bouncing through endless purity…";
+            KeyItem = typeof(HolyWater);
         }
         public override void EventAction1(Bloo bloo)
         {
@@ -444,6 +448,7 @@ namespace ComProg2Finals
             Interactions = new string[] { "Attack", "Rizz"};
             EncounterDialogue = "Man, I’m tired of getting worthless loot…";
             befEncounter = "As the shadows of the forest enveloped Bloo, he noticed a man stalking through the shadows…";
+            KeyItem = typeof(StrangeGem);
         }
         public override void EventAction1(Bloo bloo)
         {
@@ -479,6 +484,7 @@ namespace ComProg2Finals
             Interactions = new string[] { "Attack", "Rizz"};
             EncounterDialogue = "In every draw of my bow, fate whispers through the wind, a constant companion to death's embrace.";
             befEncounter = "Bloo felt a slight breeze as he bounces through the grassy fields…";
+            KeyItem = typeof(GoldenArrow);
         }
         public override void EventAction1(Bloo bloo)
         {

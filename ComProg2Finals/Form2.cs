@@ -382,7 +382,9 @@ namespace ComProg2Finals
         }
         public void runNextEncounter()
         {
-
+           // encounterCount = 5;
+            //Excalibur ex = new Excalibur();
+            //ex.Acquired(Player);
             switch (encounterCount % 5)
             {
                 case 0:
@@ -406,6 +408,21 @@ namespace ComProg2Finals
                             currentEncounter = new Priest("rafaella");
                             break;
                     }
+                    for(int i = 0; i < Player.PlayerItems.Count; i++)
+                    {
+                        if (Player.PlayerItems[i].GetType() == currentEncounter.KeyItem)
+                        {
+                            MessageBox.Show("PLAYER HAS KEY ITEM");
+                            runNextEncounter();
+                            break;
+                        }
+                    }
+
+
+
+
+
+
                     break;
                 case 4:
                     Random rand2 = new Random();
@@ -461,7 +478,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-           // currentEncounter = mastergooway;
+           //currentEncounter = new Knight("");
 
             label1.Text = "";
             /*

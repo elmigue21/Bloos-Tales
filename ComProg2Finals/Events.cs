@@ -264,15 +264,15 @@ namespace ComProg2Finals
             switch (rand)
             {
                 case 0:
-                    MessageBox.Show("Bloo took the blue pill");
+                    MessageBox.Show("Bloo took the blue pill, health reduced by 25%");
                     bloo.Health -= bloo.Health * .25;
                     break;
                 case 1:
-                    MessageBox.Show("Bloo took the blue pill");
+                    MessageBox.Show("Bloo took the blue pill, bloo's accuracy reduced by 25%");
                     bloo.Accuracy -= 25;
                     break;
                 case 2:
-                    MessageBox.Show("Bloo took the blue pill");
+                    MessageBox.Show("Bloo took the blue pill, bloo's coin gain reduced");
                     bloo.coinGainMultiplier /= 2;
                     // minus coin income
                     break;
@@ -285,15 +285,15 @@ namespace ComProg2Finals
             switch (rand)
             {
                 case 0:
-                    MessageBox.Show("Bloo took the red pill");
+                    MessageBox.Show("Bloo took the red pill, bloo's attack damage increased by 20");
                     bloo.AttackDamage += 20;
                     break;
                 case 1:
-                    MessageBox.Show("Bloo took the red pill");
+                    MessageBox.Show("Bloo took the red pill, bloo's crit chance increased by 25");
                     bloo.CritChance += 25;
                     break;
                 case 2:
-                    MessageBox.Show("Bloo took the red pill");
+                    MessageBox.Show("Bloo took the red pill, bloos rizz gain increased");
                     // buff rizz income
                     bloo.rizzGainMultiplier *= 2;
                     break;
