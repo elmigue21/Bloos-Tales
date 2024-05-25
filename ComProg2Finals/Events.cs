@@ -608,7 +608,7 @@ namespace ComProg2Finals
             public List<Skill> skillshop;
         public MasterGooway()
         {
-            picImage = "mastergooway.png";
+            picImage = "master_gooway_idle_right.gif";
             //Interactions = new string[] { "Buy", "Skip"};
             EncounterDialogue = "Gooway I am";
             skillshop = new List<Skill> {new Bounce(), new Split(), new Mog(), new ElementBook() };
