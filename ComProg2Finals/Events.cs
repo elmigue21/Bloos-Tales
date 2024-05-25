@@ -354,7 +354,7 @@ namespace ComProg2Finals
                 case 0:
                     int bossCount = form2.encounterCount / 5;
                     bloo.Rizz -= bloo.Rizz * .3;
-                    MessageBox.Show($"next encounter is {form2.bossFights[bossCount]}");
+                   // MessageBox.Show($"next encounter is {form2.bossFights[bossCount]}");
                     // messagebox.show next enemy
                     break;
                 case 1:
