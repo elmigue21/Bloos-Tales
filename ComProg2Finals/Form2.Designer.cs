@@ -185,9 +185,9 @@
         private System.Windows.Forms.PictureBox charactersPictureBox;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.TextBox dialogueTextBox;
         private System.Windows.Forms.Button WalkChar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox dialogueTextBox;
     }
 }

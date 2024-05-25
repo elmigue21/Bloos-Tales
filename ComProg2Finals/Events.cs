@@ -26,16 +26,17 @@ namespace ComProg2Finals
     }
     public class Chest : Events
     {
+        ChestyDialogue ChestyDiag = new ChestyDialogue();
         public Chest()
         {
             Name = "Chest";
             picImage = "chest.png";
-            EncounterDialogue = "Bloo stumbles upon a chest!";
+            EncounterDialogue = ChestyDiag.EntranceDialogue;
             Interactions = new string[] { "Open", "Skip" };
         }
         public override void EventAction1(Bloo bloo)
         {
-            MessageBox.Show("bloo opens the chest");
+            form2.dialogueTextBox.Text = ChestyDiag.Option1Dialogue;
             Random random = new Random();
             randomNumber = random.Next(100);
 
@@ -76,6 +77,7 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
+            form2.dialogueTextBox.Text = ChestyDiag.IgnoreDialogue;
             MessageBox.Show("bloo ignores the chest");
             form2.runNextEncounter();
         }
@@ -88,11 +90,12 @@ namespace ComProg2Finals
     }
     public class Cave : Events
     {
+        CaveDialogue CaveDiag = new CaveDialogue();
         public Cave()
         {
             Name = "Cave";
             picImage = "cave.png";
-            EncounterDialogue = "I MINE ALL DAY";
+            EncounterDialogue = CaveDiag.EntranceDialogue;
             Interactions = new string[] { "Enter", "Ignore"};
         }
 
@@ -157,7 +160,7 @@ namespace ComProg2Finals
 
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("Bloo got scared of the dark…");
+            form2.dialogueTextBox.Text = CaveDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
 
@@ -176,11 +179,12 @@ namespace ComProg2Finals
     }
     public class SwordInStone : Events
     {
+        SwordStoneDialogue SwordStoneDiag = new SwordStoneDialogue();
         public SwordInStone()
         {
             Name = "SwordInStone";
             picImage = "swordinstone.png";
-            EncounterDialogue = "I AM THE CHOSEN ONE";
+            EncounterDialogue = SwordStoneDiag.EntranceDialogue;
             Interactions = new string[] { "Pull", "Ignore" };
         }
 
@@ -192,18 +196,18 @@ namespace ComProg2Finals
             {
                 Excalibur excalibur = new Excalibur();
                 excalibur.Acquired(bloo);
-                MessageBox.Show("Bloo was shocked as he pulled the sword effortlessly.");
-                }
+                form2.dialogueTextBox.Text = SwordStoneDiag.Option1Dialogue;
+            }
             else
             {
-                MessageBox.Show("Bloo tried his best to pull the sword, but in his dismay, he wasn’t the chosen one.");
+                form2.dialogueTextBox.Text = SwordStoneDiag.Option2Dialogue;
             }
             form2.runNextEncounter();
         }
                 
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("Bloo wasn’t interested in a mere sword…");
+            form2.dialogueTextBox.Text = SwordStoneDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
         int pullChance = 5;
@@ -215,17 +219,18 @@ namespace ComProg2Finals
     }
     public class Bonfire : Events
     {
+        BonfireDialogue BonFireDiag = new BonfireDialogue();
         public Bonfire()
         {
             Name = "Bonfire";
             picImage = "bonfire.png";
-            EncounterDialogue = "Bloo stumbles upon a BONfire";
+            EncounterDialogue = BonFireDiag.EntranceDialogue;
             Interactions = new string[] { "Obtain", "Ignore" };
         }
 
         public override void EventAction1(Bloo bloo)
         {
-            MessageBox.Show("Praise the sun!");
+            form2.dialogueTextBox.Text = BonFireDiag.Option1Dialogue;
             if (bloo.Lives < 5)
             {
                 MessageBox.Show("You feel rested. Lives increased");
@@ -236,7 +241,7 @@ namespace ComProg2Finals
 
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("Bloo ignores a game reference…");
+            form2.dialogueTextBox.Text = BonFireDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
 
@@ -248,11 +253,12 @@ namespace ComProg2Finals
     public class MysteriousMan : Events
     {
         int rand;
+        MysteriousManDialogue MysteriousManDiag = new MysteriousManDialogue();
         public MysteriousMan()
         {
             Name = "Mysterious man";
             picImage = "mysteriousman.png";
-            EncounterDialogue = "SHHHHHH";
+            EncounterDialogue = MysteriousManDiag.EntranceDialogue;
             Interactions = new string[] { "Blue pill", "Red Pill"};
             Random random = new Random();
             rand = random.Next(0, 2);            
@@ -308,24 +314,25 @@ namespace ComProg2Finals
     }
     public class Jester : Events
     {
+        JesterDialogue JesterDiag = new JesterDialogue();
         public Jester()
         {
             Name = "Jester";
             picImage = "wishingwell.png";
-            EncounterDialogue = "KWAK";
+            EncounterDialogue = JesterDiag.EntranceDialogue;
             Interactions = new string[] { "Talk", "Ignore" };
         }
         public override void EventAction1(Bloo bloo)
         {
             // add mystery box logic
-            MessageBox.Show("I have a little mystery box for you giggles. What's inside? What’s inside? Oh, the excitement! Well, that’s the fun part, isn’t it? It could be a delightful surprise... or a dreadful shock!” *giggles louder");
+            EncounterDialogue = JesterDiag.EntranceDialogue;
             bloo.Coins -= bloo.Coins * .75;
             form2.runNextEncounter();
         }
 
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("Bloo dislikes clowns. He thinks they are scary and weird…");
+            EncounterDialogue = JesterDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
 
@@ -336,16 +343,17 @@ namespace ComProg2Finals
     }
     public class Seer : Events
     {
+        SeerDialogue SeerDiag = new SeerDialogue();
         public Seer()
         {
             Name = "Seer";
             picImage = "seer.png";
-            EncounterDialogue = "O.O";
+            EncounterDialogue = SeerDiag.EntranceDialogue;
             Interactions = new string[] { "Talk", "Ignore" };   
         }
         public override void EventAction1(Bloo bloo)
         {
-            MessageBox.Show($"Seer");
+            EncounterDialogue = SeerDiag.Option1Dialogue;
             Random random = new Random();
             int rand = random.Next(0, 4);
             switch (rand)
@@ -379,7 +387,7 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("Bloo ignores seer");
+            EncounterDialogue = SeerDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
         public override void Perform(Bloo bloo)
@@ -418,12 +426,13 @@ namespace ComProg2Finals
     {
         int choice;
         int multiplier = 1;
+        WishingWellDialogue WishingWellDiag = new WishingWellDialogue();
         public WishingWell()
         {
             Name = "Wishing well";
             this.picImage = "wishingwell.png";
             Interactions = new string[] { "Make Wish", "Ignore" };
-            EncounterDialogue = "WISHING WASHING";
+            EncounterDialogue = WishingWellDiag.EntranceDialogue;
             Interactions = new string[] { "Wish", "Ignore" };
             //this.multiplier = 1;
         }
@@ -431,7 +440,7 @@ namespace ComProg2Finals
         public override void EventAction1(Bloo bloo)
         {
             bloo.Coins -= 2 * multiplier;
-            MessageBox.Show($"Threw {2 * multiplier} coins in the wishing well!");
+            EncounterDialogue = WishingWellDiag.Option1Dialogue;
             Random random = new Random();
             int randomNumber = random.Next(100);
             if (randomNumber >= 1 && randomNumber <= 25)
@@ -454,18 +463,19 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("Bloo got sad…");
+            EncounterDialogue = WishingWellDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
       
     }
     public class King : Events
     {
+        KingDialogue KingDiag = new KingDialogue();
         public King()
         {
             Name = "KING";
             picImage = "king.png";
-            EncounterDialogue = "What manner of odd creature are you… Say, my kingdom has come to ruins, would you mind making a trade to this daring king?";
+            EncounterDialogue = KingDiag.EntranceDialogue;
             Interactions = new string[] { "Accept", "Decline" };
         }
             public override void EventAction1(Bloo bloo)
@@ -477,27 +487,27 @@ namespace ComProg2Finals
                 {
                     case 0:
                         bloo.Coins += 500;
-                        MessageBox.Show("gained 500 coins but next 3 items are not claimable");
+                        EncounterDialogue = KingDiag.Option1Dialogue;
                         // add status effect that items are not claimable logic here
 
-                        break;
+                    break;
                     case 1:
                         bloo.Rizz += 50;
                         bloo.Lives = 1;
-                        MessageBox.Show("gained 50 rizz, lost lives");
+                        EncounterDialogue = KingDiag.Option2Dialogue;
                         break;
                     case 2:
                         bloo.Lives = 5;
                         bloo.Coins -= bloo.Coins * .75;
                         bloo.Rizz -= bloo.Rizz * .75;
-                        MessageBox.Show("gained 5 lives, lost 75% coins and 75% rizz");
+                        EncounterDialogue = KingDiag.Option3Dialogue;
                         break;
                 }
             form2.runNextEncounter();
         }
             public override void EventAction2(Bloo bloo)
-            {
-                MessageBox.Show("Bloo declines");
+        {
+            EncounterDialogue = KingDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
 
@@ -507,11 +517,12 @@ namespace ComProg2Finals
     }
     public class GobletEvent : Events
     {
+        GobletDialogue GobletDiag = new GobletDialogue();
         public GobletEvent()
         {
             Name = "Goblet";
             picImage = "goblet.png";
-            EncounterDialogue = "GOBLET";
+            EncounterDialogue = GobletDiag.EntranceDialogue;
             Interactions = new string[] { "Put", "Ignore" };
         }
         int choice;
@@ -519,10 +530,11 @@ namespace ComProg2Finals
         public override void EventAction1(Bloo bloo)
         {
 
-                    //bloo.Coins += 50;
-                    //MessageBox.Show("Bloo felt wealthy!");
+            //bloo.Coins += 50;
+            //MessageBox.Show("Bloo felt wealthy!");
 
-                    Random random = new Random();
+            EncounterDialogue = GobletDiag.Option1Dialogue;
+            Random random = new Random();
                     int randomNumber = random.Next(100);
                     if (randomNumber <= 15)
                     {
@@ -546,7 +558,7 @@ namespace ComProg2Finals
 
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("Bloo ignored a movie reference…");
+            EncounterDialogue = GobletDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
 
@@ -557,18 +569,19 @@ namespace ComProg2Finals
     }
     public class AppleTree : Events
     {
+        AppleTreeDialogue AppleTreeDiag = new AppleTreeDialogue();
         public AppleTree()
         {
             Name = "Apple Tree";
             picImage = "appletree.png";
-            EncounterDialogue = "GRAVITY";
+            EncounterDialogue = AppleTreeDiag.EntranceDialogue;
             Interactions = new string[] { "Tackle", "Climb" };
         }
         int choice;
 
         public override void EventAction1(Bloo bloo)
         {
-            MessageBox.Show("Bloo, with all his might, tackled the tree.");
+            EncounterDialogue = AppleTreeDiag.Option1Dialogue;
             MessageBox.Show("An apple fell from the tree.");
             // add plus rizz
             form2.runNextEncounter();
@@ -576,8 +589,9 @@ namespace ComProg2Finals
 
         public override void EventAction2(Bloo bloo)
         {
+            EncounterDialogue = AppleTreeDiag.Option2Dialogue;
 
-                    Random random = new Random();
+            Random random = new Random();
                     int randomNumber = random.Next(100);
                     if (randomNumber <= 25)
                     {
@@ -601,18 +615,18 @@ namespace ComProg2Finals
     public class MasterGooway : Events
     {
             public List<Skill> skillshop;
+        MasterGoowayDialogue MasterGoowayDiag = new MasterGoowayDialogue();
         public MasterGooway()
         {
             picImage = "mastergooway.png";
             //Interactions = new string[] { "Buy", "Skip"};
-            EncounterDialogue = "Gooway I am";
+            EncounterDialogue = MasterGoowayDiag.EntranceDialogue;
             skillshop = new List<Skill> {new Bounce(), new Split(), new Mog(), new ElementBook() };
         }
         int choice;
 
         public override void EventAction1(Bloo bloo)
         {
-            MessageBox.Show("Use your skills for good, dragon war– oops, wrong student… May that help you in your journey, young one.");
             choice = 2;
             switch (choice)
             {
@@ -633,10 +647,11 @@ namespace ComProg2Finals
                     bloo.CharSkills.Add(new Bounce());
                     break;
             }
+            EncounterDialogue = MasterGoowayDiag.EntranceDialogue;
         }
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("Perhaps you are not ready to learn my ways, young one.");
+            EncounterDialogue = MasterGoowayDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
 
@@ -648,10 +663,11 @@ namespace ComProg2Finals
     public class Shopkeeper: Events
     {
         public List<Items> itemshop;
+        ShopkeeperDialogue ShopKeeperDiag = new ShopkeeperDialogue();
         public Shopkeeper()
         {
             picImage = "wishingwell.png";
-            EncounterDialogue = "SHOPPEEDOOPEE";
+            EncounterDialogue = ShopKeeperDiag.EntranceDialogue;
             itemshop = new List<Items> { new LifePotion(), new MysteryPotion(), new HardHelmet(), new SpikedHelmet() };
 
             //Interactions = new string[] { "Buy", "Skip" };    
@@ -659,12 +675,12 @@ namespace ComProg2Finals
         int choice;
         public override void EventAction1(Bloo bloo)
         {
-            MessageBox.Show("That all pal? If ya ever need more help, I’m just around the corner!");
+            EncounterDialogue = ShopKeeperDiag.Option1Dialogue;
         }
 
         public override void EventAction2(Bloo bloo)
         {
-            MessageBox.Show("Aight pal, if ya ever found ya self in a sticky situation, I’m just a bounce away.");
+            EncounterDialogue = ShopKeeperDiag.IgnoreDialogue;
             form2.runNextEncounter();
         }
         public override void Perform(Bloo bloo)
