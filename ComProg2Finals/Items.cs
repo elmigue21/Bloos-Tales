@@ -77,35 +77,59 @@ namespace ComProg2Finals
             charac.AttackDamage += change;
             charac.PlayerItems.Add(this);
         }
+        public override void Lost(Bloo charac)
+        {
+            double change = 25;
+            charac.Health += change;
+            charac.AttackDamage -= change;
+            charac.PlayerItems.Remove(this);
+        }
     }
     public class BerserkAmulet : Items
     {
+        double accuracyVal;
+        double attackDamageVal;
         public BerserkAmulet()
         {
             this.Name = "Berserk Amulet";
         }
         public override void Acquired(Bloo charac)
         {
+            this.accuracyVal = charac.Accuracy * .25;
+            this.attackDamageVal = charac.AttackDamage * .25;
             form2.dialogueTextBox.Text = ItemsDiag.AmuletDialogue;
-            charac.Accuracy -= charac.Accuracy * .25;
-            charac.AttackDamage += charac.AttackDamage * 25;
+            charac.Accuracy -= accuracyVal;
+            charac.AttackDamage += attackDamageVal;
             charac.PlayerItems.Add(this);
         }
-      
+        public override void Lost(Bloo charac)
+        {
+            charac.Accuracy += accuracyVal;
+            charac.AttackDamage += attackDamageVal;
+            charac.PlayerItems.Remove(this);
+        }
     }
     public class Behelith : Items
     {
+        double rizzVal;
         public Behelith()
         {
             this.Name = "Behelith";
         }
         public override void Acquired(Bloo charac)
         {
-                charac.Lives--;
+            charac.Lives--;
             form2.dialogueTextBox.Text = ItemsDiag.BehelithDialogue;
-            charac.Coins += charac.Coins * .30;
-            charac.Rizz -= charac.Rizz * .30;
+            charac.coinGainMultiplier *= 2;
+            this.rizzVal = charac.Rizz * .30;
+            charac.ChangeRizz(-rizzVal);
             charac.PlayerItems.Add(this);
+        }
+        public override void Lost(Bloo charac)
+        {
+            charac.coinGainMultiplier /= 2;
+            charac.ChangeRizz(rizzVal);
+            charac.PlayerItems.Remove(this);
         }
     }
 
@@ -128,8 +152,13 @@ namespace ComProg2Finals
 
             if (gainedRizz <= limit)
             {
-                charac.Rizz += 5;
+                charac.ChangeRizz(5);
             }
+        }
+        public override void Lost(Bloo charac)
+        {
+            charac.ChangeRizz(-gainedRizz);
+            charac.PlayerItems.Remove(this);
         }
     }
     public class Piggybank : Items
@@ -148,12 +177,17 @@ namespace ComProg2Finals
             charac.Coins += 10;
 
         }
+        public override void Lost(Bloo charac)
+        {
+            charac.PlayerItems.Remove(this);
+        }
 
 
     }
     public class LifePotion : Items
     {
         ItemsDialogue ItemsDiag = new ItemsDialogue();
+        int addedLives = 0;
         public LifePotion()
         {
             this.Name = "Life Potion";
@@ -166,9 +200,15 @@ namespace ComProg2Finals
             if (charac.Lives < 5)
             {
                 charac.Lives++;
+                addedLives++;
             }
-            charac.PlayerItems.Add(this);
+            //charac.PlayerItems.Add(this);
         }
+        public override void Lost(Bloo charac)
+        {
+            charac.Lives -= addedLives;
+        }
+
     }
     public class MysteryPotion : Items
     {
@@ -222,7 +262,7 @@ namespace ComProg2Finals
             iter = 2;
             form2.dialogueTextBox.Text = ItemsDiag.RizzBoosterDialogue;
             rizzBuff = charac.Rizz * .50;
-            charac.Rizz += rizzBuff;
+            charac.ChangeRizz(rizzBuff);
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
@@ -238,7 +278,7 @@ namespace ComProg2Finals
         }
         public override void Lost(Bloo charac)
         {
-            charac.Rizz -= rizzBuff;
+            charac.ChangeRizz(-rizzBuff);
             charac.PlayerItems.Remove(this);
         }
     }
@@ -382,7 +422,7 @@ namespace ComProg2Finals
         {
             iter = 1;
             charac.AttackDamage += 9999;
-            form2.dialogueTextBox.Text = ItemsDiag.OneShotDialogue;
+           // form2.dialogueTextBox.Text = ItemsDiag.OneShotDialogue;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
@@ -412,13 +452,18 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-            form2.dialogueTextBox.Text = ItemsDiag.HardHelmentDialogue;
+           // form2.dialogueTextBox.Text = ItemsDiag.HardHelmentDialogue;
             charac.Defense += 15;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
         {
 
+        }
+        public override void Lost(Bloo charac)
+        {
+            charac.Defense -= 15;
+            charac.PlayerItems.Remove(this);
         }
     }
     public class SpikedHelmet : Items
@@ -430,7 +475,7 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-            form2.dialogueTextBox.Text = ItemsDiag.SpikedHelmetDialogue;
+           // form2.dialogueTextBox.Text = ItemsDiag.SpikedHelmetDialogue;
             charac.Defense += 5;
             charac.PlayerItems.Add(this);
         }
@@ -440,6 +485,11 @@ namespace ComProg2Finals
         public override void BattleAddItem(Bloo charac)
         {
             
+        }
+        public override void Lost(Bloo charac)
+        {
+            charac.Defense -= 5;
+            charac.PlayerItems.Remove(this);
         }
     }
     public class Excalibur : Items
@@ -515,7 +565,7 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-            charac.Health += 10;
+            //charac.Health += 10;
             form2.dialogueTextBox.Text = ItemsDiag.HolyWaterDialogue;
             charac.PlayerItems.Add(this);
           
@@ -525,6 +575,10 @@ namespace ComProg2Finals
         {
             charac.CharStatEffects.Add(new HealPerTurn("HolyWater", 10, 999));
 
+        }
+        public override void Lost(Bloo charac)
+        {
+            charac.PlayerItems.Remove(this);
         }
     }
     public class Goblet : Items
@@ -656,20 +710,37 @@ namespace ComProg2Finals
 
     public class KingDebuff : Items
     {
-        int interval;
+        public int interval;
+        public int initialInventorySize;
         public KingDebuff()
         {
             interval = 3;
+            this.Name = "King Debuff";
+            
         }
         public override void Acquired(Bloo charac)
         {
             charac.canGetItem = false;
+            initialInventorySize = charac.PlayerItems.Count;
         }
         public override void Encountered(Bloo charac)
         {
             if(interval == 0)
             {
+                MessageBox.Show("Bloo no longer owes the king any items");
                 this.Lost(charac);
+            }
+            else
+            {
+                if(initialInventorySize < charac.PlayerItems.Count)
+                {
+                    for(int i = charac.PlayerItems.Count-1; i > initialInventorySize; i--)
+                    {
+                        MessageBox.Show("the king took " +  charac.PlayerItems[i].Name + " from bloo's inventory");
+                        charac.PlayerItems.RemoveAt(i);
+                        interval--;
+                    }
+                }
             }
         }
         public override void Lost(Bloo charac)

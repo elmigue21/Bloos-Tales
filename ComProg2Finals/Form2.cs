@@ -74,7 +74,7 @@ namespace ComProg2Finals
             timer.Tick += Timer_Tick;
 
             encounterCount = 1;
-
+            Instance = this;
             Random rand1 = new Random();
             for (int i = 0; i < 3; i++)
             {
@@ -103,7 +103,7 @@ namespace ComProg2Finals
             }
 
             bossFights.Add(new Peech("Peech"));
-
+            
 
             dialoguePanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "scroll.png"));
             statsPanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "statsPanel.png"));
@@ -111,6 +111,8 @@ namespace ComProg2Finals
             statsPanel.BackgroundImageLayout = ImageLayout.Zoom;
             runNextEncounter();
             UpdateStats();
+            KingDebuff kingdebuff = new KingDebuff();
+            kingdebuff.Acquired(Player);
         }
         bool right, hold = true;
 
@@ -303,21 +305,18 @@ namespace ComProg2Finals
             f1.Show();
             
         }
-
-
         private void HandleButtonClick(object sender, EventArgs e, Action eventAction)
         {
             eventAction?.Invoke();
             UpdateStats();
         }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             runNextEncounter();
         }
         public void runNextEncounter()
         {
+            Player.ChangeRizz(2);
             UpdateStats();
             if(Player.Health <= 0 && Player.Lives > 0)
             {

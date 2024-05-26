@@ -95,31 +95,40 @@ namespace ComProg2Finals
 
         public virtual void UseSkill1(Character player)
         {
-            //player.skillQueue.Add(() => CharSkills[0].Perform(player));
             CharSkills[0].Perform(player);
         }
         public virtual void UseSkill2(Character player)
         {
-           // player.skillQueue.Add(() => CharSkills[1].Perform(player));
             CharSkills[1].Perform(player);
         }
         public virtual void UseSkill3(Character player)
         {
-           // player.skillQueue.Add(() => CharSkills[2].Perform(player));
             CharSkills[2].Perform(player);
         }
         public virtual void UseSkill4(Character player)
         {
-            //player.skillQueue.Add(() => CharSkills[3].Perform(player));
             CharSkills[3].Perform(player);
+        }
+        public virtual void ChangeRizz(double val)
+        {
+            if (this.Rizz + val > 100)
+            {
+                this.Rizz = 100;
+            }
+            else if (this.Rizz + val < 0)
+            {
+                this.Rizz = 0;
+            }
+            else
+            {
+                this.Rizz += val;
+            }
         }
         
         public virtual void DamageCharac(double dmgValue, Character user, string skillName)
         {
             MessageBox.Show(user.Name + " used " + skillName);
-            //string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "swordsound.wav");
-           // SoundPlayer player = new SoundPlayer(soundFilePath);
-           // player.Play();
+
             Random accRandom = new Random();
             int accuracyRandom = accRandom.Next(0, 100);
             if (accuracyRandom <= user.Accuracy)
@@ -137,7 +146,6 @@ namespace ComProg2Finals
                     int randomNumber = random.Next(0, 101);
                     if (randomNumber <= user.CritChance)
                     {
-                        //MessageBox.Show("CRIT!");
                         isCrit = true;
                         totalDamage *= user.CritDamage;
                     }
@@ -267,7 +275,7 @@ namespace ComProg2Finals
             AttackDamage = 200;
             Speed = 10;
             CharSkills = new List<Skill> { new Tackle(), new Goo()};
-            Rizz = 100;
+            Rizz = 50;
             picImage = "blooIdle.gif";
             Defense = 40;
             CharStatEffects = new List<StatusEffect> { };

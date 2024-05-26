@@ -146,7 +146,7 @@ namespace ComProg2Finals
             user.Defense -= 5;
             //user.Accuracy -= 10;
             user.skillQueue.Add(() => user.Opposition.LoweringAccuracy(10, user));
-            user.Rizz += 100;
+            user.ChangeRizz(100);
         }
     }
 
