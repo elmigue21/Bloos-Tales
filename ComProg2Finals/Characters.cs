@@ -274,6 +274,7 @@ namespace ComProg2Finals
             rizzGainMultiplier = 1;
             canGainCoin = true;
             canUseRizz = true;
+            canGetItem = true;
             discount = 1;
         }
         

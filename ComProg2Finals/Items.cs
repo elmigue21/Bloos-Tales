@@ -15,6 +15,7 @@ namespace ComProg2Finals
         Form1 battleForm = Form1.GetInstance();
         public string Name { get; protected set; }
         public int Price { get; set; }
+       
 
         public virtual void Acquired(Bloo charac)
         {
