@@ -95,22 +95,22 @@ namespace ComProg2Finals
         public virtual void UseSkill1(Character player)
         {
             //player.skillQueue.Add(() => CharSkills[0].Perform(player));
-            CharSkills[0].Perform(player);
+            CharSkills[0].Perform(player, form2);
         }
         public virtual void UseSkill2(Character player)
         {
            // player.skillQueue.Add(() => CharSkills[1].Perform(player));
-            CharSkills[1].Perform(player);
+            CharSkills[1].Perform(player, form2);
         }
         public virtual void UseSkill3(Character player)
         {
            // player.skillQueue.Add(() => CharSkills[2].Perform(player));
-            CharSkills[2].Perform(player);
+            CharSkills[2].Perform(player, form2);
         }
         public virtual void UseSkill4(Character player)
         {
             //player.skillQueue.Add(() => CharSkills[3].Perform(player));
-            CharSkills[3].Perform(player);
+            CharSkills[3].Perform(player, form2);
         }
         
         public virtual void DamageCharac(double dmgValue, Character user)
@@ -251,8 +251,13 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 20;
             Speed = 10;
+<<<<<<< Updated upstream
             CharSkills = new List<Skill> { new Tackle(), new Goo()};
             Rizz = 20;
+=======
+            CharSkills = new List<Skill> { new Tackle(form2), new Goo(form2)};
+            Rizz = 100;
+>>>>>>> Stashed changes
             picImage = "blooIdle.gif";
             Defense = 40;
             CharStatEffects = new List<StatusEffect> { };
@@ -287,7 +292,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new List<Skill> { new Slash(),new Block(), new ShieldBash()};
+            CharSkills = new List<Skill> { new Slash(form2),new Block(form2), new ShieldBash(form2) };
             Rizz = 5;
             picImage = "knight.png";
             Defense = 10;
@@ -330,7 +335,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new List<Skill> { new Fireball(), new RockHurl(), new WindSlice(), new WaterBlast() };
+            CharSkills = new List<Skill> { new Fireball(form2), new RockHurl(form2), new WindSlice(form2), new WaterBlast(form2) };
             Rizz = 5;
             picImage = "wiz.png";
             Defense = 10;
@@ -417,7 +422,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 1;
             Speed = 10;
-            CharSkills = new List<Skill> { new Heal(), new Smite(), new Baptize()};
+            CharSkills = new List<Skill> { new Heal(form2), new Smite(form2), new Baptize(form2) };
             Rizz = 5;
             picImage = "priest.png";
             Defense = 10;
@@ -454,7 +459,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new List<Skill> { new Stealth(), new Poison(), new Dagger()};
+            CharSkills = new List<Skill> { new Stealth(form2), new Poison(form2), new Dagger(form2) };
             Rizz = 5;
             picImage = "rogue.png";
             Defense = 10;
@@ -491,7 +496,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new List<Skill> { new Lock(), new Volley(), new Shoot()};
+            CharSkills = new List<Skill> { new Lock(form2), new Volley(form2), new Shoot(form2) };
             Rizz = 5;
             picImage = "archer.png";
             Defense = 25;
@@ -528,7 +533,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new List<Skill> { new Chomp(), new Haul()};
+            CharSkills = new List<Skill> { new Chomp(form2), new Haul(form2) };
             Rizz = 5;
             picImage = "evilchest.png";
             Defense = 10;

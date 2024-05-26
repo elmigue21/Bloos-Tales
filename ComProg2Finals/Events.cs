@@ -146,7 +146,7 @@ namespace ComProg2Finals
             }
             else if (randomNumber <= totalChances)
             {
-                StrangeGem strangegem = new StrangeGem();
+                StrangeGem strangegem = new StrangeGem(form2);
                 strangegem.Acquired(bloo);
                 form2.dialogueTextBox.Text = CaveDiag.CommitEvent5;
             }
@@ -193,7 +193,7 @@ namespace ComProg2Finals
             randomNumber = random.Next(100);
             if (randomNumber <= pullChance)
             {
-                Excalibur excalibur = new Excalibur();
+                Excalibur excalibur = new Excalibur(form2);
                 excalibur.Acquired(bloo);
                 form2.dialogueTextBox.Text = SwordStoneDiag.Option1Dialogue;
             }
@@ -324,6 +324,12 @@ namespace ComProg2Finals
         public override void EventAction1(Bloo bloo)
         {
             // add mystery box logic
+<<<<<<< Updated upstream
+=======
+//            MessageBox.Show("I have a little mystery box for you giggles. What's inside? What’s inside? Oh, the excitement! Well, that’s the fun part, isn’t it? It could be a delightful surprise... or a dreadful shock!” *giggles louder");
+            MysteryBox mysterybox = new MysteryBox(form2);
+            mysterybox.Acquired(bloo);
+>>>>>>> Stashed changes
             form2.dialogueTextBox.Text = JesterDiag.EntranceDialogue;
             bloo.Coins -= bloo.Coins * .75;
             form2.runNextEncounter();
@@ -363,6 +369,7 @@ namespace ComProg2Finals
                     break;
                 case 1:
                     bloo.Coins -= 150;
+<<<<<<< Updated upstream
                     form2.dialogueTextBox.Text = SeerDiag.CommitEvent2;
                     bloo.PlayerItems.Add(new SeerBuff(rand));
                     // add status effect final boss 30% atk dmg boost for bloo
@@ -385,6 +392,23 @@ namespace ComProg2Finals
                     bloo.PlayerItems.Add(new SeerBuff(rand));
                         // add status effect, +20 def for bloo on next boss 
                         break;
+=======
+                        bloo.PlayerItems.Add(new SeerBuff(rand, form2));
+                    break;
+                case 2:
+                    bloo.Coins -= 100;
+                        bloo.PlayerItems.Add(new SeerBuff(rand, form2));
+                    break;
+                case 3:
+                    bloo.Coins -= 50;
+                        bloo.PlayerItems.Add(new SeerBuff(rand, form2));
+                    break;
+                case 4:
+                    bloo.Coins -= 50;
+                        bloo.PlayerItems.Add(new SeerBuff(rand, form2));
+
+                    break;
+>>>>>>> Stashed changes
             }
             form2.runNextEncounter();
         }
@@ -449,13 +473,18 @@ namespace ComProg2Finals
             int randomNumber = random.Next(100);
             if (randomNumber >= 1 && randomNumber <= 25)
             {
+<<<<<<< Updated upstream
                 // insert random mystery potion buff logic here
+=======
+                MysteryPotion mysterypotion = new MysteryPotion(form2);
+                mysterypotion.Acquired(bloo);
+>>>>>>> Stashed changes
                 form2.dialogueTextBox.Text = WishingWellDiag.CommitEvent1;
             }
             else if (randomNumber >= 26 && randomNumber <= 30)
             {
 
-                HolyWater holywater = new HolyWater();
+                HolyWater holywater = new HolyWater(form2);
                 holywater.Acquired(bloo);
                 form2.dialogueTextBox.Text = WishingWellDiag.CommitEvent1;
                 form2.dialogueTextBox.Text = ItemsDiag.HolyWaterDialogue;
@@ -543,8 +572,12 @@ namespace ComProg2Finals
                     int randomNumber = random.Next(100);
                     if (randomNumber <= 15)
                     {
+<<<<<<< Updated upstream
                         // insert wizard free pass item logic here
                         Goblet goblet = new Goblet();
+=======
+                        Goblet goblet = new Goblet(form2);
+>>>>>>> Stashed changes
                         goblet.Acquired(bloo);
                 form2.dialogueTextBox.Text = GobletDiag.CommitEvent1;
             }
@@ -605,7 +638,7 @@ namespace ComProg2Finals
                     else
             {
                 form2.dialogueTextBox.Text = AppleTreeDiag.CommitEvent3;
-                GoldenArrow goldenarrow = new GoldenArrow();
+                GoldenArrow goldenarrow = new GoldenArrow(form2);
                 goldenarrow.Acquired(bloo);
                     }
             form2.runNextEncounter();
@@ -627,7 +660,7 @@ namespace ComProg2Finals
             picImage = "mastergooway.png";
             //Interactions = new string[] { "Buy", "Skip"};
             EncounterDialogue = MasterGoowayDiag.EntranceDialogue;
-            skillshop = new List<Skill> {new Bounce(), new Split(), new Mog(), new ElementBook() };
+            skillshop = new List<Skill> {new Bounce(form2), new Split(form2), new Mog(form2), new ElementBook(form2) };
         }
         int choice;
 
@@ -637,20 +670,20 @@ namespace ComProg2Finals
             switch (choice)
             {
                 case 0:
-                    bloo.CharSkills.Add(new Split());
+                    bloo.CharSkills.Add(new Split(form2));
                     form2.dialogueTextBox.Text = ItemsDiag.SplitSkillDialogue;
                     break;
                 case 1:
                     form2.dialogueTextBox.Text = ItemsDiag.ElementSkillDialogue;
-                    bloo.CharSkills.Add(new ElementBook());
+                    bloo.CharSkills.Add(new ElementBook(form2));
                     break;
                 case 2:
                     form2.dialogueTextBox.Text = ItemsDiag.MogSkillDialogue;
-                    bloo.CharSkills.Add(new Mog());
+                    bloo.CharSkills.Add(new Mog(form2));
                     break;
                 case 3:
                     form2.dialogueTextBox.Text = ItemsDiag.BounceSkillDialogue;
-                    bloo.CharSkills.Add(new Bounce());
+                    bloo.CharSkills.Add(new Bounce(form2));
                     break;
             }
             form2.dialogueTextBox.Text = MasterGoowayDiag.EntranceDialogue;
@@ -675,9 +708,13 @@ namespace ComProg2Finals
         {
             picImage = "wishingwell.png";
             EncounterDialogue = ShopKeeperDiag.EntranceDialogue;
+<<<<<<< Updated upstream
             itemshop = new List<Items> { new LifePotion(), new MysteryPotion(), new HardHelmet(), new SpikedHelmet() };
 
             //Interactions = new string[] { "Buy", "Skip" };    
+=======
+            itemshop = new List<Items> { new LifePotion(form2), new MysteryPotion(form2), new HardHelmet(form2), new SpikedHelmet(form2) };  
+>>>>>>> Stashed changes
         }
         int choice;
         public override void EventAction1(Bloo bloo)
@@ -698,21 +735,21 @@ namespace ComProg2Finals
             {
                 case 0:
                     form2.dialogueTextBox.Text = ItemsDiag.LifeDialogue;
-                    LifePotion lifepotion = new LifePotion();
+                    LifePotion lifepotion = new LifePotion(form2);
                     lifepotion.Acquired(bloo);
                     break;
                 case 1:
-                    MysteryPotion mysterypotion = new MysteryPotion();
+                    MysteryPotion mysterypotion = new MysteryPotion(form2);
                     mysterypotion.Acquired(bloo);
                     break;
                 case 2:
                     form2.dialogueTextBox.Text = ItemsDiag.HardHelmentDialogue;
-                    HardHelmet hardHelmet = new HardHelmet();
+                    HardHelmet hardHelmet = new HardHelmet(form2);
                     hardHelmet.Acquired(bloo);
                     break;
                 case 3:
                     form2.dialogueTextBox.Text = ItemsDiag.SpikedHelmetDialogue;
-                    SpikedHelmet spikedHelmet = new SpikedHelmet();
+                    SpikedHelmet spikedHelmet = new SpikedHelmet(form2 );
                     spikedHelmet.Acquired(bloo);
                     break;
             }

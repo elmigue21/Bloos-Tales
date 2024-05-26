@@ -48,10 +48,14 @@ namespace ComProg2Finals
             //Instance = this;
             Instance = this;
 
+<<<<<<< Updated upstream
             //mastergooway.skillshop = new Skill[] { new Bounce(), new Split(), new Mog(), new ElementBook() };
             //shopkeeper.itemshop = new Items[] { new LifePotion(), new MysteryPotion(), new RizzBooster(), new HealthBoosterPotion(), new DefenseDown50percentPotion(), new DuctTapePotion(), new PocketHolePotion(), new OneShotPotion(), new HardHelmet(), new SpikedHelmet() };
 
 
+=======
+            Form2 form2 = Form2.Instance;
+>>>>>>> Stashed changes
         }
         Image layer1 = ComProg2Finals.Properties.Resources._00Sky;
         Image layer2 = ComProg2Finals.Properties.Resources._01cloudsBack;
@@ -546,8 +550,14 @@ namespace ComProg2Finals
                     {
                         if (mastergooway.skillshop[index].Price <= Player.Coins)
                         {
+<<<<<<< Updated upstream
                             Player.Coins -= mastergooway.skillshop[index].Price;
                             mastergooway.skillshop[index].Learn(Player);
+=======
+                            Player.Coins -= mastergooway.skillshop[index].Price * Player.discount;
+                            mastergooway.skillshop[index].Learn(Player, this);
+                          //  MessageBox.Show($"Price: {mastergooway.skillshop[index].Price}\nDiscounted Price: {mastergooway.skillshop[index].Price * Player.discount}\nCoins left : {Player.Coins}");
+>>>>>>> Stashed changes
                             mastergooway.skillshop.Remove(mastergooway.skillshop[index]);
                             LoadSkillShop();
                         }

@@ -169,6 +169,7 @@ namespace ComProg2Finals
 
             if(chance <= Enemy.skillProbability[0] && chance >= 0)
             {
+<<<<<<< Updated upstream
 
                 //Enemy.skillQueued = Enemy.CharSkills[0];
                // Enemy.skillQueue.Add(() => Enemy.CharSkills[0].Perform(Enemy));
@@ -191,6 +192,21 @@ namespace ComProg2Finals
                // Enemy.skillQueue.Add(() => Enemy.CharSkills[3].Perform(Enemy));
                 Enemy.CharSkills[3].Perform(Enemy);
                 // Enemy.skillQueued = Enemy.CharSkills[3];
+=======
+                Enemy.CharSkills[0].Perform(Enemy, form2);
+            }
+            else if(chance > Enemy.skillProbability[0] && chance <= Enemy.skillProbability[1] + Enemy.skillProbability[0])
+            {
+                Enemy.CharSkills[1].Perform(Enemy, form2);
+            }
+            else if(chance > Enemy.skillProbability[1] && chance <= Enemy.skillProbability[2] + Enemy.skillProbability[1] + Enemy.skillProbability[0])
+            {
+                Enemy.CharSkills[2].Perform(Enemy, form2);
+            }
+            else if(chance > Enemy.skillProbability[2] && chance <= Enemy.skillProbability[3] + Enemy.skillProbability[2] + Enemy.skillProbability[1] + Enemy.skillProbability[0])
+            {
+                Enemy.CharSkills[3].Perform(Enemy, form2   );
+>>>>>>> Stashed changes
             }
 
 

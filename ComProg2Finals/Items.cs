@@ -13,10 +13,22 @@ namespace ComProg2Finals
     public class Items
     {
         Form1 battleForm = Form1.GetInstance();
+<<<<<<< Updated upstream
         public ItemsDialogue ItemsDiag = new ItemsDialogue();
         public Form2 form2 = new Form2();
         public string Name { get; protected set; }
         public int Price { get; set; }
+=======
+        public ItemsDialogue ItemsDiag;
+        public string Name { get; protected set; }
+        public int Price { get; set; }
+        public Form2 form2;
+        public Items(Form2 form2)
+        {
+            this.form2 = form2;
+            this.ItemsDiag = new ItemsDialogue();
+        }
+>>>>>>> Stashed changes
 
         public virtual void Acquired(Bloo charac)
         {
@@ -37,7 +49,7 @@ namespace ComProg2Finals
     }
     public class Rock : Items
     {
-        public Rock()
+        public Rock(Form2 form2) : base(form2)
         {
             this.Name = "Rock";    
         }
@@ -46,7 +58,6 @@ namespace ComProg2Finals
         {
             iter = 5;
             charac.PlayerItems.Add(this);
-            form2.dialogueTextBox.Text = ItemsDiag.RockDialogue;
         }
         public override void Encountered(Bloo charac)
         {
@@ -70,13 +81,12 @@ namespace ComProg2Finals
     }
     public class SacrificeRing : Items
     {
-        public SacrificeRing()
+        public SacrificeRing(Form2 form2) : base(form2)
         {
             this.Name = "Sacrifice Ring";
         }
         public override void Acquired(Bloo charac)
         {
-            form2.dialogueTextBox.Text = ItemsDiag.RingDialogue;
             double change = 25;
             charac.Health -= change;
             charac.AttackDamage += change;
@@ -86,13 +96,12 @@ namespace ComProg2Finals
     }
     public class BerserkAmulet : Items
     {
-        public BerserkAmulet()
+        public BerserkAmulet(Form2 form2) : base(form2)
         {
             this.Name = "Berserk Amulet";
         }
         public override void Acquired(Bloo charac)
         {
-            form2.dialogueTextBox.Text = ItemsDiag.AmuletDialogue;
             charac.Accuracy -= charac.Accuracy * .25;
             charac.AttackDamage += charac.AttackDamage * 25;
             charac.PlayerItems.Add(this);
@@ -101,17 +110,21 @@ namespace ComProg2Finals
     }
     public class Behelith : Items
     {
-        public Behelith()
+        public Behelith(Form2 form2) : base(form2)
         {
             this.Name = "Behelith";
         }
         public override void Acquired(Bloo charac)
         {
+<<<<<<< Updated upstream
             form2.dialogueTextBox.Text = ItemsDiag.BehelithDialogue;
             if (charac.Lives < 5)
             {
                 charac.Lives++;
             }
+=======
+                charac.Lives--;
+>>>>>>> Stashed changes
             charac.Coins += charac.Coins * .30;
             charac.Rizz -= charac.Rizz * .30;
             charac.PlayerItems.Add(this);
@@ -120,7 +133,7 @@ namespace ComProg2Finals
 
     public class Cologne : Items
     {
-        public Cologne()
+        public Cologne(Form2 form2) : base(form2)
         {
             this.Name = "Cologne";
         }
@@ -128,7 +141,6 @@ namespace ComProg2Finals
         int gainedRizz = 0;
         public override void Acquired(Bloo charac)
         {
-            form2.dialogueTextBox.Text = ItemsDiag.CologneDialogue;
             charac.PlayerItems.Add(this);         
         }
         public override void Encountered(Bloo charac)
@@ -143,13 +155,12 @@ namespace ComProg2Finals
     }
     public class Piggybank : Items
     {
-        public Piggybank()
+        public Piggybank(Form2 form2) : base(form2)
         {
             this.Name = "Piggybank";
         }
         public override void Acquired(Bloo charac)
         {
-            form2.dialogueTextBox.Text = ItemsDiag.PiggyDialogue;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
@@ -162,15 +173,13 @@ namespace ComProg2Finals
     }
     public class LifePotion : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
-        public LifePotion()
+        public LifePotion(Form2 form2) : base(form2)
         {
             this.Name = "Life Potion";
             this.Price = 51;
         }
         public override void Acquired(Bloo charac)
         {
-            form2.dialogueTextBox.Text = ItemsDiag.LifeDialogue;
 
             if (charac.Lives < 5)
             {
@@ -183,7 +192,7 @@ namespace ComProg2Finals
     public class MysteryPotion : Items
     {
         private static Random random = new Random();
-        public MysteryPotion()
+        public MysteryPotion(Form2 form2) : base(form2)
         {
             this.Name = "Mystery Potion";
             this.Price = 30;
@@ -197,22 +206,22 @@ namespace ComProg2Finals
             switch (randomIndex)
             {
                 case 0:
-                    selectedPotion = new RizzBooster();
+                    selectedPotion = new RizzBooster(form2);
                     break;
                 case 1:
-                    selectedPotion = new HealthBoosterPotion();
+                    selectedPotion = new HealthBoosterPotion(form2);
                     break;
                 case 2:
-                    selectedPotion = new DefenseDown50percentPotion();
+                    selectedPotion = new DefenseDown50percentPotion(form2);
                     break;
                 case 3:
-                    selectedPotion = new DuctTapePotion();
+                    selectedPotion = new DuctTapePotion(form2);
                     break;
                 case 4:
-                    selectedPotion = new PocketHolePotion();
+                    selectedPotion = new PocketHolePotion(form2);
                     break;
                 case 5:
-                    selectedPotion = new OneShotPotion();
+                    selectedPotion = new OneShotPotion(form2);
                     break;
                 default:
                     throw new Exception("Unexpected potion selection.");
@@ -224,7 +233,7 @@ namespace ComProg2Finals
     }
     public class RizzBooster : Items
     {
-        public RizzBooster()
+        public RizzBooster(Form2 form2) : base(form2)
         {
             this.Name = "Rizz Booster";
         }
@@ -233,7 +242,6 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 2;
-            form2.dialogueTextBox.Text = ItemsDiag.RizzBoosterDialogue;
             rizzBuff = charac.Rizz * .50;
             charac.Rizz += rizzBuff;
             charac.PlayerItems.Add(this);
@@ -257,7 +265,7 @@ namespace ComProg2Finals
     }
     public class HealthBoosterPotion : Items
     {
-        public HealthBoosterPotion()
+        public HealthBoosterPotion(Form2 form2) : base(form2)
         {
             this.Name = "Health Booster Potion";
         }
@@ -267,7 +275,6 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 2;
-            form2.dialogueTextBox.Text = ItemsDiag.HealthBoosterDialogue;
             healthBuff = charac.Health * .50;
             charac.Health += healthBuff;
             charac.PlayerItems.Add(this);
@@ -291,7 +298,7 @@ namespace ComProg2Finals
     }
     public class DefenseDown50percentPotion : Items
     {
-        public DefenseDown50percentPotion()
+        public DefenseDown50percentPotion(Form2 form2) : base(form2)
         {
             this.Name = "Defense Down 50% Potion";
         }
@@ -300,7 +307,6 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 3;
-            form2.dialogueTextBox.Text = ItemsDiag.DefenseDownDialogue;
             defenseDebuff = charac.Defense * .50;
             charac.Defense -= defenseDebuff;
             charac.PlayerItems.Add(this);
@@ -324,7 +330,7 @@ namespace ComProg2Finals
     }
     public class DuctTapePotion : Items
     {
-        public DuctTapePotion()
+        public DuctTapePotion(Form2 form2) : base(form2)
         {
             this.Name = "Duct Tape Potion";
         }
@@ -332,7 +338,6 @@ namespace ComProg2Finals
         int iter = 3;
         public override void Acquired(Bloo charac)
         {
-            form2.dialogueTextBox.Text = ItemsDiag.DuctTapeDialogue;
             charac.canUseRizz = false;
             charac.PlayerItems.Add(this);
         }
@@ -355,7 +360,7 @@ namespace ComProg2Finals
     }
     public class PocketHolePotion : Items
     {
-        public PocketHolePotion()
+        public PocketHolePotion(Form2 form2) : base(form2)
         {
             this.Name = "Pocket Hole Potion";
         }
@@ -363,7 +368,6 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 3;
-            form2.dialogueTextBox.Text = ItemsDiag.PocketHoleDialogue;
             charac.canGainCoin = false;
             charac.PlayerItems.Add(this);
         }
@@ -386,7 +390,7 @@ namespace ComProg2Finals
     }
     public class OneShotPotion : Items
     {
-        public OneShotPotion()
+        public OneShotPotion(Form2 form2) : base(form2)
         {
             this.Name = "One Shot Potion";
         }
@@ -394,8 +398,12 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 1;
+<<<<<<< Updated upstream
             form2.dialogueTextBox.Text = ItemsDiag.OneShotDialogue;
             charac.AttackDamage = 9999;
+=======
+            charac.AttackDamage += 9999;
+>>>>>>> Stashed changes
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
@@ -417,14 +425,13 @@ namespace ComProg2Finals
     }
     public class HardHelmet : Items
     {
-        public HardHelmet()
+        public HardHelmet(Form2 form2) : base(form2)
         {
             this.Name = "Hard Helmet";
             this.Price = 10;
         }
         public override void Acquired(Bloo charac)
         {
-            form2.dialogueTextBox.Text = ItemsDiag.HardHelmentDialogue;
             charac.Defense += 15;
             charac.PlayerItems.Add(this);
             /*
@@ -446,14 +453,13 @@ namespace ComProg2Finals
     }
     public class SpikedHelmet : Items
     {
-        public SpikedHelmet()
+        public SpikedHelmet(Form2 form2) : base(form2)
         {
             this.Name = "Spiked Helmet";
             this.Price = 10;
         }
         public override void Acquired(Bloo charac)
         {
-            form2.dialogueTextBox.Text = ItemsDiag.SpikedHelmetDialogue;
             charac.Defense += 5;
             charac.PlayerItems.Add(this);
         }
@@ -464,13 +470,12 @@ namespace ComProg2Finals
     }
     public class Excalibur : Items
     {
-        public Excalibur()
+        public Excalibur(Form2 form2) : base(form2)
         {
             this.Name = "Excalibur";
         }
         public override void Acquired(Bloo charac)
         {
-            form2.dialogueTextBox.Text = ItemsDiag.ExcaliburDialogue;
             charac.AttackDamage += 50;
             charac.PlayerItems.Add(this);
         }
@@ -481,13 +486,17 @@ namespace ComProg2Finals
     }
     public class StrangeGem : Items
     {
-        public StrangeGem()
+        public StrangeGem(Form2 form2) : base(form2)
         {
             this.Name = "Strange Gem";
         }
         public override void Acquired(Bloo charac)
         {
+<<<<<<< Updated upstream
             form2.dialogueTextBox.Text = ItemsDiag.StrangeGemDialogue;
+=======
+            charac.discount = .80;
+>>>>>>> Stashed changes
             charac.Coins += charac.Coins * .50;
             charac.PlayerItems.Add(this);
         }
@@ -498,13 +507,12 @@ namespace ComProg2Finals
     }
     public class GoldenArrow : Items
     {
-        public GoldenArrow()
+        public GoldenArrow(Form2 form2) : base(form2)
         {
             this.Name = "Golden Arrow";
         }
         public override void Acquired(Bloo charac)
         {
-            form2.dialogueTextBox.Text = ItemsDiag.GoldenArrowDialogue;
             charac.CritChance += 20;
             charac.PlayerItems.Add(this);
         }
@@ -515,14 +523,13 @@ namespace ComProg2Finals
     }
     public class HolyWater : Items
     {
-        public HolyWater()
+        public HolyWater(Form2 form2) : base(form2)
         {
             this.Name = "Holy Water";
         }
         public override void Acquired(Bloo charac)
         {
             charac.Health += 10;
-            form2.dialogueTextBox.Text = ItemsDiag.HolyWaterDialogue;
             charac.PlayerItems.Add(this);
             if (charac.Health < 100)
             {
@@ -541,13 +548,12 @@ namespace ComProg2Finals
     }
     public class Goblet : Items
     {
-        public Goblet()
+        public Goblet(Form2 form2) : base(form2)
         {
             this.Name = "Goblet";
         }
         public override void Acquired(Bloo charac)
         {
-            form2.dialogueTextBox.Text = ItemsDiag.GobletDialogue;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
@@ -560,7 +566,7 @@ namespace ComProg2Finals
     {
         SeerDialogue SeerDiag = new SeerDialogue();
         int index;
-        public SeerBuff(int ind)
+        public SeerBuff(int ind, Form2 form2) : base(form2)
         {
             index = ind;
         }
@@ -593,7 +599,7 @@ namespace ComProg2Finals
     public class MysteryBox : Items
     {
         private static Random random = new Random();
-        public MysteryBox()
+        public MysteryBox(Form2 form2) : base(form2)
         {
             this.Name = "Mystery Box";
         }
@@ -606,49 +612,49 @@ namespace ComProg2Finals
             switch (randomIndex)
             {
                 case 0:
-                    selectedPotion = new Rock();
+                    selectedPotion = new Rock(form2);
                     break;
                 case 1:
-                    selectedPotion = new SacrificeRing();
+                    selectedPotion = new SacrificeRing(form2);
                     break;
                 case 2:
-                    selectedPotion = new BerserkAmulet();
+                    selectedPotion = new BerserkAmulet(form2);
                     break;
                 case 3:
-                    selectedPotion = new Behelith();
+                    selectedPotion = new Behelith(form2);
                     break;
                 case 4:
-                    selectedPotion = new Cologne();
+                    selectedPotion = new Cologne(form2);
                     break;
                 case 5:
-                    selectedPotion = new Piggybank();
+                    selectedPotion = new Piggybank(form2);
                     break;
                 case 6:
-                    selectedPotion = new LifePotion();
+                    selectedPotion = new LifePotion(form2);
                     break;
                 case 7:
-                    selectedPotion = new MysteryPotion();
+                    selectedPotion = new MysteryPotion(form2);
                     break;
                 case 8:
-                    selectedPotion = new HardHelmet();
+                    selectedPotion = new HardHelmet(form2);
                     break;
                 case 9:
-                    selectedPotion = new SpikedHelmet();
+                    selectedPotion = new SpikedHelmet(form2);
                     break;
                 case 10:
-                    selectedPotion = new Excalibur();
+                    selectedPotion = new Excalibur(form2);
                     break;
                 case 11:
-                    selectedPotion = new StrangeGem();
+                    selectedPotion = new StrangeGem(form2);
                     break;
                 case 12:
-                    selectedPotion = new GoldenArrow();
+                    selectedPotion = new GoldenArrow(form2);
                     break;
                 case 13:
-                    selectedPotion = new HolyWater();
+                    selectedPotion = new HolyWater(form2);
                     break;
                 case 14:
-                    selectedPotion = new Goblet();
+                    selectedPotion = new Goblet(form2);
                     break;
                 default:
                     throw new Exception("Unexpected potion selection.");
@@ -659,5 +665,32 @@ namespace ComProg2Finals
         }
     }
 
+<<<<<<< Updated upstream
+=======
+    public class KingDebuff : Items
+    {
+        int interval;
+        public KingDebuff(Form2 form2) : base(form2)
+        {
+            interval = 3;
+        }
+        public override void Acquired(Bloo charac)
+        {
+            charac.canGetItem = false;
+        }
+        public override void Encountered(Bloo charac)
+        {
+            if(interval == 0)
+            {
+                this.Lost(charac);
+            }
+        }
+        public override void Lost(Bloo charac)
+        {
+            charac.canGetItem = true;
+        }
+    }
+
+>>>>>>> Stashed changes
 
 }

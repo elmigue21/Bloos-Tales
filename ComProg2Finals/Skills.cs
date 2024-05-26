@@ -12,21 +12,30 @@ namespace ComProg2Finals
         //public Form1 battleForm = Form1.Instance;
         public Form1 battleForm = Form1.GetInstance();
         public List<Action> skillsQueue;
+<<<<<<< Updated upstream
         public Form2 form2 = new Form2();
+=======
+        public Form2 form2;
+>>>>>>> Stashed changes
         public string Name { get; protected set; }
         public int Price { get; set; }
 
-        public Skill()
+        public Skill(Form2 form2)
         {
+<<<<<<< Updated upstream
+=======
+            this.form2 = form2;
+            battleForm = Form1.GetInstance();
+>>>>>>> Stashed changes
             //this.skillsQueue = battleForm.skillsQueue;
         }
 
-        public virtual void Perform(Character user)
+        public virtual void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"{Name} skill performed.";
 
         }
-        public void Learn(Bloo bloo)
+        public void Learn(Bloo bloo, Form2 form2)
         {
             bloo.CharSkills.Add(this);
             form2.dialogueTextBox.Text = "added " + this + " to bloos skills";
@@ -36,12 +45,12 @@ namespace ComProg2Finals
     // BLOO SKILLS
     public class Tackle : Skill
     {
-        public Tackle()
+        public Tackle(Form2 form2) : base(form2)
         {
             this.Name = "Tackle";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             //MessageBox.Show(battleForm.ToString());
@@ -57,12 +66,12 @@ namespace ComProg2Finals
     }
     public class Goo : Skill
     {
-        public Goo()
+        public Goo(Form2 form2) : base(form2)
         {
             this.Name = "Goo";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             //MessageBox.Show($"Used {Name}");
             form2.dialogueTextBox.Text = "Used " + this.Name;
@@ -75,13 +84,13 @@ namespace ComProg2Finals
 
     public class Split : Skill
     {
-        public Split()
+        public Split(Form2 form2) : base(form2)
         {
             this.Name = "Split";
             this.Price = 69;
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = "Used " + this.Name;
             user.isBlocking = true;
@@ -90,13 +99,13 @@ namespace ComProg2Finals
     }
     public class ElementBook : Skill
     {
-        public ElementBook()
+        public ElementBook(Form2 form2) : base(form2)
         {
             this.Name = "Element Book";
             this.Price = 69;
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             Random random = new Random();
             int rand = random.Next(0, 4);
@@ -172,13 +181,13 @@ namespace ComProg2Finals
     }
     public class Mog : Skill
     {
-        public Mog()
+        public Mog(Form2 form2) : base(form2)
         {
             this.Name = "Mog";
             this.Price = 69;
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = "Used " + this.Name;
             // add status effect na nagbabawas  ng rizz per turn
@@ -192,13 +201,13 @@ namespace ComProg2Finals
 
     public class Bounce : Skill
     {
-        public Bounce()
+        public Bounce(Form2 form2) : base(form2)
         {
             this.Name = "Bounce";
             this.Price = 69;
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = "Used " + this.Name;
             user.isBlocking = true;
@@ -217,12 +226,12 @@ namespace ComProg2Finals
 
     public class Block : Skill
     {
-        public Block()
+        public Block(Form2 form2) : base(form2)
         {
             this.Name = "Block";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             user.isBlocking = true;
@@ -230,12 +239,12 @@ namespace ComProg2Finals
     }
     public class Slash : Skill
     {
-        public Slash()
+        public Slash(Form2 form2) : base(form2)
         {
             this.Name = "Slash";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             user.skillQueue.Add(() => user.Opposition.DamageCharac(10, user));
@@ -246,12 +255,12 @@ namespace ComProg2Finals
     }
     public class ShieldBash : Skill
     {
-        public ShieldBash()
+        public ShieldBash(Form2 form2) : base(form2)
         {
             this.Name = "ShieldBash";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             // chance lang yung stun
@@ -262,13 +271,13 @@ namespace ComProg2Finals
     // WIZARD SKILLs
     public class Fireball : Skill
     {
-        public Fireball()
+        public Fireball(Form2 form2) : base(form2)
         {
             this.Name = "Fireball";
 
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             //user.CharStatEffects.Add(new DmgPerTurn("Burn", 10, 5));
@@ -278,12 +287,12 @@ namespace ComProg2Finals
     }
     public class RockHurl : Skill
     {
-        public RockHurl()
+        public RockHurl(Form2 form2) : base(form2)
         {
             this.Name = "Rock Hurl";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             // test
@@ -294,12 +303,12 @@ namespace ComProg2Finals
     }
     public class WindSlice : Skill
     {
-        public WindSlice()
+        public WindSlice(Form2 form2) : base(form2)
         {
             this.Name = "Wind Slice";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2    )
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             user.skillQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Wind"));
@@ -308,12 +317,12 @@ namespace ComProg2Finals
     }
     public class WaterBlast : Skill
     {
-        public WaterBlast()
+        public WaterBlast(Form2 form2) : base(form2)
         {
             this.Name = "Water Blast";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             user.skillQueue.Add(() => user.Opposition.ElementDamageCharac(20, user, "Water"));
@@ -326,12 +335,12 @@ namespace ComProg2Finals
     // PRIEST SKILLS
     public class Heal : Skill
     {
-        public Heal()
+        public Heal(Form2 form2) : base(form2)
         {
             this.Name = "Heal";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             user.CharStatEffects.Add(new HealPerTurn("Heal", 10, 2));
@@ -339,12 +348,12 @@ namespace ComProg2Finals
     }
     public class Smite : Skill
     {
-        public Smite()
+        public Smite(Form2 form2) : base(form2)
         {
             this.Name = "Smite";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
 
@@ -367,12 +376,12 @@ namespace ComProg2Finals
     }
     public class Baptize : Skill
     {
-        public Baptize()
+        public Baptize(Form2 form2) : base(form2)
         {
             this.Name = "Baptize";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             user.Defense -=5;
@@ -384,12 +393,12 @@ namespace ComProg2Finals
     // ROGUE SKILLS
     public class Stealth : Skill
     {
-        public Stealth()
+        public Stealth(Form2 form2) : base(form2)
         {
             this.Name = "Stealth";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
 
@@ -401,12 +410,12 @@ namespace ComProg2Finals
     }
     public class Poison : Skill
     {
-        public Poison()
+        public Poison(Form2 form2) : base(form2)
         {
             this.Name = "Poison";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             user.CharStatEffects.Add(new DmgPerTurn("Poison", 5, 3)); // test
@@ -414,13 +423,13 @@ namespace ComProg2Finals
     }
     public class Dagger : Skill
     {
-        public Dagger()
+        public Dagger(Form2 form2) : base(form2)
         {
             this.Name = "Dagger";
            
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             user.skillQueue.Add(() => user.Opposition.DamageCharac(10, user));
@@ -431,12 +440,12 @@ namespace ComProg2Finals
     // ARCHER SKILLS
     public class Lock : Skill
     {
-        public Lock()
+        public Lock(Form2 form2) : base(form2)
         {
             this.Name = "Lock";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {this.Name} , {user.Name} will deal 4x damage in the next turn";
             QuadrupleDamage quadrupleDamage = new QuadrupleDamage("Quadruple Damage", user.Multiplier);
@@ -448,12 +457,16 @@ namespace ComProg2Finals
 
     public class Volley: Skill
     {
-        public Volley()
+        public Volley(Form2 form2) : base(form2)
         {
             this.Name = "Volley";
         }
 
+<<<<<<< Updated upstream
         public override async void Perform(Character user)
+=======
+        public override void Perform(Character user, Form2 form2)
+>>>>>>> Stashed changes
         {
             Random random = new Random();
             int randomNumber = random.Next(2, 6);
@@ -471,12 +484,12 @@ namespace ComProg2Finals
     }
     public class Shoot: Skill
     {
-        public Shoot()
+        public Shoot(Form2 form2) : base(form2)
         {
             this.Name = "Shoot";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             user.skillQueue.Add(() => user.DamageCharac(5, user));
@@ -487,12 +500,12 @@ namespace ComProg2Finals
     // EVIL CHEST SKILLS
     public class Chomp : Skill
     {
-        public Chomp()
+        public Chomp(Form2 form2) : base(form2)
         {
             this.Name = "Chomp";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             user.skillQueue.Add(() => user.Opposition.DamageCharac(5, user));
@@ -502,12 +515,12 @@ namespace ComProg2Finals
 
     public class Haul : Skill
     {
-        public Haul()
+        public Haul(Form2 form2) : base(form2)
         {
             this.Name = "Haul";
         }
 
-        public override void Perform(Character user)
+        public override void Perform(Character user, Form2 form2)
         {
             form2.dialogueTextBox.Text = $"Used {Name}";
             if (user.Opposition is Bloo oppositionBloo)
