@@ -183,12 +183,12 @@ namespace ComProg2Finals
                         form2.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " critical damage to " + user.Opposition.Name;
                         }
                     }
-                    user.Opposition.Health -= totalDamage;
+                    user.Opposition.ChangeHealth(-totalDamage);
 
                     if (user.Opposition.GetType() == typeof(Bloo) && user.Opposition.PlayerItems.Any(item => item.GetType() == typeof(SpikedHelmet))) {
                         
-                        user.Health -= totalDamage / 2;
                         double returnedDamage = totalDamage / 2;
+                        user.ChangeHealth(-returnedDamage);
                         MessageBox.Show("Damage dealt to bloo was reflected due to the spiked helmet! returned " + returnedDamage + " damage");
                     }
                     
@@ -317,27 +317,9 @@ namespace ComProg2Finals
             canUseRizz = true;
             discount = 1;
         }
-        /*
-        public void ChangeRizz(double value)
-        {
-            if(this.Rizz + value <= 0)
-            {
-                this.Rizz = 0;
-            }
-            else if(this.Rizz + value > 100)
-            {
-                this.Rizz = 100;
-            }
-            else
-            {
-                this.Rizz += value * rizzGainMultiplier;
-            }
-            
-        }
-        */
+
         public void ChangeCoin(double value)
         {
-            //MessageBox.Show(this.Coins.ToString());
             if(this.Coins + value <= 0)
             {
                 this.Coins = 0;

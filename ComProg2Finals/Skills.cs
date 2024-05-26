@@ -143,7 +143,7 @@ namespace ComProg2Finals
         {
             form2.dialogueTextBox.Text = "Used " + this.Name;
             // add status effect na nagbabawas  ng rizz per turn
-            user.Health -= 50;
+            user.ChangeHealth(-50);
             user.Defense -= 5;
             //user.Accuracy -= 10;
             user.skillQueue.Add(() => user.Opposition.ChangeAccuracy(-10));

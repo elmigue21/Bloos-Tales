@@ -80,7 +80,7 @@ namespace ComProg2Finals
             for (int i = 0; i < 3; i++)
             {
                 Character boss = new Character("boss");
-                int qqq1 = rand1.Next(2, 3);
+                int qqq1 = rand1.Next(0, 3);
                 switch (qqq1)
                 {
                     case 0:
@@ -421,7 +421,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-            currentEncounter = new WishingWell();
+            //currentEncounter = new WishingWell();
             label1.Text = "";
             dialogueTextBox.Text = currentEncounter.befEncounter;
             flowLayoutPanel1.Controls.Clear();
