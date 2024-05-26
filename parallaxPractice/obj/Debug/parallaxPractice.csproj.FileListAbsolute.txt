@@ -1,43 +1,6 @@
-C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\bin\Debug\parallaxPractice.exe.config
-C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\bin\Debug\parallaxPractice.exe
-C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\bin\Debug\parallaxPractice.pdb
-C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.csproj.AssemblyReference.cache
-C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.Form1.resources
-C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.Properties.Resources.resources
-C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.csproj.GenerateResource.cache
-C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.csproj.CoreCompileInputs.cache
-C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.exe
-C:\Users\Pia\Documents\AdU\SECOND SEM\ComProg2\parallaxPractice\obj\Debug\parallaxPractice.pdb
-C:\Users\tsmbi\OneDrive\Documents\GitHub\ComProg2Finals\parallaxPractice\bin\Debug\parallaxPractice.exe.config
-C:\Users\tsmbi\OneDrive\Documents\GitHub\ComProg2Finals\parallaxPractice\bin\Debug\parallaxPractice.exe
-C:\Users\tsmbi\OneDrive\Documents\GitHub\ComProg2Finals\parallaxPractice\bin\Debug\parallaxPractice.pdb
-C:\Users\tsmbi\OneDrive\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.csproj.AssemblyReference.cache
-C:\Users\tsmbi\OneDrive\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.Form1.resources
-C:\Users\tsmbi\OneDrive\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.Properties.Resources.resources
-C:\Users\tsmbi\OneDrive\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.csproj.GenerateResource.cache
-C:\Users\tsmbi\OneDrive\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.csproj.CoreCompileInputs.cache
-C:\Users\tsmbi\OneDrive\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.exe
-C:\Users\tsmbi\OneDrive\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.pdb
-D:\parallaxPractice\obj\Debug\parallaxPractice.csproj.AssemblyReference.cache
-D:\parallaxPractice\obj\Debug\parallaxPractice.Form1.resources
-D:\parallaxPractice\obj\Debug\parallaxPractice.Properties.Resources.resources
-D:\parallaxPractice\obj\Debug\parallaxPractice.csproj.GenerateResource.cache
-D:\parallaxPractice\obj\Debug\parallaxPractice.csproj.CoreCompileInputs.cache
-D:\parallaxPractice\obj\Debug\parallaxPractice.exe
-D:\parallaxPractice\obj\Debug\parallaxPractice.pdb
-D:\parallaxPractice\bin\Debug\parallaxPractice.exe.config
-D:\parallaxPractice\bin\Debug\parallaxPractice.exe
-D:\parallaxPractice\bin\Debug\parallaxPractice.pdb
-C:\Users\John\Documents\GitHub\ComProg2Finals\parallaxPractice\bin\Debug\parallaxPractice.exe.config
-C:\Users\John\Documents\GitHub\ComProg2Finals\parallaxPractice\bin\Debug\parallaxPractice.exe
-C:\Users\John\Documents\GitHub\ComProg2Finals\parallaxPractice\bin\Debug\parallaxPractice.pdb
-C:\Users\John\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.csproj.AssemblyReference.cache
-C:\Users\John\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.Form1.resources
-C:\Users\John\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.Properties.Resources.resources
-C:\Users\John\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.csproj.GenerateResource.cache
-C:\Users\John\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.csproj.CoreCompileInputs.cache
-C:\Users\John\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.exe
-C:\Users\John\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.pdb
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\parallaxPractice\bin\Debug\parallaxPractice.exe.config
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\parallaxPractice\bin\Debug\parallaxPractice.exe
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\parallaxPractice\bin\Debug\parallaxPractice.pdb
 C:\Users\Pia\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.csproj.AssemblyReference.cache
 C:\Users\Pia\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.Form1.resources
 C:\Users\Pia\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.Properties.Resources.resources
@@ -45,6 +8,3 @@ C:\Users\Pia\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallax
 C:\Users\Pia\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.csproj.CoreCompileInputs.cache
 C:\Users\Pia\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.exe
 C:\Users\Pia\Documents\GitHub\ComProg2Finals\parallaxPractice\obj\Debug\parallaxPractice.pdb
-C:\Users\Pia\Documents\GitHub\ComProg2Finals\parallaxPractice\bin\Debug\parallaxPractice.exe.config
-C:\Users\Pia\Documents\GitHub\ComProg2Finals\parallaxPractice\bin\Debug\parallaxPractice.exe
-C:\Users\Pia\Documents\GitHub\ComProg2Finals\parallaxPractice\bin\Debug\parallaxPractice.pdb

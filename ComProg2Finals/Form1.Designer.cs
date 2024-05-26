@@ -107,9 +107,10 @@
             // 
             this.playerLabelName.AutoSize = true;
             this.playerLabelName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelName.Location = new System.Drawing.Point(177, 14);
+            this.playerLabelName.Location = new System.Drawing.Point(236, 17);
+            this.playerLabelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.playerLabelName.Name = "playerLabelName";
-            this.playerLabelName.Size = new System.Drawing.Size(84, 13);
+            this.playerLabelName.Size = new System.Drawing.Size(105, 16);
             this.playerLabelName.TabIndex = 5;
             this.playerLabelName.Text = "Character Name";
             // 
@@ -136,9 +137,10 @@
             // 
             this.playerLabelHealth.AutoSize = true;
             this.playerLabelHealth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelHealth.Location = new System.Drawing.Point(177, 27);
+            this.playerLabelHealth.Location = new System.Drawing.Point(236, 33);
+            this.playerLabelHealth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.playerLabelHealth.Name = "playerLabelHealth";
-            this.playerLabelHealth.Size = new System.Drawing.Size(87, 13);
+            this.playerLabelHealth.Size = new System.Drawing.Size(107, 16);
             this.playerLabelHealth.TabIndex = 9;
             this.playerLabelHealth.Text = "Character Health";
             // 
@@ -146,9 +148,10 @@
             // 
             this.enemyLabelName.AutoSize = true;
             this.enemyLabelName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelName.Location = new System.Drawing.Point(487, 53);
+            this.enemyLabelName.Location = new System.Drawing.Point(649, 65);
+            this.enemyLabelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.enemyLabelName.Name = "enemyLabelName";
-            this.enemyLabelName.Size = new System.Drawing.Size(84, 13);
+            this.enemyLabelName.Size = new System.Drawing.Size(105, 16);
             this.enemyLabelName.TabIndex = 10;
             this.enemyLabelName.Text = "Character Name";
             // 
@@ -156,9 +159,10 @@
             // 
             this.enemyLabelHealth.AutoSize = true;
             this.enemyLabelHealth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelHealth.Location = new System.Drawing.Point(487, 66);
+            this.enemyLabelHealth.Location = new System.Drawing.Point(649, 81);
+            this.enemyLabelHealth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.enemyLabelHealth.Name = "enemyLabelHealth";
-            this.enemyLabelHealth.Size = new System.Drawing.Size(87, 13);
+            this.enemyLabelHealth.Size = new System.Drawing.Size(107, 16);
             this.enemyLabelHealth.TabIndex = 11;
             this.enemyLabelHealth.Text = "Character Health";
             // 
@@ -166,9 +170,10 @@
             // 
             this.playerLabelAccuracy.AutoSize = true;
             this.playerLabelAccuracy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelAccuracy.Location = new System.Drawing.Point(177, 40);
+            this.playerLabelAccuracy.Location = new System.Drawing.Point(236, 49);
+            this.playerLabelAccuracy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.playerLabelAccuracy.Name = "playerLabelAccuracy";
-            this.playerLabelAccuracy.Size = new System.Drawing.Size(101, 13);
+            this.playerLabelAccuracy.Size = new System.Drawing.Size(124, 16);
             this.playerLabelAccuracy.TabIndex = 12;
             this.playerLabelAccuracy.Text = "Character Accuracy";
             // 
@@ -176,9 +181,10 @@
             // 
             this.playerLabelAttackDamage.AutoSize = true;
             this.playerLabelAttackDamage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelAttackDamage.Location = new System.Drawing.Point(177, 53);
+            this.playerLabelAttackDamage.Location = new System.Drawing.Point(236, 65);
+            this.playerLabelAttackDamage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.playerLabelAttackDamage.Name = "playerLabelAttackDamage";
-            this.playerLabelAttackDamage.Size = new System.Drawing.Size(130, 13);
+            this.playerLabelAttackDamage.Size = new System.Drawing.Size(161, 16);
             this.playerLabelAttackDamage.TabIndex = 13;
             this.playerLabelAttackDamage.Text = "Character Attack Damage";
             // 
@@ -186,9 +192,10 @@
             // 
             this.playerLabelSpeed.AutoSize = true;
             this.playerLabelSpeed.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelSpeed.Location = new System.Drawing.Point(177, 66);
+            this.playerLabelSpeed.Location = new System.Drawing.Point(236, 81);
+            this.playerLabelSpeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.playerLabelSpeed.Name = "playerLabelSpeed";
-            this.playerLabelSpeed.Size = new System.Drawing.Size(87, 13);
+            this.playerLabelSpeed.Size = new System.Drawing.Size(109, 16);
             this.playerLabelSpeed.TabIndex = 14;
             this.playerLabelSpeed.Text = "Character Speed";
             // 
@@ -196,9 +203,10 @@
             // 
             this.playerLabelRizz.AutoSize = true;
             this.playerLabelRizz.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelRizz.Location = new System.Drawing.Point(177, 79);
+            this.playerLabelRizz.Location = new System.Drawing.Point(236, 97);
+            this.playerLabelRizz.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.playerLabelRizz.Name = "playerLabelRizz";
-            this.playerLabelRizz.Size = new System.Drawing.Size(73, 13);
+            this.playerLabelRizz.Size = new System.Drawing.Size(90, 16);
             this.playerLabelRizz.TabIndex = 15;
             this.playerLabelRizz.Text = "CharacterRizz";
             // 
@@ -206,9 +214,10 @@
             // 
             this.playerLabelDefense.AutoSize = true;
             this.playerLabelDefense.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelDefense.Location = new System.Drawing.Point(177, 92);
+            this.playerLabelDefense.Location = new System.Drawing.Point(236, 113);
+            this.playerLabelDefense.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.playerLabelDefense.Name = "playerLabelDefense";
-            this.playerLabelDefense.Size = new System.Drawing.Size(93, 13);
+            this.playerLabelDefense.Size = new System.Drawing.Size(116, 16);
             this.playerLabelDefense.TabIndex = 16;
             this.playerLabelDefense.Text = "CharacterDefense";
             // 
@@ -216,9 +225,10 @@
             // 
             this.enemyLabelDefense.AutoSize = true;
             this.enemyLabelDefense.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelDefense.Location = new System.Drawing.Point(487, 131);
+            this.enemyLabelDefense.Location = new System.Drawing.Point(649, 161);
+            this.enemyLabelDefense.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.enemyLabelDefense.Name = "enemyLabelDefense";
-            this.enemyLabelDefense.Size = new System.Drawing.Size(93, 13);
+            this.enemyLabelDefense.Size = new System.Drawing.Size(116, 16);
             this.enemyLabelDefense.TabIndex = 21;
             this.enemyLabelDefense.Text = "CharacterDefense";
             // 
@@ -226,9 +236,10 @@
             // 
             this.enemyLabelRizz.AutoSize = true;
             this.enemyLabelRizz.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelRizz.Location = new System.Drawing.Point(487, 118);
+            this.enemyLabelRizz.Location = new System.Drawing.Point(649, 145);
+            this.enemyLabelRizz.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.enemyLabelRizz.Name = "enemyLabelRizz";
-            this.enemyLabelRizz.Size = new System.Drawing.Size(73, 13);
+            this.enemyLabelRizz.Size = new System.Drawing.Size(90, 16);
             this.enemyLabelRizz.TabIndex = 20;
             this.enemyLabelRizz.Text = "CharacterRizz";
             // 
@@ -236,9 +247,10 @@
             // 
             this.enemyLabelSpeed.AutoSize = true;
             this.enemyLabelSpeed.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelSpeed.Location = new System.Drawing.Point(487, 105);
+            this.enemyLabelSpeed.Location = new System.Drawing.Point(649, 129);
+            this.enemyLabelSpeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.enemyLabelSpeed.Name = "enemyLabelSpeed";
-            this.enemyLabelSpeed.Size = new System.Drawing.Size(87, 13);
+            this.enemyLabelSpeed.Size = new System.Drawing.Size(109, 16);
             this.enemyLabelSpeed.TabIndex = 19;
             this.enemyLabelSpeed.Text = "Character Speed";
             // 
@@ -246,9 +258,10 @@
             // 
             this.enemyLabelAttackDamage.AutoSize = true;
             this.enemyLabelAttackDamage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelAttackDamage.Location = new System.Drawing.Point(487, 92);
+            this.enemyLabelAttackDamage.Location = new System.Drawing.Point(649, 113);
+            this.enemyLabelAttackDamage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.enemyLabelAttackDamage.Name = "enemyLabelAttackDamage";
-            this.enemyLabelAttackDamage.Size = new System.Drawing.Size(130, 13);
+            this.enemyLabelAttackDamage.Size = new System.Drawing.Size(161, 16);
             this.enemyLabelAttackDamage.TabIndex = 18;
             this.enemyLabelAttackDamage.Text = "Character Attack Damage";
             // 
@@ -256,9 +269,10 @@
             // 
             this.enemyLabelAccuracy.AutoSize = true;
             this.enemyLabelAccuracy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.enemyLabelAccuracy.Location = new System.Drawing.Point(487, 79);
+            this.enemyLabelAccuracy.Location = new System.Drawing.Point(649, 97);
+            this.enemyLabelAccuracy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.enemyLabelAccuracy.Name = "enemyLabelAccuracy";
-            this.enemyLabelAccuracy.Size = new System.Drawing.Size(101, 13);
+            this.enemyLabelAccuracy.Size = new System.Drawing.Size(124, 16);
             this.enemyLabelAccuracy.TabIndex = 17;
             this.enemyLabelAccuracy.Text = "Character Accuracy";
             // 
@@ -286,9 +300,10 @@
             // 
             this.playerLabelLives.AutoSize = true;
             this.playerLabelLives.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelLives.Location = new System.Drawing.Point(177, 105);
+            this.playerLabelLives.Location = new System.Drawing.Point(236, 129);
+            this.playerLabelLives.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.playerLabelLives.Name = "playerLabelLives";
-            this.playerLabelLives.Size = new System.Drawing.Size(78, 13);
+            this.playerLabelLives.Size = new System.Drawing.Size(97, 16);
             this.playerLabelLives.TabIndex = 24;
             this.playerLabelLives.Text = "CharacterLives";
             // 
@@ -296,9 +311,10 @@
             // 
             this.playerLabelCoins.AutoSize = true;
             this.playerLabelCoins.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playerLabelCoins.Location = new System.Drawing.Point(177, 118);
+            this.playerLabelCoins.Location = new System.Drawing.Point(236, 145);
+            this.playerLabelCoins.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.playerLabelCoins.Name = "playerLabelCoins";
-            this.playerLabelCoins.Size = new System.Drawing.Size(79, 13);
+            this.playerLabelCoins.Size = new System.Drawing.Size(99, 16);
             this.playerLabelCoins.TabIndex = 25;
             this.playerLabelCoins.Text = "CharacterCoins";
             // 
@@ -346,7 +362,8 @@
             this.platform05.Controls.Add(this.button3);
             this.platform05.Controls.Add(this.button4);
             this.platform05.ForeColor = System.Drawing.Color.Transparent;
-            this.platform05.Location = new System.Drawing.Point(0, 5);
+            this.platform05.Location = new System.Drawing.Point(0, 6);
+            this.platform05.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.platform05.Name = "platform05";
             this.platform05.Size = new System.Drawing.Size(798, 451);
             this.platform05.TabIndex = 32;
@@ -362,8 +379,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.comboBox1);

@@ -1,4 +1,6 @@
-﻿namespace ComProg2Finals
+﻿using System.Windows.Forms;
+
+namespace ComProg2Finals
 {
     partial class Form2
     {
@@ -19,6 +21,20 @@
             }
             base.Dispose(disposing);
         }
+
+        //----added----
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                // Activate double buffering at the form level.  All child controls will be double buffered as well.  
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED  
+                return cp;
+            }
+        }
+
+        //------
 
         #region Windows Form Designer generated code
 
@@ -68,7 +84,7 @@
             this.playerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.playerPictureBox.TabIndex = 7;
             this.playerPictureBox.TabStop = false;
-            this.playerPictureBox.Click += new System.EventHandler(this.player_Click);
+            //this.playerPictureBox.Click += new System.EventHandler(this.player_Click);
             // 
             // rizz_btn
             // 
@@ -110,7 +126,7 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 10;
             // 
-            // dialogueTextBox
+            // timer3
             // 
             this.dialogueTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dialogueTextBox.Location = new System.Drawing.Point(139, 319);
@@ -121,7 +137,7 @@
             this.dialogueTextBox.Size = new System.Drawing.Size(486, 103);
             this.dialogueTextBox.TabIndex = 14;
             // 
-            // WalkChar
+            // timer4
             // 
             this.WalkChar.Location = new System.Drawing.Point(569, 426);
             this.WalkChar.Margin = new System.Windows.Forms.Padding(2);
@@ -132,14 +148,14 @@
             this.WalkChar.UseVisualStyleBackColor = true;
             this.WalkChar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // flowLayoutPanel1
+            // dialogueTextBox
             // 
             this.flowLayoutPanel1.Location = new System.Drawing.Point(656, 296);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(108, 160);
             this.flowLayoutPanel1.TabIndex = 16;
             // 
-            // label1
+            // itemsPanel
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(569, 252);
@@ -161,9 +177,14 @@
             this.Controls.Add(this.fight_btn);
             this.Controls.Add(this.charactersPictureBox);
             this.Controls.Add(this.playerPictureBox);
-            this.Controls.Add(this.dialogue_box);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            //this.Controls.Add(this.itemsPanel);
+            //this.Controls.Add(this.defaultControls);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
