@@ -76,31 +76,16 @@ namespace ComProg2Finals
 
             encounterCount = 1;
             Instance = this;
+            Wizard wizard = Wizard.CreateRandomWizard();
+            List<Character> bosses = new List<Character> { new Knight("Knight"), wizard, 
+                new Rogue("Rogue"), new Archer("Archer"), new Priest("Priest") };
             Random rand1 = new Random();
             for (int i = 0; i < 3; i++)
             {
-                Character boss = new Character("boss");
-                int qqq1 = rand1.Next(0, 3);
-                switch (qqq1)
-                {
-                    case 0:
-                        boss = new Knight("Knight");
-                        break;
-                    case 1:
-                        Wizard wizard = Wizard.CreateRandomWizard();
-                        boss = wizard;
-                        break;
-                    case 2:
-                        boss = new Rogue("Rogue");
-                        break;
-                    case 3:
-                        boss = new Archer("Archer");
-                        break;
-                    case 4:
-                        boss = new Priest("Priest");
-                        break;
-                }
-                bossFights.Add(boss);
+                Random random = new Random();
+                int rand = random.Next(0, bosses.Count);
+                bossFights.Add(bosses[rand]);
+                bosses.Remove(bosses[rand]);
             }
 
             bossFights.Add(new Peech("Peech"));
@@ -331,6 +316,10 @@ namespace ComProg2Finals
         }
         private void HandleButtonClick(object sender, EventArgs e, Action eventAction)
         {
+            foreach(Button btn in flowLayoutPanel1.Controls)
+            {
+                btn.Enabled = false;
+            }
             UpdateStats();
             eventAction?.Invoke();
             UpdateStats();
@@ -339,6 +328,7 @@ namespace ComProg2Finals
         {
             runNextEncounter();
         }
+        int lastEnc;
         public void runNextEncounter()
         {
             Player.ChangeRizz(2);
@@ -382,7 +372,11 @@ namespace ComProg2Finals
                     break;
                 default:
                     Random rand3 = new Random();
-                    int qqq3 = rand3.Next(0, 11);
+                    int qqq3;
+                    do
+                    {
+                        qqq3 = rand3.Next(0, 11);
+                    } while (qqq3 == lastEnc);
                     switch (qqq3)
                     {
                         case 0:
@@ -419,9 +413,9 @@ namespace ComProg2Finals
                             currentEncounter = new AppleTree();
                             break;
                     }
+                    lastEnc = qqq3;
                     break;
             }
-            //currentEncounter = new WishingWell();
             label1.Text = "";
             dialogueTextBox.Text = currentEncounter.befEncounter;
             flowLayoutPanel1.Controls.Clear();

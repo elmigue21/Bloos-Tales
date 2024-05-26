@@ -28,27 +28,27 @@ namespace ComProg2Finals
         public List<Action<Bloo>> EventActions { get; set; }
         // public Action<Bloo>[] EncounterActions{ get; set; }
 
-        public virtual void EventAction1(Bloo bloo)
+        public virtual async Task EventAction1(Bloo bloo)
         {
 
         }
-        public virtual void EventAction2(Bloo bloo)
+        public virtual async Task EventAction2(Bloo bloo)
         {
 
         }
-        public virtual void EventAction3(Bloo bloo)
+        public virtual async Task EventAction3(Bloo bloo)
         {
 
         }
-        public virtual void EventAction4(Bloo bloo)
+        public virtual async Task EventAction4(Bloo bloo)
         {
 
         }
-        public virtual void EventAction5(Bloo bloo)
+        public virtual async Task EventAction5(Bloo bloo)
         {
 
         }
-        public virtual void EventAction6(Bloo bloo)
+        public virtual async Task EventAction6(Bloo bloo)
         {
 
         }
@@ -133,22 +133,23 @@ namespace ComProg2Finals
             }
             else if (this.Health + val < 0)
             {
-                this.Rizz = 0;
+                this.Health = 0;
             }
             else
             {
-                this.Rizz += val;
+                this.Health += val;
             }
         }
 
         
-        public virtual async void DamageCharac(double dmgValue, Character user, string skillName)
+        public virtual async Task DamageCharac(double dmgValue, Character user, string skillName)
         {
-            MessageBox.Show(user.Name + " used " + skillName);
+            battleForm.dialogueTextBox.Text = user.Name + " used " + skillName;
+            await Task.Delay(2000);
 
             if (skillName == "ShieldBash")
             {
-                form2.dialogueTextBox.Text = user.Name + " stunned " + user.Opposition.Name + "!";
+                battleForm.dialogueTextBox.Text = user.Name + " stunned " + user.Opposition.Name + "!";
             }
             //string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "swordsound.wav");
            // SoundPlayer player = new SoundPlayer(soundFilePath);
@@ -159,7 +160,9 @@ namespace ComProg2Finals
             {
                 if (user.Opposition.isBlocking)
                 {
-                    form2.dialogueTextBox.Text = $"{user.Opposition.Name} was unscathed!";
+                    await Task.Delay(2000);
+                    battleForm.dialogueTextBox.Text = $"{user.Opposition.Name} was unscathed!";
+                    await Task.Delay(2000);
                     user.Opposition.isBlocking = false;
                 }
                 else
@@ -175,13 +178,15 @@ namespace ComProg2Finals
                     }
                     if (!isCrit)
                     {
-                        form2.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name;
+                        await Task.Delay(2000);
+                        battleForm.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name;
+                        await Task.Delay(2000);
                     }
                     else
                     {
-                        if (skillName != "ShieldBash") { 
-                        form2.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " critical damage to " + user.Opposition.Name;
-                        }
+                        await Task.Delay(2000);
+                        battleForm.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " critical damage to " + user.Opposition.Name;
+                        await Task.Delay(2000);
                     }
                     user.Opposition.ChangeHealth(-totalDamage);
 
@@ -189,18 +194,24 @@ namespace ComProg2Finals
                         
                         double returnedDamage = totalDamage / 2;
                         user.ChangeHealth(-returnedDamage);
-                        MessageBox.Show("Damage dealt to bloo was reflected due to the spiked helmet! returned " + returnedDamage + " damage");
+                        //MessageBox.Show("Damage dealt to bloo was reflected due to the spiked helmet! returned " + returnedDamage + " damage");
+                        await Task.Delay(2000);
+                        battleForm.dialogueTextBox.Text = "Damage dealt to bloo was reflected due to the spiked helmet! returned " + returnedDamage + " damage";
+                        await Task.Delay(2000);
                     }
                     
                 }
             }
             else
             {
-                form2.dialogueTextBox.Text = $"{user.Name} tries to attack but misses!";
+                await Task.Delay(2000);
+                battleForm.dialogueTextBox.Text = $"{user.Name} tries to attack but misses!";
+                await Task.Delay(2000);
             }
             battleForm.updateLabels();
+            battleForm.checkWinner();
         }
-        public virtual void ChangeAccuracy(double val)
+        public virtual async Task ChangeAccuracy(double val)
         {
             if (this.Accuracy + val  <= 60)
             {
@@ -213,10 +224,14 @@ namespace ComProg2Finals
             else
             {
                 this.Accuracy += val;
+                await Task.Delay(2000);
+                battleForm.dialogueTextBox.Text = $"Accuracy of {this.Name} became {this.Accuracy}";
+                await Task.Delay(2000);
             }
+
         }
 
-            public void ElementDamageCharac(double dmgValue, Character user, string dmgType, string skillName)
+            public async Task ElementDamageCharac(double dmgValue, Character user, string dmgType, string skillName)
         {
             switch (dmgType)
             {
@@ -226,11 +241,15 @@ namespace ComProg2Finals
                         case "Wind":
                             dmgValue *= ElementMultiplier;
                             dmgValue *= 2;
-                            form2.dialogueTextBox.Text = "its super effective";
+                            await Task.Delay(2000);
+                            battleForm.dialogueTextBox.Text = "its super effective";
+                            await Task.Delay(2000);
                             break;
                         case "Water":
                             dmgValue /= 2;
-                            form2.dialogueTextBox.Text = "it wasnt very effective";
+                            await Task.Delay(2000);
+                            battleForm.dialogueTextBox.Text = "it wasnt very effective";
+                            await Task.Delay(2000);
                             break;
                     }
                     break;
@@ -240,11 +259,15 @@ namespace ComProg2Finals
                         case "Fire":
                             dmgValue *= ElementMultiplier;
                             dmgValue *= 2;
-                            form2.dialogueTextBox.Text = "its super effective";
+                            await Task.Delay(2000);
+                            battleForm.dialogueTextBox.Text = "its super effective";
+                            await Task.Delay(2000);
                             break;
                         case "Earth":
                             dmgValue /= 2;
-                            form2.dialogueTextBox.Text = "it wasnt very effective";
+                            await Task.Delay(2000);
+                            battleForm.dialogueTextBox.Text = "it wasnt very effective";
+                            await Task.Delay(2000);
                             break;
                     }
                     break;
@@ -254,11 +277,15 @@ namespace ComProg2Finals
                         case "Earth":
                             dmgValue *= ElementMultiplier;
                             dmgValue *= 2;
-                            form2.dialogueTextBox.Text = "its super effective";
+                            await Task.Delay(2000);
+                            battleForm.dialogueTextBox.Text = "its super effective";
+                            await Task.Delay(2000);
                             break;
                         case "Fire":
                             dmgValue /= 2;
-                            form2.dialogueTextBox.Text = "it wasnt very effective";
+                            await Task.Delay(2000);
+                            battleForm.dialogueTextBox.Text = "it wasnt very effective";
+                            await Task.Delay(2000);
                             break;
                     }
                     break;
@@ -268,11 +295,15 @@ namespace ComProg2Finals
                         case "Water":
                             dmgValue *= ElementMultiplier;
                             dmgValue *= 2;
-                            form2.dialogueTextBox.Text = "its super effective";
+                            await Task.Delay(2000);
+                            battleForm.dialogueTextBox.Text = "its super effective";
+                            await Task.Delay(2000);
                             break;
                         case "Wind":
                             dmgValue /= 2;
-                            form2.dialogueTextBox.Text = "it wasnt very effective";
+                            await Task.Delay(2000);
+                            battleForm.dialogueTextBox.Text = "it wasnt very effective";
+                            await Task.Delay(2000);
                             break;
                     }
                     break;
@@ -298,7 +329,7 @@ namespace ComProg2Finals
             Health = 50;
             MaxHealth = 50;
             Accuracy = 100;
-            AttackDamage = 20;
+            AttackDamage = 999;
             Speed = 10;
             CharSkills = new List<Skill> { new Tackle(), new Goo(), new Bounce()};
             Rizz = 50;
@@ -353,16 +384,18 @@ namespace ComProg2Finals
             befEncounter = KnightDiag.IntroductionDialogue;
             KeyItem = typeof(Excalibur);
         }
-        public override void EventAction1(Bloo bloo)
+        public override async Task EventAction1(Bloo bloo)
         {
             form2.dialogueTextBox.Text = KnightDiag.AttackDialogue;
+            await Task.Delay(2000);
             form2.EnterBattle();
         }
-        public override void EventAction2(Bloo bloo)
+        public override async Task EventAction2(Bloo bloo)
         {
             if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {  
                 form2.dialogueTextBox.Text = KnightDiag.RizzDialogue;
+                await Task.Delay(2000);
                 form2.runNextEncounter();
             }
             else
@@ -431,16 +464,18 @@ namespace ComProg2Finals
                     throw new Exception("Invalid element type generated.");
             }
         }
-        public override void EventAction1(Bloo bloo)
+        public override async Task EventAction1(Bloo bloo)
         {
             form2.dialogueTextBox.Text = WizardDiag.AttackDialogue;
+            await Task.Delay(2000);
             form2.EnterBattle();
         }
-        public override void EventAction2(Bloo bloo)
+        public override async Task EventAction2(Bloo bloo)
         {
             if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
                 form2.dialogueTextBox.Text = WizardDiag.RizzDialogue;
+                await Task.Delay(2000);
                 form2.runNextEncounter();
             }
             else
@@ -448,10 +483,12 @@ namespace ComProg2Finals
                 EventAction1(bloo);
             }
         }
-        public override void EventAction3(Bloo bloo)
+        public override async Task EventAction3(Bloo bloo)
         {
             form2.dialogueTextBox.Text = WizardDiag.PassIntroDialogue;
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = WizardDiag.PassDialogue;
+            await Task.Delay(2000);
         }
     }
 
@@ -490,6 +527,7 @@ namespace ComProg2Finals
     public class Priest: Character
     {
         PriestDialogue PriestDiag = new PriestDialogue();
+        public bool canRevive;
         public Priest(string name) : base(name)
         {
             Name = name;
@@ -509,17 +547,20 @@ namespace ComProg2Finals
             Interactions = new string[] { "Attack", "Rizz"};
             befEncounter = PriestDiag.IntroductionDialogue;
             KeyItem = typeof(HolyWater);
+            canRevive = true;
         }
-        public override void EventAction1(Bloo bloo)
+        public override async Task EventAction1(Bloo bloo)
         {
             form2.dialogueTextBox.Text = PriestDiag.AttackDialogue;
+            await Task.Delay(2000);
             form2.EnterBattle();
         }
-        public override void EventAction2(Bloo bloo)
+        public override async Task EventAction2(Bloo bloo)
         {
             if (bloo.Rizz == 100 && bloo.canUseRizz)
             {
                 form2.dialogueTextBox.Text = PriestDiag.AttackDialogue;
+                await Task.Delay(2000);
                 form2.runNextEncounter();
             }
             else
@@ -527,10 +568,12 @@ namespace ComProg2Finals
                 EventAction1(bloo);
             }
         }
-        public override void EventAction3(Bloo bloo)
+        public override async Task EventAction3(Bloo bloo)
         {
             form2.dialogueTextBox.Text = PriestDiag.PassIntroDialogue;
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = PriestDiag.PassDialogue;
+            await Task.Delay(2000);
         }
     }
     public class Rogue: Character
@@ -556,16 +599,18 @@ namespace ComProg2Finals
             befEncounter = RogueDiag.IntroductionDialogue;
             KeyItem = typeof(StrangeGem);
         }
-        public override void EventAction1(Bloo bloo)
+        public override async Task EventAction1(Bloo bloo)
         {
             form2.dialogueTextBox.Text = RogueDiag.AttackDialogue;
+            await Task.Delay(2000);
             form2.EnterBattle();
         }
-        public override void EventAction2(Bloo bloo)
+        public override async Task EventAction2(Bloo bloo)
         {
             if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
                 form2.dialogueTextBox.Text = RogueDiag.RizzDialogue;
+                await Task.Delay(2000);
                 form2.runNextEncounter();
             }
             else
@@ -573,10 +618,12 @@ namespace ComProg2Finals
                 EventAction1(bloo);
             }
         }
-        public override void EventAction3(Bloo bloo)
+        public override async Task EventAction3(Bloo bloo)
         {
             form2.dialogueTextBox.Text = RogueDiag.PassIntroDialogue;
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = RogueDiag.PassDialogue;
+            await Task.Delay(2000);
         }
 
     }
@@ -603,16 +650,18 @@ namespace ComProg2Finals
             befEncounter = ArcherDiag.IntroductionDialogue;
             KeyItem = typeof(GoldenArrow);
         }
-        public override void EventAction1(Bloo bloo)
+        public override async Task EventAction1(Bloo bloo)
         {
             form2.dialogueTextBox.Text = ArcherDiag.AttackDialogue;
+            await Task.Delay(2000);
             form2.EnterBattle();
         }
-        public override void EventAction2(Bloo bloo)
+        public override async Task EventAction2(Bloo bloo)
         {
             if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
                 form2.dialogueTextBox.Text = ArcherDiag.RizzDialogue;
+                await Task.Delay(2000);
                 form2.runNextEncounter();
             }
             else
@@ -620,10 +669,12 @@ namespace ComProg2Finals
                 EventAction1(bloo);
             }
         }
-        public override void EventAction3(Bloo bloo)
+        public override async Task EventAction3(Bloo bloo)
         {
             form2.dialogueTextBox.Text = ArcherDiag.PassIntroDialogue;
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ArcherDiag.PassDialogue;
+            await Task.Delay(2000);
         }
     }
     public class HostileChest : Character
@@ -646,7 +697,7 @@ namespace ComProg2Finals
             skillProbability = new int[] { 50, 50, -1, -1 };
             EncounterDialogue = "KWAK";
         }
-        public override void DamageCharac(double dmgValue, Character user, string skillName)
+        public override async Task DamageCharac(double dmgValue, Character user, string skillName)
         {
             Random accRandom = new Random();
             int accuracyRandom = accRandom.Next(0, 100);
@@ -656,7 +707,9 @@ namespace ComProg2Finals
 
                 if (user.Opposition.isBlocking)
                 {
-                    form2.dialogueTextBox.Text = $"{user.Opposition.Name} was unscathed!";
+                    await Task.Delay(2000);
+                    battleForm.dialogueTextBox.Text = $"{user.Opposition.Name} was unscathed!";
+                    await Task.Delay(2000);
                     user.Opposition.isBlocking = false;
                 }
                 else
@@ -668,10 +721,14 @@ namespace ComProg2Finals
                     int randomNumber = random.Next(0, 101);
                     if (randomNumber <= user.CritChance)
                     {
-                        form2.dialogueTextBox.Text = "CRIT!";
+                        await Task.Delay(2000);
+                        battleForm.dialogueTextBox.Text = "CRIT!";
+                        await Task.Delay(2000);
                         totalDamage *= user.CritDamage;
                     }
-                    form2.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name;
+                    await Task.Delay(2000);
+                    battleForm.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name;
+                    await Task.Delay(2000);
                     user.Opposition.Health -= totalDamage;
                     Random rand = new Random();
                     int rando = new Random().Next(0, 101);
@@ -680,13 +737,17 @@ namespace ComProg2Finals
                         user.Health -= totalDamage / 2;
                       //  MessageBox.Show(user.Opposition.Name + " reflected the damage!");
                         user.Health -= totalDamage;
-                        form2.dialogueTextBox.Text = user.Opposition.Name + " reflected the damage!";
+                        await Task.Delay(2000);
+                        battleForm.dialogueTextBox.Text = user.Opposition.Name + " reflected the damage!";
+                        await Task.Delay(2000);
                     }
                 }
             }
             else
             {
-                form2.dialogueTextBox.Text = $"{user.Name} tries to attack but misses!";
+                await Task.Delay(2000);
+                battleForm.dialogueTextBox.Text = $"{user.Name} tries to attack but misses!";
+                await Task.Delay(2000);
             }
         
             battleForm.updateLabels();
@@ -699,6 +760,8 @@ namespace ComProg2Finals
 
     public class Peech : Character
     {
+        GoodEndingDialogue GoodEndDiag = new GoodEndingDialogue();
+        BadEndingDialogue BadEndDiag = new BadEndingDialogue();
         public Peech(string name) : base(name)
         {
             Name = "Peech";
@@ -706,15 +769,35 @@ namespace ComProg2Finals
             picImage = "peech_idle.gif";
 
         }
-        public override void EventAction1(Bloo bloo)
+        public override async Task EventAction1(Bloo bloo)
         {
             if(bloo.Rizz >= 100)
             {
-                MessageBox.Show("Win!");
+                await Task.Delay(2000);
+                form2.dialogueTextBox.Text = GoodEndDiag.CommitEvent1;
+                await Task.Delay(5000);
+                form2.dialogueTextBox.Text = GoodEndDiag.CommitEvent2;
+                await Task.Delay(5000);
+                form2.dialogueTextBox.Text = GoodEndDiag.CommitEvent3;
+                await Task.Delay(5000);
+                form2.dialogueTextBox.Text = GoodEndDiag.CommitEvent4;
+                await Task.Delay(5000);
+                form2.dialogueTextBox.Text = GoodEndDiag.CommitEvent5;
+                await Task.Delay(5000);
             }
             else
             {
-                MessageBox.Show("Lose, not enough Rizz");
+                await Task.Delay(2000);
+                form2.dialogueTextBox.Text = BadEndDiag.CommitEvent1;
+                await Task.Delay(5000);
+                form2.dialogueTextBox.Text = BadEndDiag.CommitEvent2;
+                await Task.Delay(5000);
+                form2.dialogueTextBox.Text = BadEndDiag.CommitEvent3;
+                await Task.Delay(5000);
+                form2.dialogueTextBox.Text = BadEndDiag.CommitEvent4;
+                await Task.Delay(5000);
+                form2.dialogueTextBox.Text = BadEndDiag.CommitEvent5;
+                await Task.Delay(5000);
             }
         }
     }

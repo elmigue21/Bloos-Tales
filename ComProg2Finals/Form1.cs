@@ -77,8 +77,6 @@ namespace ComProg2Finals
             hills04Front.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "04hillsFront.png"));
      
             currentTurn = Player;
-
-
         
 
             updateLabels();
@@ -242,6 +240,37 @@ namespace ComProg2Finals
             enemyDefStat.Text = Enemy.Defense.ToString();
             
         }
+        public void checkWinner()
+        {
+            if (Player.Health <= 0)
+            {
+                form2.dialogueTextBox.Text = "Bloo has lost!";
+                this.Close();
+            }
+            else if (Enemy.Health <= 0)
+            {
+                if (Enemy is Priest priest)
+                {
+                    if (priest.canRevive)
+                    {
+                        MessageBox.Show("Priest comes back to life!");
+                        priest.canRevive = false;
+                        Enemy.Health = Enemy.MaxHealth;
+                        updateLabels();
+                    }
+                    else
+                    {
+                        form2.dialogueTextBox.Text = "Bloo has won!";
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    form2.dialogueTextBox.Text = "Bloo has won!";
+                    this.Close();
+                }
+            }
+        }
         private void playerRunBtn(object sender, EventArgs e)
         {
             this.Close();
@@ -270,7 +299,7 @@ namespace ComProg2Finals
             }
             
             Enemy.skillQueue.Clear();
- 
+ /*
             if (Player.Health <= 0)
             {
                 form2.dialogueTextBox.Text = "Bloo has lost!";
@@ -278,9 +307,28 @@ namespace ComProg2Finals
             }
             else if (Enemy.Health <= 0)
             {
-                form2.dialogueTextBox.Text = "Bloo has won!";
-                this.Close();
+                if (Enemy is Priest priest)
+                {
+                    if (priest.canRevive)
+                    {
+                        MessageBox.Show("Priest comes back to life!");
+                        priest.canRevive = false;
+                        Enemy.Health = Enemy.MaxHealth;
+                        updateLabels();
+                    }
+                    else
+                    {
+                        form2.dialogueTextBox.Text = "Bloo has won!";
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    form2.dialogueTextBox.Text = "Bloo has won!";
+                    this.Close();
+                }
             }
+ */
             updateLabels();
         }
 

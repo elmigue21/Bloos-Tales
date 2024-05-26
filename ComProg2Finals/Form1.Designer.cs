@@ -46,6 +46,7 @@
             this.playerLabelLives = new System.Windows.Forms.Label();
             this.playerLabelCoins = new System.Windows.Forms.Label();
             this.platform05 = new System.Windows.Forms.Panel();
+            this.dialogueTextBox = new System.Windows.Forms.TextBox();
             this.enemyStatsPanel = new System.Windows.Forms.Panel();
             this.enemyRizzStat = new System.Windows.Forms.Label();
             this.enemyCoinStat = new System.Windows.Forms.Label();
@@ -68,7 +69,6 @@
             this.hills03Back = new System.Windows.Forms.PictureBox();
             this.clouds02Front = new System.Windows.Forms.PictureBox();
             this.clouds01Back = new System.Windows.Forms.PictureBox();
-            this.dialogueTextBox = new System.Windows.Forms.TextBox();
             this.platform05.SuspendLayout();
             this.enemyStatsPanel.SuspendLayout();
             this.playerStatsPanel.SuspendLayout();
@@ -259,6 +259,14 @@
             this.platform05.Size = new System.Drawing.Size(966, 561);
             this.platform05.TabIndex = 32;
             // 
+            // dialogueTextBox
+            // 
+            this.dialogueTextBox.Location = new System.Drawing.Point(263, 209);
+            this.dialogueTextBox.Multiline = true;
+            this.dialogueTextBox.Name = "dialogueTextBox";
+            this.dialogueTextBox.Size = new System.Drawing.Size(416, 142);
+            this.dialogueTextBox.TabIndex = 25;
+            // 
             // enemyStatsPanel
             // 
             this.enemyStatsPanel.BackColor = System.Drawing.Color.Transparent;
@@ -277,11 +285,11 @@
             // 
             this.enemyRizzStat.AutoSize = true;
             this.enemyRizzStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enemyRizzStat.Location = new System.Drawing.Point(164, 110);
+            this.enemyRizzStat.Location = new System.Drawing.Point(69, 57);
             this.enemyRizzStat.Name = "enemyRizzStat";
-            this.enemyRizzStat.Size = new System.Drawing.Size(31, 16);
+            this.enemyRizzStat.Size = new System.Drawing.Size(36, 16);
             this.enemyRizzStat.TabIndex = 23;
-            this.enemyRizzStat.Text = "Def";
+            this.enemyRizzStat.Text = "Rizz";
             this.enemyRizzStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // enemyCoinStat
@@ -310,11 +318,11 @@
             // 
             this.enemyDefStat.AutoSize = true;
             this.enemyDefStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enemyDefStat.Location = new System.Drawing.Point(69, 57);
+            this.enemyDefStat.Location = new System.Drawing.Point(164, 110);
             this.enemyDefStat.Name = "enemyDefStat";
-            this.enemyDefStat.Size = new System.Drawing.Size(36, 16);
+            this.enemyDefStat.Size = new System.Drawing.Size(31, 16);
             this.enemyDefStat.TabIndex = 20;
-            this.enemyDefStat.Text = "Rizz";
+            this.enemyDefStat.Text = "Def";
             this.enemyDefStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // playerStatsPanel
@@ -500,14 +508,6 @@
             this.clouds01Back.TabIndex = 28;
             this.clouds01Back.TabStop = false;
             // 
-            // dialogueTextBox
-            // 
-            this.dialogueTextBox.Location = new System.Drawing.Point(256, 225);
-            this.dialogueTextBox.Multiline = true;
-            this.dialogueTextBox.Name = "dialogueTextBox";
-            this.dialogueTextBox.Size = new System.Drawing.Size(387, 130);
-            this.dialogueTextBox.TabIndex = 25;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,7 +599,7 @@
         private System.Windows.Forms.Label enemyCoinStat;
         private System.Windows.Forms.Label enemyAtkStat;
         private System.Windows.Forms.Label enemyDefStat;
-        private System.Windows.Forms.TextBox dialogueTextBox;
+        public System.Windows.Forms.TextBox dialogueTextBox;
     }
 }
 
