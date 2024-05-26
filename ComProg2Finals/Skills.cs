@@ -43,11 +43,12 @@ namespace ComProg2Finals
             this.Name = "Tackle";
         }
 
-        public override void Perform(Character user)
+        public override async void Perform(Character user)
         {
             user.skillQueue.Add(() => user.Opposition.DamageCharac(10, user, this.Name));
 
-          //  form2.dialogueTextBox.Text = $"Used {Name}";
+            form2.dialogueTextBox.Text = $"{user.Name} Used {Name}!";
+           
         }
 
     }

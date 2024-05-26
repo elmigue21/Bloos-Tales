@@ -142,10 +142,17 @@ namespace ComProg2Finals
         }
 
         
-        public virtual void DamageCharac(double dmgValue, Character user, string skillName)
+        public virtual async void DamageCharac(double dmgValue, Character user, string skillName)
         {
             MessageBox.Show(user.Name + " used " + skillName);
 
+            if (skillName == "ShieldBash")
+            {
+                form2.dialogueTextBox.Text = user.Name + " stunned " + user.Opposition.Name + "!";
+            }
+            //string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "swordsound.wav");
+           // SoundPlayer player = new SoundPlayer(soundFilePath);
+           // player.Play();
             Random accRandom = new Random();
             int accuracyRandom = accRandom.Next(0, 100);
             if (accuracyRandom <= user.Accuracy)
@@ -172,7 +179,9 @@ namespace ComProg2Finals
                     }
                     else
                     {
+                        if (skillName != "ShieldBash") { 
                         form2.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " critical damage to " + user.Opposition.Name;
+                        }
                     }
                     user.Opposition.Health -= totalDamage;
 
@@ -556,7 +565,7 @@ namespace ComProg2Finals
             CharSkills = new List<Skill> { new Stealth(), new Poison(), new Dagger()};
             Rizz = 5;
             picImage = "rogue.png";
-            Defense = 10;
+            Defense = 16;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
             skillProbability = new int[] { 33, 33, 33, -1 };

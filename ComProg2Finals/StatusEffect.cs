@@ -46,8 +46,8 @@ namespace ComProg2Finals
         }
         public override void Trigger(Character charac)
         {
-            charac.Health -= dmg;
-            form2.dialogueTextBox.Text = $"dealt {Name} {dmg} health from {charac.Name}, {intervals} intervals remaining";
+            charac.Opposition.Health -= dmg;
+            form2.dialogueTextBox.Text = $"{charac.Name} dealt {dmg} health to {charac.Opposition.Name}, {intervals} intervals remaining";
             intervals--;
             if (intervals == 0)
             {
