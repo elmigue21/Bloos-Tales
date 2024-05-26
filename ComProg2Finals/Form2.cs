@@ -73,13 +73,13 @@ namespace ComProg2Finals
             timer.Interval = 2000;
             timer.Tick += Timer_Tick;
 
-            encounterCount = 1;
+            encounterCount = 0;
 
             Random rand1 = new Random();
             for (int i = 0; i < 3; i++)
             {
                 Character boss = new Character("boss");
-                int qqq1 = rand1.Next(0, 5);
+                int qqq1 = rand1.Next(2, 3);
                 switch (qqq1)
                 {
                     case 0:

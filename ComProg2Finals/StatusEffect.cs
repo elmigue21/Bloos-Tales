@@ -46,8 +46,8 @@ namespace ComProg2Finals
         }
         public override void Trigger(Character charac)
         {
-            charac.Health -= dmg;
-            form2.dialogueTextBox.Text = $"dealt {Name} {dmg} health from {charac.Name}, {intervals} intervals remaining";
+            charac.Opposition.Health -= dmg;
+            form2.dialogueTextBox.Text = $"{charac.Name} dealt {dmg} health to {charac.Opposition.Name}, {intervals} intervals remaining";
             intervals--;
             if (intervals == 0)
             {
@@ -192,7 +192,16 @@ namespace ComProg2Finals
 
         public StealthBuff(string name, double accuracy, double crit, int intrvl) : base(name)
         {
-            this.accuracy = accuracy - debuff;
+
+           // this.accuracy = accuracy - debuff;
+           if (accuracy - debuff < 40)
+            {
+                this.accuracy = 40;
+            }
+            else
+            {
+                this.accuracy = accuracy - debuff;
+            }
             this.critChance = crit + 1;
             intervals = intrvl;
         }
@@ -202,13 +211,13 @@ namespace ComProg2Finals
             charac.CritChance = critChance;
 
 
-            form2.dialogueTextBox.Text = $"{charac} lost {debuff} Accuracy in exchange for {buff}% Critical Chance {intervals} turn";
+            form2.dialogueTextBox.Text = $"{charac.Name} lost {debuff} Accuracy in exchange for {buff}00% Critical Chance {intervals} turn";
 
             intervals--;
             if (intervals == 0)
             {
                 charac.CritChance -= 1;
-                charac.Accuracy -= buff;
+                charac.Accuracy += debuff;
                 charac.CharStatEffects.Remove(this);
             }
 

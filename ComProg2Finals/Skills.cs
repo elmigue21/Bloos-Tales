@@ -43,11 +43,12 @@ namespace ComProg2Finals
             this.Name = "Tackle";
         }
 
-        public override void Perform(Character user)
+        public override async void Perform(Character user)
         {
             user.skillQueue.Add(() => user.Opposition.DamageCharac(10, user, this.Name));
 
-            form2.dialogueTextBox.Text = $"Used {Name}";
+            form2.dialogueTextBox.Text = $"{user.Name} Used {Name}!";
+           
         }
 
     }
@@ -61,7 +62,7 @@ namespace ComProg2Finals
         public override void Perform(Character user)
         {
             form2.dialogueTextBox.Text = "Used " + this.Name;
-            user.skillQueue.Add(() => user.Opposition.LoweringAccuracy(20, user));
+            user.skillQueue.Add(() => user.Opposition.LoweringAccuracy(20, user, this.Name));
 
         }
     }
@@ -125,7 +126,7 @@ namespace ComProg2Finals
                 case 3:
                     form2.dialogueTextBox.Text = "Element book used, " + user.Opposition.Name + "'s Accuracy reduced";
                     user.elementType = "Water";
-                    user.skillQueue.Add(() => user.Opposition.LoweringAccuracy(20, user));
+                    user.skillQueue.Add(() => user.Opposition.LoweringAccuracy(20, user, this.Name));
                     break;
             }
         }
@@ -145,7 +146,7 @@ namespace ComProg2Finals
             user.Health -= 50;
             user.Defense -= 5;
             //user.Accuracy -= 10;
-            user.skillQueue.Add(() => user.Opposition.LoweringAccuracy(10, user));
+            user.skillQueue.Add(() => user.Opposition.LoweringAccuracy(10, user, this.Name));
             user.Rizz += 100;
         }
     }
@@ -333,7 +334,7 @@ namespace ComProg2Finals
 
         public override void Perform(Character user)
         {
-            StealthBuff stealthBuff = new StealthBuff("Stealth Buff", user.Accuracy, user.CritChance, 5);
+            StealthBuff stealthBuff = new StealthBuff("Stealth Buff", user.Accuracy, user.CritChance, 3);
             user.CharStatEffects.Add(stealthBuff);
             stealthBuff.Trigger(user);
         }

@@ -577,7 +577,7 @@ namespace ComProg2Finals
                     charac.PlayerItems.Remove(this);
                     break;
                 case 3:
-                    charac.Opposition.LoweringAccuracy(50, charac);
+                    charac.Opposition.LoweringAccuracy(50, charac, this.Name);
                     charac.PlayerItems.Remove(this);
                     break;
                 case 4:
