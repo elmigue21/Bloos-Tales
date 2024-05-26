@@ -199,7 +199,7 @@ namespace ComProg2Finals
         public override void Trigger(Character charac)
         {
             charac.CritChance = critChance;
-            form2.dialogueTextBox.Text = $"{charac} lost {debuff} Accuracy in exchange for {buff}% Critical Chance {intervals} turn";
+            form2.dialogueTextBox.Text = $"{charac.Name} lost {debuff} Accuracy in exchange for {buff}% Critical Chance {intervals} turn";
 
             intervals--;
             if (intervals == 0)
