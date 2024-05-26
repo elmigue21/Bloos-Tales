@@ -263,7 +263,7 @@ namespace ComProg2Finals
             AttackDamage = 200;
             Speed = 10;
             CharSkills = new List<Skill> { new Tackle(), new Goo()};
-            Rizz = 20;
+            Rizz = 100;
             picImage = "blooIdle.gif";
             Defense = 40;
             CharStatEffects = new List<StatusEffect> { };
@@ -330,9 +330,10 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            if (bloo.Rizz == 100 && bloo.canUseRizz)
+            if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
                 MessageBox.Show("By the gods, this slime is the most beautiful creature next to the princess I have ever seen. I would marry you if I were as gooey as you.");
+                form2.runNextEncounter();
             }
             else
             {
@@ -415,9 +416,10 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            if (bloo.Rizz == 100 && bloo.canUseRizz)
+            if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
                 MessageBox.Show("From a genius to a genius! Please tell me more about four elementalisms, elucidating the intricacies of earthism, waterism, airism, and fireism, as they intertwine in the grand tapestry of existenceism.");
+                form2.runNextEncounter();
             }
             else
             {
@@ -489,6 +491,7 @@ namespace ComProg2Finals
             if (bloo.Rizz == 100 && bloo.canUseRizz)
             {
                 MessageBox.Show("OH MY GOD! Mr. Slime, you are the most adorable thing in the world. I just want to pinch those cheeks!");
+                form2.runNextEncounter();
             }
             else
             {
@@ -524,9 +527,10 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            if (bloo.Rizz == 100 && bloo.canUseRizz)
+            if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
                 MessageBox.Show("I see… A slime outsmarting me. This is beyond embarrassing, but I admit my inferiority, slime.");
+                form2.runNextEncounter();
             }
             else
             {
@@ -563,9 +567,10 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            if (bloo.Rizz == 100 && bloo.canUseRizz)
+            if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
                 MessageBox.Show("Ah, dear slime, your colors dance so vividly. Would you care for a stroll together? I find your company quite... enchanting.");
+                form2.runNextEncounter();
             }
             else
             {
@@ -652,7 +657,7 @@ namespace ComProg2Finals
         }
         public override void EventAction1(Bloo bloo)
         {
-            if(bloo.Rizz == 100)
+            if(bloo.Rizz >= 100)
             {
                 MessageBox.Show("Win!");
             }
