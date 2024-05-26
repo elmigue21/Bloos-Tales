@@ -124,7 +124,7 @@ namespace ComProg2Finals
             {
                 if (user.Opposition.isBlocking)
                 {
-                    MessageBox.Show($"{user.Opposition.Name} was unscathed!");
+                    form2.dialogueTextBox.Text = $"{user.Opposition.Name} was unscathed!";
                     user.Opposition.isBlocking = false;
                 }
                 else
@@ -141,11 +141,11 @@ namespace ComProg2Finals
                     }
                     if (!isCrit)
                     {
-                        MessageBox.Show(user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name);
+                        form2.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name;
                     }
                     else
                     {
-                        MessageBox.Show(user.Name + " dealt " + totalDamage + " critical damage to " + user.Opposition.Name);
+                        form2.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " critical damage to " + user.Opposition.Name;
                     }
                     user.Opposition.Health -= totalDamage;
                     
@@ -153,7 +153,7 @@ namespace ComProg2Finals
             }
             else
             {
-                MessageBox.Show($"{user.Name} tries to attack but misses!");
+                form2.dialogueTextBox.Text = $"{user.Name} tries to attack but misses!";
             }
             battleForm.updateLabels();
         }
@@ -165,12 +165,12 @@ namespace ComProg2Finals
             if (oppAccuracy >= 40)
             {
                 user.Opposition.Accuracy -= accuracyValue;
-                MessageBox.Show($"Accuracy of {user.Opposition.Name} became {user.Opposition.Accuracy}");
+                form2.dialogueTextBox.Text = $"Accuracy of {user.Opposition.Name} became {user.Opposition.Accuracy}";
             }
             else
             {
                 user.Opposition.Accuracy = 40;
-                MessageBox.Show("Accuracy can't get lower than 40");
+                form2.dialogueTextBox.Text = "Accuracy can't get lower than 40";
             }
         }
 
@@ -183,11 +183,11 @@ namespace ComProg2Finals
                     {
                         case "Wind":
                             dmgValue *= 2;
-                            MessageBox.Show("its super effective");
+                            form2.dialogueTextBox.Text = "its super effective";
                             break;
                         case "Water":
                             dmgValue /= 2;
-                            MessageBox.Show("it wasnt very effective");
+                            form2.dialogueTextBox.Text = "it wasnt very effective";
                             break;
                     }
                     break;
@@ -196,11 +196,11 @@ namespace ComProg2Finals
                     {
                         case "Fire":
                             dmgValue *= 2;
-                            MessageBox.Show("its super effective");
+                            form2.dialogueTextBox.Text = "its super effective";
                             break;
                         case "Earth":
                             dmgValue /= 2;
-                            MessageBox.Show("it wasnt very effective");
+                            form2.dialogueTextBox.Text = "it wasnt very effective";
                             break;
                     }
                     break;
@@ -209,11 +209,11 @@ namespace ComProg2Finals
                     {
                         case "Earth":
                             dmgValue *= 2;
-                            MessageBox.Show("its super effective");
+                            form2.dialogueTextBox.Text = "its super effective";
                             break;
                         case "Fire":
                             dmgValue /= 2;
-                            MessageBox.Show("it wasnt very effective");
+                            form2.dialogueTextBox.Text = "it wasnt very effective";
                             break;
                     }
                     break;
@@ -222,11 +222,11 @@ namespace ComProg2Finals
                     {
                         case "Water":
                             dmgValue *= 2;
-                            MessageBox.Show("its super effective");
+                            form2.dialogueTextBox.Text = "its super effective";
                             break;
                         case "Wind":
                             dmgValue /= 2;
-                            MessageBox.Show("it wasnt very effective");
+                            form2.dialogueTextBox.Text = "it wasnt very effective";
                             break;
                     }
                     break;
@@ -548,7 +548,7 @@ namespace ComProg2Finals
 
                 if (user.Opposition.isBlocking)
                 {
-                    MessageBox.Show($"{user.Opposition.Name} was unscathed!");
+                    form2.dialogueTextBox.Text = $"{user.Opposition.Name} was unscathed!";
                     user.Opposition.isBlocking = false;
                 }
                 else
@@ -560,23 +560,23 @@ namespace ComProg2Finals
                     int randomNumber = random.Next(0, 101);
                     if (randomNumber <= user.CritChance)
                     {
-                        MessageBox.Show("CRIT!");
+                        form2.dialogueTextBox.Text = "CRIT!";
                         totalDamage *= user.CritDamage;
                     }
-                    MessageBox.Show(user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name);
+                    form2.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name;
                     user.Opposition.Health -= totalDamage;
                     Random rand = new Random();
                     int rando = new Random().Next(0, 101);
                     if (rando <= 100)
                     {
                         user.Health -= totalDamage;
-                        MessageBox.Show(user.Opposition.Name + " reflected the damage!");
+                        form2.dialogueTextBox.Text = user.Opposition.Name + " reflected the damage!";
                     }
                 }
             }
             else
             {
-                MessageBox.Show($"{user.Name} tries to attack but misses!");
+                form2.dialogueTextBox.Text = $"{user.Name} tries to attack but misses!";
             }
         
             battleForm.updateLabels();

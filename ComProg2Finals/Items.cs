@@ -13,12 +13,14 @@ namespace ComProg2Finals
     public class Items
     {
         Form1 battleForm = Form1.GetInstance();
+        public ItemsDialogue ItemsDiag = new ItemsDialogue();
+        public Form2 form2 = new Form2();
         public string Name { get; protected set; }
         public int Price { get; set; }
 
         public virtual void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Items");
+
         }
         public virtual void Encountered(Bloo charac)
         {
@@ -26,7 +28,7 @@ namespace ComProg2Finals
         }
         public virtual void Lost(Bloo charac)
         {
-            MessageBox.Show("item lost");
+
         }
         public virtual void BattleAddItem(Bloo charac)
         {
@@ -44,6 +46,7 @@ namespace ComProg2Finals
         {
             iter = 5;
             charac.PlayerItems.Add(this);
+            form2.dialogueTextBox.Text = ItemsDiag.RockDialogue;
         }
         public override void Encountered(Bloo charac)
         {
@@ -53,10 +56,8 @@ namespace ComProg2Finals
             }
             else
             {
-                MessageBox.Show("ITER--");
                 iter--;
             }
-            MessageBox.Show(charac.AttackDamage.ToString());
         }
         public override void Lost(Bloo charac)
         {
@@ -69,14 +70,13 @@ namespace ComProg2Finals
     }
     public class SacrificeRing : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public SacrificeRing()
         {
             this.Name = "Sacrifice Ring";
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Bloo obtained the Sacrifice Ring!");
+            form2.dialogueTextBox.Text = ItemsDiag.RingDialogue;
             double change = 25;
             charac.Health -= change;
             charac.AttackDamage += change;
@@ -86,14 +86,13 @@ namespace ComProg2Finals
     }
     public class BerserkAmulet : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public BerserkAmulet()
         {
             this.Name = "Berserk Amulet";
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Bloo obtained the Berserk Amulet!");
+            form2.dialogueTextBox.Text = ItemsDiag.AmuletDialogue;
             charac.Accuracy -= charac.Accuracy * .25;
             charac.AttackDamage += charac.AttackDamage * 25;
             charac.PlayerItems.Add(this);
@@ -102,14 +101,13 @@ namespace ComProg2Finals
     }
     public class Behelith : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public Behelith()
         {
             this.Name = "Behelith";
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Bloo obtained the Behelith");
+            form2.dialogueTextBox.Text = ItemsDiag.BehelithDialogue;
             if (charac.Lives < 5)
             {
                 charac.Lives++;
@@ -122,7 +120,6 @@ namespace ComProg2Finals
 
     public class Cologne : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public Cologne()
         {
             this.Name = "Cologne";
@@ -130,8 +127,8 @@ namespace ComProg2Finals
         int limit = 20;
         int gainedRizz = 0;
         public override void Acquired(Bloo charac)
-        { 
-            MessageBox.Show($"Bloo obtained a Cologne!"); 
+        {
+            form2.dialogueTextBox.Text = ItemsDiag.CologneDialogue;
             charac.PlayerItems.Add(this);         
         }
         public override void Encountered(Bloo charac)
@@ -141,27 +138,23 @@ namespace ComProg2Finals
             if (gainedRizz <= limit)
             {
                 charac.Rizz += 5;
-                MessageBox.Show(charac.Rizz.ToString());
             }
         }
     }
     public class Piggybank : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public Piggybank()
         {
             this.Name = "Piggybank";
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Bloo obtained a Piggy bank!");          
+            form2.dialogueTextBox.Text = ItemsDiag.PiggyDialogue;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
         {            
             charac.Coins += 10;
-            MessageBox.Show("+10 Bonus");
-            MessageBox.Show(charac.Coins.ToString());
             // Tuloy-tuloy ang +10 until makabili si Bloo (madagdagan yung inventory)
         }
 
@@ -177,9 +170,9 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Bloo obtained a Life Potion!");
+            form2.dialogueTextBox.Text = ItemsDiag.LifeDialogue;
 
-            if(charac.Lives < 5)
+            if (charac.Lives < 5)
             {
                 charac.Lives++;
             }
@@ -189,7 +182,6 @@ namespace ComProg2Finals
     }
     public class MysteryPotion : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         private static Random random = new Random();
         public MysteryPotion()
         {
@@ -198,7 +190,6 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Mystery Potion");
 
             // List of possible potions
             Items selectedPotion;
@@ -233,7 +224,6 @@ namespace ComProg2Finals
     }
     public class RizzBooster : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public RizzBooster()
         {
             this.Name = "Rizz Booster";
@@ -243,7 +233,7 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 2;
-            MessageBox.Show($"Bloo obtained a Rizz Booster Potion!");
+            form2.dialogueTextBox.Text = ItemsDiag.RizzBoosterDialogue;
             rizzBuff = charac.Rizz * .50;
             charac.Rizz += rizzBuff;
             charac.PlayerItems.Add(this);
@@ -258,19 +248,15 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show(charac.Rizz.ToString());
         }
         public virtual void Lost(Bloo charac)
         {
-            MessageBox.Show("RizzBooster lost.");
             charac.Rizz -= rizzBuff;
             charac.PlayerItems.Remove(this);
-            MessageBox.Show("From lost: " + charac.Rizz.ToString());
         }
     }
     public class HealthBoosterPotion : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public HealthBoosterPotion()
         {
             this.Name = "Health Booster Potion";
@@ -281,7 +267,7 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 2;
-            MessageBox.Show($"Bloo obtained a Health Booster Potion.");
+            form2.dialogueTextBox.Text = ItemsDiag.HealthBoosterDialogue;
             healthBuff = charac.Health * .50;
             charac.Health += healthBuff;
             charac.PlayerItems.Add(this);
@@ -296,19 +282,15 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show(charac.Health.ToString());
         }
         public virtual void Lost(Bloo charac)
         {
-            MessageBox.Show("Health Booster lost.");
             charac.Health -= healthBuff;
             charac.PlayerItems.Remove(this);
-            MessageBox.Show("From Lost - Health: " + charac.Health.ToString());
         }
     }
     public class DefenseDown50percentPotion : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public DefenseDown50percentPotion()
         {
             this.Name = "Defense Down 50% Potion";
@@ -318,7 +300,7 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 3;
-            MessageBox.Show($"Bloo obtained a Defense Down 50% Potion.");
+            form2.dialogueTextBox.Text = ItemsDiag.DefenseDownDialogue;
             defenseDebuff = charac.Defense * .50;
             charac.Defense -= defenseDebuff;
             charac.PlayerItems.Add(this);
@@ -333,19 +315,15 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show(charac.Defense.ToString());
         }
         public override void Lost(Bloo charac)
         {
-            MessageBox.Show("Defense Down lost.");
             charac.Defense += defenseDebuff;
             charac.PlayerItems.Remove(this);
-            MessageBox.Show("From Lost - Defense: " + charac.Defense.ToString());
         }
     }
     public class DuctTapePotion : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public DuctTapePotion()
         {
             this.Name = "Duct Tape Potion";
@@ -354,7 +332,7 @@ namespace ComProg2Finals
         int iter = 3;
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Duct Tape Potion, can’t use rizz.");
+            form2.dialogueTextBox.Text = ItemsDiag.DuctTapeDialogue;
             charac.canUseRizz = false;
             charac.PlayerItems.Add(this);
         }
@@ -368,18 +346,15 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show($"Use Rizz? {charac.canUseRizz}");
         }
         public virtual void Lost(Bloo charac)
         {
-            MessageBox.Show("Duct Tape Potion lost.");
             charac.canUseRizz = true;
             charac.PlayerItems.Remove(this);
         }
     }
     public class PocketHolePotion : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public PocketHolePotion()
         {
             this.Name = "Pocket Hole Potion";
@@ -388,7 +363,7 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 3;
-            MessageBox.Show($"Bloo obtained a Pocket Hole, can't use money.");
+            form2.dialogueTextBox.Text = ItemsDiag.PocketHoleDialogue;
             charac.canGainCoin = false;
             charac.PlayerItems.Add(this);
         }
@@ -402,18 +377,15 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show(charac.Coins.ToString());
         }
         public virtual void Lost(Bloo charac)
         {
-            MessageBox.Show("Pocket Hole Potion lost.");
             charac.canGainCoin = true;
             charac.PlayerItems.Remove(this);
         }
     }
     public class OneShotPotion : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public OneShotPotion()
         {
             this.Name = "One Shot Potion";
@@ -422,7 +394,7 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             iter = 1;
-            MessageBox.Show($"Bloo obtained One Shot Potion");
+            form2.dialogueTextBox.Text = ItemsDiag.OneShotDialogue;
             charac.AttackDamage = 9999;
             charac.PlayerItems.Add(this);
         }
@@ -436,18 +408,15 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show(charac.AttackDamage.ToString());
         }
         public virtual void Lost(Bloo charac)
         {
-            MessageBox.Show("One Shot Potion lost.");
             charac.AttackDamage = 1;
             charac.PlayerItems.Remove(this);
         }
     }
     public class HardHelmet : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public HardHelmet()
         {
             this.Name = "Hard Helmet";
@@ -455,7 +424,7 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Hard Helmet");
+            form2.dialogueTextBox.Text = ItemsDiag.HardHelmentDialogue;
             charac.Defense += 15;
             charac.PlayerItems.Add(this);
             /*
@@ -472,12 +441,11 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found a Hard Helmet, Bloo's defense has increased by 15%.");
+
         }
     }
     public class SpikedHelmet : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public SpikedHelmet()
         {
             this.Name = "Spiked Helmet";
@@ -485,71 +453,68 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Spiked Helmet");
+            form2.dialogueTextBox.Text = ItemsDiag.SpikedHelmetDialogue;
             charac.Defense += 5;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found a Spiked Helmet, Bloo's defense has increased by 5%.");
+
         }
     }
     public class Excalibur : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public Excalibur()
         {
             this.Name = "Excalibur";
         }
         public override void Acquired(Bloo charac)
         {
+            form2.dialogueTextBox.Text = ItemsDiag.ExcaliburDialogue;
             charac.AttackDamage += 50;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found the Excalibur, Bloo's attack has increased by 50%.");
+
         }
     }
     public class StrangeGem : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public StrangeGem()
         {
             this.Name = "Strange Gem";
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Strange Gem");
+            form2.dialogueTextBox.Text = ItemsDiag.StrangeGemDialogue;
             charac.Coins += charac.Coins * .50;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found a Strange Gem, n% discount on all gold related items.");
+
         }
     }
     public class GoldenArrow : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public GoldenArrow()
         {
             this.Name = "Golden Arrow";
         }
         public override void Acquired(Bloo charac)
         {
+            form2.dialogueTextBox.Text = ItemsDiag.GoldenArrowDialogue;
             charac.CritChance += 20;
             charac.PlayerItems.Add(this);
-            MessageBox.Show($"{charac.Name}'s crit chance is now {charac.CritChance}");
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found a Golden Arrow, crit chance has increased by 20%.");
+
         }
     }
     public class HolyWater : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public HolyWater()
         {
             this.Name = "Holy Water";
@@ -557,7 +522,7 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             charac.Health += 10;
-            MessageBox.Show($"Holy Water");
+            form2.dialogueTextBox.Text = ItemsDiag.HolyWaterDialogue;
             charac.PlayerItems.Add(this);
             if (charac.Health < 100)
             {
@@ -571,30 +536,29 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo received Holy Water, Bloo's gains +10 Health every turn.");
+
         }
     }
     public class Goblet : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         public Goblet()
         {
             this.Name = "Goblet";
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Goblet");
+            form2.dialogueTextBox.Text = ItemsDiag.GobletDialogue;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found a Goblet, Bloo gains +5% on all elements.");
+
         }
     }
     
     public class SeerBuff : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
+        SeerDialogue SeerDiag = new SeerDialogue();
         int index;
         public SeerBuff(int ind)
         {
@@ -609,18 +573,18 @@ namespace ComProg2Finals
                     break;
                 case 2:
                     charac.CharStatEffects.Add(new AttackBoost("Seer buff", 0.15));
-                    MessageBox.Show("Bloo attacks are enhanced");
+                    form2.dialogueTextBox.Text = "Bloo's attack is enhanced!";
                     charac.PlayerItems.Remove(this);
                     break;
                 case 3:
                     // add charac.opposition before triggering//
                     charac.Opposition.Accuracy -= 50;
-                    MessageBox.Show("Bloo's enemy is feeling dizzy");
+                    form2.dialogueTextBox.Text = "Bloo's enemy can't see straight!";
                     charac.PlayerItems.Remove(this);
                     break;
                 case 4:
                     charac.CharStatEffects.Add(new DefenseBoost("Seer buff", 20));
-                    MessageBox.Show("Bloo feels tougher");
+                    form2.dialogueTextBox.Text = "Bloo's defense is enhanced!";
                     charac.PlayerItems.Remove(this);
                     break;
             }
@@ -628,7 +592,6 @@ namespace ComProg2Finals
     }
     public class MysteryBox : Items
     {
-        ItemsDialogue ItemsDiag = new ItemsDialogue();
         private static Random random = new Random();
         public MysteryBox()
         {
@@ -636,7 +599,6 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"you got a mystery box!!");
 
             // List of possible potions
             Items selectedPotion;

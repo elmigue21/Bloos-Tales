@@ -16,6 +16,7 @@ namespace ComProg2Finals
         public string Name { get; protected set; }
         //public Form1 battleForm = Form1.Instance;
         public Form1 battleForm = Form1.GetInstance();
+        public Form2 form2 = new Form2();
         public StatusEffect(string name) { 
 
         }
@@ -41,7 +42,7 @@ namespace ComProg2Finals
         public override void Trigger(Character charac)
         {
             charac.Health -= dmg;
-            MessageBox.Show($"dealt {Name} {dmg} health from {charac.Name}, {intervals} intervals remaining");
+            form2.dialogueTextBox.Text = $"dealt {Name} {dmg} health from {charac.Name}, {intervals} intervals remaining";
             intervals--;
             if (intervals == 0)
             {
@@ -62,7 +63,7 @@ namespace ComProg2Finals
         public override void Trigger(Character charac)
         {
             charac.Health += healVal;
-            MessageBox.Show($"Healed {healVal} health from {charac.Name}, {intervals} intervals remaining");
+            form2.dialogueTextBox.Text = $"Healed {healVal} health from {charac.Name}, {intervals} intervals remaining";
             intervals--;
             if (intervals == 0)
             {
@@ -127,17 +128,17 @@ namespace ComProg2Finals
                 rand = 0;
                 switch (rand) {
                     case 0:
-                MessageBox.Show("Bloo lands and attacks the enemy!");
-                user.skillQueue.Add(()=>user.Opposition.DamageCharac(15, user)  );
+                        form2.dialogueTextBox.Text = "Bloo lands and attacks the enemy!";
+                        user.skillQueue.Add(()=>user.Opposition.DamageCharac(15, user)  );
                         break;
                     case 1:
-                        MessageBox.Show("Bloo lands and tries to attack the enemy but missed!");
+                        form2.dialogueTextBox.Text = "Bloo lands and tries to attack the enemy but missed!";
                         break;
                 }
             }
             else
             {
-                MessageBox.Show("Bloo bounces in the air!");
+                form2.dialogueTextBox.Text = "Bloo bounces in the air!";
                 intrvl--;
             }
         }
@@ -170,7 +171,7 @@ namespace ComProg2Finals
             charac.CritChance = critChance;
 
 
-            MessageBox.Show($"{charac} lost {debuff} Accuracy in exchange for {buff}% Critical Chance {intervals} turn");
+            form2.dialogueTextBox.Text = $"{charac} lost {debuff} Accuracy in exchange for {buff}% Critical Chance {intervals} turn";
 
             intervals--;
             if (intervals == 0)
@@ -215,7 +216,6 @@ namespace ComProg2Finals
         {
             Random random = new Random();
             multiHitCount = random.Next(4);
-            MessageBox.Show(multiHitCount.ToString());
         }
         public override void Trigger(Character charac)
         {

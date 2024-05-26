@@ -211,12 +211,12 @@ namespace ComProg2Finals
                 }
                 if (Player.Health <= 0)
                 {
-                    MessageBox.Show("Bloo has lost!");
+                    form2.dialogueTextBox.Text = "Bloo has lost!";
                     this.Hide();
                 }
                 else if (Enemy.Health <= 0)
                 {
-                    MessageBox.Show("Bloo has won!");
+                    form2.dialogueTextBox.Text = "Bloo has won!";
                     this.Hide();
                 }
                 else
@@ -246,12 +246,12 @@ namespace ComProg2Finals
 
                 if (Player.Health <= 0)
                 {
-                    MessageBox.Show("Bloo has lost!");
+                    form2.dialogueTextBox.Text = "Bloo has lost!";
                     this.Hide();
                 }
                 else if (Enemy.Health <= 0)
                 {
-                    MessageBox.Show("Bloo has won!");
+                    form2.dialogueTextBox.Text = "Bloo has won!";
                     this.Hide();
                 }
                 else
@@ -277,12 +277,12 @@ namespace ComProg2Finals
 
                 if (Player.Health <= 0)
                 {
-                    MessageBox.Show("Bloo has lost!");
+                    form2.dialogueTextBox.Text = "Bloo has lost!";
                     this.Hide();
                 }
                 else if (Enemy.Health <= 0)
                 {
-                    MessageBox.Show("Bloo has won!");
+                    form2.dialogueTextBox.Text = "Bloo has won!";
                     this.Hide();
                 }
                 else
@@ -309,12 +309,12 @@ namespace ComProg2Finals
 
                 if (Player.Health <= 0)
                 {
-                    MessageBox.Show("Bloo has lost!");
+                    form2.dialogueTextBox.Text = "Bloo has lost!";
                     this.Hide();
                 }
                 else if (Enemy.Health <= 0)
                 {
-                    MessageBox.Show("Bloo has won!");
+                    form2.dialogueTextBox.Text = "Bloo has won!";
                     this.Hide();
                 }
                 else
@@ -387,13 +387,13 @@ namespace ComProg2Finals
             {
                 if (Player.Health <= 0)
                 {
-                    MessageBox.Show("Bloo has lost!");
+                    form2.dialogueTextBox.Text = "Bloo has lost!";
                     form2.runNextEncounter();
                     this.Hide();
                 }
                 else if (Enemy.Health <= 0)
                 {
-                    MessageBox.Show("Bloo has won!");
+                    form2.dialogueTextBox.Text = "Bloo has won!";
                     form2.runNextEncounter();
                     this.Hide();
                 }
@@ -405,12 +405,12 @@ namespace ComProg2Finals
             {
                 if (Player.Health <= 0)
                 {
-                    MessageBox.Show("Bloo has lost!");
+                    form2.dialogueTextBox.Text = "Bloo has lost!";
                     this.Hide();
                 }
                 else if (Enemy.Health <= 0)
                 {
-                    MessageBox.Show("Bloo has won!");
+                    form2.dialogueTextBox.Text = "Bloo has won!";
                     this.Hide();   
                 }
             }

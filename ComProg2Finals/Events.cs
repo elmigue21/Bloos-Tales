@@ -21,7 +21,7 @@ namespace ComProg2Finals
         // public string picImage { get; set; }
         public virtual void Perform(Bloo bloo)
         {
-            MessageBox.Show($"Events");
+
         }
     }
     public class Chest : Events
@@ -450,18 +450,19 @@ namespace ComProg2Finals
             if (randomNumber >= 1 && randomNumber <= 25)
             {
                 // insert random mystery potion buff logic here
-                MessageBox.Show("Gained random mystery potion buff");
+                form2.dialogueTextBox.Text = WishingWellDiag.CommitEvent1;
             }
             else if (randomNumber >= 26 && randomNumber <= 30)
             {
 
                 HolyWater holywater = new HolyWater();
                 holywater.Acquired(bloo);
-                MessageBox.Show("Holy Water Acquired!");
+                form2.dialogueTextBox.Text = WishingWellDiag.CommitEvent1;
+                form2.dialogueTextBox.Text = ItemsDiag.HolyWaterDialogue;
             }
             else
             {
-                MessageBox.Show($"Nothing Happened");
+                form2.dialogueTextBox.Text = WishingWellDiag.CommitEvent2;
             }
             multiplier++;
         }
