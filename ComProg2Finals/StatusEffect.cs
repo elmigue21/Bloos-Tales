@@ -16,8 +16,9 @@ namespace ComProg2Finals
         public string Name { get; protected set; }
         //public Form1 battleForm = Form1.Instance;
         public Form1 battleForm = Form1.GetInstance();
-        public StatusEffect(string name) { 
-
+        public StatusEffect(string name) {
+            battleForm = Form1.GetInstance();
+            
         }
         public void Remove()
         {
@@ -26,6 +27,10 @@ namespace ComProg2Finals
         public virtual void Trigger(Character user)
         {
 
+        }
+        public virtual void Debuff(Character user)
+        {
+            
         }
     }
     public class DmgPerTurn : StatusEffect
@@ -48,6 +53,10 @@ namespace ComProg2Finals
                 charac.CharStatEffects.Remove(this);
             }
         }
+        public override void Debuff(Character user)
+        {
+            user.CharStatEffects.Remove(this);
+        }
 
     }
     public class HealPerTurn : StatusEffect
@@ -68,6 +77,10 @@ namespace ComProg2Finals
             {
                 charac.CharStatEffects.Remove(this);
             }
+        }
+        public override void Debuff(Character user)
+        {
+            user.CharStatEffects.Remove(this);
         }
 
     }
@@ -106,6 +119,10 @@ namespace ComProg2Finals
             }*/
             battleForm.updateLabels();
         }
+        public override void Debuff(Character user)
+        {
+            user.CharStatEffects.Remove(this);
+        }
 
     }
     public class BounceSkill : StatusEffect
@@ -141,12 +158,36 @@ namespace ComProg2Finals
                 intrvl--;
             }
         }
+        public override void Debuff(Character user)
+        {
+            user.CharStatEffects.Remove(this);
+        }
     }
     public class HolyWaterHeal : StatusEffect
     {
-        public HolyWaterHeal(string name) : base(name)
+        double healVal;
+        public HolyWaterHeal(string name, double heal) : base(name)
         {
+            healVal = heal;
+        }
+        
+        public override void Trigger(Character charac)
+        {
+            if (charac.Health + healVal > 100)
+            {
+                charac.Health = 100;
+                MessageBox.Show($"{charac.Name}'s health is maxed");
+            }
+            else
+            {
+                charac.Health += healVal;
+                MessageBox.Show($"Healed {healVal} health from {charac.Name}");
+            }
             
+        }
+        public override void Debuff(Character user)
+        {
+            user.CharStatEffects.Remove(this);
         }
 
     }
@@ -181,6 +222,10 @@ namespace ComProg2Finals
             }
 
         }
+        public override void Debuff(Character user)
+        {
+            user.CharStatEffects.Remove(this);
+        }
 
     }
     public class ReflectDamage : StatusEffect
@@ -193,17 +238,22 @@ namespace ComProg2Finals
         {
 
         }
+        public override void Debuff(Character user)
+        {
+            user.CharStatEffects.Remove(this);
+        }
     }
 
     public class AttackBoost : StatusEffect
     {
-        public AttackBoost(string name, double multip) : base (name){
-            battleForm.Player.AttackDamage += battleForm.Player.AttackDamage * multip;
+        public AttackBoost(string name, double multip, Character user) : base (name){
+            user.AttackDamage += user.AttackDamage * multip;
         }
+
     }
     public class DefenseBoost : StatusEffect
     {
-        public DefenseBoost(string name, double val) : base(name)
+        public DefenseBoost(string name, double val, Character user) : base(name)
         {
             battleForm.Player.Defense += val;
         }
@@ -211,7 +261,7 @@ namespace ComProg2Finals
     public class MultiHitChance : StatusEffect
     {
         public int multiHitCount;
-        public MultiHitChance(string name) : base(name)
+        public MultiHitChance(string name, Character user) : base(name)
         {
             Random random = new Random();
             multiHitCount = random.Next(4);
@@ -228,10 +278,51 @@ namespace ComProg2Finals
             }
             charac.CharStatEffects.Remove(this);
         }
+        public override void Debuff(Character user)
+        {
+            user.CharStatEffects.Remove(this);
+        }
+    }
+    public class MogRizz : StatusEffect
+    {
+        int interval;
+        public MogRizz(string name) : base(name)
+        {
+            interval = 5;
+        }
+        public override void Trigger(Character charac)
+        {
+            charac.Rizz -= 10;
+            if (this.interval <= 0)
+            {
+                charac.CharStatEffects.Remove(this);
+            }
+        }
+        public override void Debuff(Character user)
+        {
+            user.CharStatEffects.Remove(this);
+        }
+    }
+    /*
+    public class OneShotBuff : StatusEffect
+    {
+        public OneShotBuff(string name, Character user): base(name)
+        {
+            user.AttackDamage += 999;
+        }
+        public override void Trigger(Character user)
+        {
+        }
+        public override void Debuff(Character user)
+        {
+            user.AttackDamage -= 999;
+            user.CharStatEffects.Remove(this);
+        }
+
     }
 
 
-
+    */
 
     /*
      * 

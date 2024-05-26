@@ -29,7 +29,7 @@ namespace ComProg2Finals
         public Chest()
         {
             Name = "Chest";
-            picImage = "chest.png";
+            picImage = "chesty_close.png";
             EncounterDialogue = "Bloo stumbles upon a chest!";
             Interactions = new string[] { "Open", "Skip" };
         }
@@ -70,7 +70,7 @@ namespace ComProg2Finals
                     form1.Player = bloo;
                     form1.Player.Opposition = form1.Enemy;
                     form1.Show();
-                MessageBox.Show("You won all loot!");
+               // MessageBox.Show("You won all loot!");
             }
 
         }
@@ -179,7 +179,7 @@ namespace ComProg2Finals
         public SwordInStone()
         {
             Name = "SwordInStone";
-            picImage = "swordinstone.png";
+            picImage = "sword_in_stone.png";
             EncounterDialogue = "I AM THE CHOSEN ONE";
             Interactions = new string[] { "Pull", "Ignore" };
         }
@@ -218,7 +218,7 @@ namespace ComProg2Finals
         public Bonfire()
         {
             Name = "Bonfire";
-            picImage = "bonfire.png";
+            picImage = "bonfire.gif";
             EncounterDialogue = "Bloo stumbles upon a BONfire";
             Interactions = new string[] { "Obtain", "Ignore" };
         }
@@ -251,7 +251,7 @@ namespace ComProg2Finals
         public MysteriousMan()
         {
             Name = "Mysterious man";
-            picImage = "mysteriousman.png";
+            picImage = "mysterious_man.png";
             EncounterDialogue = "SHHHHHH";
             Interactions = new string[] { "Blue pill", "Red Pill"};
             Random random = new Random();
@@ -311,7 +311,7 @@ namespace ComProg2Finals
         public Jester()
         {
             Name = "Jester";
-            picImage = "wishingwell.png";
+            picImage = "jester.png";
             EncounterDialogue = "KWAK";
             Interactions = new string[] { "Talk", "Ignore" };
         }
@@ -319,6 +319,8 @@ namespace ComProg2Finals
         {
             // add mystery box logic
             MessageBox.Show("I have a little mystery box for you giggles. What's inside? What’s inside? Oh, the excitement! Well, that’s the fun part, isn’t it? It could be a delightful surprise... or a dreadful shock!” *giggles louder");
+            MysteryBox mysterybox = new MysteryBox();
+            mysterybox.Acquired(bloo);
             bloo.Coins -= bloo.Coins * .75;
             form2.runNextEncounter();
         }
@@ -329,10 +331,6 @@ namespace ComProg2Finals
             form2.runNextEncounter();
         }
 
-        public override void Perform(Bloo bloo)
-        {
-            // insert random item (mystery box) logic here
-        }
     }
     public class Seer : Events
     {
@@ -348,32 +346,39 @@ namespace ComProg2Finals
             MessageBox.Show($"Seer");
             Random random = new Random();
             int rand = random.Next(0, 4);
+           // rand = 0;
             switch (rand)
             {
                 case 0:
+                    int bossCount = form2.encounterCount / 5;
                     bloo.Rizz -= bloo.Rizz * .3;
+                    MessageBox.Show($"next encounter is {form2.bossFights[bossCount]}");
                     // messagebox.show next enemy
                     break;
                 case 1:
                     bloo.Coins -= 150;
                         bloo.PlayerItems.Add(new SeerBuff(rand));
+                    MessageBox.Show("buffed, coins - 150, final boss +30% atk dmg");
                     // add status effect final boss 30% atk dmg boost for bloo
                     break;
                 case 2:
                     bloo.Coins -= 100;
                         bloo.PlayerItems.Add(new SeerBuff(rand));
-                        // add status effect next boss 15% atk dmg boost for bloo
-                        break;
+                    MessageBox.Show("buffed, coins - 100, next boss +15% atk dmg");
+                    // add status effect next boss 15% atk dmg boost for bloo
+                    break;
                 case 3:
                     bloo.Coins -= 50;
                         bloo.PlayerItems.Add(new SeerBuff(rand));
-                        // add status effect, lower accuracy of next boss
-                        break;
+                    MessageBox.Show("buffed, coins - 50, next boss has lowered accuracy");
+                    // add status effect, lower accuracy of next boss
+                    break;
                 case 4:
                     bloo.Coins -= 50;
                         bloo.PlayerItems.Add(new SeerBuff(rand));
-                        // add status effect, +20 def for bloo on next boss 
-                        break;
+                    MessageBox.Show("buffed, coins - 50, +20 def on next fight");
+                    // add status effect, +20 def for bloo on next boss 
+                    break;
             }
             form2.runNextEncounter();
         }
@@ -421,7 +426,7 @@ namespace ComProg2Finals
         public WishingWell()
         {
             Name = "Wishing well";
-            this.picImage = "wishingwell.png";
+            this.picImage = "wishing_well.png";
             Interactions = new string[] { "Make Wish", "Ignore" };
             EncounterDialogue = "WISHING WASHING";
             Interactions = new string[] { "Wish", "Ignore" };
@@ -464,7 +469,7 @@ namespace ComProg2Finals
         public King()
         {
             Name = "KING";
-            picImage = "king.png";
+            picImage = "king.gif";
             EncounterDialogue = "What manner of odd creature are you… Say, my kingdom has come to ruins, would you mind making a trade to this daring king?";
             Interactions = new string[] { "Accept", "Decline" };
         }
@@ -560,7 +565,7 @@ namespace ComProg2Finals
         public AppleTree()
         {
             Name = "Apple Tree";
-            picImage = "appletree.png";
+            picImage = "apple_tree.png";
             EncounterDialogue = "GRAVITY";
             Interactions = new string[] { "Tackle", "Climb" };
         }
@@ -603,7 +608,7 @@ namespace ComProg2Finals
             public List<Skill> skillshop;
         public MasterGooway()
         {
-            picImage = "mastergooway.png";
+            picImage = "master_gooway_idle_right.gif";
             //Interactions = new string[] { "Buy", "Skip"};
             EncounterDialogue = "Gooway I am";
             skillshop = new List<Skill> {new Bounce(), new Split(), new Mog(), new ElementBook() };
@@ -650,7 +655,7 @@ namespace ComProg2Finals
         public List<Items> itemshop;
         public Shopkeeper()
         {
-            picImage = "wishingwell.png";
+            picImage = "shop_keeper_idle.gif";
             EncounterDialogue = "SHOPPEEDOOPEE";
             itemshop = new List<Items> { new LifePotion(), new MysteryPotion(), new HardHelmet(), new SpikedHelmet() };
 

@@ -43,12 +43,13 @@ namespace ComProg2Finals
         int iter;
         public override void Acquired(Bloo charac)
         {
-            iter = 5;
+           // iter = 5;
             MessageBox.Show($"bloo acquired rock, It does nothing");
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
         {
+            /*
             if(iter == 0)
             {
                 Lost(charac);
@@ -59,6 +60,7 @@ namespace ComProg2Finals
                 iter--;
             }
             MessageBox.Show(charac.AttackDamage.ToString());
+            */
         }
         public override void Lost(Bloo charac)
         {
@@ -67,7 +69,7 @@ namespace ComProg2Finals
         }
         public override void BattleAddItem(Bloo charac)
         {
-            charac.CharStatEffects.Add(new HealPerTurn("HEALINGGGG", 1000, 20));
+            //charac.CharStatEffects.Add(new HealPerTurn("HEALINGGGG", 1000, 20));
         }
     }
     public class SacrificeRing : Items
@@ -110,10 +112,10 @@ namespace ComProg2Finals
         public override void Acquired(Bloo charac)
         {
             MessageBox.Show($"Bloo obtained the Behelith");
-            if (charac.Lives < 5)
-            {
-                charac.Lives++;
-            }
+            //if (charac.Lives < 5)
+            //{
+                charac.Lives--;
+            //}
             charac.Coins += charac.Coins * .30;
             charac.Rizz -= charac.Rizz * .30;
             charac.PlayerItems.Add(this);
@@ -140,7 +142,6 @@ namespace ComProg2Finals
             if (gainedRizz <= limit)
             {
                 charac.Rizz += 5;
-                MessageBox.Show(charac.Rizz.ToString());
             }
         }
     }
@@ -158,8 +159,8 @@ namespace ComProg2Finals
         public override void Encountered(Bloo charac)
         {            
             charac.Coins += 10;
-            MessageBox.Show("+10 Bonus");
-            MessageBox.Show(charac.Coins.ToString());
+           // MessageBox.Show("+10 Bonus");
+            //MessageBox.Show(charac.Coins.ToString());
             // Tuloy-tuloy ang +10 until makabili si Bloo (madagdagan yung inventory)
         }
 
@@ -253,9 +254,8 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show(charac.Rizz.ToString());
         }
-        public virtual void Lost(Bloo charac)
+        public override void Lost(Bloo charac)
         {
             MessageBox.Show("RizzBooster lost.");
             charac.Rizz -= rizzBuff;
@@ -290,9 +290,8 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show(charac.Health.ToString());
         }
-        public virtual void Lost(Bloo charac)
+        public override void Lost(Bloo charac)
         {
             MessageBox.Show("Health Booster lost.");
             charac.Health -= healthBuff;
@@ -326,7 +325,6 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show(charac.Defense.ToString());
         }
         public override void Lost(Bloo charac)
         {
@@ -360,9 +358,8 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show($"Use Rizz? {charac.canUseRizz}");
         }
-        public virtual void Lost(Bloo charac)
+        public override void Lost(Bloo charac)
         {
             MessageBox.Show("Duct Tape Potion lost.");
             charac.canUseRizz = true;
@@ -395,7 +392,7 @@ namespace ComProg2Finals
             }
             MessageBox.Show(charac.Coins.ToString());
         }
-        public virtual void Lost(Bloo charac)
+        public override void Lost(Bloo charac)
         {
             MessageBox.Show("Pocket Hole Potion lost.");
             charac.canGainCoin = true;
@@ -413,7 +410,7 @@ namespace ComProg2Finals
         {
             iter = 1;
             MessageBox.Show($"Bloo obtained One Shot Potion");
-            charac.AttackDamage = 9999;
+            charac.AttackDamage += 9999;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
@@ -426,14 +423,15 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show(charac.AttackDamage.ToString());
+           // MessageBox.Show(charac.AttackDamage.ToString());
         }
-        public virtual void Lost(Bloo charac)
+        public override void Lost(Bloo charac)
         {
             MessageBox.Show("One Shot Potion lost.");
-            charac.AttackDamage = 1;
+            charac.AttackDamage -= 9999;
             charac.PlayerItems.Remove(this);
         }
+  
     }
     public class HardHelmet : Items
     {
@@ -458,10 +456,11 @@ namespace ComProg2Finals
                 ReflectDamage = 5;
             }
             */
+            MessageBox.Show("Bloo found a Hard Helmet, Bloo's defense has increased by 15%.");
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found a Hard Helmet, Bloo's defense has increased by 15%.");
+           // MessageBox.Show("Bloo found a Hard Helmet, Bloo's defense has increased by 15%.");
         }
     }
     public class SpikedHelmet : Items
@@ -476,10 +475,15 @@ namespace ComProg2Finals
             MessageBox.Show($"Spiked Helmet");
             charac.Defense += 5;
             charac.PlayerItems.Add(this);
+            MessageBox.Show("Bloo found a Spiked Helmet, Bloo's defense has increased by 5%.");
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found a Spiked Helmet, Bloo's defense has increased by 5%.");
+            //MessageBox.Show("Bloo found a Spiked Helmet, Bloo's defense has increased by 5%.");
+        }
+        public override void BattleAddItem(Bloo charac)
+        {
+            
         }
     }
     public class Excalibur : Items
@@ -492,10 +496,16 @@ namespace ComProg2Finals
         {
             charac.AttackDamage += 50;
             charac.PlayerItems.Add(this);
+            MessageBox.Show("Bloo found the Excalibur, Bloo's attack has increased by 50%.");
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found the Excalibur, Bloo's attack has increased by 50%.");
+            //MessageBox.Show("Bloo found the Excalibur, Bloo's attack has increased by 50%.");
+        }
+        public override void Lost(Bloo charac)
+        {
+            charac.AttackDamage -= 50;
+            charac.PlayerItems.Remove(this);
         }
     }
     public class StrangeGem : Items
@@ -506,13 +516,18 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-            MessageBox.Show($"Strange Gem");
-            charac.Coins += charac.Coins * .50;
+            //MessageBox.Show("Bloo found a Strange Gem, n% discount on all gold related items.");
+            charac.discount = .80;
             charac.PlayerItems.Add(this);
+            MessageBox.Show("Bloo found a Strange Gem, n% discount on all gold related items.");
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found a Strange Gem, n% discount on all gold related items.");
+           // MessageBox.Show("Bloo found a Strange Gem, n% discount on all gold related items.");
+        }
+        public override void Lost(Bloo charac)
+        {
+            charac.PlayerItems.Remove(this);
         }
     }
     public class GoldenArrow : Items
@@ -525,11 +540,17 @@ namespace ComProg2Finals
         {
             charac.CritChance += 20;
             charac.PlayerItems.Add(this);
-            MessageBox.Show($"{charac.Name}'s crit chance is now {charac.CritChance}");
+           // MessageBox.Show($"{charac.Name}'s crit chance is now {charac.CritChance}");
+            MessageBox.Show("Bloo found a Golden Arrow, crit chance has increased by 20%.");
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found a Golden Arrow, crit chance has increased by 20%.");
+           // MessageBox.Show("Bloo found a Golden Arrow, crit chance has increased by 20%.");
+        }
+        public override void Lost(Bloo charac)
+        {
+            charac.CritChance -= 20;
+            charac.PlayerItems.Remove(this);
         }
     }
     public class HolyWater : Items
@@ -540,22 +561,14 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-            charac.Health += 10;
-            MessageBox.Show($"Holy Water");
+            MessageBox.Show($"Bloo received Holy Water, Bloo's gains +10 Health every turn.");
             charac.PlayerItems.Add(this);
-            if (charac.Health < 100)
-            {
-                charac.Health += 10;
-                if (charac.Health > 100)
-                {
-                    double Excess = charac.Health - 100;
-                    charac.Health -= Excess;
-                }
-            }
+          
         }
-        public override void Encountered(Bloo charac)
+
+        public override void BattleAddItem(Bloo charac)
         {
-            MessageBox.Show("Bloo received Holy Water, Bloo's gains +10 Health every turn.");
+            charac.CharStatEffects.Add(new HealPerTurn("HolyWater", 10, 999));
         }
     }
     public class Goblet : Items
@@ -568,10 +581,17 @@ namespace ComProg2Finals
         {
             MessageBox.Show($"Goblet");
             charac.PlayerItems.Add(this);
+            MessageBox.Show("Bloo found a Goblet, Bloo gains +5% on all elements.");
+            charac.ElementMultiplier *= 2;
         }
         public override void Encountered(Bloo charac)
         {
-            MessageBox.Show("Bloo found a Goblet, Bloo gains +5% on all elements.");
+        }
+        public override void Lost(Bloo charac)
+        {
+            charac.ElementMultiplier /= 2;
+            charac.PlayerItems.Remove(this);
+            
         }
     }
     
@@ -588,20 +608,28 @@ namespace ComProg2Finals
             {
                 case 1:
                     // if final boss, add stat effect
+                    Form2 form2 = Form2.Instance;
+                    int bossIndex = form2.encounterCount / 5;
+                    if(bossIndex == 3)
+                    {
+                        MessageBox.Show("Final boss, bloo's attacks are enhanced");
+                        charac.CharStatEffects.Add(new AttackBoost("Seer buff", 0.30, charac));
+                        charac.PlayerItems.Remove(this);
+                    }
                     break;
                 case 2:
-                    charac.CharStatEffects.Add(new AttackBoost("Seer buff", 0.15));
+                    charac.CharStatEffects.Add(new AttackBoost("Seer buff", 0.15, charac));
                     MessageBox.Show("Bloo attacks are enhanced");
                     charac.PlayerItems.Remove(this);
                     break;
                 case 3:
                     // add charac.opposition before triggering//
-                    charac.Opposition.Accuracy -= 50;
+                    charac.Opposition.LoweringAccuracy(50, charac);
                     MessageBox.Show("Bloo's enemy is feeling dizzy");
                     charac.PlayerItems.Remove(this);
                     break;
                 case 4:
-                    charac.CharStatEffects.Add(new DefenseBoost("Seer buff", 20));
+                    charac.CharStatEffects.Add(new DefenseBoost("Seer buff", 20, charac));
                     MessageBox.Show("Bloo feels tougher");
                     charac.PlayerItems.Remove(this);
                     break;
@@ -675,6 +703,30 @@ namespace ComProg2Finals
             }
             // Apply the effect of the selected potion
             selectedPotion.Acquired(charac);
+        }
+    }
+
+    public class KingDebuff : Items
+    {
+        int interval;
+        public KingDebuff()
+        {
+            interval = 3;
+        }
+        public override void Acquired(Bloo charac)
+        {
+            charac.canGetItem = false;
+        }
+        public override void Encountered(Bloo charac)
+        {
+            if(interval == 0)
+            {
+                this.Lost(charac);
+            }
+        }
+        public override void Lost(Bloo charac)
+        {
+            charac.canGetItem = true;
         }
     }
 

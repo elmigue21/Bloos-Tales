@@ -178,15 +178,11 @@ namespace ComProg2Finals
             }
             else if(chance > Enemy.skillProbability[1] && chance <= Enemy.skillProbability[2] + Enemy.skillProbability[1] + Enemy.skillProbability[0])
             {
-               // Enemy.skillQueue.Add(() => Enemy.CharSkills[2].Perform(Enemy));
                 Enemy.CharSkills[2].Perform(Enemy);
-                // Enemy.skillQueued = Enemy.CharSkills[2];
             }
             else if(chance > Enemy.skillProbability[2] && chance <= Enemy.skillProbability[3] + Enemy.skillProbability[2] + Enemy.skillProbability[1] + Enemy.skillProbability[0])
             {
-               // Enemy.skillQueue.Add(() => Enemy.CharSkills[3].Perform(Enemy));
                 Enemy.CharSkills[3].Perform(Enemy);
-                // Enemy.skillQueued = Enemy.CharSkills[3];
             }
 
 
@@ -205,22 +201,22 @@ namespace ComProg2Finals
                 {
                     Player.hasTurn = true;
                 }
-                if (Player.Health <= 0)
-                {
-                    MessageBox.Show("Bloo has lost!");
-                    this.Hide();
-                }
-                else if (Enemy.Health <= 0)
-                {
-                    MessageBox.Show("Bloo has won!");
-                    this.Hide();
-                }
-                else
-                {
+              //  if (Player.Health <= 0)
+              //  {
+                   // MessageBox.Show("Bloo has lost!");
+                   // this.Close();
+              //  }
+              //  else if (Enemy.Health <= 0)
+              //  {
+                    //MessageBox.Show("Bloo has won!");
+                    //this.Close();
+              //  }
+              //  else
+               // {
                     //runEnemy();
                     runTurn();
                     updateLabels();
-                }
+               // }
             }
 
         }
@@ -240,21 +236,21 @@ namespace ComProg2Finals
                     Player.hasTurn = true;
                 }
 
-                if (Player.Health <= 0)
-                {
-                    MessageBox.Show("Bloo has lost!");
-                    this.Hide();
-                }
-                else if (Enemy.Health <= 0)
-                {
-                    MessageBox.Show("Bloo has won!");
-                    this.Hide();
-                }
-                else
-                {
+               // if (Player.Health <= 0)
+               // {
+                   // MessageBox.Show("Bloo has lost!");
+                   // this.Close();
+              //  }
+             //   else if (Enemy.Health <= 0)
+              //  {
+                   // MessageBox.Show("Bloo has won!");
+                   // this.Close();
+              //  }
+               // else
+               // {
                     runTurn();
                     updateLabels();
-                }
+              //  }
             }
         }
 
@@ -271,21 +267,21 @@ namespace ComProg2Finals
                     Player.hasTurn = true;
                 }
 
-                if (Player.Health <= 0)
-                {
-                    MessageBox.Show("Bloo has lost!");
-                    this.Hide();
-                }
-                else if (Enemy.Health <= 0)
-                {
-                    MessageBox.Show("Bloo has won!");
-                    this.Hide();
-                }
-                else
-                {
+              //  if (Player.Health <= 0)
+              //  {
+                   // MessageBox.Show("Bloo has lost!");
+                    //this.Close();
+              //  }
+               // else if (Enemy.Health <= 0)
+              //  {
+                   // MessageBox.Show("Bloo has won!");
+                    //this.Close();
+              //  }
+              //  else
+              //  {
                     runTurn();
                     updateLabels();
-                }
+               // }
             }
         }
 
@@ -303,21 +299,21 @@ namespace ComProg2Finals
                     Player.hasTurn = true;
                 }
 
-                if (Player.Health <= 0)
-                {
-                    MessageBox.Show("Bloo has lost!");
-                    this.Hide();
-                }
-                else if (Enemy.Health <= 0)
-                {
-                    MessageBox.Show("Bloo has won!");
-                    this.Hide();
-                }
-                else
-                {
+               // if (Player.Health <= 0)
+              //  {
+                   // MessageBox.Show("Bloo has lost!");
+                    //this.Close();
+               // }
+               // else if (Enemy.Health <= 0)
+               // {
+                    //MessageBox.Show("Bloo has won!");
+                   // this.Close();
+              // }
+              //  else
+              //  {
                     runTurn();
                     updateLabels();
-                }
+              //  }
 
             }
         }
@@ -346,11 +342,26 @@ namespace ComProg2Finals
             enemyLabelRizz.Text = "Rizz:" + Enemy.Rizz.ToString();
             enemyLabelDefense.Text = "Defense:" + Enemy.Defense.ToString();
             enemyPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Enemy.picImage));
+
+
+
+
+            playerRizzStat.Text = Player.Rizz.ToString();
+            playerAtkStat.Text = Player.AttackDamage.ToString();
+            playerCoinStat.Text = Player.Coins.ToString();
+            playerDefStat.Text = Player.Defense.ToString();
+
+
+            enemyRizzStat.Text = Enemy.Rizz.ToString();
+            enemyAtkStat.Text = Enemy.AttackDamage.ToString();
+            enemyCoinStat.Text = "?";
+            enemyDefStat.Text = Enemy.Defense.ToString();
+            
         }
         private void playerRunBtn(object sender, EventArgs e)
         {
-            this.Hide();
-            form2.runNextEncounter();
+            this.Close();
+           // form2.runNextEncounter();
         }
         private void testButton_Click(object sender, EventArgs e)
         {
@@ -374,6 +385,13 @@ namespace ComProg2Finals
 
 
             //runEnemy();
+            /*
+            if (Enemy.Health <= 0)
+            {
+                MessageBox.Show("Bloo won");
+                this.Close();
+            }
+            */
 
 
             foreach (Action skills in Enemy.skillQueue)
@@ -382,20 +400,20 @@ namespace ComProg2Finals
             }
             
             Enemy.skillQueue.Clear();
-
+            /*
             if (Player.hasTurn)
             {
                 if (Player.Health <= 0)
                 {
                     MessageBox.Show("Bloo has lost!");
                     form2.runNextEncounter();
-                    this.Hide();
+                    this.Close();
                 }
                 else if (Enemy.Health <= 0)
                 {
                     MessageBox.Show("Bloo has won!");
                     form2.runNextEncounter();
-                    this.Hide();
+                    this.Close();
                 }
             }
             else
@@ -406,13 +424,24 @@ namespace ComProg2Finals
                 if (Player.Health <= 0)
                 {
                     MessageBox.Show("Bloo has lost!");
-                    this.Hide();
+                    this.Close();
                 }
                 else if (Enemy.Health <= 0)
                 {
                     MessageBox.Show("Bloo has won!");
-                    this.Hide();   
+                    this.Close();   
                 }
+            }
+            */
+            if (Player.Health <= 0)
+            {
+                MessageBox.Show("Bloo lost");
+                this.Close();
+            }
+            else if (Enemy.Health <= 0)
+            {
+                MessageBox.Show("Bloo won");
+                this.Close();
             }
             updateLabels();
         }
