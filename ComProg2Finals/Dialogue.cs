@@ -247,6 +247,7 @@ namespace ComProg2Finals
             this.CommitEvent7 = "Bloo's Attack Damage was reduced by 20.";
             this.CommitEvent8 = "Bloo's Coins was reduced by 20.";
             this.CommitEvent9 = "Bloo's Rizz was reduced by 20.";
+            this.CommitEvent10 = "Bloo's found nothing.";
             this.IgnoreDialogue = "Bloo got scared of the dark…";
 
         }
@@ -300,11 +301,11 @@ namespace ComProg2Finals
         {
             this.EntranceDialogue = "In your future, I see twists and turns, challenges and triumphs. Care to gaze into my crystal ball and see the future?";
             this.Option1Dialogue = "Bloo gazes into the crystal ball…";
-            this.CommitEvent1 = "50 coins for a price of protection.";
-            this.CommitEvent2 = "50 coins to make your enemies blind.";
+            this.CommitEvent5 = "50 coins for a price of protection.";
+            this.CommitEvent4 = "50 coins to make your enemies blind.";
             this.CommitEvent3 = "100 coins for a price of strength on your next encounter.";
-            this.CommitEvent4 = "150 coins for a price of pure strength against a powerful enemy.";
-            this.CommitEvent5 = "Sneak a peek at your enemy in exchange for your rizz.";
+            this.CommitEvent2 = "150 coins for a price of pure strength against a powerful enemy.";
+            this.CommitEvent1 = "Sneak a peek at your enemy in exchange for your rizz.";
             this.IgnoreDialogue = "Bloo doesn’t want to look into his future…";
         }
     }

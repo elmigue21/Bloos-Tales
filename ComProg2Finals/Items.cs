@@ -22,19 +22,19 @@ namespace ComProg2Finals
             this.ItemsDiag = new ItemsDialogue();
         }
 
-        public virtual void Acquired(Bloo charac)
+        public virtual async Task Acquired(Bloo charac)
         {
 
         }
-        public virtual void Encountered(Bloo charac)
+        public virtual async Task Encountered(Bloo charac)
         {
             
         }
-        public virtual void Lost(Bloo charac)
+        public virtual async Task Lost(Bloo charac)
         {
 
         }
-        public virtual void BattleAddItem(Bloo charac)
+        public virtual async Task BattleAddItem(Bloo charac)
         {
             
         }
@@ -46,20 +46,22 @@ namespace ComProg2Finals
             this.Name = "Rock";    
         }
         int iter;
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
             charac.PlayerItems.Add(this);
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.RockDialogue;
+            await Task.Delay(2000);
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
 
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.PlayerItems.Remove(this);
         }
-        public override void BattleAddItem(Bloo charac)
+        public override async Task BattleAddItem(Bloo charac)
         {
         }
     }
@@ -69,15 +71,17 @@ namespace ComProg2Finals
         {
             this.Name = "Sacrifice Ring";
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.RingDialogue;
+            await Task.Delay(2000);
             double change = 25;
             charac.Health -= change;
             charac.AttackDamage += change;
             charac.PlayerItems.Add(this);
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             double change = 25;
             charac.Health += change;
@@ -93,16 +97,18 @@ namespace ComProg2Finals
         {
             this.Name = "Berserk Amulet";
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
             this.accuracyVal = charac.Accuracy * .25;
             this.attackDamageVal = charac.AttackDamage * .25;
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.AmuletDialogue;
+            await Task.Delay(2000);
             charac.Accuracy -= accuracyVal;
             charac.AttackDamage += attackDamageVal;
             charac.PlayerItems.Add(this);
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.Accuracy += accuracyVal;
             charac.AttackDamage += attackDamageVal;
@@ -116,16 +122,18 @@ namespace ComProg2Finals
         {
             this.Name = "Behelith";
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
             charac.Lives--;
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.BehelithDialogue;
+            await Task.Delay(2000);
             charac.coinGainMultiplier *= 2;
             this.rizzVal = charac.Rizz * .30;
             charac.ChangeRizz(-rizzVal);
             charac.PlayerItems.Add(this);
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.coinGainMultiplier /= 2;
             charac.ChangeRizz(rizzVal);
@@ -141,12 +149,14 @@ namespace ComProg2Finals
         }
         int limit = 20;
         int gainedRizz = 0;
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.CologneDialogue;
+            await Task.Delay(2000);
             charac.PlayerItems.Add(this);         
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
             gainedRizz += 5;
 
@@ -155,7 +165,7 @@ namespace ComProg2Finals
                 charac.ChangeRizz(5);
             }
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.ChangeRizz(-gainedRizz);
             charac.PlayerItems.Remove(this);
@@ -167,17 +177,19 @@ namespace ComProg2Finals
         {
             this.Name = "Piggybank";
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.PiggyDialogue;
+            await Task.Delay(2000);
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {            
             charac.Coins += 10;
 
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.PlayerItems.Remove(this);
         }
@@ -193,9 +205,11 @@ namespace ComProg2Finals
             this.Name = "Life Potion";
             this.Price = 51;
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.LifeDialogue;
+            await Task.Delay(2000);
 
             if (charac.Lives < 5)
             {
@@ -204,7 +218,7 @@ namespace ComProg2Finals
             }
             //charac.PlayerItems.Add(this);
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.Lives -= addedLives;
         }
@@ -218,7 +232,7 @@ namespace ComProg2Finals
             this.Name = "Mystery Potion";
             this.Price = 30;
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
             Items selectedPotion;
             int randomIndex = random.Next(6);
@@ -257,15 +271,17 @@ namespace ComProg2Finals
         }
         int iter;
         double rizzBuff;
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
             iter = 2;
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.RizzBoosterDialogue;
+            await Task.Delay(2000);
             rizzBuff = charac.Rizz * .50;
             charac.ChangeRizz(rizzBuff);
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         { 
             if (iter == 0)
             {
@@ -276,7 +292,7 @@ namespace ComProg2Finals
                 iter--;
             }
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.ChangeRizz(-rizzBuff);
             charac.PlayerItems.Remove(this);
@@ -291,15 +307,17 @@ namespace ComProg2Finals
         int iter;
         double healthBuff;
 
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
             iter = 2;
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.HealthBoosterDialogue;
+            await Task.Delay(2000);
             healthBuff = charac.Health * .50;
             charac.Health += healthBuff;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
             if (iter == 0)
             {
@@ -310,7 +328,7 @@ namespace ComProg2Finals
                 iter--;
             }
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.Health -= healthBuff;
             charac.PlayerItems.Remove(this);
@@ -324,15 +342,17 @@ namespace ComProg2Finals
         }
         int iter;
         double defenseDebuff;
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
             iter = 3;
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.DefenseDownDialogue;
+            await Task.Delay(2000);
             defenseDebuff = charac.Defense * .50;
             charac.Defense -= defenseDebuff;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
             if (iter == 0)
             {
@@ -343,7 +363,7 @@ namespace ComProg2Finals
                 iter--;
             }
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.Defense += defenseDebuff;
             charac.PlayerItems.Remove(this);
@@ -357,13 +377,15 @@ namespace ComProg2Finals
         }
 
         int iter = 3;
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.DuctTapeDialogue;
+            await Task.Delay(2000);
             charac.canUseRizz = false;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
             if (iter == 0)
             {
@@ -374,7 +396,7 @@ namespace ComProg2Finals
                 iter--;
             }
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.canUseRizz = true;
             charac.PlayerItems.Remove(this);
@@ -387,14 +409,16 @@ namespace ComProg2Finals
             this.Name = "Pocket Hole Potion";
         }
         int iter;        
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
             iter = 3;
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.PocketHoleDialogue;
+            await Task.Delay(2000);
             charac.canGainCoin = false;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
             if (iter == 0)
             {
@@ -405,7 +429,7 @@ namespace ComProg2Finals
                 iter--;
             }
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.canGainCoin = true;
             charac.PlayerItems.Remove(this);
@@ -418,14 +442,14 @@ namespace ComProg2Finals
             this.Name = "One Shot Potion";
         }
         int iter;
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
             iter = 1;
             charac.AttackDamage += 9999;
            // form2.dialogueTextBox.Text = ItemsDiag.OneShotDialogue;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
             if (iter == 0)
             {
@@ -436,7 +460,7 @@ namespace ComProg2Finals
                 iter--;
             }
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.AttackDamage -= 9999;
             charac.PlayerItems.Remove(this);
@@ -450,17 +474,17 @@ namespace ComProg2Finals
             this.Name = "Hard Helmet";
             this.Price = 10;
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
            // form2.dialogueTextBox.Text = ItemsDiag.HardHelmentDialogue;
             charac.Defense += 15;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
 
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.Defense -= 15;
             charac.PlayerItems.Remove(this);
@@ -473,20 +497,20 @@ namespace ComProg2Finals
             this.Name = "Spiked Helmet";
             this.Price = 10;
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
            // form2.dialogueTextBox.Text = ItemsDiag.SpikedHelmetDialogue;
             charac.Defense += 5;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
         }
-        public override void BattleAddItem(Bloo charac)
+        public override async Task BattleAddItem(Bloo charac)
         {
             
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.Defense -= 5;
             charac.PlayerItems.Remove(this);
@@ -498,16 +522,18 @@ namespace ComProg2Finals
         {
             this.Name = "Excalibur";
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.ExcaliburDialogue;
+            await Task.Delay(2000);
             charac.AttackDamage += 50;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.AttackDamage -= 50;
             charac.PlayerItems.Remove(this);
@@ -520,17 +546,19 @@ namespace ComProg2Finals
         {
             this.Name = "Strange Gem";
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
             charac.discount = .80;
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.StrangeGemDialogue;
+            await Task.Delay(2000);
             charac.Coins += charac.Coins * .50;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.PlayerItems.Remove(this);
 
@@ -542,16 +570,18 @@ namespace ComProg2Finals
         {
             this.Name = "Golden Arrow";
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.GoldenArrowDialogue;
+            await Task.Delay(2000);
             charac.CritChance += 20;
             charac.PlayerItems.Add(this);
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.CritChance -= 20;
             charac.PlayerItems.Remove(this);
@@ -563,20 +593,22 @@ namespace ComProg2Finals
         {
             this.Name = "Holy Water";
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
             //charac.Health += 10;
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.HolyWaterDialogue;
+            await Task.Delay(2000);
             charac.PlayerItems.Add(this);
           
         }
 
-        public override void BattleAddItem(Bloo charac)
+        public override async Task BattleAddItem(Bloo charac)
         {
             charac.CharStatEffects.Add(new HealPerTurn("HolyWater", 10, 999));
 
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.PlayerItems.Remove(this);
         }
@@ -587,16 +619,18 @@ namespace ComProg2Finals
         {
             this.Name = "Goblet";
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
+            await Task.Delay(2000);
             form2.dialogueTextBox.Text = ItemsDiag.GobletDialogue;
+            await Task.Delay(2000);
             charac.PlayerItems.Add(this);
             charac.ElementMultiplier *= 2;
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.ElementMultiplier /= 2;
             charac.PlayerItems.Remove(this);
@@ -614,11 +648,11 @@ namespace ComProg2Finals
         {
             index = ind;
         }
-        public override void BattleAddItem(Bloo charac)
+        public override async Task BattleAddItem(Bloo charac)
         {
             switch (index)
             {
-                case 1:
+                case 0:
                     int bossIndex = form2.encounterCount / 5;
                     if(bossIndex == 3)
                     {
@@ -626,15 +660,15 @@ namespace ComProg2Finals
                         charac.PlayerItems.Remove(this);
                     }
                     break;
-                case 2:
+                case 1:
                     charac.CharStatEffects.Add(new AttackBoost("Seer buff", 0.15, charac));
                     charac.PlayerItems.Remove(this);
                     break;
-                case 3:
+                case 2:
                     charac.Opposition.LoweringAccuracy(50, charac);
                     charac.PlayerItems.Remove(this);
                     break;
-                case 4:
+                case 3:
                     charac.CharStatEffects.Add(new DefenseBoost("Seer buff", 20, charac));
                     charac.PlayerItems.Remove(this);
                     break;
@@ -649,7 +683,7 @@ namespace ComProg2Finals
         {
             this.Name = "Mystery Box";
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
             Items selectedPotion;
             int randomIndex = random.Next(15);
@@ -718,16 +752,15 @@ namespace ComProg2Finals
             this.Name = "King Debuff";
             
         }
-        public override void Acquired(Bloo charac)
+        public override async Task Acquired(Bloo charac)
         {
             charac.canGetItem = false;
             initialInventorySize = charac.PlayerItems.Count;
         }
-        public override void Encountered(Bloo charac)
+        public override async Task Encountered(Bloo charac)
         {
             if(interval == 0)
             {
-                MessageBox.Show("Bloo no longer owes the king any items");
                 this.Lost(charac);
             }
             else
@@ -736,14 +769,13 @@ namespace ComProg2Finals
                 {
                     for(int i = charac.PlayerItems.Count-1; i > initialInventorySize; i--)
                     {
-                        MessageBox.Show("the king took " +  charac.PlayerItems[i].Name + " from bloo's inventory");
                         charac.PlayerItems.RemoveAt(i);
                         interval--;
                     }
                 }
             }
         }
-        public override void Lost(Bloo charac)
+        public override async Task Lost(Bloo charac)
         {
             charac.canGetItem = true;
         }
