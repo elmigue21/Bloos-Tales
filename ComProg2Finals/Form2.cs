@@ -22,7 +22,6 @@ namespace ComProg2Finals
         Character Enemy;
         public static Form2 Instance { get; private set; }
         public static Bloo Player { get; private set; }
-        //public Bloo Player;
         string directory;
         public EncounterClass currentEncounter;
         public int encounterCount;
@@ -37,20 +36,12 @@ namespace ComProg2Finals
             Instance = this;
             InitializeComponent();
             this.DoubleBuffered = true;
-
             dialogueTextBox.ReadOnly = true;
-            // MessageBox.Show(Player.Name);
 
             Bloo bloo = new Bloo("Bloo");
             Player = bloo;
             f1.form2 = this;
-
-            //Instance = this;
             Instance = this;
-
-            //mastergooway.skillshop = new Skill[] { new Bounce(), new Split(), new Mog(), new ElementBook() };
-            //shopkeeper.itemshop = new Items[] { new LifePotion(), new MysteryPotion(), new RizzBooster(), new HealthBoosterPotion(), new DefenseDown50percentPotion(), new DuctTapePotion(), new PocketHolePotion(), new OneShotPotion(), new HardHelmet(), new SpikedHelmet() };
-
 
         }
         Image layer1 = ComProg2Finals.Properties.Resources._00Sky;
@@ -82,17 +73,12 @@ namespace ComProg2Finals
             timer.Interval = 2000;
             timer.Tick += Timer_Tick;
 
-            //Bloo bloo = new Bloo("Bloo");
-            //Player = bloo;
             encounterCount = 1;
-          //  SpikedHelmet spiked = new SpikedHelmet();
-           // spiked.Acquired(Player);
 
             Random rand1 = new Random();
             for (int i = 0; i < 3; i++)
             {
                 Character boss = new Character("boss");
-                // Random rand1 = new Random();
                 int qqq1 = rand1.Next(0, 5);
                 switch (qqq1)
                 {
@@ -123,25 +109,7 @@ namespace ComProg2Finals
             statsPanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "statsPanel.png"));
             dialoguePanel.BackgroundImageLayout = ImageLayout.Stretch;
             statsPanel.BackgroundImageLayout = ImageLayout.Zoom;
-            /*
-            foreach(Character boss in bossFights)
-            {
-                MessageBox.Show(boss.Name);
-            }
-            */
-
-            // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
-            //SoundPlayer player = new SoundPlayer(soundFilePath);
-            // player.Play();
-            //  HolyWater rock = new HolyWater();
-            //  rock.Acquired(Player);
-
-
-
-
             runNextEncounter();
-            //mastergooway.skillshop = new Skill[] { new Bounce(), new Split(), new Mog(), new ElementBook() };
-            //shopkeeper.itemshop = new Items[] { new LifePotion(), new MysteryPotion(), new RizzBooster(), new HealthBoosterPotion(), new DefenseDown50percentPotion(), new DuctTapePotion(), new PocketHolePotion(), new OneShotPotion(), new HardHelmet(), new SpikedHelmet()};
             UpdateStats();
         }
         bool right, hold = true;
@@ -278,12 +246,6 @@ namespace ComProg2Finals
                     button.Width = 200;
                     button.Image = Image.FromFile(Path.Combine(directory, "assets", "Button.png"));
                     button.BackColor = Color.Transparent;
-
-                    //  button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventActions[i](Player));
-
-
-                    //  if (encounterCount % 5 != 4)
-                    //{
                     switch (i)
                         {
                             case 0:
@@ -306,30 +268,6 @@ namespace ComProg2Finals
                                 break;
 
                         }
-                    /*
-                    }
-                    else
-                    {
-                        if (currentEncounter == shopkeeper)
-                        {
-                            for (int z = 0; z < shopkeeper.itemshop.Length; z++)
-                            {
-
-                            }
-                        }
-                        else if (currentEncounter == mastergooway)
-                        {
-                            for (int z = 0; z < mastergooway.skillshop.Length; z++)
-                            {
-
-                            }
-                        }
-                    }
-
-                    */
-
-
-
                     flowLayoutPanel1.Controls.Add(button);
                 }
             }
@@ -337,56 +275,14 @@ namespace ComProg2Finals
             {
                 if(currentEncounter == shopkeeper)
                 {
-                    /*
-                    for(int i = 0; i < shopkeeper.itemshop.Count; i++)
-                    {
-                        int index = i;
-                        Button button = new Button();
-                        button.Text = shopkeeper.itemshop[i].Name;
-                        button.Click += (Btnsender, args) =>
-                        {
-                             //shopkeeper.itemshop[index].Acquired(Player);
-                            //shopkeeper.itemshop.Remove(shopkeeper.itemshop[index]);                       
-                            flowLayoutPanel1.Controls.Remove(button);
-                        };
-                        flowLayoutPanel1.Controls.Add(button);
-                    }
-                    */
                     LoadItemShop();
                 }
                 else if(currentEncounter == mastergooway)
                 {
-                    /*
-                    for(int i = 0; i < mastergooway.skillshop.Count; i++)
-                    {
-                        int index = i;
-                        Button button = new Button();
-                        button.Text = mastergooway.skillshop[i].Name;
-                        button.Click += (Btnsender, args) =>
-                        {
-                            // Call the Learn() method
-                            //MessageBox.Show(mastergooway.skillshop[index].ToString());
-                            mastergooway.skillshop[index].Learn(Player);
-                            //mastergooway.skillshop.RemoveAt(mastergooway.skillshop[index]);
-                            flowLayoutPanel1.Controls.Remove(button);
-                        };
-                        flowLayoutPanel1.Controls.Add(button);
-                    }
-                    */
                     LoadSkillShop();
                 }
             }
-            /*
-            Button btncheck = new Button();
-            btncheck.Text = "fightttt";
-            
-            btncheck.Click += (qqqsender, qe) =>
-            {
-                currentEncounter = new Knight("qweqwe");
-                EnterBattle();
-            };
-            flowLayoutPanel1.Controls.Add(btncheck);
-            */
+
             label1.Text = currentEncounter.Name;
             dialogueTextBox.Text = currentEncounter.EncounterDialogue;
             charactersPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
@@ -418,14 +314,6 @@ namespace ComProg2Finals
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*
-            label1.Text = "";
-            dialogueTextBox.Text = "";
-            flowLayoutPanel1.Controls.Clear();
-            charactersPictureBox.Image = null;
-            playerPictureBox.Image = Properties.Resources.blooBouncing;
-            timer.Start();
-            */
             runNextEncounter();
         }
         public void runNextEncounter()
@@ -443,28 +331,6 @@ namespace ComProg2Finals
             switch (encounterCount % 5)
             {
                 case 0:
-                    /*
-                    Random rand1 = new Random();
-                    int qqq1 = rand1.Next(0, 5);
-                    switch (qqq1)
-                    {
-                        case 0:
-                            currentEncounter = new Knight("knightt");
-                            break;
-                        case 1:
-                            currentEncounter = new Wizard("gaanddaaalfff");
-                            break;
-                        case 2:
-                            currentEncounter = new Rogue("miroguel");
-                            break;
-                        case 3:
-                            currentEncounter = new Archer("legolas");
-                            break;
-                        case 4:
-                            currentEncounter = new Priest("rafaella");
-                            break;
-                    }
-                    */
                     int bossIndex = encounterCount / 5;
                     if (bossIndex > 3)
                     {
@@ -483,12 +349,6 @@ namespace ComProg2Finals
                             }
                         }
                     }
-
-
-
-
-
-
                     break;
                 case 4:
                     Random rand2 = new Random();
@@ -545,14 +405,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
-           //currentEncounter = new Seer();
-
             label1.Text = "";
-            /*
-            List<string> diag = new List<string>();
-            KnightDialogue knightdiag = new KnightDialogue();
-            diag.Add(knightdiag.EntranceDialogue);
-            */
             dialogueTextBox.Text = currentEncounter.befEncounter;
             flowLayoutPanel1.Controls.Clear();
             charactersPictureBox.Image = null;
@@ -576,7 +429,7 @@ namespace ComProg2Finals
                     {
                         shopkeeper.itemshop[index].Acquired(Player);
                         Player.Coins -= shopkeeper.itemshop[index].Price * Player.discount;
-                        MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nDiscounted Price: {shopkeeper.itemshop[index].Price * Player.discount}\n\"Coins left : {Player.Coins}");
+                      //  MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nDiscounted Price: {shopkeeper.itemshop[index].Price * Player.discount}\n\"Coins left : {Player.Coins}");
 
                         shopkeeper.itemshop.Remove(shopkeeper.itemshop[index]);
                         //flowLayoutPanel1.Controls.Remove(button);
@@ -584,8 +437,9 @@ namespace ComProg2Finals
                     }
                     else
                     {
-                        MessageBox.Show("You don't have enough coins");
-                        MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nDiscounted Price: {shopkeeper.itemshop[index].Price * Player.discount}\nCoins left : {Player.Coins}");
+                        dialogueTextBox.Text = "Not enough coins";
+                       // MessageBox.Show("You don't have enough coins");
+                      //  MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nDiscounted Price: {shopkeeper.itemshop[index].Price * Player.discount}\nCoins left : {Player.Coins}");
                         LoadItemShop();
                     }
                 };
@@ -597,10 +451,6 @@ namespace ComProg2Finals
 
             btncheck.Click += (qqqsender, qe) =>
             {
-                /*
-                currentEncounter = new Knight("qweqwe");
-                EnterBattle();
-                */
                 runNextEncounter();
             };
             flowLayoutPanel1.Controls.Add(btncheck);
@@ -618,30 +468,29 @@ namespace ComProg2Finals
                 button.Text = mastergooway.skillshop[i].Name + " $" + (mastergooway.skillshop[index].Price *Player.discount).ToString();
                 button.Click += (Btnsender, args) =>
                 {
-                    // Call the Learn() method
-                    //MessageBox.Show(mastergooway.skillshop[index].ToString());
                     if (Player.CharSkills.Count < 4)
                     {
                         if (mastergooway.skillshop[index].Price * Player.discount <= Player.Coins)
                         {
                             Player.Coins -= mastergooway.skillshop[index].Price * Player.discount;
                             mastergooway.skillshop[index].Learn(Player);
-                            MessageBox.Show($"Price: {mastergooway.skillshop[index].Price}\nDiscounted Price: {mastergooway.skillshop[index].Price * Player.discount}\nCoins left : {Player.Coins}");
+                          //  MessageBox.Show($"Price: {mastergooway.skillshop[index].Price}\nDiscounted Price: {mastergooway.skillshop[index].Price * Player.discount}\nCoins left : {Player.Coins}");
                             mastergooway.skillshop.Remove(mastergooway.skillshop[index]);
                             LoadSkillShop();
                         }
                         else
                         {
-                            MessageBox.Show("You don't have enough coins");
-                            MessageBox.Show($"Price: {mastergooway.skillshop[index].Price}\nDiscounted Price: {mastergooway.skillshop[index].Price * Player.discount}\nCoins left : {Player.Coins}");
+                            dialogueTextBox.Text = "Not Enough Coins";
+                            //MessageBox.Show("You don't have enough coins");
+                          //  MessageBox.Show($"Price: {mastergooway.skillshop[index].Price}\nDiscounted Price: {mastergooway.skillshop[index].Price * Player.discount}\nCoins left : {Player.Coins}");
                             LoadSkillShop();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("You cannot learn any more skills!");
+                        dialogueTextBox.Text = "You cannot learn any more skills!";
+                       // MessageBox.Show("You cannot learn any more skills!");
                     }
-                    //flowLayoutPanel1.Controls.Remove(button);
                 };
                 flowLayoutPanel1.Controls.Add(button);
             }
@@ -650,9 +499,6 @@ namespace ComProg2Finals
 
             btncheck.Click += (qqqsender, qe) =>
             {
-                /*
-                currentEncounter = new Knight("qweqwe");
-                EnterBattle();*/
                 runNextEncounter();
             };
             flowLayoutPanel1.Controls.Add(btncheck);

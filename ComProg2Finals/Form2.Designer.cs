@@ -1,4 +1,6 @@
-﻿namespace ComProg2Finals
+﻿using System.Windows.Forms;
+
+namespace ComProg2Finals
 {
     partial class Form2
     {
@@ -32,6 +34,7 @@
             this.dialogue_box = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            
             this.dialogueTextBox = new System.Windows.Forms.TextBox();
             this.WalkChar = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -252,7 +255,7 @@
         private System.Windows.Forms.PictureBox charactersPictureBox;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.TextBox dialogueTextBox;
+        public TextBox dialogueTextBox;
         private System.Windows.Forms.Button WalkChar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
@@ -263,5 +266,6 @@
         private System.Windows.Forms.Label atkStat;
         private System.Windows.Forms.Label rizzStat;
         private System.Windows.Forms.Panel panel1;
+        //private System.Windows.Forms.TextBox dialogueTextBox;
     }
 }

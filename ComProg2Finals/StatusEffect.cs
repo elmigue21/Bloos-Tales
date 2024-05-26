@@ -16,6 +16,7 @@ namespace ComProg2Finals
         public string Name { get; protected set; }
         //public Form1 battleForm = Form1.Instance;
         public Form1 battleForm = Form1.GetInstance();
+        public Form2 form2 = Form2.Instance;
         public StatusEffect(string name) {
             battleForm = Form1.GetInstance();
             
@@ -46,7 +47,7 @@ namespace ComProg2Finals
         public override void Trigger(Character charac)
         {
             charac.Health -= dmg;
-            MessageBox.Show($"dealt {Name} {dmg} health from {charac.Name}, {intervals} intervals remaining");
+            form2.dialogueTextBox.Text = $"dealt {Name} {dmg} health from {charac.Name}, {intervals} intervals remaining";
             intervals--;
             if (intervals == 0)
             {
@@ -71,7 +72,7 @@ namespace ComProg2Finals
         public override void Trigger(Character charac)
         {
             charac.Health += healVal;
-            MessageBox.Show($"Healed {healVal} health from {charac.Name}, {intervals} intervals remaining");
+            form2.dialogueTextBox.Text = $"Healed {healVal} health from {charac.Name}, {intervals} intervals remaining";
             intervals--;
             if (intervals == 0)
             {
@@ -95,13 +96,7 @@ namespace ComProg2Finals
             intervals = 1;
         }
         public override void Trigger(Character charac)
-        {
-            //charac.Multiplier = quadrupleDamage;
-            
-            
-            //MessageBox.Show("multiplier " + charac.Multiplier.ToString());
-            
-            
+        {  
             if (intervals == 0)
             {
                 charac.Multiplier /= 4;
@@ -113,10 +108,7 @@ namespace ComProg2Finals
                 charac.Multiplier *= 4;
             }
             intervals--;
-            /*else
-            {
-                intervals--;
-            }*/
+
             battleForm.updateLabels();
         }
         public override void Debuff(Character user)
@@ -135,26 +127,25 @@ namespace ComProg2Finals
 
         public override void Trigger(Character user)
         {
-           // user.isBlocking = true;
             if (intrvl == 0) {
-                //user.isBlocking = false;
                 user.CharStatEffects.Remove(this);
                 Random random = new Random();
                 int rand = random.Next(0,2);
                 rand = 0;
                 switch (rand) {
                     case 0:
-                MessageBox.Show("Bloo lands and attacks the enemy!");
+
                 user.skillQueue.Add(()=>user.Opposition.DamageCharac(15, user, this.Name)  );
+                        form2.dialogueTextBox.Text = "Bloo lands and attacks the enemy!";
                         break;
                     case 1:
-                        MessageBox.Show("Bloo lands and tries to attack the enemy but missed!");
+                        form2.dialogueTextBox.Text = "Bloo lands and tries to attack the enemy but missed!";
                         break;
                 }
             }
             else
             {
-                MessageBox.Show("Bloo bounces in the air!");
+                form2.dialogueTextBox.Text = "Bloo bounces in the air!";
                 intrvl--;
             }
         }
@@ -211,7 +202,7 @@ namespace ComProg2Finals
             charac.CritChance = critChance;
 
 
-            MessageBox.Show($"{charac} lost {debuff} Accuracy in exchange for {buff}% Critical Chance {intervals} turn");
+            form2.dialogueTextBox.Text = $"{charac} lost {debuff} Accuracy in exchange for {buff}% Critical Chance {intervals} turn";
 
             intervals--;
             if (intervals == 0)
@@ -265,7 +256,6 @@ namespace ComProg2Finals
         {
             Random random = new Random();
             multiHitCount = random.Next(4);
-            MessageBox.Show(multiHitCount.ToString());
         }
         public override void Trigger(Character charac)
         {
@@ -303,51 +293,5 @@ namespace ComProg2Finals
             user.CharStatEffects.Remove(this);
         }
     }
-    /*
-    public class OneShotBuff : StatusEffect
-    {
-        public OneShotBuff(string name, Character user): base(name)
-        {
-            user.AttackDamage += 999;
-        }
-        public override void Trigger(Character user)
-        {
-        }
-        public override void Debuff(Character user)
-        {
-            user.AttackDamage -= 999;
-            user.CharStatEffects.Remove(this);
-        }
 
-    }
-
-
-    */
-
-    /*
-     * 
-     * class dialogue
-     * 
-     * 
-     * 
-     * entrancedialogue
-     * lose dialogue
-     * windialogue
-     * 
-     * fight dialogue
-     * 
-     * 
-     * KnightDialogue{
-     * this.entrancedialogue = "sdfasdfasdf"
-     * 
-     * 
-     * }
-     * WizardDialogue{
-     * 
-     * 
-     * }
-     * 
-     * 
-     * 
-    */
 }

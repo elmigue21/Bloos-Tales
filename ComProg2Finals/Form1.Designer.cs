@@ -45,39 +45,39 @@
             this.enemyLabelAccuracy = new System.Windows.Forms.Label();
             this.playerLabelLives = new System.Windows.Forms.Label();
             this.playerLabelCoins = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.platform05 = new System.Windows.Forms.Panel();
-            this.hills04Front = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.playerPictureBox = new System.Windows.Forms.PictureBox();
-            this.enemyPictureBox = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.testButton = new System.Windows.Forms.Button();
-            this.hills03Back = new System.Windows.Forms.PictureBox();
-            this.clouds02Front = new System.Windows.Forms.PictureBox();
-            this.clouds01Back = new System.Windows.Forms.PictureBox();
-            this.playerStatsPanel = new System.Windows.Forms.Panel();
-            this.playerDefStat = new System.Windows.Forms.Label();
-            this.playerCoinStat = new System.Windows.Forms.Label();
-            this.playerAtkStat = new System.Windows.Forms.Label();
-            this.playerRizzStat = new System.Windows.Forms.Label();
             this.enemyStatsPanel = new System.Windows.Forms.Panel();
             this.enemyRizzStat = new System.Windows.Forms.Label();
             this.enemyCoinStat = new System.Windows.Forms.Label();
             this.enemyAtkStat = new System.Windows.Forms.Label();
             this.enemyDefStat = new System.Windows.Forms.Label();
+            this.playerStatsPanel = new System.Windows.Forms.Panel();
+            this.playerDefStat = new System.Windows.Forms.Label();
+            this.playerCoinStat = new System.Windows.Forms.Label();
+            this.playerAtkStat = new System.Windows.Forms.Label();
+            this.playerRizzStat = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.testButton = new System.Windows.Forms.Button();
+            this.playerPictureBox = new System.Windows.Forms.PictureBox();
+            this.enemyPictureBox = new System.Windows.Forms.PictureBox();
+            this.hills04Front = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.hills03Back = new System.Windows.Forms.PictureBox();
+            this.clouds02Front = new System.Windows.Forms.PictureBox();
+            this.clouds01Back = new System.Windows.Forms.PictureBox();
+            this.dialogueTextBox = new System.Windows.Forms.TextBox();
             this.platform05.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.enemyStatsPanel.SuspendLayout();
+            this.playerStatsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hills03Back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clouds02Front)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clouds01Back)).BeginInit();
-            this.playerStatsPanel.SuspendLayout();
-            this.enemyStatsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // playerLabelName
@@ -240,18 +240,10 @@
             this.playerLabelCoins.TabIndex = 25;
             this.playerLabelCoins.Text = "CharacterCoins";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(490, 163);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 26;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // platform05
             // 
             this.platform05.BackColor = System.Drawing.Color.Transparent;
+            this.platform05.Controls.Add(this.dialogueTextBox);
             this.platform05.Controls.Add(this.enemyStatsPanel);
             this.platform05.Controls.Add(this.playerStatsPanel);
             this.platform05.Controls.Add(this.button2);
@@ -267,43 +259,121 @@
             this.platform05.Size = new System.Drawing.Size(966, 561);
             this.platform05.TabIndex = 32;
             // 
-            // hills04Front
+            // enemyStatsPanel
             // 
-            this.hills04Front.BackColor = System.Drawing.Color.Transparent;
-            this.hills04Front.ForeColor = System.Drawing.Color.Transparent;
-            this.hills04Front.Location = new System.Drawing.Point(0, 0);
-            this.hills04Front.Name = "hills04Front";
-            this.hills04Front.Size = new System.Drawing.Size(798, 451);
-            this.hills04Front.TabIndex = 33;
+            this.enemyStatsPanel.BackColor = System.Drawing.Color.Transparent;
+            this.enemyStatsPanel.BackgroundImage = global::ComProg2Finals.Properties.Resources.statsPanel;
+            this.enemyStatsPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.enemyStatsPanel.Controls.Add(this.enemyRizzStat);
+            this.enemyStatsPanel.Controls.Add(this.enemyCoinStat);
+            this.enemyStatsPanel.Controls.Add(this.enemyAtkStat);
+            this.enemyStatsPanel.Controls.Add(this.enemyDefStat);
+            this.enemyStatsPanel.Location = new System.Drawing.Point(715, 384);
+            this.enemyStatsPanel.Name = "enemyStatsPanel";
+            this.enemyStatsPanel.Size = new System.Drawing.Size(225, 160);
+            this.enemyStatsPanel.TabIndex = 24;
             // 
-            // pictureBox3
+            // enemyRizzStat
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Location = new System.Drawing.Point(360, 40);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 97);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 23;
-            this.pictureBox3.TabStop = false;
+            this.enemyRizzStat.AutoSize = true;
+            this.enemyRizzStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enemyRizzStat.Location = new System.Drawing.Point(164, 110);
+            this.enemyRizzStat.Name = "enemyRizzStat";
+            this.enemyRizzStat.Size = new System.Drawing.Size(31, 16);
+            this.enemyRizzStat.TabIndex = 23;
+            this.enemyRizzStat.Text = "Def";
+            this.enemyRizzStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // playerPictureBox
+            // enemyCoinStat
             // 
-            this.playerPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.playerPictureBox.Location = new System.Drawing.Point(49, 238);
-            this.playerPictureBox.Name = "playerPictureBox";
-            this.playerPictureBox.Size = new System.Drawing.Size(100, 97);
-            this.playerPictureBox.TabIndex = 8;
-            this.playerPictureBox.TabStop = false;
+            this.enemyCoinStat.AutoSize = true;
+            this.enemyCoinStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enemyCoinStat.Location = new System.Drawing.Point(69, 110);
+            this.enemyCoinStat.Name = "enemyCoinStat";
+            this.enemyCoinStat.Size = new System.Drawing.Size(38, 16);
+            this.enemyCoinStat.TabIndex = 22;
+            this.enemyCoinStat.Text = "Coin";
+            this.enemyCoinStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // enemyPictureBox
+            // enemyAtkStat
             // 
-            this.enemyPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.enemyPictureBox.Location = new System.Drawing.Point(804, 238);
-            this.enemyPictureBox.Name = "enemyPictureBox";
-            this.enemyPictureBox.Size = new System.Drawing.Size(100, 97);
-            this.enemyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.enemyPictureBox.TabIndex = 6;
-            this.enemyPictureBox.TabStop = false;
+            this.enemyAtkStat.AutoSize = true;
+            this.enemyAtkStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enemyAtkStat.Location = new System.Drawing.Point(164, 57);
+            this.enemyAtkStat.Name = "enemyAtkStat";
+            this.enemyAtkStat.Size = new System.Drawing.Size(29, 16);
+            this.enemyAtkStat.TabIndex = 21;
+            this.enemyAtkStat.Text = "Atk";
+            this.enemyAtkStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // enemyDefStat
+            // 
+            this.enemyDefStat.AutoSize = true;
+            this.enemyDefStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enemyDefStat.Location = new System.Drawing.Point(69, 57);
+            this.enemyDefStat.Name = "enemyDefStat";
+            this.enemyDefStat.Size = new System.Drawing.Size(36, 16);
+            this.enemyDefStat.TabIndex = 20;
+            this.enemyDefStat.Text = "Rizz";
+            this.enemyDefStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // playerStatsPanel
+            // 
+            this.playerStatsPanel.BackColor = System.Drawing.Color.Transparent;
+            this.playerStatsPanel.BackgroundImage = global::ComProg2Finals.Properties.Resources.statsPanel;
+            this.playerStatsPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.playerStatsPanel.Controls.Add(this.playerDefStat);
+            this.playerStatsPanel.Controls.Add(this.playerCoinStat);
+            this.playerStatsPanel.Controls.Add(this.playerAtkStat);
+            this.playerStatsPanel.Controls.Add(this.playerRizzStat);
+            this.playerStatsPanel.Location = new System.Drawing.Point(25, 384);
+            this.playerStatsPanel.Name = "playerStatsPanel";
+            this.playerStatsPanel.Size = new System.Drawing.Size(225, 160);
+            this.playerStatsPanel.TabIndex = 23;
+            // 
+            // playerDefStat
+            // 
+            this.playerDefStat.AutoSize = true;
+            this.playerDefStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerDefStat.Location = new System.Drawing.Point(164, 110);
+            this.playerDefStat.Name = "playerDefStat";
+            this.playerDefStat.Size = new System.Drawing.Size(31, 16);
+            this.playerDefStat.TabIndex = 23;
+            this.playerDefStat.Text = "Def";
+            this.playerDefStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // playerCoinStat
+            // 
+            this.playerCoinStat.AutoSize = true;
+            this.playerCoinStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerCoinStat.Location = new System.Drawing.Point(69, 110);
+            this.playerCoinStat.Name = "playerCoinStat";
+            this.playerCoinStat.Size = new System.Drawing.Size(38, 16);
+            this.playerCoinStat.TabIndex = 22;
+            this.playerCoinStat.Text = "Coin";
+            this.playerCoinStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // playerAtkStat
+            // 
+            this.playerAtkStat.AutoSize = true;
+            this.playerAtkStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerAtkStat.Location = new System.Drawing.Point(164, 57);
+            this.playerAtkStat.Name = "playerAtkStat";
+            this.playerAtkStat.Size = new System.Drawing.Size(29, 16);
+            this.playerAtkStat.TabIndex = 21;
+            this.playerAtkStat.Text = "Atk";
+            this.playerAtkStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // playerRizzStat
+            // 
+            this.playerRizzStat.AutoSize = true;
+            this.playerRizzStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerRizzStat.Location = new System.Drawing.Point(69, 57);
+            this.playerRizzStat.Name = "playerRizzStat";
+            this.playerRizzStat.Size = new System.Drawing.Size(36, 16);
+            this.playerRizzStat.TabIndex = 20;
+            this.playerRizzStat.Text = "Rizz";
+            this.playerRizzStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button2
             // 
@@ -365,6 +435,44 @@
             this.testButton.UseVisualStyleBackColor = true;
             this.testButton.Click += new System.EventHandler(this.playerRunBtn);
             // 
+            // playerPictureBox
+            // 
+            this.playerPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.playerPictureBox.Location = new System.Drawing.Point(49, 238);
+            this.playerPictureBox.Name = "playerPictureBox";
+            this.playerPictureBox.Size = new System.Drawing.Size(100, 97);
+            this.playerPictureBox.TabIndex = 8;
+            this.playerPictureBox.TabStop = false;
+            // 
+            // enemyPictureBox
+            // 
+            this.enemyPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.enemyPictureBox.Location = new System.Drawing.Point(804, 238);
+            this.enemyPictureBox.Name = "enemyPictureBox";
+            this.enemyPictureBox.Size = new System.Drawing.Size(100, 97);
+            this.enemyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.enemyPictureBox.TabIndex = 6;
+            this.enemyPictureBox.TabStop = false;
+            // 
+            // hills04Front
+            // 
+            this.hills04Front.BackColor = System.Drawing.Color.Transparent;
+            this.hills04Front.ForeColor = System.Drawing.Color.Transparent;
+            this.hills04Front.Location = new System.Drawing.Point(0, 0);
+            this.hills04Front.Name = "hills04Front";
+            this.hills04Front.Size = new System.Drawing.Size(798, 451);
+            this.hills04Front.TabIndex = 33;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Location = new System.Drawing.Point(360, 40);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 97);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 23;
+            this.pictureBox3.TabStop = false;
+            // 
             // hills03Back
             // 
             this.hills03Back.BackColor = System.Drawing.Color.Transparent;
@@ -392,121 +500,13 @@
             this.clouds01Back.TabIndex = 28;
             this.clouds01Back.TabStop = false;
             // 
-            // playerStatsPanel
+            // dialogueTextBox
             // 
-            this.playerStatsPanel.BackColor = System.Drawing.Color.Transparent;
-            this.playerStatsPanel.BackgroundImage = global::ComProg2Finals.Properties.Resources.statsPanel;
-            this.playerStatsPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.playerStatsPanel.Controls.Add(this.playerDefStat);
-            this.playerStatsPanel.Controls.Add(this.playerCoinStat);
-            this.playerStatsPanel.Controls.Add(this.playerAtkStat);
-            this.playerStatsPanel.Controls.Add(this.playerRizzStat);
-            this.playerStatsPanel.Location = new System.Drawing.Point(25, 384);
-            this.playerStatsPanel.Name = "playerStatsPanel";
-            this.playerStatsPanel.Size = new System.Drawing.Size(225, 160);
-            this.playerStatsPanel.TabIndex = 23;
-            // 
-            // playerDefStat
-            // 
-            this.playerDefStat.AutoSize = true;
-            this.playerDefStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerDefStat.Location = new System.Drawing.Point(164, 110);
-            this.playerDefStat.Name = "playerDefStat";
-            this.playerDefStat.Size = new System.Drawing.Size(31, 16);
-            this.playerDefStat.TabIndex = 23;
-            this.playerDefStat.Text = "Def";
-            this.playerDefStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // playerCoinStat
-            // 
-            this.playerCoinStat.AutoSize = true;
-            this.playerCoinStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerCoinStat.Location = new System.Drawing.Point(69, 110);
-            this.playerCoinStat.Name = "playerCoinStat";
-            this.playerCoinStat.Size = new System.Drawing.Size(38, 16);
-            this.playerCoinStat.TabIndex = 22;
-            this.playerCoinStat.Text = "Coin";
-            this.playerCoinStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // playerAtkStat
-            // 
-            this.playerAtkStat.AutoSize = true;
-            this.playerAtkStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerAtkStat.Location = new System.Drawing.Point(164, 57);
-            this.playerAtkStat.Name = "playerAtkStat";
-            this.playerAtkStat.Size = new System.Drawing.Size(29, 16);
-            this.playerAtkStat.TabIndex = 21;
-            this.playerAtkStat.Text = "Atk";
-            this.playerAtkStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // playerRizzStat
-            // 
-            this.playerRizzStat.AutoSize = true;
-            this.playerRizzStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerRizzStat.Location = new System.Drawing.Point(69, 57);
-            this.playerRizzStat.Name = "playerRizzStat";
-            this.playerRizzStat.Size = new System.Drawing.Size(36, 16);
-            this.playerRizzStat.TabIndex = 20;
-            this.playerRizzStat.Text = "Rizz";
-            this.playerRizzStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // enemyStatsPanel
-            // 
-            this.enemyStatsPanel.BackColor = System.Drawing.Color.Transparent;
-            this.enemyStatsPanel.BackgroundImage = global::ComProg2Finals.Properties.Resources.statsPanel;
-            this.enemyStatsPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.enemyStatsPanel.Controls.Add(this.enemyRizzStat);
-            this.enemyStatsPanel.Controls.Add(this.enemyCoinStat);
-            this.enemyStatsPanel.Controls.Add(this.enemyAtkStat);
-            this.enemyStatsPanel.Controls.Add(this.enemyDefStat);
-            this.enemyStatsPanel.Location = new System.Drawing.Point(715, 384);
-            this.enemyStatsPanel.Name = "enemyStatsPanel";
-            this.enemyStatsPanel.Size = new System.Drawing.Size(225, 160);
-            this.enemyStatsPanel.TabIndex = 24;
-            // 
-            // enemyRizzStat
-            // 
-            this.enemyRizzStat.AutoSize = true;
-            this.enemyRizzStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enemyRizzStat.Location = new System.Drawing.Point(164, 110);
-            this.enemyRizzStat.Name = "enemyRizzStat";
-            this.enemyRizzStat.Size = new System.Drawing.Size(31, 16);
-            this.enemyRizzStat.TabIndex = 23;
-            this.enemyRizzStat.Text = "Def";
-            this.enemyRizzStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // enemyCoinStat
-            // 
-            this.enemyCoinStat.AutoSize = true;
-            this.enemyCoinStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enemyCoinStat.Location = new System.Drawing.Point(69, 110);
-            this.enemyCoinStat.Name = "enemyCoinStat";
-            this.enemyCoinStat.Size = new System.Drawing.Size(38, 16);
-            this.enemyCoinStat.TabIndex = 22;
-            this.enemyCoinStat.Text = "Coin";
-            this.enemyCoinStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // enemyAtkStat
-            // 
-            this.enemyAtkStat.AutoSize = true;
-            this.enemyAtkStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enemyAtkStat.Location = new System.Drawing.Point(164, 57);
-            this.enemyAtkStat.Name = "enemyAtkStat";
-            this.enemyAtkStat.Size = new System.Drawing.Size(29, 16);
-            this.enemyAtkStat.TabIndex = 21;
-            this.enemyAtkStat.Text = "Atk";
-            this.enemyAtkStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // enemyDefStat
-            // 
-            this.enemyDefStat.AutoSize = true;
-            this.enemyDefStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enemyDefStat.Location = new System.Drawing.Point(69, 57);
-            this.enemyDefStat.Name = "enemyDefStat";
-            this.enemyDefStat.Size = new System.Drawing.Size(36, 16);
-            this.enemyDefStat.TabIndex = 20;
-            this.enemyDefStat.Text = "Rizz";
-            this.enemyDefStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dialogueTextBox.Location = new System.Drawing.Point(256, 225);
+            this.dialogueTextBox.Multiline = true;
+            this.dialogueTextBox.Name = "dialogueTextBox";
+            this.dialogueTextBox.Size = new System.Drawing.Size(387, 130);
+            this.dialogueTextBox.TabIndex = 25;
             // 
             // Form1
             // 
@@ -514,7 +514,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(964, 561);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.playerLabelCoins);
             this.Controls.Add(this.playerLabelLives);
             this.Controls.Add(this.pictureBox3);
@@ -543,16 +542,17 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.platform05.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.platform05.PerformLayout();
+            this.enemyStatsPanel.ResumeLayout(false);
+            this.enemyStatsPanel.PerformLayout();
+            this.playerStatsPanel.ResumeLayout(false);
+            this.playerStatsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hills03Back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clouds02Front)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clouds01Back)).EndInit();
-            this.playerStatsPanel.ResumeLayout(false);
-            this.playerStatsPanel.PerformLayout();
-            this.enemyStatsPanel.ResumeLayout(false);
-            this.enemyStatsPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -584,7 +584,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label playerLabelLives;
         private System.Windows.Forms.Label playerLabelCoins;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox clouds01Back;
         private System.Windows.Forms.PictureBox clouds02Front;
         private System.Windows.Forms.PictureBox hills03Back;
@@ -600,6 +599,7 @@
         private System.Windows.Forms.Label enemyCoinStat;
         private System.Windows.Forms.Label enemyAtkStat;
         private System.Windows.Forms.Label enemyDefStat;
+        private System.Windows.Forms.TextBox dialogueTextBox;
     }
 }
 

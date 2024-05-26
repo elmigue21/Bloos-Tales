@@ -1,66 +1,12 @@
-C:\Users\John\source\repos\elmigue21\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe.config
-C:\Users\John\source\repos\elmigue21\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe
-C:\Users\John\source\repos\elmigue21\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.pdb
-C:\Users\John\source\repos\elmigue21\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.AssemblyReference.cache
-C:\Users\John\source\repos\elmigue21\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form1.resources
-C:\Users\John\source\repos\elmigue21\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Properties.Resources.resources
-C:\Users\John\source\repos\elmigue21\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.GenerateResource.cache
-C:\Users\John\source\repos\elmigue21\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.CoreCompileInputs.cache
-C:\Users\John\source\repos\elmigue21\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.exe
-C:\Users\John\source\repos\elmigue21\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.pdb
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe.config
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.pdb
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.AssemblyReference.cache
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form1.resources
+C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form2.resources
+C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form3.resources
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Properties.Resources.resources
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.GenerateResource.cache
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.CoreCompileInputs.cache
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.exe
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.pdb
-C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form2.resources
-C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe.config
-C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe
-C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.pdb
-C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.AssemblyReference.cache
-C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form1.resources
-C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form2.resources
-C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Properties.Resources.resources
-C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.GenerateResource.cache
-C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.CoreCompileInputs.cache
-C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.exe
-C:\Users\Kiel Lanzanas\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.pdb
-C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe.config
-C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe
-C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.pdb
-C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.AssemblyReference.cache
-C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form1.resources
-C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form2.resources
-C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Properties.Resources.resources
-C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.GenerateResource.cache
-C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.CoreCompileInputs.cache
-C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.exe
-C:\Users\Acer\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.pdb
-C:\Users\rpbon\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.AssemblyReference.cache
-C:\Users\rpbon\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form1.resources
-C:\Users\rpbon\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form2.resources
-C:\Users\rpbon\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Properties.Resources.resources
-C:\Users\rpbon\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.GenerateResource.cache
-C:\Users\rpbon\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.CoreCompileInputs.cache
-C:\Users\rpbon\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.exe
-C:\Users\rpbon\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.pdb
-C:\Users\rpbon\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe.config
-C:\Users\rpbon\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe
-C:\Users\rpbon\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.pdb
-C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe.config
-C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe
-C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.pdb
-C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.AssemblyReference.cache
-C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form1.resources
-C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form2.resources
-C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Properties.Resources.resources
-C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.GenerateResource.cache
-C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.CoreCompileInputs.cache
-C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.exe
-C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.pdb
-C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form3.resources

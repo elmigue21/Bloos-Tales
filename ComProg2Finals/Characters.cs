@@ -126,7 +126,7 @@ namespace ComProg2Finals
             {
                 if (user.Opposition.isBlocking)
                 {
-                    MessageBox.Show($"{user.Opposition.Name} was unscathed!");
+                    form2.dialogueTextBox.Text = $"{user.Opposition.Name} was unscathed!";
                     user.Opposition.isBlocking = false;
                 }
                 else
@@ -143,11 +143,11 @@ namespace ComProg2Finals
                     }
                     if (!isCrit)
                     {
-                        MessageBox.Show(user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name);
+                        form2.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name;
                     }
                     else
                     {
-                        MessageBox.Show(user.Name + " dealt " + totalDamage + " critical damage to " + user.Opposition.Name);
+                        form2.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " critical damage to " + user.Opposition.Name;
                     }
                     user.Opposition.Health -= totalDamage;
 
@@ -162,7 +162,7 @@ namespace ComProg2Finals
             }
             else
             {
-                MessageBox.Show($"{user.Name} tries to attack but misses!");
+                form2.dialogueTextBox.Text = $"{user.Name} tries to attack but misses!";
             }
             battleForm.updateLabels();
         }
@@ -174,12 +174,12 @@ namespace ComProg2Finals
             if (oppAccuracy >= 40)
             {
                 user.Opposition.Accuracy -= accuracyValue;
-                MessageBox.Show($"Accuracy of {user.Opposition.Name} became {user.Opposition.Accuracy}");
+                form2.dialogueTextBox.Text = $"Accuracy of {user.Opposition.Name} became {user.Opposition.Accuracy}";
             }
             else
             {
                 user.Opposition.Accuracy = 40;
-                MessageBox.Show("Accuracy can't get lower than 40");
+                form2.dialogueTextBox.Text = "Accuracy can't get lower than 40";
             }
         }
 
@@ -192,11 +192,12 @@ namespace ComProg2Finals
                     {
                         case "Wind":
                             dmgValue *= ElementMultiplier;
-                            MessageBox.Show("its super effective");
+                            dmgValue *= 2;
+                            form2.dialogueTextBox.Text = "its super effective";
                             break;
                         case "Water":
                             dmgValue /= 2;
-                            MessageBox.Show("it wasnt very effective");
+                            form2.dialogueTextBox.Text = "it wasnt very effective";
                             break;
                     }
                     break;
@@ -205,11 +206,12 @@ namespace ComProg2Finals
                     {
                         case "Fire":
                             dmgValue *= ElementMultiplier;
-                            MessageBox.Show("its super effective");
+                            dmgValue *= 2;
+                            form2.dialogueTextBox.Text = "its super effective";
                             break;
                         case "Earth":
                             dmgValue /= 2;
-                            MessageBox.Show("it wasnt very effective");
+                            form2.dialogueTextBox.Text = "it wasnt very effective";
                             break;
                     }
                     break;
@@ -218,11 +220,12 @@ namespace ComProg2Finals
                     {
                         case "Earth":
                             dmgValue *= ElementMultiplier;
-                            MessageBox.Show("its super effective");
+                            dmgValue *= 2;
+                            form2.dialogueTextBox.Text = "its super effective";
                             break;
                         case "Fire":
                             dmgValue /= 2;
-                            MessageBox.Show("it wasnt very effective");
+                            form2.dialogueTextBox.Text = "it wasnt very effective";
                             break;
                     }
                     break;
@@ -231,11 +234,12 @@ namespace ComProg2Finals
                     {
                         case "Water":
                             dmgValue *= ElementMultiplier;
-                            MessageBox.Show("its super effective");
+                            dmgValue *= 2;
+                            form2.dialogueTextBox.Text = "its super effective";
                             break;
                         case "Wind":
                             dmgValue /= 2;
-                            MessageBox.Show("it wasnt very effective");
+                            form2.dialogueTextBox.Text = "it wasnt very effective";
                             break;
                     }
                     break;
@@ -302,6 +306,7 @@ namespace ComProg2Finals
     }
     public class Knight : Character
     {
+        KnightDialogue KnightDiag = new KnightDialogue();
         public Knight(string name) : base(name)
         {
             Name = name;
@@ -316,41 +321,32 @@ namespace ComProg2Finals
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 100;
             skillProbability = new int[] { 33, 33,33, -1};
-            EncounterDialogue = "I, the honorable knight, shall vanquish this lowly slime!";
+            EncounterDialogue = KnightDiag.EntranceDialogue;
             Interactions = new string[] { "Attack", "Rizz"};
-            befEncounter = "As Bloo was bouncing his way, a faint sound of clinking metal echoed through the forest…";
-            //EventActions.Add(Player => EventAction1(Player));
-            //EventActions.Add(Player => EventAction2(Player));
+            befEncounter = KnightDiag.IntroductionDialogue;
             KeyItem = typeof(Excalibur);
         }
         public override void EventAction1(Bloo bloo)
         {
-            MessageBox.Show("Let us fight to our deaths!");
+            form2.dialogueTextBox.Text = KnightDiag.AttackDialogue;
             form2.EnterBattle();
         }
         public override void EventAction2(Bloo bloo)
         {
             if (bloo.Rizz >= 100 && bloo.canUseRizz)
-            {
-                MessageBox.Show("By the gods, this slime is the most beautiful creature next to the princess I have ever seen. I would marry you if I were as gooey as you.");
+            {  
+                form2.dialogueTextBox.Text = KnightDiag.RizzDialogue;
                 form2.runNextEncounter();
             }
             else
             {
                 EventAction1(bloo);
             }
-            // form2.runNextEncounter();
         }
-        /*
-        public override void EventAction3(Bloo bloo)
-        {
-            MessageBox.Show("By the heavens! Is that the sword from the stone? The Excalibur?");
-            MessageBox.Show("Please, I’m not as worthy as you, humble slime. This honorable knight cannot claim the Excalibur. Use it in your journey and conquer your enemies.");
-        }
-        */
     }
     public class Wizard : Character
     {
+        WizardDialogue WizardDiag = new WizardDialogue();
         public string wizardType;
         private static Random random = new Random();
         public Wizard(string name) : base(name)
@@ -366,10 +362,9 @@ namespace ComProg2Finals
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
-            EncounterDialogue = "OOH! What kind of slime is this? Is it a water type? A fire type? An earth type? Or maybe a wind type?";
+            EncounterDialogue = WizardDiag.EntranceDialogue;
             Interactions = new string[] { "Attack", "Rizz"};
-            befEncounter = "Bloo bounces his way forward, when suddenly he feels a fearful presence tingling on his gooeyness…";
-
+            befEncounter = WizardDiag.IntroductionDialogue;
             switch (PlayerInstance.elementType)
             {
                 case "Fire":
@@ -392,8 +387,7 @@ namespace ComProg2Finals
         }
         public static Wizard CreateRandomWizard()
         {
-            //Random random = new Random();
-            int elementType = random.Next(0, 4); // Generates a number between 0 and 3
+            int elementType = random.Next(0, 4);
 
             switch (elementType)
             {
@@ -411,20 +405,25 @@ namespace ComProg2Finals
         }
         public override void EventAction1(Bloo bloo)
         {
-            MessageBox.Show("It’s big brain time.");
+            form2.dialogueTextBox.Text = WizardDiag.AttackDialogue;
             form2.EnterBattle();
         }
         public override void EventAction2(Bloo bloo)
         {
             if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
-                MessageBox.Show("From a genius to a genius! Please tell me more about four elementalisms, elucidating the intricacies of earthism, waterism, airism, and fireism, as they intertwine in the grand tapestry of existenceism.");
+                form2.dialogueTextBox.Text = WizardDiag.RizzDialogue;
                 form2.runNextEncounter();
             }
             else
             {
                 EventAction1(bloo);
             }
+        }
+        public override void EventAction3(Bloo bloo)
+        {
+            form2.dialogueTextBox.Text = WizardDiag.PassIntroDialogue;
+            form2.dialogueTextBox.Text = WizardDiag.PassDialogue;
         }
     }
 
@@ -462,6 +461,7 @@ namespace ComProg2Finals
     }
     public class Priest: Character
     {
+        PriestDialogue PriestDiag = new PriestDialogue();
         public Priest(string name) : base(name)
         {
             Name = name;
@@ -476,21 +476,21 @@ namespace ComProg2Finals
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
             skillProbability = new int[] { 33, 33, 33, -1 };
-            EncounterDialogue = "What a cute little creature! But alas, your monstrous nature belies your charm.";
+            EncounterDialogue = PriestDiag.EntranceDialogue;
             Interactions = new string[] { "Attack", "Rizz"};
-            befEncounter = "As Bloo continued his journey, Bloo began to feel warm… As if he was bouncing through endless purity…";
+            befEncounter = PriestDiag.IntroductionDialogue;
             KeyItem = typeof(HolyWater);
         }
         public override void EventAction1(Bloo bloo)
         {
-            MessageBox.Show("Your form is an embodiment of evil itself. Fear not, for I shall cleanse thee of its malevolence!");
+            form2.dialogueTextBox.Text = PriestDiag.AttackDialogue;
             form2.EnterBattle();
         }
         public override void EventAction2(Bloo bloo)
         {
             if (bloo.Rizz == 100 && bloo.canUseRizz)
             {
-                MessageBox.Show("OH MY GOD! Mr. Slime, you are the most adorable thing in the world. I just want to pinch those cheeks!");
+                form2.dialogueTextBox.Text = PriestDiag.AttackDialogue;
                 form2.runNextEncounter();
             }
             else
@@ -498,9 +498,15 @@ namespace ComProg2Finals
                 EventAction1(bloo);
             }
         }
+        public override void EventAction3(Bloo bloo)
+        {
+            form2.dialogueTextBox.Text = PriestDiag.PassIntroDialogue;
+            form2.dialogueTextBox.Text = PriestDiag.PassDialogue;
+        }
     }
     public class Rogue: Character
     {
+        RogueDialogue RogueDiag = new RogueDialogue();
         public Rogue(string name) : base(name)
         {
             Name = name;
@@ -516,20 +522,20 @@ namespace ComProg2Finals
             CritChance = 0;
             skillProbability = new int[] { 33, 33, 33, -1 };
             Interactions = new string[] { "Attack", "Rizz"};
-            EncounterDialogue = "Man, I’m tired of getting worthless loot…";
-            befEncounter = "As the shadows of the forest enveloped Bloo, he noticed a man stalking through the shadows…";
+            EncounterDialogue = RogueDiag.EntranceDialogue;
+            befEncounter = RogueDiag.IntroductionDialogue;
             KeyItem = typeof(StrangeGem);
         }
         public override void EventAction1(Bloo bloo)
         {
-            MessageBox.Show("Let’s see how much gold I can take from this mere slime.");
+            form2.dialogueTextBox.Text = RogueDiag.AttackDialogue;
             form2.EnterBattle();
         }
         public override void EventAction2(Bloo bloo)
         {
             if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
-                MessageBox.Show("I see… A slime outsmarting me. This is beyond embarrassing, but I admit my inferiority, slime.");
+                form2.dialogueTextBox.Text = RogueDiag.RizzDialogue;
                 form2.runNextEncounter();
             }
             else
@@ -537,10 +543,16 @@ namespace ComProg2Finals
                 EventAction1(bloo);
             }
         }
+        public override void EventAction3(Bloo bloo)
+        {
+            form2.dialogueTextBox.Text = RogueDiag.PassIntroDialogue;
+            form2.dialogueTextBox.Text = RogueDiag.PassDialogue;
+        }
 
     }
     public class Archer : Character
     {
+        ArcherDialogue ArcherDiag = new ArcherDialogue();
         public Archer(string name) : base(name)
         {
             Name = name;
@@ -556,20 +568,20 @@ namespace ComProg2Finals
             CritChance = 0;
             skillProbability = new int[] { 33, 33, 33, -1 };
             Interactions = new string[] { "Attack", "Rizz"};
-            EncounterDialogue = "In every draw of my bow, fate whispers through the wind, a constant companion to death's embrace.";
-            befEncounter = "Bloo felt a slight breeze as he bounces through the grassy fields…";
+            EncounterDialogue = ArcherDiag.EntranceDialogue;
+            befEncounter = ArcherDiag.IntroductionDialogue;
             KeyItem = typeof(GoldenArrow);
         }
         public override void EventAction1(Bloo bloo)
         {
-            MessageBox.Show("Behold the wind's wrath!");
+            form2.dialogueTextBox.Text = ArcherDiag.AttackDialogue;
             form2.EnterBattle();
         }
         public override void EventAction2(Bloo bloo)
         {
             if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
-                MessageBox.Show("Ah, dear slime, your colors dance so vividly. Would you care for a stroll together? I find your company quite... enchanting.");
+                form2.dialogueTextBox.Text = ArcherDiag.RizzDialogue;
                 form2.runNextEncounter();
             }
             else
@@ -577,9 +589,15 @@ namespace ComProg2Finals
                 EventAction1(bloo);
             }
         }
+        public override void EventAction3(Bloo bloo)
+        {
+            form2.dialogueTextBox.Text = ArcherDiag.PassIntroDialogue;
+            form2.dialogueTextBox.Text = ArcherDiag.PassDialogue;
+        }
     }
     public class HostileChest : Character
     {
+        ChestyDialogue ChestyDiag = new ChestyDialogue();
         public HostileChest(string name) : base(name)
         {
             Name = name;
@@ -598,7 +616,6 @@ namespace ComProg2Finals
         }
         public override void DamageCharac(double dmgValue, Character user, string skillName)
         {
-            //MessageBox.Show("multiplier sa formula: "+ user.Multiplier.ToString());
             Random accRandom = new Random();
             int accuracyRandom = accRandom.Next(0, 100);
             if (accuracyRandom <= user.Accuracy)
@@ -607,7 +624,7 @@ namespace ComProg2Finals
 
                 if (user.Opposition.isBlocking)
                 {
-                    MessageBox.Show($"{user.Opposition.Name} was unscathed!");
+                    form2.dialogueTextBox.Text = $"{user.Opposition.Name} was unscathed!";
                     user.Opposition.isBlocking = false;
                 }
                 else
@@ -619,23 +636,25 @@ namespace ComProg2Finals
                     int randomNumber = random.Next(0, 101);
                     if (randomNumber <= user.CritChance)
                     {
-                        MessageBox.Show("CRIT!");
+                        form2.dialogueTextBox.Text = "CRIT!";
                         totalDamage *= user.CritDamage;
                     }
-                    MessageBox.Show(user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name);
+                    form2.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name;
                     user.Opposition.Health -= totalDamage;
                     Random rand = new Random();
                     int rando = new Random().Next(0, 101);
                     if (rando <= 30)
                     {
                         user.Health -= totalDamage / 2;
-                        MessageBox.Show(user.Opposition.Name + " reflected the damage!");
+                      //  MessageBox.Show(user.Opposition.Name + " reflected the damage!");
+                        user.Health -= totalDamage;
+                        form2.dialogueTextBox.Text = user.Opposition.Name + " reflected the damage!";
                     }
                 }
             }
             else
             {
-                MessageBox.Show($"{user.Name} tries to attack but misses!");
+                form2.dialogueTextBox.Text = $"{user.Name} tries to attack but misses!";
             }
         
             battleForm.updateLabels();

@@ -19,7 +19,6 @@ namespace ComProg2Finals
         string directory;
         bool PlayerWin;
         public Character Enemy { get; set; }
-        //public Character Enemy;
 
         List<Character> characters;
 
@@ -40,7 +39,6 @@ namespace ComProg2Finals
         public Form1()
         {
             InitializeComponent();
-            // pag lagay sa array ng buttons para pwede sya iloop
             skillButtons[0] = button1;
             skillButtons[1] = button2;
             skillButtons[2] = button3;
@@ -69,8 +67,6 @@ namespace ComProg2Finals
             directory = AppDomain.CurrentDomain.BaseDirectory;
             playerPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
 
-
-
             // form instance
             Instance.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "00Sky.png"));
 
@@ -79,64 +75,13 @@ namespace ComProg2Finals
             clouds02Front.Image = Image.FromFile(Path.Combine(directory, "assets", "02cloudsFront.png"));
             hills03Back.Image = Image.FromFile(Path.Combine(directory, "assets", "03hillsBack.png"));
             hills04Front.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "04hillsFront.png"));
-            //MessageBox.Show
-            // string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "battlemusic.wav");
-            // SoundPlayer battlemusicplayer = new SoundPlayer(soundFilePath);
-            //  battlemusicplayer.Play();
-            // currentTurn = Player;
-
-            // pag call ng enemy from characters class
-            /*
-            Knight soulknight = new Knight("Soul Knight");
-            Wizard wizard = new Wizard("wizard");
-            Priest priest = new Priest("priest");
-            Rogue rogue = new Rogue("rogue");
-            Archer archer = new Archer("archer");
-            FireWizard firewiz = new FireWizard("firewiz");
-            WaterWizard waterwiz = new WaterWizard("waterwiz");
-            WindWizard windwiz = new WindWizard("windwiz");
-            EarthWizard earthwiz = new EarthWizard("earthwiz");
-            HostileChest hostilechest = new HostileChest("evil chest");
-            characters = new List<Character>();
-            characters.Add(soulknight);
-            characters.Add(wizard);
-            characters.Add(priest);
-            characters.Add(rogue);
-            characters.Add(archer);
-            characters.Add(firewiz);
-            characters.Add(waterwiz);
-            characters.Add(windwiz);
-            characters.Add(earthwiz);
-            characters.Add(hostilechest);
-
-            comboBox1.Items.Add("Knight");
-            comboBox1.Items.Add("Wizard");
-            comboBox1.Items.Add("Priest");
-            comboBox1.Items.Add("Rogue");
-            comboBox1.Items.Add("Archer");
-            comboBox1.Items.Add("Fire Wizard");
-            comboBox1.Items.Add("Water Wizard");
-            comboBox1.Items.Add("Wind Wizard");
-            comboBox1.Items.Add("Earth Wizard");
-            comboBox1.Items.Add("Hostile Chest");
-            comboBox1.SelectedIndex = 0;
-            */
-
-
-            //Enemy = characters[comboBox1.SelectedIndex];
-            //Player.Opposition = Enemy;
-            // Enemy.Opposition = Player;
-           // Player.CharStatEffects.Add(new MultiHitChance("Attackboost"));
-            
+     
             currentTurn = Player;
 
 
         
 
             updateLabels();
-            // runTurn();
-
-
             for (int i = 0; i < 4; i++)
             {
                 if (i >= Player.CharSkills.Count)
@@ -148,9 +93,6 @@ namespace ComProg2Finals
                     skillButtons[i].Text = Player.CharSkills[i].Name;
                 }
             }
-
-
-            //testButton.Enabled = false;
             testButton.ForeColor = Color.Black;
 
             Player.Opposition = Enemy;
@@ -194,29 +136,14 @@ namespace ComProg2Finals
             {
                 if (Player.hasTurn)
                 {
-                   // Player.skillQueue.Add(() => Player.CharSkills[0].Perform(Player));
                     Player.UseSkill1(Player);
                 }
                 else
                 {
                     Player.hasTurn = true;
                 }
-              //  if (Player.Health <= 0)
-              //  {
-                   // MessageBox.Show("Bloo has lost!");
-                   // this.Close();
-              //  }
-              //  else if (Enemy.Health <= 0)
-              //  {
-                    //MessageBox.Show("Bloo has won!");
-                    //this.Close();
-              //  }
-              //  else
-               // {
-                    //runEnemy();
                     runTurn();
                     updateLabels();
-               // }
             }
 
         }
@@ -228,29 +155,14 @@ namespace ComProg2Finals
 
                 if (Player.hasTurn)
                 {
-                   // Player.skillQueue.Add(() => Player.CharSkills[0].Perform(Player));
                     Player.UseSkill2(Player);
                 }
                 else
                 {
                     Player.hasTurn = true;
                 }
-
-               // if (Player.Health <= 0)
-               // {
-                   // MessageBox.Show("Bloo has lost!");
-                   // this.Close();
-              //  }
-             //   else if (Enemy.Health <= 0)
-              //  {
-                   // MessageBox.Show("Bloo has won!");
-                   // this.Close();
-              //  }
-               // else
-               // {
                     runTurn();
                     updateLabels();
-              //  }
             }
         }
 
@@ -266,22 +178,8 @@ namespace ComProg2Finals
                 {
                     Player.hasTurn = true;
                 }
-
-              //  if (Player.Health <= 0)
-              //  {
-                   // MessageBox.Show("Bloo has lost!");
-                    //this.Close();
-              //  }
-               // else if (Enemy.Health <= 0)
-              //  {
-                   // MessageBox.Show("Bloo has won!");
-                    //this.Close();
-              //  }
-              //  else
-              //  {
                     runTurn();
                     updateLabels();
-               // }
             }
         }
 
@@ -298,29 +196,11 @@ namespace ComProg2Finals
                 {
                     Player.hasTurn = true;
                 }
-
-               // if (Player.Health <= 0)
-              //  {
-                   // MessageBox.Show("Bloo has lost!");
-                    //this.Close();
-               // }
-               // else if (Enemy.Health <= 0)
-               // {
-                    //MessageBox.Show("Bloo has won!");
-                   // this.Close();
-              // }
-              //  else
-              //  {
                     runTurn();
                     updateLabels();
-              //  }
 
             }
         }
-        /////////
-
-
-        // for updating ng labels ng player and character | and checking narin ng win/lose
         public void updateLabels()
         {
             playerLabelName.Text = Player.Name;
@@ -361,7 +241,6 @@ namespace ComProg2Finals
         private void playerRunBtn(object sender, EventArgs e)
         {
             this.Close();
-           // form2.runNextEncounter();
         }
         private void testButton_Click(object sender, EventArgs e)
         {
@@ -374,8 +253,6 @@ namespace ComProg2Finals
                 Enemy.CharStatEffects[i].Trigger(Enemy);
             }
             
-
-            
             foreach (Action skills in Player.skillQueue)
             {
                 skills();
@@ -383,133 +260,22 @@ namespace ComProg2Finals
             
             Player.skillQueue.Clear();
 
-
-            //runEnemy();
-            /*
-            if (Enemy.Health <= 0)
-            {
-                MessageBox.Show("Bloo won");
-                this.Close();
-            }
-            */
-
-
             foreach (Action skills in Enemy.skillQueue)
             {
                 skills();
             }
             
             Enemy.skillQueue.Clear();
-            /*
-            if (Player.hasTurn)
-            {
-                if (Player.Health <= 0)
-                {
-                    MessageBox.Show("Bloo has lost!");
-                    form2.runNextEncounter();
-                    this.Close();
-                }
-                else if (Enemy.Health <= 0)
-                {
-                    MessageBox.Show("Bloo has won!");
-                    form2.runNextEncounter();
-                    this.Close();
-                }
-            }
-            else
-            {
-            }
-            if (Enemy.hasTurn)
-            {
-                if (Player.Health <= 0)
-                {
-                    MessageBox.Show("Bloo has lost!");
-                    this.Close();
-                }
-                else if (Enemy.Health <= 0)
-                {
-                    MessageBox.Show("Bloo has won!");
-                    this.Close();   
-                }
-            }
-            */
+ 
             if (Player.Health <= 0)
             {
-                MessageBox.Show("Bloo lost");
+                form2.dialogueTextBox.Text = "Bloo has lost!";
                 this.Close();
             }
             else if (Enemy.Health <= 0)
             {
-                MessageBox.Show("Bloo won");
+                form2.dialogueTextBox.Text = "Bloo has won!";
                 this.Close();
-            }
-            updateLabels();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            object selectedItem = comboBox1.SelectedItem;
-
-            string selectedText = selectedItem.ToString();
-
-            switch (selectedText)
-            {
-                case "Knight":
-                    Enemy = characters[0];             
-                    break;
-                case "Wizard":
-                    Enemy = characters[1];
-                    break;
-                case "Priest":
-                    Enemy = characters[2];
-                    break;
-                case "Rogue":
-                    Enemy = characters[3];
-                    break;
-                case "Archer":
-                    Enemy = characters[4];
-                    break;
-                case "Fire Wizard":
-                    Enemy= characters[5];
-                    break;
-                case "Water Wizard":
-                    Enemy = characters[6];
-                    break;
-                case "Wind Wizard":
-                    Enemy = characters[7];
-                    break;
-                case "Earth Wizard":
-                    Enemy = characters[8];
-                    break;
-                case "Hostile Chest":
-                    Enemy = characters[9];
-                    break;
-            }
-            Player.Opposition = Enemy;
-            Enemy.Opposition = Player;
-
-            
-            if(currentTurn == Player)
-            {
-
-            }
-            else
-            {
-                currentTurn = Enemy;
-            }
-            
-
-
-            for (int i = 0; i < 4; i++)
-            {
-                if (i >= currentTurn.CharSkills.Count)
-                {
-                    skillButtons[i].Text = "";
-                }
-                else
-                {
-                    skillButtons[i].Text = currentTurn.CharSkills[i].Name;
-                }
             }
             updateLabels();
         }
