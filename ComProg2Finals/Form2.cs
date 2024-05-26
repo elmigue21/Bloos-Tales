@@ -103,7 +103,12 @@ namespace ComProg2Finals
             }
 
             bossFights.Add(new Peech("Peech"));
-            
+            Player.PlayerItems.Add(new Excalibur());
+            Player.PlayerItems.Add(new GoldenArrow());
+            Player.PlayerItems.Add(new Goblet());
+            Player.PlayerItems.Add(new HolyWater());
+            Player.PlayerItems.Add(new StrangeGem());
+
 
             dialoguePanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "scroll.png"));
             statsPanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "statsPanel.png"));
@@ -111,8 +116,8 @@ namespace ComProg2Finals
             statsPanel.BackgroundImageLayout = ImageLayout.Zoom;
             runNextEncounter();
             UpdateStats();
-            KingDebuff kingdebuff = new KingDebuff();
-            kingdebuff.Acquired(Player);
+            //KingDebuff kingdebuff = new KingDebuff();
+           // kingdebuff.Acquired(Player);
         }
         bool right, hold = true;
 
@@ -235,7 +240,6 @@ namespace ComProg2Finals
                 Player.PlayerItems[i].Encountered(Player);
             }
             playerPictureBox.Image = Properties.Resources.blooIdle;
-            
 
 
             if (currentEncounter != mastergooway && currentEncounter != shopkeeper)
@@ -284,11 +288,27 @@ namespace ComProg2Finals
                     LoadSkillShop();
                 }
             }
-
             label1.Text = currentEncounter.Name;
             dialogueTextBox.Text = currentEncounter.EncounterDialogue;
             charactersPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
-            encounterCount++;
+            if (currentEncounter is Character)
+            {
+                for (int i = 0; i < Player.PlayerItems.Count; i++)
+                {
+                    if (Player.PlayerItems[i].GetType() == currentEncounter.KeyItem)
+                    {
+                        MessageBox.Show("PLAYER HAS KEY ITEM");
+                        Player.PlayerItems[i].Lost(Player);
+                        encounterCount++;
+                        runNextEncounter();
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                encounterCount++;
+            }
         }
         public void EnterBattle()
         {
@@ -338,15 +358,19 @@ namespace ComProg2Finals
                     else
                     {
                         currentEncounter = bossFights[bossIndex];
+                        /*
                         for (int i = 0; i < Player.PlayerItems.Count; i++)
                         {
                             if (Player.PlayerItems[i].GetType() == currentEncounter.KeyItem)
                             {
                                 MessageBox.Show("PLAYER HAS KEY ITEM");
+                                Player.PlayerItems[i].Lost(Player);
+                                encounterCount++;
                                 runNextEncounter();
                                 break;
                             }
                         }
+                        */
                     }
                     break;
                 case 4:

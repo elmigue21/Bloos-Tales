@@ -25,13 +25,13 @@ namespace ComProg2Finals
 
         public virtual void Perform(Character user)
         {
-            form2.dialogueTextBox.Text = $"{Name} skill performed.";
+          //  form2.dialogueTextBox.Text = $"{Name} skill performed.";
 
         }
         public void Learn(Bloo bloo)
         {
             bloo.CharSkills.Add(this);
-            form2.dialogueTextBox.Text = "added " + this.Name + " to bloos skills";
+            //form2.dialogueTextBox.Text = "added " + this.Name + " to bloos skills";
         }
     }
 
@@ -47,7 +47,7 @@ namespace ComProg2Finals
         {
             user.skillQueue.Add(() => user.Opposition.DamageCharac(10, user, this.Name));
 
-            form2.dialogueTextBox.Text = $"Used {Name}";
+          //  form2.dialogueTextBox.Text = $"Used {Name}";
         }
 
     }
@@ -60,7 +60,7 @@ namespace ComProg2Finals
 
         public override void Perform(Character user)
         {
-            form2.dialogueTextBox.Text = "Used " + this.Name;
+         //   form2.dialogueTextBox.Text = "Used " + this.Name;
             user.skillQueue.Add(() => user.Opposition.LoweringAccuracy(20, user));
 
         }
