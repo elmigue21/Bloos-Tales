@@ -162,5 +162,17 @@
   <ItemGroup>
     <None Include="Resources\ButtonClicked.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_behelith.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_berserk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Knight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\statsPanelBigger.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

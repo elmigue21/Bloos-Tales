@@ -133,6 +133,36 @@ namespace parallaxPractice.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap item_behelith {
+            get {
+                object obj = ResourceManager.GetObject("item_behelith", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap item_berserk {
+            get {
+                object obj = ResourceManager.GetObject("item_berserk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Knight {
+            get {
+                object obj = ResourceManager.GetObject("Knight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Layer1_Sky {
             get {
                 object obj = ResourceManager.GetObject("Layer1_Sky", resourceCulture);
@@ -273,9 +303,9 @@ namespace parallaxPractice.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap titleScreen {
+        internal static System.Drawing.Bitmap statsPanelBigger {
             get {
-                object obj = ResourceManager.GetObject("titleScreen", resourceCulture);
+                object obj = ResourceManager.GetObject("statsPanelBigger", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,9 +313,9 @@ namespace parallaxPractice.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap wizard {
+        internal static System.Drawing.Bitmap titleScreen {
             get {
-                object obj = ResourceManager.GetObject("wizard", resourceCulture);
+                object obj = ResourceManager.GetObject("titleScreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
