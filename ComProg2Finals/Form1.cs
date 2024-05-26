@@ -286,6 +286,7 @@ namespace ComProg2Finals
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Player.CharStatEffects.Clear();
             form2.encounterCount++;
            form2.runNextEncounter();
         }

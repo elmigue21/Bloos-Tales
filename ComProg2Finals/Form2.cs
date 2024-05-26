@@ -80,7 +80,7 @@ namespace ComProg2Finals
             for (int i = 0; i < 3; i++)
             {
                 Character boss = new Character("boss");
-                int qqq1 = rand1.Next(0, 5);
+                int qqq1 = rand1.Next(0, 3);
                 switch (qqq1)
                 {
                     case 0:
@@ -317,6 +317,7 @@ namespace ComProg2Finals
         {
             f1 = Form1.GetInstance();
             f1.Enemy = currentEncounter as Character;
+            Player.Health = Player.MaxHealth;
             f1.Player = Player;
             f1.Player.Opposition = f1.Enemy;
             f1.Enemy.Opposition = f1.Player;
@@ -330,6 +331,7 @@ namespace ComProg2Finals
         }
         private void HandleButtonClick(object sender, EventArgs e, Action eventAction)
         {
+            UpdateStats();
             eventAction?.Invoke();
             UpdateStats();
         }
@@ -419,6 +421,7 @@ namespace ComProg2Finals
                     }
                     break;
             }
+            //currentEncounter = new WishingWell();
             label1.Text = "";
             dialogueTextBox.Text = currentEncounter.befEncounter;
             flowLayoutPanel1.Controls.Clear();

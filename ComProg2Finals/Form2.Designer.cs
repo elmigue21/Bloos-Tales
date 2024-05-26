@@ -141,9 +141,9 @@ namespace ComProg2Finals
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::ComProg2Finals.Properties.Resources.levelsProgress;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Location = new System.Drawing.Point(62, 35);
+            this.panel1.Location = new System.Drawing.Point(45, 50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(816, 26);
+            this.panel1.Size = new System.Drawing.Size(888, 38);
             this.panel1.TabIndex = 20;
             // 
             // statsPanel

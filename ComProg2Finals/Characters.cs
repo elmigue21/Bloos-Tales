@@ -59,6 +59,7 @@ namespace ComProg2Finals
     {
         //public string Name { get; set; }
         public double Health { get; set; }
+        public double MaxHealth { get; set; }
         public double Accuracy { get; set; }
         public double AttackDamage { get; set; }
         public double Speed{ get; set; }
@@ -124,6 +125,22 @@ namespace ComProg2Finals
                 this.Rizz += val;
             }
         }
+        public virtual void ChangeHealth(double val)
+        {
+            if (this.Health + val > this.MaxHealth)
+            {
+                this.Health = this.MaxHealth;
+            }
+            else if (this.Health + val < 0)
+            {
+                this.Rizz = 0;
+            }
+            else
+            {
+                this.Rizz += val;
+            }
+        }
+
         
         public virtual async void DamageCharac(double dmgValue, Character user, string skillName)
         {
@@ -166,12 +183,12 @@ namespace ComProg2Finals
                         form2.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " critical damage to " + user.Opposition.Name;
                         }
                     }
-                    user.Opposition.Health -= totalDamage;
+                    user.Opposition.ChangeHealth(-totalDamage);
 
                     if (user.Opposition.GetType() == typeof(Bloo) && user.Opposition.PlayerItems.Any(item => item.GetType() == typeof(SpikedHelmet))) {
                         
-                        user.Health -= totalDamage / 2;
                         double returnedDamage = totalDamage / 2;
+                        user.ChangeHealth(-returnedDamage);
                         MessageBox.Show("Damage dealt to bloo was reflected due to the spiked helmet! returned " + returnedDamage + " damage");
                     }
                     
@@ -183,20 +200,19 @@ namespace ComProg2Finals
             }
             battleForm.updateLabels();
         }
-        public virtual void LoweringAccuracy(double accuracyValue, Character user, string skillName)
+        public virtual void ChangeAccuracy(double val)
         {
-            double oppAccuracy = user.Opposition.Accuracy;
-            oppAccuracy -= accuracyValue;
-
-            if (oppAccuracy >= 40)
+            if (this.Accuracy + val  <= 60)
             {
-                user.Opposition.Accuracy -= accuracyValue;
-                form2.dialogueTextBox.Text = $"{user.Name} used {skillName} \n Accuracy of {user.Opposition.Name} became {user.Opposition.Accuracy}";
+                this.Accuracy = 60;
+            }
+            else if (this.Accuracy + val >= 100)
+            {
+                this.Accuracy = 100;
             }
             else
             {
-                user.Opposition.Accuracy = 40;
-                form2.dialogueTextBox.Text = "Accuracy can't get lower than 40";
+                this.Accuracy += val;
             }
         }
 
@@ -279,7 +295,8 @@ namespace ComProg2Finals
         public Bloo(string name) : base(name)
         {
             Name = name;
-            Health = 100;
+            Health = 50;
+            MaxHealth = 50;
             Accuracy = 100;
             AttackDamage = 20;
             Speed = 10;
@@ -300,24 +317,16 @@ namespace ComProg2Finals
             canUseRizz = true;
             discount = 1;
         }
-        
-        public void GainRizz(double value)
+
+        public void ChangeCoin(double value)
         {
-            if(this.Rizz + value < 100)
+            if(this.Coins + value <= 0)
             {
-                this.Rizz += value * rizzGainMultiplier;
+                this.Coins = 0;
             }
-            else
+            else if (this.canGainCoin)
             {
-                this.Rizz = 100;
-            }
-            
-        }
-        public void GainCoin(double value)
-        {
-            if (this.canGainCoin)
-            {
-                this.Coins += value * coinGainMultiplier;
+                this.Coins += value;
             }
         }
     }
@@ -328,6 +337,7 @@ namespace ComProg2Finals
         {
             Name = name;
             Health = 120;
+            MaxHealth = 120;
             Accuracy = 100;
             AttackDamage = 15;
             Speed = 10;
@@ -370,6 +380,7 @@ namespace ComProg2Finals
         {
             Name = name;
             Health = 70;
+            MaxHealth = 70;
             Accuracy = 100;
             AttackDamage = 35;
             Speed = 10;
@@ -482,8 +493,9 @@ namespace ComProg2Finals
         public Priest(string name) : base(name)
         {
             Name = name;
-            Health = 110;
-            Accuracy = 100;
+            Health = 50;
+            MaxHealth = 50;
+            Accuracy = 110;
             AttackDamage = 10;
             Speed = 10;
             CharSkills = new List<Skill> { new Heal(), new Smite(), new Purify()};
@@ -528,6 +540,7 @@ namespace ComProg2Finals
         {
             Name = name;
             Health = 85;
+            MaxHealth = 85;
             Accuracy = 100;
             AttackDamage = 25;
             Speed = 10;
@@ -574,6 +587,7 @@ namespace ComProg2Finals
         {
             Name = name;
             Health = 80;
+            MaxHealth = 80;
             Accuracy = 100;
             AttackDamage = 30;
             Speed = 10;
@@ -619,6 +633,7 @@ namespace ComProg2Finals
         {
             Name = name;
             Health = 100;
+            MaxHealth = 100;
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;

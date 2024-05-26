@@ -38,6 +38,10 @@ namespace ComProg2Finals
         {
             
         }
+        public virtual void BattleEndItem(Bloo charac)
+        {
+
+        }
     }
     public class Rock : Items
     {
@@ -73,17 +77,18 @@ namespace ComProg2Finals
         {
             form2.dialogueTextBox.Text = ItemsDiag.RingDialogue;
             double change = 25;
-            charac.Health -= change;
+            charac.MaxHealth -= change;
             charac.AttackDamage += change;
             charac.PlayerItems.Add(this);
         }
         public override void Lost(Bloo charac)
         {
             double change = 25;
-            charac.Health += change;
+            charac.MaxHealth += change;
             charac.AttackDamage -= change;
             charac.PlayerItems.Remove(this);
         }
+
     }
     public class BerserkAmulet : Items
     {
@@ -98,14 +103,14 @@ namespace ComProg2Finals
             this.accuracyVal = charac.Accuracy * .25;
             this.attackDamageVal = charac.AttackDamage * .25;
             form2.dialogueTextBox.Text = ItemsDiag.AmuletDialogue;
-            charac.Accuracy -= accuracyVal;
+            charac.ChangeAccuracy(-accuracyVal);
             charac.AttackDamage += attackDamageVal;
             charac.PlayerItems.Add(this);
         }
         public override void Lost(Bloo charac)
         {
-            charac.Accuracy += accuracyVal;
-            charac.AttackDamage += attackDamageVal;
+            charac.ChangeAccuracy(accuracyVal);
+            charac.AttackDamage -= attackDamageVal;
             charac.PlayerItems.Remove(this);
         }
     }
@@ -174,7 +179,7 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {            
-            charac.Coins += 10;
+            charac.ChangeCoin(10);
 
         }
         public override void Lost(Bloo charac)
@@ -296,7 +301,7 @@ namespace ComProg2Finals
             iter = 2;
             form2.dialogueTextBox.Text = ItemsDiag.HealthBoosterDialogue;
             healthBuff = charac.Health * .50;
-            charac.Health += healthBuff;
+            charac.ChangeHealth(healthBuff);
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
@@ -312,7 +317,7 @@ namespace ComProg2Finals
         }
         public override void Lost(Bloo charac)
         {
-            charac.Health -= healthBuff;
+            charac.ChangeHealth(-healthBuff);
             charac.PlayerItems.Remove(this);
         }
     }
@@ -526,7 +531,7 @@ namespace ComProg2Finals
         {
             charac.discount = .80;
             form2.dialogueTextBox.Text = ItemsDiag.StrangeGemDialogue;
-            charac.Coins += charac.Coins * .50;
+            charac.ChangeCoin(charac.Coins * .5);
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
@@ -633,7 +638,7 @@ namespace ComProg2Finals
                     charac.PlayerItems.Remove(this);
                     break;
                 case 3:
-                    charac.Opposition.LoweringAccuracy(50, charac, this.Name);
+                    charac.Opposition.ChangeAccuracy(-50);
                     charac.PlayerItems.Remove(this);
                     break;
                 case 4:
