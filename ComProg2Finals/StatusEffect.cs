@@ -71,7 +71,7 @@ namespace ComProg2Finals
         }
         public override void Trigger(Character charac)
         {
-            charac.Health += healVal;
+            charac.ChangeHealth(healVal);
             form2.dialogueTextBox.Text = $"Healed {healVal} health from {charac.Name}, {intervals} intervals remaining";
             intervals--;
             if (intervals == 0)
@@ -137,7 +137,7 @@ namespace ComProg2Finals
                     case 0:
                        // MessageBox.Show("Bloo lands and attacks the enemy");
                 user.skillQueue.Add(()=>user.Opposition.DamageCharac(15, user, this.Name)  );
-                        //form2.dialogueTextBox.Text = "Bloo lands and attacks the enemy!";
+
                         
                         break;
                     case 1:
@@ -166,16 +166,9 @@ namespace ComProg2Finals
         
         public override void Trigger(Character charac)
         {
-            if (charac.Health + healVal > 100)
-            {
-                charac.Health = 100;
-                MessageBox.Show($"{charac.Name}'s health is maxed");
-            }
-            else
-            {
-                charac.Health += healVal;
+            charac.ChangeHealth(10);
                 MessageBox.Show($"Healed {healVal} health from {charac.Name}");
-            }
+            
             
         }
         public override void Debuff(Character user)
@@ -190,6 +183,7 @@ namespace ComProg2Finals
         int debuff = 50;
         int buff = 1;
         int intervals;
+        int critChanceIncrease = 10;
 
         public StealthBuff(string name, double crit, int intrvl) : base(name)
         {
@@ -198,14 +192,14 @@ namespace ComProg2Finals
         }
         public override void Trigger(Character charac)
         {
-            charac.CritChance = critChance;
-            form2.dialogueTextBox.Text = $"{charac} lost {debuff} Accuracy in exchange for {buff}% Critical Chance {intervals} turn";
+            charac.CritChance = critChanceIncrease;
+            form2.dialogueTextBox.Text = $"{charac} {critChanceIncrease}% crit chance increased";
 
             intervals--;
             if (intervals == 0)
             {
-                charac.CritChance -= 1;
-                charac.Accuracy -= buff;
+                charac.CritChance -= critChanceIncrease;
+               // charac.ChangeAccuracy(-buff);
                 charac.CharStatEffects.Remove(this);
             }
 
@@ -279,7 +273,7 @@ namespace ComProg2Finals
         }
         public override void Trigger(Character charac)
         {
-            charac.Rizz -= 10;
+            charac.ChangeRizz(-10);
             if (this.interval <= 0)
             {
                 charac.CharStatEffects.Remove(this);

@@ -59,6 +59,7 @@ namespace ComProg2Finals
     {
         //public string Name { get; set; }
         public double Health { get; set; }
+        public double MaxHealth { get; set; }
         public double Accuracy { get; set; }
         public double AttackDamage { get; set; }
         public double Speed{ get; set; }
@@ -124,6 +125,22 @@ namespace ComProg2Finals
                 this.Rizz += val;
             }
         }
+        public virtual void ChangeHealth(double val)
+        {
+            if (this.Health + val > this.MaxHealth)
+            {
+                this.Health = this.MaxHealth;
+            }
+            else if (this.Health + val < 0)
+            {
+                this.Rizz = 0;
+            }
+            else
+            {
+                this.Rizz += val;
+            }
+        }
+
         
         public virtual void DamageCharac(double dmgValue, Character user, string skillName)
         {
@@ -174,20 +191,19 @@ namespace ComProg2Finals
             }
             battleForm.updateLabels();
         }
-        public virtual void LoweringAccuracy(double accuracyValue, Character user)
+        public virtual void ChangeAccuracy(double val)
         {
-            double oppAccuracy = user.Opposition.Accuracy;
-            oppAccuracy -= accuracyValue;
-
-            if (oppAccuracy >= 40)
+            if (this.Accuracy + val  <= 60)
             {
-                user.Opposition.Accuracy -= accuracyValue;
-                form2.dialogueTextBox.Text = $"Accuracy of {user.Opposition.Name} became {user.Opposition.Accuracy}";
+                this.Accuracy = 60;
+            }
+            else if (this.Accuracy + val >= 100)
+            {
+                this.Accuracy = 100;
             }
             else
             {
-                user.Opposition.Accuracy = 40;
-                form2.dialogueTextBox.Text = "Accuracy can't get lower than 40";
+                this.Accuracy += val;
             }
         }
 
@@ -271,6 +287,7 @@ namespace ComProg2Finals
         {
             Name = name;
             Health = 50;
+            MaxHealth = 50;
             Accuracy = 100;
             AttackDamage = 20;
             Speed = 10;
@@ -291,24 +308,34 @@ namespace ComProg2Finals
             canUseRizz = true;
             discount = 1;
         }
-        
-        public void GainRizz(double value)
+        /*
+        public void ChangeRizz(double value)
         {
-            if(this.Rizz + value < 100)
+            if(this.Rizz + value <= 0)
             {
-                this.Rizz += value * rizzGainMultiplier;
+                this.Rizz = 0;
             }
-            else
+            else if(this.Rizz + value > 100)
             {
                 this.Rizz = 100;
             }
+            else
+            {
+                this.Rizz += value * rizzGainMultiplier;
+            }
             
         }
-        public void GainCoin(double value)
+        */
+        public void ChangeCoin(double value)
         {
-            if (this.canGainCoin)
+            //MessageBox.Show(this.Coins.ToString());
+            if(this.Coins + value <= 0)
             {
-                this.Coins += value * coinGainMultiplier;
+                this.Coins = 0;
+            }
+            else if (this.canGainCoin)
+            {
+                this.Coins += value;
             }
         }
     }
@@ -319,6 +346,7 @@ namespace ComProg2Finals
         {
             Name = name;
             Health = 120;
+            MaxHealth = 120;
             Accuracy = 100;
             AttackDamage = 15;
             Speed = 10;
@@ -361,6 +389,7 @@ namespace ComProg2Finals
         {
             Name = name;
             Health = 70;
+            MaxHealth = 70;
             Accuracy = 100;
             AttackDamage = 35;
             Speed = 10;
@@ -474,6 +503,7 @@ namespace ComProg2Finals
         {
             Name = name;
             Health = 50;
+            MaxHealth = 50;
             Accuracy = 110;
             AttackDamage = 10;
             Speed = 10;
@@ -519,6 +549,7 @@ namespace ComProg2Finals
         {
             Name = name;
             Health = 85;
+            MaxHealth = 85;
             Accuracy = 100;
             AttackDamage = 25;
             Speed = 10;
@@ -565,6 +596,7 @@ namespace ComProg2Finals
         {
             Name = name;
             Health = 80;
+            MaxHealth = 80;
             Accuracy = 100;
             AttackDamage = 30;
             Speed = 10;
@@ -610,6 +642,7 @@ namespace ComProg2Finals
         {
             Name = name;
             Health = 100;
+            MaxHealth = 100;
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
