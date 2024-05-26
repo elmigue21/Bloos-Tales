@@ -445,6 +445,7 @@ namespace ComProg2Finals
     }
     public class HardHelmet : Items
     {
+        double defVal;
         public HardHelmet()
         {
             this.Name = "Hard Helmet";
@@ -452,8 +453,9 @@ namespace ComProg2Finals
         }
         public override void Acquired(Bloo charac)
         {
-           // form2.dialogueTextBox.Text = ItemsDiag.HardHelmentDialogue;
-            charac.Defense += 15;
+            // form2.dialogueTextBox.Text = ItemsDiag.HardHelmentDialogue;
+            this.defVal = charac.Defense * .15;
+            charac.Defense += defVal;
             charac.PlayerItems.Add(this);
         }
         public override void Encountered(Bloo charac)
@@ -462,7 +464,7 @@ namespace ComProg2Finals
         }
         public override void Lost(Bloo charac)
         {
-            charac.Defense -= 15;
+            charac.Defense -= defVal;
             charac.PlayerItems.Remove(this);
         }
     }
@@ -622,12 +624,12 @@ namespace ComProg2Finals
                     int bossIndex = form2.encounterCount / 5;
                     if(bossIndex == 3)
                     {
-                        charac.CharStatEffects.Add(new AttackBoost("Seer buff", 0.30, charac));
+                        charac.CharStatEffects.Add(new AttackBoost("Seer buff", .30, charac));
                         charac.PlayerItems.Remove(this);
                     }
                     break;
                 case 2:
-                    charac.CharStatEffects.Add(new AttackBoost("Seer buff", 0.15, charac));
+                    charac.CharStatEffects.Add(new AttackBoost("Seer buff", .15, charac));
                     charac.PlayerItems.Remove(this);
                     break;
                 case 3:

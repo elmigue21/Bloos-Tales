@@ -123,6 +123,7 @@ namespace ComProg2Finals
         public BounceSkill(string name) : base(name)
         {
             intrvl = 1;
+            this.Name = "his momentum from bounce to land on the enemy";
         }
 
         public override void Trigger(Character user)
@@ -134,12 +135,13 @@ namespace ComProg2Finals
                 rand = 0;
                 switch (rand) {
                     case 0:
-
+                       // MessageBox.Show("Bloo lands and attacks the enemy");
                 user.skillQueue.Add(()=>user.Opposition.DamageCharac(15, user, this.Name)  );
-                        form2.dialogueTextBox.Text = "Bloo lands and attacks the enemy!";
+                        //form2.dialogueTextBox.Text = "Bloo lands and attacks the enemy!";
+                        
                         break;
                     case 1:
-                        form2.dialogueTextBox.Text = "Bloo lands and tries to attack the enemy but missed!";
+                      //  form2.dialogueTextBox.Text = "Bloo lands and tries to attack the enemy but missed!";
                         break;
                 }
             }
@@ -184,24 +186,19 @@ namespace ComProg2Finals
     }
     public class StealthBuff : StatusEffect
     {
-        double accuracy;
         double critChance;
         int debuff = 50;
         int buff = 1;
         int intervals;
 
-        public StealthBuff(string name, double accuracy, double crit, int intrvl) : base(name)
+        public StealthBuff(string name, double crit, int intrvl) : base(name)
         {
-            this.accuracy = accuracy - debuff;
             this.critChance = crit + 1;
             intervals = intrvl;
         }
         public override void Trigger(Character charac)
         {
-            charac.Accuracy = accuracy;
             charac.CritChance = critChance;
-
-
             form2.dialogueTextBox.Text = $"{charac} lost {debuff} Accuracy in exchange for {buff}% Critical Chance {intervals} turn";
 
             intervals--;

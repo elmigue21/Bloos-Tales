@@ -62,6 +62,7 @@ namespace ComProg2Finals
         }
 
         int dialogue_count, event_dialogue_count = 0;
+
         int count = 0;
         bool fightClicked, rizzClicked = false;
         private void Form2_Load(object sender, EventArgs e)
@@ -103,11 +104,10 @@ namespace ComProg2Finals
             }
 
             bossFights.Add(new Peech("Peech"));
-            Player.PlayerItems.Add(new Excalibur());
-            Player.PlayerItems.Add(new GoldenArrow());
-            Player.PlayerItems.Add(new Goblet());
-            Player.PlayerItems.Add(new HolyWater());
-            Player.PlayerItems.Add(new StrangeGem());
+            foreach(Character boss in bossFights)
+            {
+                MessageBox.Show(boss.ToString());
+            }
 
 
             dialoguePanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "scroll.png"));
@@ -309,6 +309,9 @@ namespace ComProg2Finals
             {
                 encounterCount++;
             }
+
+
+
         }
         public void EnterBattle()
         {
@@ -357,20 +360,8 @@ namespace ComProg2Finals
                     }
                     else
                     {
-                        currentEncounter = bossFights[bossIndex];
-                        /*
-                        for (int i = 0; i < Player.PlayerItems.Count; i++)
-                        {
-                            if (Player.PlayerItems[i].GetType() == currentEncounter.KeyItem)
-                            {
-                                MessageBox.Show("PLAYER HAS KEY ITEM");
-                                Player.PlayerItems[i].Lost(Player);
-                                encounterCount++;
-                                runNextEncounter();
-                                break;
-                            }
-                        }
-                        */
+                        currentEncounter = bossFights[bossIndex - 1];
+
                     }
                     break;
                 case 4:

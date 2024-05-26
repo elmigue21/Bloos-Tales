@@ -140,7 +140,7 @@ namespace ComProg2Finals
                 }
                 else
                 {
-                    double totalDamage = ((user.AttackDamage * dmgValue) / user.Opposition.Defense) * user.Multiplier;
+                    double totalDamage = ((user.AttackDamage * dmgValue) / user.Opposition.Defense + 3) * user.Multiplier;
                     Random random = new Random();
                     bool isCrit = false;
                     int randomNumber = random.Next(0, 101);
@@ -274,7 +274,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 20;
             Speed = 10;
-            CharSkills = new List<Skill> { new Tackle(), new Goo()};
+            CharSkills = new List<Skill> { new Tackle(), new Goo(), new Bounce()};
             Rizz = 50;
             picImage = "blooIdle.gif";
             Defense = 15;
@@ -477,7 +477,7 @@ namespace ComProg2Finals
             Accuracy = 110;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new List<Skill> { new Heal(), new Smite(), new Baptize()};
+            CharSkills = new List<Skill> { new Heal(), new Smite(), new Purify()};
             Rizz = 5;
             picImage = "priest.png";
             Defense = 18;
