@@ -25,7 +25,7 @@ namespace ComProg2Finals
         //public Bloo Player;
         string directory;
         public EncounterClass currentEncounter;
-        int encounterCount;
+        public int encounterCount;
         private System.Windows.Forms.Timer timer;
         private static Form2 instance;
         Form1 f1 = Form1.GetInstance();
