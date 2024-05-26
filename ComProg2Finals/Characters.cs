@@ -272,12 +272,12 @@ namespace ComProg2Finals
             Name = name;
             Health = 50;
             Accuracy = 100;
-            AttackDamage = 200;
+            AttackDamage = 20;
             Speed = 10;
             CharSkills = new List<Skill> { new Tackle(), new Goo()};
             Rizz = 50;
             picImage = "blooIdle.gif";
-            Defense = 40;
+            Defense = 15;
             CharStatEffects = new List<StatusEffect> { };
             Coins = 500;
             Lives = 3;
@@ -318,14 +318,14 @@ namespace ComProg2Finals
         public Knight(string name) : base(name)
         {
             Name = name;
-            Health = 100;
+            Health = 120;
             Accuracy = 100;
-            AttackDamage = 10;
+            AttackDamage = 15;
             Speed = 10;
             CharSkills = new List<Skill> { new Slash(),new Block(), new ShieldBash()};
             Rizz = 5;
             picImage = "knight.png";
-            Defense = 10;
+            Defense = 25;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 100;
             skillProbability = new int[] { 33, 33,33, -1};
@@ -360,14 +360,14 @@ namespace ComProg2Finals
         public Wizard(string name) : base(name)
         {
             Name = name;
-            Health = 100;
+            Health = 70;
             Accuracy = 100;
-            AttackDamage = 10;
+            AttackDamage = 35;
             Speed = 10;
             CharSkills = new List<Skill> { new Fireball(), new RockHurl(), new WindSlice(), new WaterBlast() };
             Rizz = 5;
             picImage = "wiz.png";
-            Defense = 10;
+            Defense = 5;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
             EncounterDialogue = WizardDiag.EntranceDialogue;
@@ -474,13 +474,13 @@ namespace ComProg2Finals
         {
             Name = name;
             Health = 50;
-            Accuracy = 100;
-            AttackDamage = 1;
+            Accuracy = 110;
+            AttackDamage = 10;
             Speed = 10;
             CharSkills = new List<Skill> { new Heal(), new Smite(), new Baptize()};
             Rizz = 5;
             picImage = "priest.png";
-            Defense = 10;
+            Defense = 18;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
             skillProbability = new int[] { 33, 33, 33, -1 };
@@ -518,9 +518,9 @@ namespace ComProg2Finals
         public Rogue(string name) : base(name)
         {
             Name = name;
-            Health = 100;
+            Health = 85;
             Accuracy = 100;
-            AttackDamage = 10;
+            AttackDamage = 25;
             Speed = 10;
             CharSkills = new List<Skill> { new Stealth(), new Poison(), new Dagger()};
             Rizz = 5;
@@ -564,14 +564,14 @@ namespace ComProg2Finals
         public Archer(string name) : base(name)
         {
             Name = name;
-            Health = 100;
+            Health = 80;
             Accuracy = 100;
-            AttackDamage = 10;
+            AttackDamage = 30;
             Speed = 10;
             CharSkills = new List<Skill> { new Lock(), new Volley(), new Shoot()};
             Rizz = 5;
             picImage = "archer.png";
-            Defense = 25;
+            Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
             skillProbability = new int[] { 33, 33, 33, -1 };
