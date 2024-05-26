@@ -151,8 +151,11 @@ namespace ComProg2Finals
                     }
                     user.Opposition.Health -= totalDamage;
 
-                    if (user.Opposition.GetType() == typeof(Bloo) && user.PlayerItems.Any(item => item.GetType() == typeof(SpikedHelmet))) {
+                    if (user.Opposition.GetType() == typeof(Bloo) && user.Opposition.PlayerItems.Any(item => item.GetType() == typeof(SpikedHelmet))) {
+                        
                         user.Health -= totalDamage / 2;
+                        double returnedDamage = totalDamage / 2;
+                        MessageBox.Show("Damage dealt to bloo was reflected due to the spiked helmet! returned " + returnedDamage + " damage");
                     }
                     
                 }
@@ -260,7 +263,7 @@ namespace ComProg2Finals
             AttackDamage = 200;
             Speed = 10;
             CharSkills = new List<Skill> { new Tackle(), new Goo()};
-            Rizz = 20;
+            Rizz = 100;
             picImage = "blooIdle.gif";
             Defense = 40;
             CharStatEffects = new List<StatusEffect> { };
@@ -328,9 +331,10 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            if (bloo.Rizz == 100 && bloo.canUseRizz)
+            if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
                 MessageBox.Show("By the gods, this slime is the most beautiful creature next to the princess I have ever seen. I would marry you if I were as gooey as you.");
+                form2.runNextEncounter();
             }
             else
             {
@@ -349,6 +353,7 @@ namespace ComProg2Finals
     public class Wizard : Character
     {
         public string wizardType;
+        private static Random random = new Random();
         public Wizard(string name) : base(name)
         {
             Name = name;
@@ -365,6 +370,7 @@ namespace ComProg2Finals
             EncounterDialogue = "OOH! What kind of slime is this? Is it a water type? A fire type? An earth type? Or maybe a wind type?";
             Interactions = new string[] { "Attack", "Rizz"};
             befEncounter = "Bloo bounces his way forward, when suddenly he feels a fearful presence tingling on his gooeyness…";
+
             switch (PlayerInstance.elementType)
             {
                 case "Fire":
@@ -385,6 +391,25 @@ namespace ComProg2Finals
             }
             KeyItem = typeof(Goblet);
         }
+        public static Wizard CreateRandomWizard()
+        {
+            //Random random = new Random();
+            int elementType = random.Next(0, 4); // Generates a number between 0 and 3
+
+            switch (elementType)
+            {
+                case 0:
+                    return new WaterWizard("Water Wizard");
+                case 1:
+                    return new EarthWizard("Earth Wizard");
+                case 2:
+                    return new FireWizard("Fire Wizard");
+                case 3:
+                    return new WindWizard("Wind Wizard");
+                default:
+                    throw new Exception("Invalid element type generated.");
+            }
+        }
         public override void EventAction1(Bloo bloo)
         {
             MessageBox.Show("It’s big brain time.");
@@ -392,9 +417,10 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            if (bloo.Rizz == 100 && bloo.canUseRizz)
+            if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
                 MessageBox.Show("From a genius to a genius! Please tell me more about four elementalisms, elucidating the intricacies of earthism, waterism, airism, and fireism, as they intertwine in the grand tapestry of existenceism.");
+                form2.runNextEncounter();
             }
             else
             {
@@ -407,7 +433,7 @@ namespace ComProg2Finals
     {
         public FireWizard(string name): base(name)
         {
-            picImage = "firewizard.png";
+            picImage = "wizard_fire.png";
             elementType = "Fire";
         }
     }
@@ -415,7 +441,7 @@ namespace ComProg2Finals
     {
         public WaterWizard(string name) : base(name)
         {
-            picImage = "waterwizard.png";
+            picImage = "wizard_water.png";
             elementType = "Water";
         }
     }
@@ -423,7 +449,7 @@ namespace ComProg2Finals
     {
         public WindWizard(string name) : base(name)
         {
-            picImage = "windwizard.png";
+            picImage = "wizard_wind.png";
             elementType = "Wind";
         }
     }
@@ -431,7 +457,7 @@ namespace ComProg2Finals
     {
         public EarthWizard(string name) : base(name)
         {
-            picImage = "earthwizard.png";
+            picImage = "wizard_earth.png";
             elementType = "Earth";
         }
     }
@@ -466,6 +492,7 @@ namespace ComProg2Finals
             if (bloo.Rizz == 100 && bloo.canUseRizz)
             {
                 MessageBox.Show("OH MY GOD! Mr. Slime, you are the most adorable thing in the world. I just want to pinch those cheeks!");
+                form2.runNextEncounter();
             }
             else
             {
@@ -488,7 +515,7 @@ namespace ComProg2Finals
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
-            skillProbability = new int[] { 25, 25, 25, 25 };
+            skillProbability = new int[] { 33, 33, 33, -1 };
             Interactions = new string[] { "Attack", "Rizz"};
             EncounterDialogue = "Man, I’m tired of getting worthless loot…";
             befEncounter = "As the shadows of the forest enveloped Bloo, he noticed a man stalking through the shadows…";
@@ -501,9 +528,10 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            if (bloo.Rizz == 100 && bloo.canUseRizz)
+            if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
                 MessageBox.Show("I see… A slime outsmarting me. This is beyond embarrassing, but I admit my inferiority, slime.");
+                form2.runNextEncounter();
             }
             else
             {
@@ -540,9 +568,10 @@ namespace ComProg2Finals
         }
         public override void EventAction2(Bloo bloo)
         {
-            if (bloo.Rizz == 100 && bloo.canUseRizz)
+            if (bloo.Rizz >= 100 && bloo.canUseRizz)
             {
                 MessageBox.Show("Ah, dear slime, your colors dance so vividly. Would you care for a stroll together? I find your company quite... enchanting.");
+                form2.runNextEncounter();
             }
             else
             {
@@ -561,7 +590,7 @@ namespace ComProg2Finals
             Speed = 10;
             CharSkills = new List<Skill> { new Chomp(), new Haul()};
             Rizz = 5;
-            picImage = "evilchest.png";
+            picImage = "chesty_mimic.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
@@ -598,9 +627,9 @@ namespace ComProg2Finals
                     user.Opposition.Health -= totalDamage;
                     Random rand = new Random();
                     int rando = new Random().Next(0, 101);
-                    if (rando <= 100)
+                    if (rando <= 30)
                     {
-                        user.Health -= totalDamage;
+                        user.Health -= totalDamage / 2;
                         MessageBox.Show(user.Opposition.Name + " reflected the damage!");
                     }
                 }
@@ -624,12 +653,12 @@ namespace ComProg2Finals
         {
             Name = "Peech";
             Interactions = new string[]{"Talk"};
-            picImage = "peech.png";
+            picImage = "peech_idle.gif";
 
         }
         public override void EventAction1(Bloo bloo)
         {
-            if(bloo.Rizz == 100)
+            if(bloo.Rizz >= 100)
             {
                 MessageBox.Show("Win!");
             }

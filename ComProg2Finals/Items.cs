@@ -115,7 +115,7 @@ namespace ComProg2Finals
             MessageBox.Show($"Bloo obtained the Behelith");
             //if (charac.Lives < 5)
             //{
-                charac.Lives++;
+                charac.Lives--;
             //}
             charac.Coins += charac.Coins * .30;
             charac.Rizz -= charac.Rizz * .30;
@@ -143,7 +143,6 @@ namespace ComProg2Finals
             if (gainedRizz <= limit)
             {
                 charac.Rizz += 5;
-                MessageBox.Show(charac.Rizz.ToString());
             }
         }
     }
@@ -161,8 +160,8 @@ namespace ComProg2Finals
         public override void Encountered(Bloo charac)
         {            
             charac.Coins += 10;
-            MessageBox.Show("+10 Bonus");
-            MessageBox.Show(charac.Coins.ToString());
+           // MessageBox.Show("+10 Bonus");
+            //MessageBox.Show(charac.Coins.ToString());
             // Tuloy-tuloy ang +10 until makabili si Bloo (madagdagan yung inventory)
         }
 
@@ -256,7 +255,6 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show(charac.Rizz.ToString());
         }
         public override void Lost(Bloo charac)
         {
@@ -293,7 +291,6 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show(charac.Health.ToString());
         }
         public override void Lost(Bloo charac)
         {
@@ -329,7 +326,6 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show(charac.Defense.ToString());
         }
         public override void Lost(Bloo charac)
         {
@@ -363,7 +359,6 @@ namespace ComProg2Finals
             {
                 iter--;
             }
-            MessageBox.Show($"Use Rizz? {charac.canUseRizz}");
         }
         public override void Lost(Bloo charac)
         {
@@ -725,7 +720,6 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-            interval--;
             if(interval == 0)
             {
                 this.Lost(charac);

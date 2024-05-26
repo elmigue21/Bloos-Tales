@@ -63,3 +63,5 @@ C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\D
 C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.CoreCompileInputs.cache
 C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.exe
 C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.pdb
+C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form3.resources
+C:\Users\Quisayang\OneDrive\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form3.resources

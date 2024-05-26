@@ -178,15 +178,11 @@ namespace ComProg2Finals
             }
             else if(chance > Enemy.skillProbability[1] && chance <= Enemy.skillProbability[2] + Enemy.skillProbability[1] + Enemy.skillProbability[0])
             {
-               // Enemy.skillQueue.Add(() => Enemy.CharSkills[2].Perform(Enemy));
                 Enemy.CharSkills[2].Perform(Enemy);
-                // Enemy.skillQueued = Enemy.CharSkills[2];
             }
             else if(chance > Enemy.skillProbability[2] && chance <= Enemy.skillProbability[3] + Enemy.skillProbability[2] + Enemy.skillProbability[1] + Enemy.skillProbability[0])
             {
-               // Enemy.skillQueue.Add(() => Enemy.CharSkills[3].Perform(Enemy));
                 Enemy.CharSkills[3].Perform(Enemy);
-                // Enemy.skillQueued = Enemy.CharSkills[3];
             }
 
 
@@ -346,11 +342,26 @@ namespace ComProg2Finals
             enemyLabelRizz.Text = "Rizz:" + Enemy.Rizz.ToString();
             enemyLabelDefense.Text = "Defense:" + Enemy.Defense.ToString();
             enemyPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Enemy.picImage));
+
+
+
+
+            playerRizzStat.Text = Player.Rizz.ToString();
+            playerAtkStat.Text = Player.AttackDamage.ToString();
+            playerCoinStat.Text = Player.Coins.ToString();
+            playerDefStat.Text = Player.Defense.ToString();
+
+
+            enemyRizzStat.Text = Enemy.Rizz.ToString();
+            enemyAtkStat.Text = Enemy.AttackDamage.ToString();
+            enemyCoinStat.Text = "?";
+            enemyDefStat.Text = Enemy.Defense.ToString();
+            
         }
         private void playerRunBtn(object sender, EventArgs e)
         {
-            this.Hide();
-            form2.runNextEncounter();
+            this.Close();
+           // form2.runNextEncounter();
         }
         private void testButton_Click(object sender, EventArgs e)
         {
