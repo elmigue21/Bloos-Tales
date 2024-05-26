@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dialogue_box = new System.Windows.Forms.Label();
-            this.playerPictureBox = new System.Windows.Forms.PictureBox();
-            this.charactersPictureBox = new System.Windows.Forms.PictureBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dialogueTextBox = new System.Windows.Forms.TextBox();
@@ -39,15 +37,18 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.dialoguePanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.statsPanel = new System.Windows.Forms.Panel();
-            this.rizzStat = new System.Windows.Forms.Label();
-            this.atkStat = new System.Windows.Forms.Label();
-            this.coinStat = new System.Windows.Forms.Label();
             this.defStat = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.charactersPictureBox)).BeginInit();
+            this.coinStat = new System.Windows.Forms.Label();
+            this.atkStat = new System.Windows.Forms.Label();
+            this.rizzStat = new System.Windows.Forms.Label();
+            this.charactersPictureBox = new System.Windows.Forms.PictureBox();
+            this.playerPictureBox = new System.Windows.Forms.PictureBox();
             this.dialoguePanel.SuspendLayout();
             this.statsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.charactersPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // dialogue_box
@@ -60,30 +61,6 @@
             this.dialogue_box.Size = new System.Drawing.Size(23, 33);
             this.dialogue_box.TabIndex = 6;
             this.dialogue_box.Text = " ";
-            // 
-            // playerPictureBox
-            // 
-            this.playerPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.playerPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.playerPictureBox.Location = new System.Drawing.Point(243, 205);
-            this.playerPictureBox.Margin = new System.Windows.Forms.Padding(2);
-            this.playerPictureBox.Name = "playerPictureBox";
-            this.playerPictureBox.Size = new System.Drawing.Size(150, 150);
-            this.playerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.playerPictureBox.TabIndex = 7;
-            this.playerPictureBox.TabStop = false;
-            this.playerPictureBox.Click += new System.EventHandler(this.player_Click);
-            // 
-            // charactersPictureBox
-            // 
-            this.charactersPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.charactersPictureBox.Location = new System.Drawing.Point(772, 190);
-            this.charactersPictureBox.Margin = new System.Windows.Forms.Padding(2);
-            this.charactersPictureBox.Name = "charactersPictureBox";
-            this.charactersPictureBox.Size = new System.Drawing.Size(147, 145);
-            this.charactersPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.charactersPictureBox.TabIndex = 9;
-            this.charactersPictureBox.TabStop = false;
             // 
             // timer2
             // 
@@ -146,6 +123,16 @@
             this.dialoguePanel.Size = new System.Drawing.Size(523, 160);
             this.dialoguePanel.TabIndex = 18;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = global::ComProg2Finals.Properties.Resources.levelsProgress;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(62, 35);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(816, 26);
+            this.panel1.TabIndex = 20;
+            // 
             // statsPanel
             // 
             this.statsPanel.BackColor = System.Drawing.Color.Transparent;
@@ -160,27 +147,16 @@
             this.statsPanel.Size = new System.Drawing.Size(225, 160);
             this.statsPanel.TabIndex = 19;
             // 
-            // rizzStat
+            // defStat
             // 
-            this.rizzStat.AutoSize = true;
-            this.rizzStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rizzStat.Location = new System.Drawing.Point(69, 57);
-            this.rizzStat.Name = "rizzStat";
-            this.rizzStat.Size = new System.Drawing.Size(36, 16);
-            this.rizzStat.TabIndex = 20;
-            this.rizzStat.Text = "Rizz";
-            this.rizzStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // atkStat
-            // 
-            this.atkStat.AutoSize = true;
-            this.atkStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.atkStat.Location = new System.Drawing.Point(164, 57);
-            this.atkStat.Name = "atkStat";
-            this.atkStat.Size = new System.Drawing.Size(29, 16);
-            this.atkStat.TabIndex = 21;
-            this.atkStat.Text = "Atk";
-            this.atkStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.defStat.AutoSize = true;
+            this.defStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.defStat.Location = new System.Drawing.Point(164, 110);
+            this.defStat.Name = "defStat";
+            this.defStat.Size = new System.Drawing.Size(31, 16);
+            this.defStat.TabIndex = 23;
+            this.defStat.Text = "Def";
+            this.defStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // coinStat
             // 
@@ -193,22 +169,58 @@
             this.coinStat.Text = "Coin";
             this.coinStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // defStat
+            // atkStat
             // 
-            this.defStat.AutoSize = true;
-            this.defStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.defStat.Location = new System.Drawing.Point(164, 110);
-            this.defStat.Name = "defStat";
-            this.defStat.Size = new System.Drawing.Size(31, 16);
-            this.defStat.TabIndex = 23;
-            this.defStat.Text = "Def";
-            this.defStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.atkStat.AutoSize = true;
+            this.atkStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.atkStat.Location = new System.Drawing.Point(164, 57);
+            this.atkStat.Name = "atkStat";
+            this.atkStat.Size = new System.Drawing.Size(29, 16);
+            this.atkStat.TabIndex = 21;
+            this.atkStat.Text = "Atk";
+            this.atkStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rizzStat
+            // 
+            this.rizzStat.AutoSize = true;
+            this.rizzStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rizzStat.Location = new System.Drawing.Point(69, 57);
+            this.rizzStat.Name = "rizzStat";
+            this.rizzStat.Size = new System.Drawing.Size(36, 16);
+            this.rizzStat.TabIndex = 20;
+            this.rizzStat.Text = "Rizz";
+            this.rizzStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // charactersPictureBox
+            // 
+            this.charactersPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.charactersPictureBox.Location = new System.Drawing.Point(772, 190);
+            this.charactersPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.charactersPictureBox.Name = "charactersPictureBox";
+            this.charactersPictureBox.Size = new System.Drawing.Size(147, 145);
+            this.charactersPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.charactersPictureBox.TabIndex = 9;
+            this.charactersPictureBox.TabStop = false;
+            // 
+            // playerPictureBox
+            // 
+            this.playerPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.playerPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.playerPictureBox.Location = new System.Drawing.Point(242, 214);
+            this.playerPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.playerPictureBox.Name = "playerPictureBox";
+            this.playerPictureBox.Size = new System.Drawing.Size(150, 150);
+            this.playerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.playerPictureBox.TabIndex = 7;
+            this.playerPictureBox.TabStop = false;
+            this.playerPictureBox.Click += new System.EventHandler(this.player_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(966, 552);
+            this.ClientSize = new System.Drawing.Size(964, 561);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.statsPanel);
             this.Controls.Add(this.dialoguePanel);
             this.Controls.Add(this.label1);
@@ -222,12 +234,12 @@
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
-            ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.charactersPictureBox)).EndInit();
             this.dialoguePanel.ResumeLayout(false);
             this.dialoguePanel.PerformLayout();
             this.statsPanel.ResumeLayout(false);
             this.statsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.charactersPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,5 +262,6 @@
         private System.Windows.Forms.Label coinStat;
         private System.Windows.Forms.Label atkStat;
         private System.Windows.Forms.Label rizzStat;
+        private System.Windows.Forms.Panel panel1;
     }
 }

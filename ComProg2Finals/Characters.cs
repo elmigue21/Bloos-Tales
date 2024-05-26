@@ -351,6 +351,7 @@ namespace ComProg2Finals
     public class Wizard : Character
     {
         public string wizardType;
+        private static Random random = new Random();
         public Wizard(string name) : base(name)
         {
             Name = name;
@@ -367,6 +368,7 @@ namespace ComProg2Finals
             EncounterDialogue = "OOH! What kind of slime is this? Is it a water type? A fire type? An earth type? Or maybe a wind type?";
             Interactions = new string[] { "Attack", "Rizz"};
             befEncounter = "Bloo bounces his way forward, when suddenly he feels a fearful presence tingling on his gooeyness…";
+
             switch (PlayerInstance.elementType)
             {
                 case "Fire":
@@ -386,6 +388,25 @@ namespace ComProg2Finals
                     break;
             }
             KeyItem = typeof(Goblet);
+        }
+        public static Wizard CreateRandomWizard()
+        {
+            //Random random = new Random();
+            int elementType = random.Next(0, 4); // Generates a number between 0 and 3
+
+            switch (elementType)
+            {
+                case 0:
+                    return new WaterWizard("Water Wizard");
+                case 1:
+                    return new EarthWizard("Earth Wizard");
+                case 2:
+                    return new FireWizard("Fire Wizard");
+                case 3:
+                    return new WindWizard("Wind Wizard");
+                default:
+                    throw new Exception("Invalid element type generated.");
+            }
         }
         public override void EventAction1(Bloo bloo)
         {
@@ -409,7 +430,7 @@ namespace ComProg2Finals
     {
         public FireWizard(string name): base(name)
         {
-            picImage = "firewizard.png";
+            picImage = "wizard_fire.png";
             elementType = "Fire";
         }
     }
@@ -417,7 +438,7 @@ namespace ComProg2Finals
     {
         public WaterWizard(string name) : base(name)
         {
-            picImage = "waterwizard.png";
+            picImage = "wizard_water.png";
             elementType = "Water";
         }
     }
@@ -425,7 +446,7 @@ namespace ComProg2Finals
     {
         public WindWizard(string name) : base(name)
         {
-            picImage = "windwizard.png";
+            picImage = "wizard_wind.png";
             elementType = "Wind";
         }
     }
@@ -433,7 +454,7 @@ namespace ComProg2Finals
     {
         public EarthWizard(string name) : base(name)
         {
-            picImage = "earthwizard.png";
+            picImage = "wizard_earth.png";
             elementType = "Earth";
         }
     }

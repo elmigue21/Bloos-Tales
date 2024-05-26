@@ -719,7 +719,6 @@ namespace ComProg2Finals
         }
         public override void Encountered(Bloo charac)
         {
-            interval--;
             if(interval == 0)
             {
                 this.Lost(charac);

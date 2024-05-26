@@ -342,6 +342,21 @@ namespace ComProg2Finals
             enemyLabelRizz.Text = "Rizz:" + Enemy.Rizz.ToString();
             enemyLabelDefense.Text = "Defense:" + Enemy.Defense.ToString();
             enemyPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Enemy.picImage));
+
+
+
+
+            playerRizzStat.Text = Player.Rizz.ToString();
+            playerAtkStat.Text = Player.AttackDamage.ToString();
+            playerCoinStat.Text = Player.Coins.ToString();
+            playerDefStat.Text = Player.Defense.ToString();
+
+
+            enemyRizzStat.Text = Enemy.Rizz.ToString();
+            enemyAtkStat.Text = Enemy.AttackDamage.ToString();
+            enemyCoinStat.Text = "?";
+            enemyDefStat.Text = Enemy.Defense.ToString();
+            
         }
         private void playerRunBtn(object sender, EventArgs e)
         {

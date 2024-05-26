@@ -100,7 +100,8 @@ namespace ComProg2Finals
                         boss = new Knight("Knight");
                         break;
                     case 1:
-                        boss = new Wizard("Wizard");
+                        Wizard wizard = Wizard.CreateRandomWizard();
+                        boss = wizard;
                         break;
                     case 2:
                         boss = new Rogue("Rogue");
@@ -138,7 +139,7 @@ namespace ComProg2Finals
 
 
 
-
+            runNextEncounter();
             //mastergooway.skillshop = new Skill[] { new Bounce(), new Split(), new Mog(), new ElementBook() };
             //shopkeeper.itemshop = new Items[] { new LifePotion(), new MysteryPotion(), new RizzBooster(), new HealthBoosterPotion(), new DefenseDown50percentPotion(), new DuctTapePotion(), new PocketHolePotion(), new OneShotPotion(), new HardHelmet(), new SpikedHelmet()};
             UpdateStats();
