@@ -95,23 +95,34 @@ namespace ComProg2Finals
 
         public virtual void UseSkill1(Character player)
         {
-            //player.skillQueue.Add(() => CharSkills[0].Perform(player));
             CharSkills[0].Perform(player);
         }
         public virtual void UseSkill2(Character player)
         {
-           // player.skillQueue.Add(() => CharSkills[1].Perform(player));
             CharSkills[1].Perform(player);
         }
         public virtual void UseSkill3(Character player)
         {
-           // player.skillQueue.Add(() => CharSkills[2].Perform(player));
             CharSkills[2].Perform(player);
         }
         public virtual void UseSkill4(Character player)
         {
-            //player.skillQueue.Add(() => CharSkills[3].Perform(player));
             CharSkills[3].Perform(player);
+        }
+        public virtual void ChangeRizz(double val)
+        {
+            if (this.Rizz + val > 100)
+            {
+                this.Rizz = 100;
+            }
+            else if (this.Rizz + val < 0)
+            {
+                this.Rizz = 0;
+            }
+            else
+            {
+                this.Rizz += val;
+            }
         }
         
         public virtual async void DamageCharac(double dmgValue, Character user, string skillName)
@@ -136,13 +147,12 @@ namespace ComProg2Finals
                 }
                 else
                 {
-                    double totalDamage = ((user.AttackDamage * dmgValue) / user.Opposition.Defense) * user.Multiplier;
+                    double totalDamage = ((user.AttackDamage * dmgValue) / user.Opposition.Defense + 3) * user.Multiplier;
                     Random random = new Random();
                     bool isCrit = false;
                     int randomNumber = random.Next(0, 101);
                     if (randomNumber <= user.CritChance)
                     {
-                        //MessageBox.Show("CRIT!");
                         isCrit = true;
                         totalDamage *= user.CritDamage;
                     }
@@ -273,8 +283,8 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 20;
             Speed = 10;
-            CharSkills = new List<Skill> { new Tackle(), new Goo()};
-            Rizz = 100;
+            CharSkills = new List<Skill> { new Tackle(), new Goo(), new Bounce()};
+            Rizz = 50;
             picImage = "blooIdle.gif";
             Defense = 15;
             CharStatEffects = new List<StatusEffect> { };
@@ -476,7 +486,7 @@ namespace ComProg2Finals
             Accuracy = 100;
             AttackDamage = 10;
             Speed = 10;
-            CharSkills = new List<Skill> { new Heal(), new Smite(), new Baptize()};
+            CharSkills = new List<Skill> { new Heal(), new Smite(), new Purify()};
             Rizz = 5;
             picImage = "priest.png";
             Defense = 18;

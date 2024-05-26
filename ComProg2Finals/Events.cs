@@ -50,7 +50,7 @@ namespace ComProg2Finals
             }
             else if (randomNumber <= lifePotChance + rizzChance)
             {
-                bloo.Rizz += gainedRizz;
+                bloo.ChangeRizz(gainedRizz);
                 form2.dialogueTextBox.Text = ChestyDiag.CommitEvent2;
                 form2.runNextEncounter();
             }
@@ -125,7 +125,7 @@ namespace ComProg2Finals
                         form2.dialogueTextBox.Text = CaveDiag.CommitEvent8;
                         break;
                     case 3:
-                        bloo.Rizz -= 20;
+                        bloo.ChangeRizz(-20);
                         form2.dialogueTextBox.Text = CaveDiag.CommitEvent9;
                         break;
                 }
@@ -357,7 +357,7 @@ namespace ComProg2Finals
             {
                 case 0:
                     int bossCount = form2.encounterCount / 5;
-                    bloo.Rizz -= bloo.Rizz * .3;
+                    bloo.ChangeRizz(-bloo.Rizz * .3);
                     break;
                 case 1:
                     bloo.Coins -= 150;
@@ -457,14 +457,14 @@ namespace ComProg2Finals
 
                     break;
                     case 1:
-                        bloo.Rizz += 50;
+                    bloo.ChangeRizz(50);
                         bloo.Lives = 1;
                     form2.dialogueTextBox.Text = KingDiag.Option2Dialogue;
                         break;
                     case 2:
                         bloo.Lives = 5;
                         bloo.Coins -= bloo.Coins * .75;
-                        bloo.Rizz -= bloo.Rizz * .75;
+                    bloo.ChangeRizz(-bloo.Rizz * .75);
                     form2.dialogueTextBox.Text = KingDiag.Option3Dialogue;
                         break;
                 }
@@ -543,7 +543,7 @@ namespace ComProg2Finals
         {
             form2.dialogueTextBox.Text = AppleTreeDiag.Option1Dialogue;
             form2.dialogueTextBox.Text = AppleTreeDiag.CommitEvent1;
-            // add plus rizz
+            bloo.ChangeRizz(10);
             form2.runNextEncounter();
         }
 

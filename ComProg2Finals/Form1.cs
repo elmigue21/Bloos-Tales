@@ -140,6 +140,7 @@ namespace ComProg2Finals
                 }
                 else
                 {
+                    MessageBox.Show("Bloo is stunned, can't move");
                     Player.hasTurn = true;
                 }
                     runTurn();
@@ -159,6 +160,7 @@ namespace ComProg2Finals
                 }
                 else
                 {
+                    MessageBox.Show("Bloo is stunned, can't move");
                     Player.hasTurn = true;
                 }
                     runTurn();
@@ -176,6 +178,7 @@ namespace ComProg2Finals
                 }
                 else
                 {
+                    MessageBox.Show("Bloo is stunned, can't move");
                     Player.hasTurn = true;
                 }
                     runTurn();
@@ -194,6 +197,7 @@ namespace ComProg2Finals
                 }
                 else
                 {
+                    MessageBox.Show("Bloo is stunned, can't move");
                     Player.hasTurn = true;
                 }
                     runTurn();
@@ -282,6 +286,7 @@ namespace ComProg2Finals
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            form2.encounterCount++;
            form2.runNextEncounter();
         }
     }

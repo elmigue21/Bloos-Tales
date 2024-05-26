@@ -62,6 +62,7 @@ namespace ComProg2Finals
         }
 
         int dialogue_count, event_dialogue_count = 0;
+
         int count = 0;
         bool fightClicked, rizzClicked = false;
         private void Form2_Load(object sender, EventArgs e)
@@ -73,8 +74,8 @@ namespace ComProg2Finals
             timer.Interval = 2000;
             timer.Tick += Timer_Tick;
 
-            encounterCount = 0;
-
+            encounterCount = 1;
+            Instance = this;
             Random rand1 = new Random();
             for (int i = 0; i < 3; i++)
             {
@@ -103,6 +104,10 @@ namespace ComProg2Finals
             }
 
             bossFights.Add(new Peech("Peech"));
+            foreach(Character boss in bossFights)
+            {
+                MessageBox.Show(boss.ToString());
+            }
 
 
             dialoguePanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "scroll.png"));
@@ -111,6 +116,8 @@ namespace ComProg2Finals
             statsPanel.BackgroundImageLayout = ImageLayout.Zoom;
             runNextEncounter();
             UpdateStats();
+            //KingDebuff kingdebuff = new KingDebuff();
+           // kingdebuff.Acquired(Player);
         }
         bool right, hold = true;
 
@@ -233,7 +240,6 @@ namespace ComProg2Finals
                 Player.PlayerItems[i].Encountered(Player);
             }
             playerPictureBox.Image = Properties.Resources.blooIdle;
-            
 
 
             if (currentEncounter != mastergooway && currentEncounter != shopkeeper)
@@ -282,11 +288,30 @@ namespace ComProg2Finals
                     LoadSkillShop();
                 }
             }
-
             label1.Text = currentEncounter.Name;
             dialogueTextBox.Text = currentEncounter.EncounterDialogue;
             charactersPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
-            encounterCount++;
+            if (currentEncounter is Character)
+            {
+                for (int i = 0; i < Player.PlayerItems.Count; i++)
+                {
+                    if (Player.PlayerItems[i].GetType() == currentEncounter.KeyItem)
+                    {
+                        MessageBox.Show("PLAYER HAS KEY ITEM");
+                        Player.PlayerItems[i].Lost(Player);
+                        encounterCount++;
+                        runNextEncounter();
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                encounterCount++;
+            }
+
+
+
         }
         public void EnterBattle()
         {
@@ -303,21 +328,18 @@ namespace ComProg2Finals
             f1.Show();
             
         }
-
-
         private void HandleButtonClick(object sender, EventArgs e, Action eventAction)
         {
             eventAction?.Invoke();
             UpdateStats();
         }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             runNextEncounter();
         }
         public void runNextEncounter()
         {
+            Player.ChangeRizz(2);
             UpdateStats();
             if(Player.Health <= 0 && Player.Lives > 0)
             {
@@ -338,16 +360,8 @@ namespace ComProg2Finals
                     }
                     else
                     {
-                        currentEncounter = bossFights[bossIndex];
-                        for (int i = 0; i < Player.PlayerItems.Count; i++)
-                        {
-                            if (Player.PlayerItems[i].GetType() == currentEncounter.KeyItem)
-                            {
-                                MessageBox.Show("PLAYER HAS KEY ITEM");
-                                runNextEncounter();
-                                break;
-                            }
-                        }
+                        currentEncounter = bossFights[bossIndex - 1];
+
                     }
                     break;
                 case 4:

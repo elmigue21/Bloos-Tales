@@ -34,12 +34,12 @@ namespace ComProg2Finals
             this.dialogue_box = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            
             this.dialogueTextBox = new System.Windows.Forms.TextBox();
             this.WalkChar = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.dialoguePanel = new System.Windows.Forms.Panel();
+            this.dialogueNextBtn = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.statsPanel = new System.Windows.Forms.Panel();
             this.defStat = new System.Windows.Forms.Label();
@@ -120,11 +120,21 @@ namespace ComProg2Finals
             // 
             this.dialoguePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.dialoguePanel.BackColor = System.Drawing.Color.Transparent;
+            this.dialoguePanel.Controls.Add(this.dialogueNextBtn);
             this.dialoguePanel.Controls.Add(this.dialogueTextBox);
             this.dialoguePanel.Location = new System.Drawing.Point(243, 380);
             this.dialoguePanel.Name = "dialoguePanel";
             this.dialoguePanel.Size = new System.Drawing.Size(523, 160);
             this.dialoguePanel.TabIndex = 18;
+            // 
+            // dialogueNextBtn
+            // 
+            this.dialogueNextBtn.AutoSize = true;
+            this.dialogueNextBtn.Location = new System.Drawing.Point(432, 114);
+            this.dialogueNextBtn.Name = "dialogueNextBtn";
+            this.dialogueNextBtn.Size = new System.Drawing.Size(50, 13);
+            this.dialogueNextBtn.TabIndex = 15;
+            this.dialogueNextBtn.Text = "Next >>>";
             // 
             // panel1
             // 
@@ -266,6 +276,7 @@ namespace ComProg2Finals
         private System.Windows.Forms.Label atkStat;
         private System.Windows.Forms.Label rizzStat;
         private System.Windows.Forms.Panel panel1;
+        private Label dialogueNextBtn;
         //private System.Windows.Forms.TextBox dialogueTextBox;
     }
 }

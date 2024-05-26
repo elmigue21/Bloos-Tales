@@ -25,13 +25,13 @@ namespace ComProg2Finals
 
         public virtual void Perform(Character user)
         {
-            form2.dialogueTextBox.Text = $"{Name} skill performed.";
+          //  form2.dialogueTextBox.Text = $"{Name} skill performed.";
 
         }
         public void Learn(Bloo bloo)
         {
             bloo.CharSkills.Add(this);
-            form2.dialogueTextBox.Text = "added " + this.Name + " to bloos skills";
+            //form2.dialogueTextBox.Text = "added " + this.Name + " to bloos skills";
         }
     }
 
@@ -161,12 +161,13 @@ namespace ComProg2Finals
 
         public override void Perform(Character user)
         {
-            form2.dialogueTextBox.Text = "Used " + this.Name;
+            MessageBox.Show("bloo jumps!");
+           // form2.dialogueTextBox.Text = "Used " + this.Name;
             user.isBlocking = true;
 
             BounceSkill bounceSkill = new BounceSkill("Bounce");
             user.CharStatEffects.Add(bounceSkill);
-            bounceSkill.Trigger(user);
+            //bounceSkill.Trigger(user);
         }
     }
         
@@ -212,7 +213,7 @@ namespace ComProg2Finals
 
         public override void Perform(Character user)
         {
-            user.skillQueue.Add(() => user.Opposition.DamageCharac(0, user, this.Name));
+            user.skillQueue.Add(() => user.Opposition.DamageCharac(5, user, this.Name));
             user.Opposition.hasTurn = false;
         }
     }
@@ -309,16 +310,16 @@ namespace ComProg2Finals
             }
         }
     }
-    public class Baptize : Skill
+    public class Purify : Skill
     {
-        public Baptize()
+        public Purify()
         {
-            this.Name = "Baptize";
+            this.Name = "Purify";
         }
 
         public override void Perform(Character user)
         {
-            user.Defense -=5;
+            user.Opposition.Defense -=1;
 
         }
     }
@@ -334,7 +335,7 @@ namespace ComProg2Finals
 
         public override void Perform(Character user)
         {
-            StealthBuff stealthBuff = new StealthBuff("Stealth Buff", user.Accuracy, user.CritChance, 3);
+            StealthBuff stealthBuff = new StealthBuff("Stealth Buff", user.CritChance, 5);
             user.CharStatEffects.Add(stealthBuff);
             stealthBuff.Trigger(user);
         }
@@ -410,7 +411,6 @@ namespace ComProg2Finals
 
         public override void Perform(Character user)
         {
-            MessageBox.Show($"Used {Name}");
             user.skillQueue.Add(() => user.DamageCharac(5, user, this.Name));
         }
     }
@@ -425,7 +425,6 @@ namespace ComProg2Finals
 
         public override void Perform(Character user)
         {
-            MessageBox.Show($"Used {Name}");
            user.skillQueue.Add(() => user.Opposition.DamageCharac(5, user, this.Name));
         }
     }
@@ -439,7 +438,6 @@ namespace ComProg2Finals
 
         public override void Perform(Character user)
         {
-            form2.dialogueTextBox.Text = $"Used {Name}";
             if (user.Opposition is Bloo oppositionBloo)
             {
                 Random random = new Random();
