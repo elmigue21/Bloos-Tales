@@ -279,10 +279,10 @@ namespace ComProg2Finals
             this.EntranceDialogue = "An ominous figure appeared…";
             this.CommitEvent1 = "Bloo picked the blue pill and his health was reduced by 25%…";
             this.CommitEvent2 = "Bloo picked the blue pill and his accuracy was reduced by 25%…";
-            this.CommitEvent1 = "Bloo picked the blue pill and his coins was reduced…";
-            this.CommitEvent2 = "Bloo picked the red pill and his attack increased by 20…";
-            this.CommitEvent1 = "Bloo picked the red pill and his critical chance increased by 25…";
-            this.CommitEvent2 = "Bloo picked the red pill and his rizz increased…";
+            this.CommitEvent3 = "Bloo picked the blue pill and his coins was reduced…";
+            this.CommitEvent4 = "Bloo picked the red pill and his attack increased by 20…";
+            this.CommitEvent5 = "Bloo picked the red pill and his critical chance increased by 25…";
+            this.CommitEvent6 = "Bloo picked the red pill and his rizz increased…";
             this.IgnoreDialogue = "Bloo’s mom taught him to never talk to strangers…";
         }
     }
