@@ -380,7 +380,7 @@ namespace ComProg2Finals
             {
                 case 0:
                     int bossIndex = encounterCount / 5;
-                    if (bossIndex > 3)
+                    if (bossIndex > 2)
                     {
                         MessageBox.Show("Peech");
                     }
