@@ -117,6 +117,7 @@
     <None Include="Resources\paladin.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\PressStart2P-Regular.ttf" />
     <None Include="Resources\wizard.jpg" />
   </ItemGroup>
   <ItemGroup>

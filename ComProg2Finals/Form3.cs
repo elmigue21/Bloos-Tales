@@ -30,5 +30,11 @@ namespace ComProg2Finals
         {
             this.Close();
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            playBtn.ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
+            exitBtn.ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
+        }
     }
 }

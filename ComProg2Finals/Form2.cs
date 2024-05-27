@@ -270,6 +270,7 @@ namespace ComProg2Finals
                     CustomButton button = new CustomButton();
 
                     button.ButtonText = currentEncounter.Interactions[i];
+                    button.ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
                     
                     switch (i)
                         {
@@ -380,9 +381,10 @@ namespace ComProg2Finals
             {
                 case 0:
                     int bossIndex = encounterCount / 5;
-                    if (bossIndex > 3)
+                    if (bossIndex > 2)
                     {
-                        MessageBox.Show("Peech");
+                        //MessageBox.Show("Peech");
+                        currentEncounter = new Peech(null);
                     }
                     else
                     {
@@ -467,6 +469,8 @@ namespace ComProg2Finals
                 CustomButton button = new CustomButton();
                 
                 button.ButtonText = shopkeeper.itemshop[i].Name + " $" + (shopkeeper.itemshop[index].Price*Player.discount).ToString();
+                button.ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
+
                 button.BtnClick += (Btnsender, args) =>
                 {
                     if ((shopkeeper.itemshop[index].Price * Player.discount) <= Player.Coins)
@@ -492,7 +496,7 @@ namespace ComProg2Finals
 
             CustomButton btncheck = new CustomButton();
             btncheck.ButtonText = "Next";
-
+            btncheck.ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
             btncheck.BtnClick += (qqqsender, qe) =>
             {
                 runNextEncounter();
@@ -509,6 +513,7 @@ namespace ComProg2Finals
                 CustomButton button = new CustomButton();
                 
                 button.ButtonText = mastergooway.skillshop[i].Name + " $" + (mastergooway.skillshop[index].Price *Player.discount).ToString();
+                button.ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
                 button.BtnClick += (Btnsender, args) =>
                 {
                     if (Player.CharSkills.Count < 4)
@@ -539,7 +544,7 @@ namespace ComProg2Finals
             }
             CustomButton btncheck = new CustomButton();
             btncheck.ButtonText = "Next";
-
+            btncheck.ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
             btncheck.BtnClick += (qqqsender, qe) =>
             {
                 runNextEncounter();
@@ -554,6 +559,10 @@ namespace ComProg2Finals
             atkStat.Text = Player.AttackDamage.ToString();
             defStat.Text = Player.Defense.ToString();
             //may stat ba for life? yung hearts?
+            rizzStat.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+            coinStat.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+            atkStat.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+            defStat.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
         }
         private void Form2_Paint(object sender, PaintEventArgs e) //UPDATED, W/O CHARACTER PAINT YET
         {
