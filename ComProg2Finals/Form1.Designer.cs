@@ -145,22 +145,25 @@
             // 
             // enemyPictureBox
             // 
+            this.enemyPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.enemyPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.enemyPictureBox.Location = new System.Drawing.Point(1074, 199);
             this.enemyPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.enemyPictureBox.Name = "enemyPictureBox";
             this.enemyPictureBox.Size = new System.Drawing.Size(133, 119);
-            this.enemyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.enemyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.enemyPictureBox.TabIndex = 6;
             this.enemyPictureBox.TabStop = false;
             // 
             // playerPictureBox
             // 
+            this.playerPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.playerPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.playerPictureBox.Location = new System.Drawing.Point(74, 199);
             this.playerPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.playerPictureBox.Name = "playerPictureBox";
             this.playerPictureBox.Size = new System.Drawing.Size(133, 119);
+            this.playerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.playerPictureBox.TabIndex = 8;
             this.playerPictureBox.TabStop = false;
             // 
@@ -312,6 +315,7 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -324,6 +328,7 @@
             this.dialoguePanel.ResumeLayout(false);
             this.dialoguePanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

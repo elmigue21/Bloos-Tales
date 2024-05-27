@@ -29,8 +29,8 @@ namespace ComProg2Finals
         }
         public async void Learn(Bloo bloo)
         {
-            bloo.CharSkills.Add(this);
             battleForm.dialoguePanel.Visible = true;
+            bloo.CharSkills.Add(this);
             battleForm.dialogueTextBox.Text = "added " + this.Name + " to bloos skills";
             await Task.Delay(2000);
             battleForm.dialoguePanel.Visible = false;
@@ -500,7 +500,7 @@ namespace ComProg2Finals
         {
             await Task.Delay(2000);
             battleForm.dialoguePanel.Visible = true;
-            battleForm.dialogueTextBox.Text = "Rogue used Lock!";
+            battleForm.dialogueTextBox.Text = "Archer used Lock!";
             await Task.Delay(2000);
             QuadrupleDamage quadrupleDamage = new QuadrupleDamage("Quadruple Damage", user.Multiplier);
             user.CharStatEffects.Add(quadrupleDamage);
