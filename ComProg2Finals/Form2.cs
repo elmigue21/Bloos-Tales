@@ -436,10 +436,6 @@ namespace ComProg2Finals
             
             Player.ChangeRizz(2);
             UpdateStats();
-            if(Player.Health <= 0 && Player.Lives > 0)
-            {
-                Player.Lives--;
-            }
             if(Player.Lives <= 0)
             {
                 MessageBox.Show("Lose");
