@@ -10,3 +10,15 @@ C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2F
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.CoreCompileInputs.cache
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.exe
 C:\Users\John\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.pdb
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.AssemblyReference.cache
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form1.resources
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form2.resources
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Form3.resources
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.GenerateResource.cache
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe.config
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.exe
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\ComProg2Finals\bin\Debug\ComProg2Finals.pdb
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.Properties.Resources.resources
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.csproj.CoreCompileInputs.cache
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.exe
+C:\Users\Pia\Documents\GitHub\ComProg2Finals\ComProg2Finals\obj\Debug\ComProg2Finals.pdb

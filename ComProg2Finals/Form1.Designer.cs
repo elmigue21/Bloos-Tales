@@ -270,7 +270,7 @@
             // enemyStatsPanel
             // 
             this.enemyStatsPanel.BackColor = System.Drawing.Color.Transparent;
-            this.enemyStatsPanel.BackgroundImage = global::ComProg2Finals.Properties.Resources.statsPanel;
+            this.enemyStatsPanel.BackgroundImage = Properties.Resources.statsPanel;
             this.enemyStatsPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.enemyStatsPanel.Controls.Add(this.enemyRizzStat);
             this.enemyStatsPanel.Controls.Add(this.enemyCoinStat);

@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
-using System.Timers;
+
 
 
 namespace ComProg2Finals
@@ -44,16 +44,19 @@ namespace ComProg2Finals
             Instance = this;
 
         }
-        Image layer1 = ComProg2Finals.Properties.Resources._00Sky;
-        Image layer2 = ComProg2Finals.Properties.Resources._01cloudsBack;
-        Image layer3 = ComProg2Finals.Properties.Resources._02cloudsFront;
-        Image layer4 = ComProg2Finals.Properties.Resources._03hillsBack;
-        Image layer5 = ComProg2Finals.Properties.Resources._04hillsFront;
-        Image layerTrees = ComProg2Finals.Properties.Resources.trees;
-        Image layerBush = ComProg2Finals.Properties.Resources.bushes;
-        Image layer6 = ComProg2Finals.Properties.Resources._05platform;
+        //============== UPDATED =====================
+        Image layer1 = Properties.Resources.Layer1_Sky;
+        Image layer2 = Properties.Resources.Layer2_Clouds;
+        Image layer3 = Properties.Resources.Layer3_Clouds;
+        Image layer4 = Properties.Resources.Layer4_Hills;
+        Image layer5 = Properties.Resources.Layer5_Hills;
+        Image layer6 = Properties.Resources.Layer6_Trees;
+        Image layer7 = Properties.Resources.Layer7_Bushes;
+        Image layer8 = Properties.Resources.Layer8_Platform;
 
         int s1 = 0, s2 = 1277, cb1 = 0, cb2 = 1277, cf1 = 0, cf2 = 1277, hb1 = 0, hb2 = 1277, hf1 = 0, hf2 = 1277, p1 = 0, p2 = 1277, t1 = 0, t2 = 1277, b1 = 0, b2 = 1277;
+        bool move = false;
+        //===========================================
 
         Image imgChar = null;
         private void player_Click(object sender, EventArgs e)
@@ -106,21 +109,21 @@ namespace ComProg2Finals
         }
         bool right, hold = true;
 
-        void moveBG()
+        void moveBG() //UPDATED
         {
             //clouds back positions redraw
-            if (cb1 <= -1268)
+            if (cb1 <= -1267)
             {
                 cb1 = 1280;
             }
 
-            if (cb2 <= -1268)
+            if (cb2 <= -1267)
             {
                 cb2 = 1280;
             }
 
             //clouds front redraw
-            if (cf1 <= -1268)
+            if (cf1 <= -1267)
             {
                 cf1 = 1280;
             }
@@ -131,63 +134,63 @@ namespace ComProg2Finals
             }
 
             //hills back redraw
-            if (hb1 <= -1268)
+            if (hb1 <= -1267)
             {
                 hb1 = 1280;
             }
 
-            if (hb2 <= -1268)
+            if (hb2 <= -1267)
             {
                 hb2 = 1280;
             }
 
             //hills front redraw
-            if (hf1 <= -1268)
+            if (hf1 <= -1267)
             {
                 hf1 = 1280;
             }
 
-            if (hf2 <= -1268)
+            if (hf2 <= -1267)
             {
                 hf2 = 1280;
             }
 
             //trees redraw
-            if (t1 <= -1268)
+            if (t1 <= -1267)
             {
                 t1 = 1280;
             }
 
-            if (t2 <= -1268)
+            if (t2 <= -1267)
             {
                 t2 = 1280;
             }
 
             //bushes redraw
-            if (b1 <= -1268)
+            if (b1 <= -1267)
             {
                 b1 = 1280;
             }
 
-            if (b2 <= -1268)
+            if (b2 <= -1267)
             {
                 b2 = 1280;
             }
 
             //platform redraw
-            if (p1 <= -1268)
+            if (p1 <= -1267)
             {
                 p1 = 1280;
             }
 
-            if (p2 <= -1268)
+            if (p2 <= -1267)
             {
                 p2 = 1280;
             }
 
 
             //movement speed, back layers are slower; adjust to preference
-            if (right)
+            if (move)
             {
                 cb1 -= 2;
                 cb2 -= 2;
@@ -224,7 +227,7 @@ namespace ComProg2Finals
             {
                 Player.PlayerItems[i].Encountered(Player);
             }
-            playerPictureBox.Image = Properties.Resources.blooIdle;
+            playerPictureBox.Image = Properties.Resources.BlooIdleRight;
 
 
             if (currentEncounter != mastergooway && currentEncounter != shopkeeper)
@@ -420,7 +423,7 @@ namespace ComProg2Finals
             dialogueTextBox.Text = currentEncounter.befEncounter;
             flowLayoutPanel1.Controls.Clear();
             charactersPictureBox.Image = null;
-            playerPictureBox.Image = Properties.Resources.blooBouncing;
+            playerPictureBox.Image = Properties.Resources.BlooWalkRight;
             timer.Start();
         }
         public void LoadItemShop()
@@ -522,7 +525,7 @@ namespace ComProg2Finals
             atkStat.Text = Player.AttackDamage.ToString();
             defStat.Text = Player.Defense.ToString();
         }
-        private void Form1_Paint(object sender, PaintEventArgs e)
+        private void Form1_Paint(object sender, PaintEventArgs e) //UPDATED, W/O CHARACTER PAINT YET
         {
             e.Graphics.DrawImage(layer1, s1, 0, 1280, 720);
             e.Graphics.DrawImage(layer1, s2, 0, 1280, 720);
@@ -534,12 +537,12 @@ namespace ComProg2Finals
             e.Graphics.DrawImage(layer4, hb2, 0, 1280, 720);
             e.Graphics.DrawImage(layer5, hf1, 0, 1280, 720);
             e.Graphics.DrawImage(layer5, hf2, 0, 1280, 720);
-            e.Graphics.DrawImage(layerTrees, t1, 0, 1280, 720);
-            e.Graphics.DrawImage(layerTrees, t2, 0, 1280, 720);
-            e.Graphics.DrawImage(layerBush, b1, 0, 1280, 720);
-            e.Graphics.DrawImage(layerBush, b2, 0, 1280, 720);
-            e.Graphics.DrawImage(layer6, p1, 0, 1280, 720);
-            e.Graphics.DrawImage(layer6, p2, 0, 1280, 720);
+            e.Graphics.DrawImage(layer6, t1, 0, 1280, 720);
+            e.Graphics.DrawImage(layer6, t2, 0, 1280, 720);
+            e.Graphics.DrawImage(layer7, b1, 0, 1280, 720);
+            e.Graphics.DrawImage(layer7, b2, 0, 1280, 720);
+            e.Graphics.DrawImage(layer8, p1, 0, 1280, 720);
+            e.Graphics.DrawImage(layer8, p2, 0, 1280, 720);
         }
     }
 }

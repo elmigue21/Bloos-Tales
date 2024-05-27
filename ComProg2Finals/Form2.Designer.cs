@@ -58,10 +58,9 @@ namespace ComProg2Finals
             // 
             this.dialogue_box.AutoSize = true;
             this.dialogue_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dialogue_box.Location = new System.Drawing.Point(292, 170);
-            this.dialogue_box.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.dialogue_box.Location = new System.Drawing.Point(389, 209);
             this.dialogue_box.Name = "dialogue_box";
-            this.dialogue_box.Size = new System.Drawing.Size(23, 33);
+            this.dialogue_box.Size = new System.Drawing.Size(28, 42);
             this.dialogue_box.TabIndex = 6;
             this.dialogue_box.Text = " ";
             // 
@@ -79,21 +78,21 @@ namespace ComProg2Finals
             // 
             this.dialogueTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.dialogueTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dialogueTextBox.Location = new System.Drawing.Point(55, 36);
-            this.dialogueTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.dialogueTextBox.Location = new System.Drawing.Point(73, 44);
+            this.dialogueTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dialogueTextBox.Multiline = true;
             this.dialogueTextBox.Name = "dialogueTextBox";
             this.dialogueTextBox.ReadOnly = true;
-            this.dialogueTextBox.Size = new System.Drawing.Size(408, 76);
+            this.dialogueTextBox.Size = new System.Drawing.Size(543, 93);
             this.dialogueTextBox.TabIndex = 14;
             // 
             // WalkChar
             // 
             this.WalkChar.BackColor = System.Drawing.Color.Transparent;
-            this.WalkChar.Location = new System.Drawing.Point(877, 11);
-            this.WalkChar.Margin = new System.Windows.Forms.Padding(2);
+            this.WalkChar.Location = new System.Drawing.Point(1169, 14);
+            this.WalkChar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.WalkChar.Name = "WalkChar";
-            this.WalkChar.Size = new System.Drawing.Size(56, 19);
+            this.WalkChar.Size = new System.Drawing.Size(75, 23);
             this.WalkChar.TabIndex = 15;
             this.WalkChar.Text = "Next";
             this.WalkChar.UseVisualStyleBackColor = false;
@@ -102,17 +101,19 @@ namespace ComProg2Finals
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(772, 380);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1029, 468);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(182, 160);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(243, 197);
             this.flowLayoutPanel1.TabIndex = 16;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(826, 341);
+            this.label1.Location = new System.Drawing.Point(1101, 420);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 17;
             this.label1.Text = "label1";
             // 
@@ -122,17 +123,19 @@ namespace ComProg2Finals
             this.dialoguePanel.BackColor = System.Drawing.Color.Transparent;
             this.dialoguePanel.Controls.Add(this.dialogueNextBtn);
             this.dialoguePanel.Controls.Add(this.dialogueTextBox);
-            this.dialoguePanel.Location = new System.Drawing.Point(243, 380);
+            this.dialoguePanel.Location = new System.Drawing.Point(324, 468);
+            this.dialoguePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dialoguePanel.Name = "dialoguePanel";
-            this.dialoguePanel.Size = new System.Drawing.Size(523, 160);
+            this.dialoguePanel.Size = new System.Drawing.Size(697, 197);
             this.dialoguePanel.TabIndex = 18;
             // 
             // dialogueNextBtn
             // 
             this.dialogueNextBtn.AutoSize = true;
-            this.dialogueNextBtn.Location = new System.Drawing.Point(432, 114);
+            this.dialogueNextBtn.Location = new System.Drawing.Point(576, 140);
+            this.dialogueNextBtn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dialogueNextBtn.Name = "dialogueNextBtn";
-            this.dialogueNextBtn.Size = new System.Drawing.Size(50, 13);
+            this.dialogueNextBtn.Size = new System.Drawing.Size(58, 16);
             this.dialogueNextBtn.TabIndex = 15;
             this.dialogueNextBtn.Text = "Next >>>";
             // 
@@ -141,9 +144,10 @@ namespace ComProg2Finals
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::ComProg2Finals.Properties.Resources.levelsProgress;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Location = new System.Drawing.Point(45, 50);
+            this.panel1.Location = new System.Drawing.Point(60, 62);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(888, 38);
+            this.panel1.Size = new System.Drawing.Size(1184, 47);
             this.panel1.TabIndex = 20;
             // 
             // statsPanel
@@ -155,18 +159,20 @@ namespace ComProg2Finals
             this.statsPanel.Controls.Add(this.coinStat);
             this.statsPanel.Controls.Add(this.atkStat);
             this.statsPanel.Controls.Add(this.rizzStat);
-            this.statsPanel.Location = new System.Drawing.Point(12, 380);
+            this.statsPanel.Location = new System.Drawing.Point(16, 468);
+            this.statsPanel.Margin = new System.Windows.Forms.Padding(4);
             this.statsPanel.Name = "statsPanel";
-            this.statsPanel.Size = new System.Drawing.Size(225, 160);
+            this.statsPanel.Size = new System.Drawing.Size(300, 197);
             this.statsPanel.TabIndex = 19;
             // 
             // defStat
             // 
             this.defStat.AutoSize = true;
             this.defStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.defStat.Location = new System.Drawing.Point(164, 110);
+            this.defStat.Location = new System.Drawing.Point(219, 135);
+            this.defStat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.defStat.Name = "defStat";
-            this.defStat.Size = new System.Drawing.Size(31, 16);
+            this.defStat.Size = new System.Drawing.Size(39, 20);
             this.defStat.TabIndex = 23;
             this.defStat.Text = "Def";
             this.defStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -175,9 +181,10 @@ namespace ComProg2Finals
             // 
             this.coinStat.AutoSize = true;
             this.coinStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.coinStat.Location = new System.Drawing.Point(69, 110);
+            this.coinStat.Location = new System.Drawing.Point(92, 135);
+            this.coinStat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.coinStat.Name = "coinStat";
-            this.coinStat.Size = new System.Drawing.Size(38, 16);
+            this.coinStat.Size = new System.Drawing.Size(47, 20);
             this.coinStat.TabIndex = 22;
             this.coinStat.Text = "Coin";
             this.coinStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -186,9 +193,10 @@ namespace ComProg2Finals
             // 
             this.atkStat.AutoSize = true;
             this.atkStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.atkStat.Location = new System.Drawing.Point(164, 57);
+            this.atkStat.Location = new System.Drawing.Point(219, 70);
+            this.atkStat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.atkStat.Name = "atkStat";
-            this.atkStat.Size = new System.Drawing.Size(29, 16);
+            this.atkStat.Size = new System.Drawing.Size(36, 20);
             this.atkStat.TabIndex = 21;
             this.atkStat.Text = "Atk";
             this.atkStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -197,9 +205,10 @@ namespace ComProg2Finals
             // 
             this.rizzStat.AutoSize = true;
             this.rizzStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rizzStat.Location = new System.Drawing.Point(69, 57);
+            this.rizzStat.Location = new System.Drawing.Point(92, 70);
+            this.rizzStat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.rizzStat.Name = "rizzStat";
-            this.rizzStat.Size = new System.Drawing.Size(36, 16);
+            this.rizzStat.Size = new System.Drawing.Size(47, 20);
             this.rizzStat.TabIndex = 20;
             this.rizzStat.Text = "Rizz";
             this.rizzStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -207,10 +216,10 @@ namespace ComProg2Finals
             // charactersPictureBox
             // 
             this.charactersPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.charactersPictureBox.Location = new System.Drawing.Point(772, 190);
-            this.charactersPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.charactersPictureBox.Location = new System.Drawing.Point(1029, 234);
+            this.charactersPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.charactersPictureBox.Name = "charactersPictureBox";
-            this.charactersPictureBox.Size = new System.Drawing.Size(147, 145);
+            this.charactersPictureBox.Size = new System.Drawing.Size(196, 178);
             this.charactersPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.charactersPictureBox.TabIndex = 9;
             this.charactersPictureBox.TabStop = false;
@@ -219,8 +228,8 @@ namespace ComProg2Finals
             // 
             this.playerPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.playerPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.playerPictureBox.Location = new System.Drawing.Point(242, 214);
-            this.playerPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.playerPictureBox.Location = new System.Drawing.Point(312, 246);
+            this.playerPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.playerPictureBox.Name = "playerPictureBox";
             this.playerPictureBox.Size = new System.Drawing.Size(150, 150);
             this.playerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -230,9 +239,8 @@ namespace ComProg2Finals
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 561);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statsPanel);
             this.Controls.Add(this.dialoguePanel);
@@ -242,8 +250,10 @@ namespace ComProg2Finals
             this.Controls.Add(this.charactersPictureBox);
             this.Controls.Add(this.playerPictureBox);
             this.Controls.Add(this.dialogue_box);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);

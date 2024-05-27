@@ -63,9 +63,9 @@ namespace ComProg2Finals.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _00Sky {
+        internal static System.Drawing.Bitmap Archer {
             get {
-                object obj = ResourceManager.GetObject("_00Sky", resourceCulture);
+                object obj = ResourceManager.GetObject("Archer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace ComProg2Finals.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _01cloudsBack {
+        internal static System.Drawing.Bitmap AudioButton1 {
             get {
-                object obj = ResourceManager.GetObject("_01cloudsBack", resourceCulture);
+                object obj = ResourceManager.GetObject("AudioButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace ComProg2Finals.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _02cloudsFront {
+        internal static System.Drawing.Bitmap AudioButton2 {
             get {
-                object obj = ResourceManager.GetObject("_02cloudsFront", resourceCulture);
+                object obj = ResourceManager.GetObject("AudioButton2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace ComProg2Finals.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _03hillsBack {
+        internal static System.Drawing.Bitmap BlooIdleRight {
             get {
-                object obj = ResourceManager.GetObject("_03hillsBack", resourceCulture);
+                object obj = ResourceManager.GetObject("BlooIdleRight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,69 +103,9 @@ namespace ComProg2Finals.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _04hillsFront {
+        internal static System.Drawing.Bitmap BlooWalkRight {
             get {
-                object obj = ResourceManager.GetObject("_04hillsFront", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _05platform {
-            get {
-                object obj = ResourceManager.GetObject("_05platform", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _815_8153991_ancient_pixel_scroll_scroll_pixel_art {
-            get {
-                object obj = ResourceManager.GetObject("_815_8153991_ancient_pixel_scroll_scroll_pixel_art", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap blooBouncing {
-            get {
-                object obj = ResourceManager.GetObject("blooBouncing", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap blooIdle {
-            get {
-                object obj = ResourceManager.GetObject("blooIdle", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap blooWalking {
-            get {
-                object obj = ResourceManager.GetObject("blooWalking", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bushes {
-            get {
-                object obj = ResourceManager.GetObject("bushes", resourceCulture);
+                object obj = ResourceManager.GetObject("BlooWalkRight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +123,119 @@ namespace ComProg2Finals.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fight {
+        internal static System.Drawing.Bitmap ButtonClicked {
             get {
-                object obj = ResourceManager.GetObject("fight", resourceCulture);
+                object obj = ResourceManager.GetObject("ButtonClicked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap item_behelith {
+            get {
+                object obj = ResourceManager.GetObject("item_behelith", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap item_berserk {
+            get {
+                object obj = ResourceManager.GetObject("item_berserk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Knight {
+            get {
+                object obj = ResourceManager.GetObject("Knight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Layer1_Sky {
+            get {
+                object obj = ResourceManager.GetObject("Layer1_Sky", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Layer2_Clouds {
+            get {
+                object obj = ResourceManager.GetObject("Layer2_Clouds", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Layer3_Clouds {
+            get {
+                object obj = ResourceManager.GetObject("Layer3_Clouds", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Layer4_Hills {
+            get {
+                object obj = ResourceManager.GetObject("Layer4_Hills", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Layer5_Hills {
+            get {
+                object obj = ResourceManager.GetObject("Layer5_Hills", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Layer6_Trees {
+            get {
+                object obj = ResourceManager.GetObject("Layer6_Trees", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Layer7_Bushes {
+            get {
+                object obj = ResourceManager.GetObject("Layer7_Bushes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Layer8_Platform {
+            get {
+                object obj = ResourceManager.GetObject("Layer8_Platform", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +263,9 @@ namespace ComProg2Finals.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap R {
+        internal static System.Drawing.Bitmap PausePlayButton1 {
             get {
-                object obj = ResourceManager.GetObject("R", resourceCulture);
+                object obj = ResourceManager.GetObject("PausePlayButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,19 +273,9 @@ namespace ComProg2Finals.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap R1 {
+        internal static System.Drawing.Bitmap PausePlayButton2 {
             get {
-                object obj = ResourceManager.GetObject("R1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap rizz {
-            get {
-                object obj = ResourceManager.GetObject("rizz", resourceCulture);
+                object obj = ResourceManager.GetObject("PausePlayButton2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -246,6 +286,16 @@ namespace ComProg2Finals.Properties {
         internal static System.Drawing.Bitmap scroll {
             get {
                 object obj = ResourceManager.GetObject("scroll", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap staticBg {
+            get {
+                object obj = ResourceManager.GetObject("staticBg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -266,16 +316,6 @@ namespace ComProg2Finals.Properties {
         internal static System.Drawing.Bitmap titleScreen {
             get {
                 object obj = ResourceManager.GetObject("titleScreen", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap trees {
-            get {
-                object obj = ResourceManager.GetObject("trees", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
