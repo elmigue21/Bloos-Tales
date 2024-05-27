@@ -22,7 +22,7 @@ namespace ComProg2Finals
 
         List<Character> characters;
 
-        Button[] skillButtons = new Button[4];
+        CustomButton[] skillButtons = new CustomButton[4];
 
 
         Character currentTurn;
@@ -46,7 +46,7 @@ namespace ComProg2Finals
             directory = AppDomain.CurrentDomain.BaseDirectory;
             Instance = this;
 
-
+            
         }
 
        
@@ -65,17 +65,19 @@ namespace ComProg2Finals
             // pag set ng image ng picturebox
             string programDirectory = AppDomain.CurrentDomain.BaseDirectory;
             directory = AppDomain.CurrentDomain.BaseDirectory;
-            playerPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-
+            playerPictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+            dialoguePanel.Visible = false;
             // form instance
-            Instance.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "00Sky.png"));
+            /*Instance.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "00Sky.png"));
 
             platform05.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "05platform.png"));
             clouds01Back.Image = Image.FromFile(Path.Combine(directory, "assets", "01cloudsBack.png"));
             clouds02Front.Image = Image.FromFile(Path.Combine(directory, "assets", "02cloudsFront.png"));
             hills03Back.Image = Image.FromFile(Path.Combine(directory, "assets", "03hillsBack.png"));
             hills04Front.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "04hillsFront.png"));
-     
+            
+            */
+
             currentTurn = Player;
         
 
@@ -91,7 +93,7 @@ namespace ComProg2Finals
                     skillButtons[i].Text = Player.CharSkills[i].Name;
                 }
             }
-            testButton.ForeColor = Color.Black;
+            runButton.ForeColor = Color.Black;
 
             Player.Opposition = Enemy;
             Enemy.Opposition = Player;
@@ -207,28 +209,28 @@ namespace ComProg2Finals
         {
             playerLabelName.Text = Player.Name;
             playerLabelHealth.Text = "Health:"+Player.Health.ToString();
-            playerLabelAccuracy.Text = "Accuracy:" + Player.Accuracy.ToString();
             playerLabelAttackDamage.Text = "Attack Damage:" + Player.AttackDamage.ToString();
-            playerLabelSpeed.Text = "Speed:" + Player.Speed.ToString();
-            playerLabelRizz.Text = "Rizz:" + Player.Rizz.ToString();
             playerLabelDefense.Text = "Defense:" + Player.Defense.ToString();
+            playerPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Player.picImage));
+            
+            /*playerLabelSpeed.Text = "Speed:" + Player.Speed.ToString();
+            playerLabelRizz.Text = "Rizz:" + Player.Rizz.ToString();
             playerLabelLives.Text = "Lives:" + Player.Lives.ToString();
             playerLabelCoins.Text = "Coins:" + Player.Coins.ToString();
-            playerPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Player.picImage));
+            playerLabelAccuracy.Text = "Accuracy:" + Player.Accuracy.ToString();*/
 
             enemyLabelName.Text = Enemy.Name;
             enemyLabelHealth.Text = "Health:" + Enemy.Health.ToString();
-            enemyLabelAccuracy.Text = "Accuracy:" + Enemy.Accuracy.ToString();
             enemyLabelAttackDamage.Text = "Attack Damage:" + Enemy.AttackDamage.ToString();
-            enemyLabelSpeed.Text = "Speed:" + Enemy.Speed.ToString();
-            enemyLabelRizz.Text = "Rizz:" + Enemy.Rizz.ToString();
             enemyLabelDefense.Text = "Defense:" + Enemy.Defense.ToString();
             enemyPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Enemy.picImage));
+            
+            /*enemyLabelAccuracy.Text = "Accuracy:" + Enemy.Accuracy.ToString();
+            enemyLabelSpeed.Text = "Speed:" + Enemy.Speed.ToString();
+            enemyLabelRizz.Text = "Rizz:" + Enemy.Rizz.ToString();*/
 
 
-
-
-            playerRizzStat.Text = Player.Rizz.ToString();
+            /*playerRizzStat.Text = Player.Rizz.ToString();
             playerAtkStat.Text = Player.AttackDamage.ToString();
             playerCoinStat.Text = Player.Coins.ToString();
             playerDefStat.Text = Player.Defense.ToString();
@@ -237,8 +239,8 @@ namespace ComProg2Finals
             enemyRizzStat.Text = Enemy.Rizz.ToString();
             enemyAtkStat.Text = Enemy.AttackDamage.ToString();
             enemyCoinStat.Text = "?";
-            enemyDefStat.Text = Enemy.Defense.ToString();
-            
+            enemyDefStat.Text = Enemy.Defense.ToString();*/
+
         }
         public void checkWinner()
         {
@@ -299,6 +301,8 @@ namespace ComProg2Finals
             }
             
             Enemy.skillQueue.Clear();
+
+            
  /*
             if (Player.Health <= 0)
             {

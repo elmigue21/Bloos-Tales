@@ -25,5 +25,10 @@ namespace ComProg2Finals
             form2.Show();
             Instance.Hide();
         }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
