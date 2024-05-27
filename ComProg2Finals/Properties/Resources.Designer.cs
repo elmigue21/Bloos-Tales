@@ -248,15 +248,6 @@ namespace ComProg2Finals.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Ending {
-            get {
-                return ResourceManager.GetStream("Ending", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap cave {
@@ -323,6 +314,15 @@ namespace ComProg2Finals.Properties {
             get {
                 object obj = ResourceManager.GetObject("earth_bloo_idle_spikedhelm", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Ending {
+            get {
+                return ResourceManager.GetStream("Ending", resourceCulture);
             }
         }
         
@@ -728,16 +728,6 @@ namespace ComProg2Finals.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap master_gooway_idle_right {
-            get {
-                object obj = ResourceManager.GetObject("master_gooway_idle_right", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap mysterious_man {
             get {
                 object obj = ResourceManager.GetObject("mysterious_man", resourceCulture);
@@ -866,6 +856,16 @@ namespace ComProg2Finals.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sword_in_stone {
+            get {
+                object obj = ResourceManager.GetObject("sword_in_stone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream Title {
@@ -877,29 +877,10 @@ namespace ComProg2Finals.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sword_in_stone {
-            get {
-                object obj = ResourceManager.GetObject("sword_in_stone", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap titleScreen {
             get {
                 object obj = ResourceManager.GetObject("titleScreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Win {
-            get {
-                return ResourceManager.GetStream("Win", resourceCulture);
             }
         }
         
@@ -940,6 +921,15 @@ namespace ComProg2Finals.Properties {
             get {
                 object obj = ResourceManager.GetObject("water_bloo_idle_spikedhelm", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Win {
+            get {
+                return ResourceManager.GetStream("Win", resourceCulture);
             }
         }
         

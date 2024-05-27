@@ -114,10 +114,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\paladin.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PressStart2P-Regular.ttf" />
+    <EmbeddedResource Include="Resources\PressStart2P-Regular.ttf" />
     <None Include="Resources\wizard.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -200,12 +197,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\item_berserk.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BlooIdleRight.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BlooWalkRight.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BlankStatsPanel.png" />
@@ -341,9 +332,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\master_gooway_idle.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\master_gooway_idle_right.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mysterious_man.png" />

@@ -645,7 +645,7 @@ namespace ComProg2Finals
         ItemsDialogue ItemsDiag = new ItemsDialogue();
         public MasterGooway()
         {
-            picImage = "master_gooway_idle_right.gif";
+            picImage = "master_gooway_idle.gif";
             EncounterDialogue = MasterGoowayDiag.EntranceDialogue;
             skillshop = new List<Skill> { new Bounce(), new Split(), new Mog(), new ElementBook() };
         }

@@ -26,14 +26,23 @@ namespace ComProg2Finals
         }
 
         public static FontFamily CustomFont;
+
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
+            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
         public static void initCustomFont()
         {
             PrivateFontCollection pfc = new PrivateFontCollection();
             int fontLength = Properties.Resources.PressStart2P_Regular.Length;
             byte[] fontData = Properties.Resources.PressStart2P_Regular;
-            System.IntPtr dataPtr = Marshal.AllocCoTaskMem(fontLength);
-            Marshal.Copy(fontData,0,dataPtr,fontLength);
+            System.IntPtr dataPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontLength);
+            System.Runtime.InteropServices.Marshal.Copy(fontData,0,dataPtr,fontLength);
             pfc.AddMemoryFont(dataPtr, fontLength);
+
+            uint temp = 0;
+
+            AddFontMemResourceEx(dataPtr, (uint)fontLength, IntPtr.Zero, ref temp);
+
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(dataPtr);
 
             CustomFont = (pfc.Families[0]);
         }
