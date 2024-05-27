@@ -86,11 +86,11 @@ namespace ComProg2Finals
             {
                 if (i >= Player.CharSkills.Count)
                 {
-                    skillButtons[i].Text = "";
+                    skillButtons[i].ButtonText = "";
                 }
                 else
                 {
-                    skillButtons[i].Text = Player.CharSkills[i].Name;
+                    skillButtons[i].ButtonText = Player.CharSkills[i].Name;
                 }
             }
             runButton.ForeColor = Color.Black;
