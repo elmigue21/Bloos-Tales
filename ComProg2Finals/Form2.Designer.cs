@@ -47,7 +47,8 @@ namespace ComProg2Finals
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.WalkChar = new System.Windows.Forms.Button();
             this.flowPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.flowPanelItems = new System.Windows.Forms.FlowLayoutPanel();
+            this.playerPictureBox = new System.Windows.Forms.PictureBox();
             this.pauseBtn = new System.Windows.Forms.PictureBox();
             this.audioBtn = new System.Windows.Forms.PictureBox();
             this.levelsBar = new System.Windows.Forms.Panel();
@@ -58,26 +59,25 @@ namespace ComProg2Finals
             this.atkStat = new System.Windows.Forms.Label();
             this.rizzStat = new System.Windows.Forms.Label();
             this.dialoguePanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.dialogueTextBox = new System.Windows.Forms.TextBox();
-            this.playerPictureBox = new System.Windows.Forms.PictureBox();
-            this.flowPanelItems = new System.Windows.Forms.FlowLayoutPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pauseBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.audioBtn)).BeginInit();
             this.statsPanel.SuspendLayout();
             this.dialoguePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // timer2
             // 
             this.timer2.Enabled = true;
-            this.timer2.Interval = 10;
+            this.timer2.Interval = 5;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 10;
+            this.timer1.Interval = 5;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // WalkChar
@@ -104,16 +104,26 @@ namespace ComProg2Finals
             this.flowPanelButtons.Size = new System.Drawing.Size(220, 245);
             this.flowPanelButtons.TabIndex = 16;
             // 
-            // label1
+            // flowPanelItems
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 45);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "label1";
+            this.flowPanelItems.BackColor = System.Drawing.Color.Transparent;
+            this.flowPanelItems.Location = new System.Drawing.Point(13, 68);
+            this.flowPanelItems.Name = "flowPanelItems";
+            this.flowPanelItems.Size = new System.Drawing.Size(421, 152);
+            this.flowPanelItems.TabIndex = 23;
+            // 
+            // playerPictureBox
+            // 
+            this.playerPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.playerPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.playerPictureBox.Image = global::ComProg2Finals.Properties.Resources.bloo_idle;
+            this.playerPictureBox.Location = new System.Drawing.Point(230, 127);
+            this.playerPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.playerPictureBox.Name = "playerPictureBox";
+            this.playerPictureBox.Size = new System.Drawing.Size(192, 192);
+            this.playerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.playerPictureBox.TabIndex = 7;
+            this.playerPictureBox.TabStop = false;
             // 
             // pauseBtn
             // 
@@ -241,6 +251,17 @@ namespace ComProg2Finals
             this.dialoguePanel.Size = new System.Drawing.Size(757, 261);
             this.dialoguePanel.TabIndex = 18;
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(75, 45);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "label1";
+            // 
             // dialogueTextBox
             // 
             this.dialogueTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(199)))), ((int)(((byte)(138)))));
@@ -254,27 +275,6 @@ namespace ComProg2Finals
             this.dialogueTextBox.ReadOnly = true;
             this.dialogueTextBox.Size = new System.Drawing.Size(599, 129);
             this.dialogueTextBox.TabIndex = 14;
-            // 
-            // playerPictureBox
-            // 
-            this.playerPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.playerPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.playerPictureBox.Image = global::ComProg2Finals.Properties.Resources.bloo_idle;
-            this.playerPictureBox.Location = new System.Drawing.Point(230, 127);
-            this.playerPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.playerPictureBox.Name = "playerPictureBox";
-            this.playerPictureBox.Size = new System.Drawing.Size(192, 192);
-            this.playerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.playerPictureBox.TabIndex = 7;
-            this.playerPictureBox.TabStop = false;
-            // 
-            // flowPanelItems
-            // 
-            this.flowPanelItems.BackColor = System.Drawing.Color.Transparent;
-            this.flowPanelItems.Location = new System.Drawing.Point(13, 68);
-            this.flowPanelItems.Name = "flowPanelItems";
-            this.flowPanelItems.Size = new System.Drawing.Size(421, 152);
-            this.flowPanelItems.TabIndex = 23;
             // 
             // Form2
             // 
@@ -296,13 +296,13 @@ namespace ComProg2Finals
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form2_Paint);
+            ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pauseBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.audioBtn)).EndInit();
             this.statsPanel.ResumeLayout(false);
             this.statsPanel.PerformLayout();
             this.dialoguePanel.ResumeLayout(false);
             this.dialoguePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

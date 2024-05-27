@@ -27,6 +27,7 @@ namespace ComProg2Finals
 
         public static FontFamily CustomFont;
 
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
             IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
         public static void initCustomFont()
