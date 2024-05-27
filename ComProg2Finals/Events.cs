@@ -645,6 +645,7 @@ namespace ComProg2Finals
         ItemsDialogue ItemsDiag = new ItemsDialogue();
         public MasterGooway()
         {
+            Name = "Master Gooway";
             picImage = "master_gooway_idle.gif";
             EncounterDialogue = MasterGoowayDiag.EntranceDialogue;
             skillshop = new List<Skill> { new Bounce(), new Split(), new Mog(), new ElementBook() };
@@ -699,6 +700,7 @@ namespace ComProg2Finals
         ItemsDialogue ItemsDiag = new ItemsDialogue();
         public Shopkeeper()
         {
+            Name = "Shopkeeper";
             picImage = "shop_keeper_idle.gif";
             EncounterDialogue = ShopKeeperDiag.EntranceDialogue;
             itemshop = new List<Items> { new LifePotion(), new MysteryPotion(), new HardHelmet(), new SpikedHelmet() };

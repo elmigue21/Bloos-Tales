@@ -52,6 +52,7 @@ namespace ComProg2Finals
             this.pauseBtn = new System.Windows.Forms.PictureBox();
             this.audioBtn = new System.Windows.Forms.PictureBox();
             this.levelsBar = new System.Windows.Forms.Panel();
+            this.blooLevel = new System.Windows.Forms.PictureBox();
             this.statsPanel = new System.Windows.Forms.Panel();
             this.flowPanelLife = new System.Windows.Forms.FlowLayoutPanel();
             this.defStat = new System.Windows.Forms.Label();
@@ -64,6 +65,8 @@ namespace ComProg2Finals
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pauseBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.audioBtn)).BeginInit();
+            this.levelsBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.blooLevel)).BeginInit();
             this.statsPanel.SuspendLayout();
             this.dialoguePanel.SuspendLayout();
             this.SuspendLayout();
@@ -71,13 +74,13 @@ namespace ComProg2Finals
             // timer2
             // 
             this.timer2.Enabled = true;
-            this.timer2.Interval = 5;
+            this.timer2.Interval = 1;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 5;
+            this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // WalkChar
@@ -158,12 +161,23 @@ namespace ComProg2Finals
             this.levelsBar.BackColor = System.Drawing.Color.Transparent;
             this.levelsBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("levelsBar.BackgroundImage")));
             this.levelsBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.levelsBar.Controls.Add(this.blooLevel);
             this.levelsBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.levelsBar.Location = new System.Drawing.Point(0, 0);
             this.levelsBar.Margin = new System.Windows.Forms.Padding(4);
             this.levelsBar.Name = "levelsBar";
             this.levelsBar.Size = new System.Drawing.Size(1262, 60);
             this.levelsBar.TabIndex = 20;
+            // 
+            // blooLevel
+            // 
+            this.blooLevel.Image = global::ComProg2Finals.Properties.Resources.BlooIcon;
+            this.blooLevel.Location = new System.Drawing.Point(1178, 10);
+            this.blooLevel.Name = "blooLevel";
+            this.blooLevel.Size = new System.Drawing.Size(49, 33);
+            this.blooLevel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.blooLevel.TabIndex = 0;
+            this.blooLevel.TabStop = false;
             // 
             // statsPanel
             // 
@@ -291,6 +305,8 @@ namespace ComProg2Finals
             this.Controls.Add(this.WalkChar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
@@ -299,6 +315,9 @@ namespace ComProg2Finals
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pauseBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.audioBtn)).EndInit();
+            this.levelsBar.ResumeLayout(false);
+            this.levelsBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.blooLevel)).EndInit();
             this.statsPanel.ResumeLayout(false);
             this.statsPanel.PerformLayout();
             this.dialoguePanel.ResumeLayout(false);
@@ -327,6 +346,7 @@ namespace ComProg2Finals
         private PictureBox pauseBtn;
         private FlowLayoutPanel flowPanelLife;
         private FlowLayoutPanel flowPanelItems;
+        private PictureBox blooLevel;
         //private System.Windows.Forms.TextBox dialogueTextBox;
     }
 }

@@ -96,6 +96,7 @@ namespace ComProg2Finals
                 }
             }
             runButton.ForeColor = Color.Black;
+            runButton.ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
 
             Player.Opposition = Enemy;
             Enemy.Opposition = Player;
@@ -213,13 +214,13 @@ namespace ComProg2Finals
             playerLabelName.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
 
             playerLabelHealth.Text = "Health:"+Player.Health.ToString();
-            playerLabelHealth.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+            playerLabelHealth.Font = new Font(Program.CustomFont, 9, FontStyle.Regular);
 
             playerLabelAttackDamage.Text = "Attack Damage:" + Player.AttackDamage.ToString();
-            playerLabelAttackDamage.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+            playerLabelAttackDamage.Font = new Font(Program.CustomFont, 9, FontStyle.Regular);
 
             playerLabelDefense.Text = "Defense:" + Player.Defense.ToString();
-            playerLabelDefense.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+            playerLabelDefense.Font = new Font(Program.CustomFont, 9, FontStyle.Regular);
 
             playerPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Player.picImage));
             
@@ -234,13 +235,13 @@ namespace ComProg2Finals
             enemyLabelName.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
 
             enemyLabelHealth.Text = "Health:" + Enemy.Health.ToString();
-            enemyLabelHealth.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+            enemyLabelHealth.Font = new Font(Program.CustomFont, 9, FontStyle.Regular);
 
             enemyLabelAttackDamage.Text = "Attack Damage:" + Enemy.AttackDamage.ToString();
-            enemyLabelAttackDamage.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+            enemyLabelAttackDamage.Font = new Font(Program.CustomFont, 9, FontStyle.Regular);
 
             enemyLabelDefense.Text = "Defense:" + Enemy.Defense.ToString();
-            enemyLabelDefense.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+            enemyLabelDefense.Font = new Font(Program.CustomFont, 9, FontStyle.Regular);
 
             enemyPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Enemy.picImage));
             

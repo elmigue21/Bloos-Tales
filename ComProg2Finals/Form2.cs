@@ -32,6 +32,35 @@ namespace ComProg2Finals
         public List<Character> bossFights = new List<Character>();
         public Shopkeeper shopkeeper = new Shopkeeper();
         public MasterGooway mastergooway = new MasterGooway();
+
+        //loc ni bloo sa level/stat bar
+        public Point[] levelsPoint = {
+            new Point(  33  ,12),
+            new Point(  91  ,12),
+            new Point(  136 ,12),
+            new Point(  176 ,12),
+            new Point(  220 ,12),
+            new Point(  261 ,12),
+            new Point(  319 ,12),
+            new Point(  376 ,12),
+            new Point(  421 ,12),
+            new Point(  463 ,12),
+            new Point(  506 ,12),
+            new Point(  550 ,12),
+            new Point(  606 ,12),
+            new Point(  664 ,12),
+            new Point(  710 ,12),
+            new Point(  750 ,12),
+            new Point(  792 ,12),
+            new Point(  835 ,12),
+            new Point(  892 ,12),
+            new Point(  951 ,12),
+            new Point(  994 ,12),
+            new Point(  1038,12),
+            new Point(  1078,12),
+            new Point(  1122,12),
+            new Point(  1178,12)
+        };
         public Form2()
         {
             Instance = this;
@@ -94,6 +123,8 @@ namespace ComProg2Finals
             timer.Tick += Timer_Tick;
 
             encounterCount = 1;
+            blooLevel.Location = levelsPoint[0];
+
             Instance = this;
             Wizard wizard = Wizard.CreateRandomWizard();
             List<Character> bosses = new List<Character> { new Knight("Knight"), wizard, 
@@ -236,26 +267,26 @@ namespace ComProg2Finals
             //movement speed, back layers are slower; adjust to preference
             if (move)
             {
-                cb1 -= 2;
-                cb2 -= 2;
+                cb1 -= 3;
+                cb2 -= 3;
 
-                cf1 -= 3;
-                cf2 -= 3;
+                cf1 -= 5;
+                cf2 -= 5;
 
-                hb1 -= 5;
-                hb2 -= 5;
+                hb1 -= 7;
+                hb2 -= 7;
 
-                hf1 -= 6;
-                hf2 -= 6;
+                hf1 -= 9;
+                hf2 -= 9;
 
-                t1 -= 8;
-                t2 -= 8;
+                t1 -= 11;
+                t2 -= 11;
 
-                b1 -= 9;
-                b2 -= 9;
+                b1 -= 13;
+                b2 -= 13;
 
-                p1 -= 11;
-                p2 -= 11;
+                p1 -= 15;
+                p2 -= 15;
             }
             Invalidate();
         }
@@ -281,11 +312,13 @@ namespace ComProg2Finals
         private void Timer_Tick(object sender, EventArgs e)
         {
             
+
             timer.Stop();
             for (int i = 0; i < Player.PlayerItems.Count; i++)
             {
                 Player.PlayerItems[i].Encountered(Player);
             }
+
             
 
             if (currentEncounter != mastergooway && currentEncounter != shopkeeper)
@@ -369,14 +402,16 @@ namespace ComProg2Finals
         {
             if (move)
             {
-                charLocX -= 11;
+                charLocX -= 15;
                 if (charLocX <= 900)
                 {
                     move = false;
                     playerPictureBox.Image = Properties.Resources.bloo_idle;
                     playerPictureBox.Location = new System.Drawing.Point(230, 127);
+                    blooLevel.Location = levelsPoint[encounterCount];
                     timer.Start();
                     hasEncounter = true;
+
                 }
             }
             Invalidate();
@@ -388,7 +423,7 @@ namespace ComProg2Finals
             {
                 if (hasEncounter)
                 {
-                    charLocX -= 11;
+                    charLocX -= 15;
                     if(charLocX <= -200)
                     {
                         charLocX = 1280;

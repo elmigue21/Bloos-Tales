@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace ComProg2Finals
 {
@@ -44,7 +45,10 @@ namespace ComProg2Finals
         private void CustomButton_Click(object sender, EventArgs e)
         {
             OnBtnClick(EventArgs.Empty);
+            
+            
         }
+
         
 
         //============== SET CUSTOM PROPERTIES ===========

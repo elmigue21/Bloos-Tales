@@ -200,6 +200,16 @@ namespace ComProg2Finals.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlooIcon {
+            get {
+                object obj = ResourceManager.GetObject("BlooIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bonfire {
             get {
                 object obj = ResourceManager.GetObject("bonfire", resourceCulture);
@@ -234,6 +244,15 @@ namespace ComProg2Finals.Properties {
             get {
                 object obj = ResourceManager.GetObject("Button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream button_click {
+            get {
+                return ResourceManager.GetStream("button_click", resourceCulture);
             }
         }
         

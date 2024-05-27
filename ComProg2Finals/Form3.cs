@@ -20,14 +20,20 @@ namespace ComProg2Finals
         {
             InitializeComponent();
             Instance = this;
+
             Stream soundStream = Properties.Resources.Title;
             musicTitle = new SoundPlayer(soundStream);
             musicTitle.PlayLooping();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
+            form2.AutoScaleMode = AutoScaleMode.None;
+            form2.FormBorderStyle = FormBorderStyle.FixedSingle;
+            form2.StartPosition = FormStartPosition.CenterScreen;
+            form2.Size = new Size(1280, 720);
             form2.Show();
             Instance.Hide(); 
         }
