@@ -19,6 +19,7 @@ namespace ComProg2Finals
 
     public partial class Form2 : Form
     {
+        public SoundPlayer musicWalk;
         Character Enemy;
         public static Form2 Instance { get; private set; }
         public static Bloo Player { get; private set; }
@@ -42,6 +43,9 @@ namespace ComProg2Finals
             Player = bloo;
             f1.form2 = this;
             Instance = this;
+            Stream soundStream = Properties.Resources.Adventure;
+            musicWalk = new SoundPlayer(soundStream);
+            musicWalk.PlayLooping();
 
         }
         //============== UPDATED =====================
@@ -54,8 +58,13 @@ namespace ComProg2Finals
         Image layer7 = Properties.Resources.Layer7_Bushes;
         Image layer8 = Properties.Resources.Layer8_Platform;
 
-        int s1 = 0, s2 = 1277, cb1 = 0, cb2 = 1277, cf1 = 0, cf2 = 1277, hb1 = 0, hb2 = 1277, hf1 = 0, hf2 = 1277, p1 = 0, p2 = 1277, t1 = 0, t2 = 1277, b1 = 0, b2 = 1277;
-        bool move = false, paused = false, muted = false;
+        Image encounterImg = Properties.Resources.Archer;//placeholder lang yung archer para di mag-error
+
+        int s1 = 0, s2 = 1277, cb1 = 0, cb2 = 1277, cf1 = 0, cf2 = 1277, hb1 = 0, hb2 = 1277, 
+            hf1 = 0, hf2 = 1277, p1 = 0, p2 = 1277, t1 = 0, t2 = 1277, b1 = 0, b2 = 1277,
+            charLocX=1280, charLocY=320;
+
+        bool move = false, paused = false, muted = false, hasEncounter = false;
         //===========================================
 
         Image imgChar = null;
@@ -72,8 +81,10 @@ namespace ComProg2Finals
             string programDirectory = AppDomain.CurrentDomain.BaseDirectory;
             directory = AppDomain.CurrentDomain.BaseDirectory;
 
+            dialogueTextBox.Font = new Font(Program.CustomFont,10,FontStyle.Regular);
+
             timer = new System.Windows.Forms.Timer();
-            timer.Interval = 3000;
+            timer.Interval = 1000;
             timer.Tick += Timer_Tick;
 
             encounterCount = 1;
@@ -91,10 +102,6 @@ namespace ComProg2Finals
             }
 
             bossFights.Add(new Peech("Peech"));
-            foreach(Character boss in bossFights)
-            {
-                MessageBox.Show(boss.ToString());
-            }
 
 
             //dialoguePanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "scroll.png"));
@@ -247,21 +254,33 @@ namespace ComProg2Finals
             Invalidate();
         }
 
+        //=============== TIMERS ===================
         private void timer1_Tick(object sender, EventArgs e)
         {
             moveBG();
         }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (hasEncounter)
+            {
+                encounterExit();
+            }
+            else
+            {
+                encounterEntrance();
+            }
+            
+        }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            move = false;
+            
             timer.Stop();
             for (int i = 0; i < Player.PlayerItems.Count; i++)
             {
                 Player.PlayerItems[i].Encountered(Player);
             }
-            playerPictureBox.Image = Properties.Resources.BlooIdleRight;
-            playerPictureBox.Location = new System.Drawing.Point(230, 241);
-
+            
 
             if (currentEncounter != mastergooway && currentEncounter != shopkeeper)
             {
@@ -270,6 +289,7 @@ namespace ComProg2Finals
                     CustomButton button = new CustomButton();
 
                     button.ButtonText = currentEncounter.Interactions[i];
+                    button.ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
                     
                     switch (i)
                         {
@@ -307,9 +327,14 @@ namespace ComProg2Finals
                     LoadSkillShop();
                 }
             }
-            label1.Text = currentEncounter.Name;
+            label1.Text = currentEncounter.Name.ToUpper();
+            label1.Font = new Font(Program.CustomFont, 12, FontStyle.Regular);
             dialogueTextBox.Text = currentEncounter.EncounterDialogue;
-            charactersPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
+
+            //charactersPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
+
+            
+
             if (currentEncounter is Character)
             {
                 for (int i = 0; i < Player.PlayerItems.Count; i++)
@@ -332,8 +357,51 @@ namespace ComProg2Finals
 
 
         }
+
+        //============= ENCOUNTER MOVEMENT =================
+        private void encounterEntrance()
+        {
+            if (move)
+            {
+                charLocX -= 11;
+                if (charLocX <= 900)
+                {
+                    move = false;
+                    playerPictureBox.Image = Properties.Resources.bloo_idle;
+                    playerPictureBox.Location = new System.Drawing.Point(230, 127);
+                    timer.Start();
+                    hasEncounter = true;
+                }
+            }
+            Invalidate();
+        }
+
+        private void encounterExit()
+        {
+            if (move)
+            {
+                if (hasEncounter)
+                {
+                    charLocX -= 11;
+                    if(charLocX <= -200)
+                    {
+                        charLocX = 1280;
+                        encounterImg = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
+                        charLocY = 320 - encounterImg.Height;
+                        hasEncounter = false;
+                    }
+                }
+            }
+            Invalidate();
+        }
+
+        //=================================================
         public void EnterBattle()
         {
+            this.Hide();
+            Stream soundStream = Properties.Resources.Battle;
+            musicWalk = new SoundPlayer(soundStream);
+            musicWalk.PlayLooping();
             f1 = Form1.GetInstance();
             f1.Enemy = currentEncounter as Character;
             Player.Health = Player.MaxHealth;
@@ -365,6 +433,7 @@ namespace ComProg2Finals
         int lastEnc;
         public void runNextEncounter()
         {
+            
             Player.ChangeRizz(2);
             UpdateStats();
             if(Player.Health <= 0 && Player.Lives > 0)
@@ -380,15 +449,9 @@ namespace ComProg2Finals
             {
                 case 0:
                     int bossIndex = encounterCount / 5;
-                    if (bossIndex > 2)
-                    {
-                        MessageBox.Show("Peech");
-                    }
-                    else
-                    {
-                        currentEncounter = bossFights[bossIndex - 1];
 
-                    }
+                    currentEncounter = bossFights[bossIndex-1];
+
                     break;
                 case 4:
                     Random rand2 = new Random();
@@ -453,10 +516,17 @@ namespace ComProg2Finals
             label1.Text = "";
             dialogueTextBox.Text = currentEncounter.befEncounter;
             flowPanelButtons.Controls.Clear();
-            charactersPictureBox.Image = null;
-            playerPictureBox.Image = Properties.Resources.BlooWalkRight;
+            //charactersPictureBox.Image = null;
+
+            if (hasEncounter==false)
+            {
+                encounterImg = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
+                charLocY = 320 - encounterImg.Height;
+            }
+
+            playerPictureBox.Image = Properties.Resources.bloo_walk;
             move = true;
-            timer.Start();
+            //timer.Start();
         }
         public void LoadItemShop()
         {
@@ -467,11 +537,13 @@ namespace ComProg2Finals
                 CustomButton button = new CustomButton();
                 
                 button.ButtonText = shopkeeper.itemshop[i].Name + " $" + (shopkeeper.itemshop[index].Price*Player.discount).ToString();
+                button.ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
+
                 button.BtnClick += (Btnsender, args) =>
                 {
                     if ((shopkeeper.itemshop[index].Price * Player.discount) <= Player.Coins)
                     {
-                        shopkeeper.itemshop[index].Acquired(Player);
+                        shopkeeper.itemshop[index].Acquired(Player, this);
                         Player.Coins -= shopkeeper.itemshop[index].Price * Player.discount;
                       //  MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nDiscounted Price: {shopkeeper.itemshop[index].Price * Player.discount}\n\"Coins left : {Player.Coins}");
 
@@ -492,7 +564,7 @@ namespace ComProg2Finals
 
             CustomButton btncheck = new CustomButton();
             btncheck.ButtonText = "Next";
-
+            btncheck.ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
             btncheck.BtnClick += (qqqsender, qe) =>
             {
                 runNextEncounter();
@@ -509,6 +581,7 @@ namespace ComProg2Finals
                 CustomButton button = new CustomButton();
                 
                 button.ButtonText = mastergooway.skillshop[i].Name + " $" + (mastergooway.skillshop[index].Price *Player.discount).ToString();
+                button.ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
                 button.BtnClick += (Btnsender, args) =>
                 {
                     if (Player.CharSkills.Count < 4)
@@ -539,7 +612,7 @@ namespace ComProg2Finals
             }
             CustomButton btncheck = new CustomButton();
             btncheck.ButtonText = "Next";
-
+            btncheck.ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
             btncheck.BtnClick += (qqqsender, qe) =>
             {
                 runNextEncounter();
@@ -554,6 +627,10 @@ namespace ComProg2Finals
             atkStat.Text = Player.AttackDamage.ToString();
             defStat.Text = Player.Defense.ToString();
             //may stat ba for life? yung hearts?
+            rizzStat.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+            coinStat.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+            atkStat.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+            defStat.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
         }
         private void Form2_Paint(object sender, PaintEventArgs e) //UPDATED, W/O CHARACTER PAINT YET
         {
@@ -573,6 +650,8 @@ namespace ComProg2Finals
             e.Graphics.DrawImage(layer7, b2, 0, 1280, 720);
             e.Graphics.DrawImage(layer8, p1, 0, 1280, 720);
             e.Graphics.DrawImage(layer8, p2, 0, 1280, 720);
+
+            e.Graphics.DrawImage(encounterImg, charLocX, charLocY);
         }
     }
 }

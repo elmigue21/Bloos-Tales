@@ -1,4 +1,6 @@
-﻿namespace ComProg2Finals
+﻿using System.Windows.Forms;
+
+namespace ComProg2Finals
 {
     partial class Form1
     {
@@ -18,6 +20,17 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+
+                return cp;
+            }
         }
 
         #region Windows Form Designer generated code
@@ -313,6 +326,7 @@
             this.Controls.Add(this.enemyStatsPanel);
             this.Controls.Add(this.playerStatsPanel);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -1,4 +1,6 @@
-﻿namespace ComProg2Finals
+﻿using System.Windows.Forms;
+
+namespace ComProg2Finals
 {
     partial class Form3
     {
@@ -20,6 +22,17 @@
             base.Dispose(disposing);
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+
+                return cp;
+            }
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -30,8 +43,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.customButton2 = new ComProg2Finals.CustomButton();
-            this.customButton1 = new ComProg2Finals.CustomButton();
+            this.exitBtn = new ComProg2Finals.CustomButton();
+            this.playBtn = new ComProg2Finals.CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,41 +56,41 @@
             this.pictureBox1.BackgroundImage = global::ComProg2Finals.Properties.Resources.titleScreen;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Location = new System.Drawing.Point(229, 38);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(805, 540);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // customButton2
+            // exitBtn
             // 
-            this.customButton2.BackColor = System.Drawing.Color.Transparent;
-            this.customButton2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("customButton2.BackgroundImage")));
-            this.customButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.customButton2.ButtonBg = ((System.Drawing.Image)(resources.GetObject("customButton2.ButtonBg")));
-            this.customButton2.ButtonFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customButton2.ButtonText = "EXIT";
-            this.customButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.customButton2.Location = new System.Drawing.Point(642, 585);
-            this.customButton2.Name = "customButton2";
-            this.customButton2.Size = new System.Drawing.Size(199, 58);
-            this.customButton2.TabIndex = 3;
-            this.customButton2.BtnClick += new System.EventHandler(this.exitBtn_Click);
+            this.exitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.exitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitBtn.BackgroundImage")));
+            this.exitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.exitBtn.ButtonBg = ((System.Drawing.Image)(resources.GetObject("exitBtn.ButtonBg")));
+            this.exitBtn.ButtonFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitBtn.ButtonText = "EXIT";
+            this.exitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exitBtn.Location = new System.Drawing.Point(642, 585);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(199, 58);
+            this.exitBtn.TabIndex = 3;
+            this.exitBtn.BtnClick += new System.EventHandler(this.exitBtn_Click);
             // 
-            // customButton1
+            // playBtn
             // 
-            this.customButton1.BackColor = System.Drawing.Color.Transparent;
-            this.customButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("customButton1.BackgroundImage")));
-            this.customButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.customButton1.ButtonBg = ((System.Drawing.Image)(resources.GetObject("customButton1.ButtonBg")));
-            this.customButton1.ButtonFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customButton1.ButtonText = "PLAY";
-            this.customButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.customButton1.Location = new System.Drawing.Point(422, 585);
-            this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(199, 58);
-            this.customButton1.TabIndex = 2;
-            this.customButton1.BtnClick += new System.EventHandler(this.button1_Click);
+            this.playBtn.BackColor = System.Drawing.Color.Transparent;
+            this.playBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("playBtn.BackgroundImage")));
+            this.playBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.playBtn.ButtonBg = ((System.Drawing.Image)(resources.GetObject("playBtn.ButtonBg")));
+            this.playBtn.ButtonFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playBtn.ButtonText = "PLAY";
+            this.playBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.playBtn.Location = new System.Drawing.Point(422, 585);
+            this.playBtn.Name = "playBtn";
+            this.playBtn.Size = new System.Drawing.Size(199, 58);
+            this.playBtn.TabIndex = 2;
+            this.playBtn.BtnClick += new System.EventHandler(this.button1_Click);
             // 
             // Form3
             // 
@@ -85,14 +98,15 @@
             this.BackgroundImage = global::ComProg2Finals.Properties.Resources.staticBg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1262, 673);
-            this.Controls.Add(this.customButton2);
-            this.Controls.Add(this.customButton1);
+            this.Controls.Add(this.exitBtn);
+            this.Controls.Add(this.playBtn);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -101,7 +115,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private CustomButton customButton1;
-        private CustomButton customButton2;
+        private CustomButton playBtn;
+        private CustomButton exitBtn;
     }
 }
