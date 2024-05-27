@@ -47,7 +47,8 @@ namespace ComProg2Finals
         public override void Trigger(Character charac)
         {
             charac.Opposition.Health -= dmg;
-            form2.dialogueTextBox.Text = $"{charac.Name} dealt {dmg} health to {charac.Opposition.Name}, {intervals} intervals remaining";
+            MessageBox.Show($"{this.Name} dealt {dmg} to {charac.Name}");
+           // form2.dialogueTextBox.Text = $"{charac.Name} dealt {dmg} health to {charac.Opposition.Name}, {intervals} intervals remaining";
             intervals--;
             if (intervals == 0)
             {
@@ -72,6 +73,7 @@ namespace ComProg2Finals
         public override void Trigger(Character charac)
         {
             charac.ChangeHealth(healVal);
+            MessageBox.Show($"healed {healVal} to {charac.Name}");
             form2.dialogueTextBox.Text = $"Healed {healVal} health from {charac.Name}, {intervals} intervals remaining";
             intervals--;
             if (intervals == 0)
@@ -135,19 +137,21 @@ namespace ComProg2Finals
                 rand = 0;
                 switch (rand) {
                     case 0:
-                       // MessageBox.Show("Bloo lands and attacks the enemy");
-                user.skillQueue.Add(()=>user.Opposition.DamageCharac(15, user, this.Name)  );
+                        MessageBox.Show("Bloo lands and attacks the enemy");
+                        user.skillQueue.Add(()=>user.Opposition.DamageCharac(15, user, this.Name)  );
 
                         
                         break;
                     case 1:
-                      //  form2.dialogueTextBox.Text = "Bloo lands and tries to attack the enemy but missed!";
+                        //  form2.dialogueTextBox.Text = "Bloo lands and tries to attack the enemy but missed!";
+                        MessageBox.Show("Bloo lands and tries to attack but missed!");
                         break;
                 }
             }
             else
             {
-                form2.dialogueTextBox.Text = "Bloo bounces in the air!";
+                //form2.dialogueTextBox.Text = "Bloo bounces in the air!";
+               // MessageBox.Show
                 intrvl--;
             }
         }

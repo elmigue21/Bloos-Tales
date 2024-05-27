@@ -111,7 +111,7 @@ namespace ComProg2Finals
             this.label1.Location = new System.Drawing.Point(75, 45);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "label1";
             // 
@@ -186,7 +186,7 @@ namespace ComProg2Finals
             this.defStat.Location = new System.Drawing.Point(156, 103);
             this.defStat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.defStat.Name = "defStat";
-            this.defStat.Size = new System.Drawing.Size(39, 20);
+            this.defStat.Size = new System.Drawing.Size(31, 16);
             this.defStat.TabIndex = 23;
             this.defStat.Text = "Def";
             this.defStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -198,7 +198,7 @@ namespace ComProg2Finals
             this.coinStat.Location = new System.Drawing.Point(60, 103);
             this.coinStat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.coinStat.Name = "coinStat";
-            this.coinStat.Size = new System.Drawing.Size(47, 20);
+            this.coinStat.Size = new System.Drawing.Size(38, 16);
             this.coinStat.TabIndex = 22;
             this.coinStat.Text = "Coin";
             this.coinStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -210,7 +210,7 @@ namespace ComProg2Finals
             this.atkStat.Location = new System.Drawing.Point(156, 58);
             this.atkStat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.atkStat.Name = "atkStat";
-            this.atkStat.Size = new System.Drawing.Size(36, 20);
+            this.atkStat.Size = new System.Drawing.Size(29, 16);
             this.atkStat.TabIndex = 21;
             this.atkStat.Text = "Atk";
             this.atkStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -222,7 +222,7 @@ namespace ComProg2Finals
             this.rizzStat.Location = new System.Drawing.Point(60, 58);
             this.rizzStat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.rizzStat.Name = "rizzStat";
-            this.rizzStat.Size = new System.Drawing.Size(47, 20);
+            this.rizzStat.Size = new System.Drawing.Size(36, 16);
             this.rizzStat.TabIndex = 20;
             this.rizzStat.Text = "Rizz";
             this.rizzStat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -314,7 +314,6 @@ namespace ComProg2Finals
         private System.Windows.Forms.Timer timer1;
         public TextBox dialogueTextBox;
         private System.Windows.Forms.Button WalkChar;
-        private System.Windows.Forms.FlowLayoutPanel flowPanelButtons;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel dialoguePanel;
         private System.Windows.Forms.Panel statsPanel;
@@ -327,6 +326,7 @@ namespace ComProg2Finals
         private PictureBox pauseBtn;
         private FlowLayoutPanel flowPanelLife;
         private FlowLayoutPanel flowPanelItems;
+        public FlowLayoutPanel flowPanelButtons;
         //private System.Windows.Forms.TextBox dialogueTextBox;
     }
 }

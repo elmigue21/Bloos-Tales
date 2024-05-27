@@ -87,7 +87,7 @@ namespace ComProg2Finals
             timer.Interval = 1000;
             timer.Tick += Timer_Tick;
 
-            encounterCount = 1;
+            encounterCount = 5;
             Instance = this;
             Wizard wizard = Wizard.CreateRandomWizard();
             List<Character> bosses = new List<Character> { new Knight("Knight"), wizard, 

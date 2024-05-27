@@ -84,6 +84,7 @@ namespace ComProg2Finals
         public Character PlayerInstance { get; set; }
         public double DamageTaken { get; set; }
         public double ElementMultiplier = 2;
+        public SkillDiag skillDiag = new SkillDiag();
         public Character(string name)
         {
             
@@ -145,25 +146,19 @@ namespace ComProg2Finals
         
         public virtual async Task DamageCharac(double dmgValue, Character user, string skillName)
         {
-            battleForm.dialogueTextBox.Text = user.Name + " used " + skillName;
-            await Task.Delay(2000);
+            MessageBox.Show($"{user.Name} used {skillName}!");
 
-            if (skillName == "ShieldBash")
-            {
-                battleForm.dialogueTextBox.Text = user.Name + " stunned " + user.Opposition.Name + "!";
-            }
+
             //string soundFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "swordsound.wav");
-           // SoundPlayer player = new SoundPlayer(soundFilePath);
-           // player.Play();
+            // SoundPlayer player = new SoundPlayer(soundFilePath);
+            // player.Play();
             Random accRandom = new Random();
             int accuracyRandom = accRandom.Next(0, 100);
             if (accuracyRandom <= user.Accuracy)
             {
                 if (user.Opposition.isBlocking)
                 {
-                    await Task.Delay(2000);
-                    battleForm.dialogueTextBox.Text = $"{user.Opposition.Name} was unscathed!";
-                    await Task.Delay(2000);
+                    MessageBox.Show($"{user.Opposition.Name} was unscathed!");
                     user.Opposition.isBlocking = false;
                 }
                 else
@@ -179,15 +174,13 @@ namespace ComProg2Finals
                     }
                     if (!isCrit)
                     {
-                        await Task.Delay(2000);
-                        battleForm.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name;
-                        await Task.Delay(2000);
+                        MessageBox.Show($"{user.Name} dealt {totalDamage} damage to {user.Opposition.Name}");
+                        //battleForm.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " damage to " + user.Opposition.Name;
                     }
                     else
                     {
-                        await Task.Delay(2000);
-                        battleForm.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " critical damage to " + user.Opposition.Name;
-                        await Task.Delay(2000);
+                       // battleForm.dialogueTextBox.Text = user.Name + " dealt " + totalDamage + " critical damage to " + user.Opposition.Name;
+                        MessageBox.Show($"{user.Name} dealt {totalDamage} critical damage to {user.Opposition.Name}");
                     }
                     user.Opposition.ChangeHealth(-totalDamage);
 
@@ -196,21 +189,22 @@ namespace ComProg2Finals
                         double returnedDamage = totalDamage / 2;
                         user.ChangeHealth(-returnedDamage);
                         //MessageBox.Show("Damage dealt to bloo was reflected due to the spiked helmet! returned " + returnedDamage + " damage");
-                        await Task.Delay(2000);
+                      //  await Task.Delay(2000);
                         battleForm.dialogueTextBox.Text = "Damage dealt to bloo was reflected due to the spiked helmet! returned " + returnedDamage + " damage";
-                        await Task.Delay(2000);
+                        // await Task.Delay(2000);
+                        MessageBox.Show("Damage dealt to bloo was reflected due to the spiked helmet! returned " + returnedDamage + " damage");
                     }
                     
                 }
             }
             else
             {
-                await Task.Delay(2000);
-                battleForm.dialogueTextBox.Text = $"{user.Name} tries to attack but misses!";
-                await Task.Delay(2000);
+               // await Task.Delay(2000);
+               // battleForm.dialogueTextBox.Text = $"{user.Name} tries to attack but misses!";
+                MessageBox.Show($"{user.Name} tries to attack but misses!");
             }
             battleForm.updateLabels();
-            battleForm.checkWinner();
+            //battleForm.checkWinner();
         }
         public virtual async Task ChangeAccuracy(double val)
         {
@@ -225,11 +219,7 @@ namespace ComProg2Finals
             else
             {
                 this.Accuracy += val;
-                await Task.Delay(2000);
-                battleForm.dialogueTextBox.Text = $"Accuracy of {this.Name} became {this.Accuracy}";
-                await Task.Delay(2000);
             }
-
         }
 
             public async Task ElementDamageCharac(double dmgValue, Character user, string dmgType, string skillName)
@@ -242,15 +232,11 @@ namespace ComProg2Finals
                         case "Wind":
                             dmgValue *= ElementMultiplier;
                             dmgValue *= 2;
-                            await Task.Delay(2000);
-                            battleForm.dialogueTextBox.Text = "its super effective";
-                            await Task.Delay(2000);
+                            MessageBox.Show("its super effective");
                             break;
                         case "Water":
                             dmgValue /= 2;
-                            await Task.Delay(2000);
-                            battleForm.dialogueTextBox.Text = "it wasnt very effective";
-                            await Task.Delay(2000);
+                            MessageBox.Show("it wasnt very effective");
                             break;
                     }
                     break;
@@ -260,15 +246,11 @@ namespace ComProg2Finals
                         case "Fire":
                             dmgValue *= ElementMultiplier;
                             dmgValue *= 2;
-                            await Task.Delay(2000);
-                            battleForm.dialogueTextBox.Text = "its super effective";
-                            await Task.Delay(2000);
+                            MessageBox.Show("its super effective");
                             break;
                         case "Earth":
                             dmgValue /= 2;
-                            await Task.Delay(2000);
-                            battleForm.dialogueTextBox.Text = "it wasnt very effective";
-                            await Task.Delay(2000);
+                            MessageBox.Show("it wasnt very effective");
                             break;
                     }
                     break;
@@ -278,15 +260,11 @@ namespace ComProg2Finals
                         case "Earth":
                             dmgValue *= ElementMultiplier;
                             dmgValue *= 2;
-                            await Task.Delay(2000);
-                            battleForm.dialogueTextBox.Text = "its super effective";
-                            await Task.Delay(2000);
+                            MessageBox.Show("its super effective");
                             break;
                         case "Fire":
                             dmgValue /= 2;
-                            await Task.Delay(2000);
-                            battleForm.dialogueTextBox.Text = "it wasnt very effective";
-                            await Task.Delay(2000);
+                            MessageBox.Show("it wasnt very effective");
                             break;
                     }
                     break;
@@ -296,15 +274,11 @@ namespace ComProg2Finals
                         case "Water":
                             dmgValue *= ElementMultiplier;
                             dmgValue *= 2;
-                            await Task.Delay(2000);
-                            battleForm.dialogueTextBox.Text = "its super effective";
-                            await Task.Delay(2000);
+                            MessageBox.Show("its super effective");
                             break;
                         case "Wind":
                             dmgValue /= 2;
-                            await Task.Delay(2000);
-                            battleForm.dialogueTextBox.Text = "it wasnt very effective";
-                            await Task.Delay(2000);
+                            MessageBox.Show("it wasnt very effective");
                             break;
                     }
                     break;

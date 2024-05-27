@@ -68,19 +68,9 @@ namespace ComProg2Finals
             playerPictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
             dialoguePanel.Visible = false;
             // form instance
-            /*Instance.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "00Sky.png"));
-
-            platform05.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "05platform.png"));
-            clouds01Back.Image = Image.FromFile(Path.Combine(directory, "assets", "01cloudsBack.png"));
-            clouds02Front.Image = Image.FromFile(Path.Combine(directory, "assets", "02cloudsFront.png"));
-            hills03Back.Image = Image.FromFile(Path.Combine(directory, "assets", "03hillsBack.png"));
-            hills04Front.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "04hillsFront.png"));
+ 
             
-            */
-
             currentTurn = Player;
-        
-
             updateLabels();
             for (int i = 0; i < 4; i++)
             {
@@ -223,12 +213,7 @@ namespace ComProg2Finals
 
             playerPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Player.picImage));
             
-            
-            /*playerLabelSpeed.Text = "Speed:" + Player.Speed.ToString();
-            playerLabelRizz.Text = "Rizz:" + Player.Rizz.ToString();
-            playerLabelLives.Text = "Lives:" + Player.Lives.ToString();
-            playerLabelCoins.Text = "Coins:" + Player.Coins.ToString();
-            playerLabelAccuracy.Text = "Accuracy:" + Player.Accuracy.ToString();*/
+
 
             enemyLabelName.Text = Enemy.Name;
             enemyLabelName.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
@@ -243,22 +228,7 @@ namespace ComProg2Finals
             enemyLabelDefense.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
 
             enemyPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Enemy.picImage));
-            
-            /*enemyLabelAccuracy.Text = "Accuracy:" + Enemy.Accuracy.ToString();
-            enemyLabelSpeed.Text = "Speed:" + Enemy.Speed.ToString();
-            enemyLabelRizz.Text = "Rizz:" + Enemy.Rizz.ToString();*/
-
-
-            /*playerRizzStat.Text = Player.Rizz.ToString();
-            playerAtkStat.Text = Player.AttackDamage.ToString();
-            playerCoinStat.Text = Player.Coins.ToString();
-            playerDefStat.Text = Player.Defense.ToString();
-
-
-            enemyRizzStat.Text = Enemy.Rizz.ToString();
-            enemyAtkStat.Text = Enemy.AttackDamage.ToString();
-            enemyCoinStat.Text = "?";
-            enemyDefStat.Text = Enemy.Defense.ToString();*/
+ 
 
         }
         public async Task checkWinner()
@@ -335,45 +305,17 @@ namespace ComProg2Finals
             }
             
             Player.skillQueue.Clear();
-
-            foreach (Action skills in Enemy.skillQueue)
+            checkWinner();
+            if (Enemy.Health > 0)
             {
-                skills();
+                foreach (Action skills in Enemy.skillQueue)
+                {
+                    skills();
+                }
             }
             
             Enemy.skillQueue.Clear();
-
-            
- /*
-            if (Player.Health <= 0)
-            {
-                form2.dialogueTextBox.Text = "Bloo has lost!";
-                this.Close();
-            }
-            else if (Enemy.Health <= 0)
-            {
-                if (Enemy is Priest priest)
-                {
-                    if (priest.canRevive)
-                    {
-                        MessageBox.Show("Priest comes back to life!");
-                        priest.canRevive = false;
-                        Enemy.Health = Enemy.MaxHealth;
-                        updateLabels();
-                    }
-                    else
-                    {
-                        form2.dialogueTextBox.Text = "Bloo has won!";
-                        this.Close();
-                    }
-                }
-                else
-                {
-                    form2.dialogueTextBox.Text = "Bloo has won!";
-                    this.Close();
-                }
-            }
- */
+            checkWinner();
             updateLabels();
         }
 
