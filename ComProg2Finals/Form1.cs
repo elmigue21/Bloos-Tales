@@ -15,6 +15,7 @@ namespace ComProg2Finals
 {
     public partial class Form1 : Form
     {
+        public SoundPlayer musicBattle;
         public Bloo Player;
         string directory;
         bool PlayerWin;
@@ -45,8 +46,6 @@ namespace ComProg2Finals
             skillButtons[3] = button4;
             directory = AppDomain.CurrentDomain.BaseDirectory;
             Instance = this;
-
-            
         }
 
        
@@ -242,12 +241,17 @@ namespace ComProg2Finals
             enemyDefStat.Text = Enemy.Defense.ToString();*/
 
         }
-        public void checkWinner()
+        public async Task checkWinner()
         {
             if (Player.Health <= 0)
             {
-                form2.dialogueTextBox.Text = "Bloo has lost!";
+                instance.dialogueTextBox.Text = "Bloo has lost!";
+                Stream soundStreams = Properties.Resources.Lose;
+                musicBattle = new SoundPlayer(soundStreams);
+                musicBattle.PlayLooping();
+                await Task.Delay(4000);
                 this.Close();
+                form2.Show();
             }
             else if (Enemy.Health <= 0)
             {
@@ -255,27 +259,44 @@ namespace ComProg2Finals
                 {
                     if (priest.canRevive)
                     {
-                        MessageBox.Show("Priest comes back to life!");
+                        instance.dialogueTextBox.Text = "Priest comes back to life!";
                         priest.canRevive = false;
                         Enemy.Health = Enemy.MaxHealth;
                         updateLabels();
                     }
                     else
                     {
-                        form2.dialogueTextBox.Text = "Bloo has won!";
+                        instance.dialogueTextBox.Text = "Bloo has won!";
+                        Stream soundStreams = Properties.Resources.Win;
+                        musicBattle = new SoundPlayer(soundStreams);
+                        musicBattle.PlayLooping();
+                        await Task.Delay(4000);
                         this.Close();
+                        form2.Show();
                     }
                 }
                 else
                 {
-                    form2.dialogueTextBox.Text = "Bloo has won!";
+                    instance.dialogueTextBox.Text = "Bloo has won!";
+                    Stream soundStreams = Properties.Resources.Win;
+                    musicBattle = new SoundPlayer(soundStreams);
+                    musicBattle.PlayLooping();
+                    await Task.Delay(4000);
                     this.Close();
+                    form2.Show();
                 }
             }
+            Stream soundStream = Properties.Resources.Adventure;
+            musicBattle = new SoundPlayer(soundStream);
+            musicBattle.PlayLooping();
         }
         private void playerRunBtn(object sender, EventArgs e)
         {
             this.Close();
+            form2.Show();
+            Stream soundStream = Properties.Resources.Adventure;
+            musicBattle = new SoundPlayer(soundStream);
+            musicBattle.PlayLooping();
         }
         private void testButton_Click(object sender, EventArgs e)
         {

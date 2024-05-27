@@ -209,5 +209,29 @@
   <ItemGroup>
     <None Include="Resources\BlankStatsPanel.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bad Ending.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Battle.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ending.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\little-slimex27s-adventure-151007.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lose.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Title.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Win.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Adventure.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
