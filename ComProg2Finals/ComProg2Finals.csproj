@@ -210,5 +210,200 @@
   <ItemGroup>
     <None Include="Resources\BlankStatsPanel.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apple_tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bloo_idle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bloo_idle_hardhelm.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bloo_idle_spikedhelm.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bloo_walk.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bloo_walk_hardhelm.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bloo_walk_spikedhelm.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bonfire.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bonfire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bonfire_sword.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chesty_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chesty_mimic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chesty_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\earth_bloo_idle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\earth_bloo_idle_hardhelm.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\earth_bloo_idle_spikedhelm.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fire_bloo_idle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fire_bloo_idle_hardhelm.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fire_bloo_idle_spikedhelm.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goblet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart45px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_cologne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_defdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_ducttape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_excalibur.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_goblet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_goldenarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_healthboost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_holywater.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_oneshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_piggybank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_pockethole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_rizzboost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_rock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_sacring.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_strangegem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jester.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\king.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight_face1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight_face2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\master_gooway_idle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\master_gooway_idle_right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mysterious_man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\peech_idle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\priest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rogue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop_keeper_idle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sparkle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sword_in_stone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\water_bloo_idle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\water_bloo_idle_hardhelm.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\water_bloo_idle_spikedhelm.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wind_bloo_idle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wind_bloo_idle_hardhelm.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wind_bloo_idle_spikedhelm.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wishing_well.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wizard_earth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wizard_fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wizard_water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wizard_wind.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

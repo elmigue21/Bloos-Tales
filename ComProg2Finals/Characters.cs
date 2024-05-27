@@ -333,7 +333,7 @@ namespace ComProg2Finals
             Speed = 10;
             CharSkills = new List<Skill> { new Tackle(), new Goo(), new Bounce()};
             Rizz = 50;
-            picImage = "blooIdle.gif";
+            picImage = "bloo_idle.gif";
             Defense = 15;
             CharStatEffects = new List<StatusEffect> { };
             Coins = 500;
@@ -374,7 +374,7 @@ namespace ComProg2Finals
             Speed = 10;
             CharSkills = new List<Skill> { new Slash(),new Block(), new ShieldBash()};
             Rizz = 5;
-            picImage = "knight.png";
+            picImage = "Knight.png";
             Defense = 25;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 100;
@@ -419,7 +419,7 @@ namespace ComProg2Finals
             Speed = 10;
             CharSkills = new List<Skill> { new Fireball(), new RockHurl(), new WindSlice(), new WaterBlast() };
             Rizz = 5;
-            picImage = "wiz.png";
+            picImage = "wizard_earth.png";
             Defense = 5;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
@@ -640,7 +640,7 @@ namespace ComProg2Finals
             Speed = 10;
             CharSkills = new List<Skill> { new Lock(), new Volley(), new Shoot()};
             Rizz = 5;
-            picImage = "archer.png";
+            picImage = "Archer.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;
@@ -690,7 +690,7 @@ namespace ComProg2Finals
             Speed = 10;
             CharSkills = new List<Skill> { new Chomp(), new Haul()};
             Rizz = 5;
-            picImage = "chesty_mimic.png";
+            picImage = "chesty_close.png";
             Defense = 10;
             CharStatEffects = new List<StatusEffect> { };
             CritChance = 0;

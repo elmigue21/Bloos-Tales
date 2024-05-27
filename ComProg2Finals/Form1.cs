@@ -46,7 +46,6 @@ namespace ComProg2Finals
             directory = AppDomain.CurrentDomain.BaseDirectory;
             Instance = this;
 
-            
         }
 
        
@@ -87,10 +86,12 @@ namespace ComProg2Finals
                 if (i >= Player.CharSkills.Count)
                 {
                     skillButtons[i].ButtonText = "";
+                    skillButtons[i].ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
                 }
                 else
                 {
                     skillButtons[i].ButtonText = Player.CharSkills[i].Name;
+                    skillButtons[i].ButtonFont = new Font(Program.CustomFont, 10, FontStyle.Regular);
                 }
             }
             runButton.ForeColor = Color.Black;
@@ -208,10 +209,19 @@ namespace ComProg2Finals
         public void updateLabels()
         {
             playerLabelName.Text = Player.Name;
+            playerLabelName.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+
             playerLabelHealth.Text = "Health:"+Player.Health.ToString();
+            playerLabelHealth.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+
             playerLabelAttackDamage.Text = "Attack Damage:" + Player.AttackDamage.ToString();
+            playerLabelAttackDamage.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+
             playerLabelDefense.Text = "Defense:" + Player.Defense.ToString();
+            playerLabelDefense.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+
             playerPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Player.picImage));
+            
             
             /*playerLabelSpeed.Text = "Speed:" + Player.Speed.ToString();
             playerLabelRizz.Text = "Rizz:" + Player.Rizz.ToString();
@@ -220,9 +230,17 @@ namespace ComProg2Finals
             playerLabelAccuracy.Text = "Accuracy:" + Player.Accuracy.ToString();*/
 
             enemyLabelName.Text = Enemy.Name;
+            enemyLabelName.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+
             enemyLabelHealth.Text = "Health:" + Enemy.Health.ToString();
+            enemyLabelHealth.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+
             enemyLabelAttackDamage.Text = "Attack Damage:" + Enemy.AttackDamage.ToString();
+            enemyLabelAttackDamage.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+
             enemyLabelDefense.Text = "Defense:" + Enemy.Defense.ToString();
+            enemyLabelDefense.Font = new Font(Program.CustomFont, 10, FontStyle.Regular);
+
             enemyPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", Enemy.picImage));
             
             /*enemyLabelAccuracy.Text = "Accuracy:" + Enemy.Accuracy.ToString();

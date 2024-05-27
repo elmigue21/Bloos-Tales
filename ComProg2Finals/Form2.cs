@@ -54,8 +54,13 @@ namespace ComProg2Finals
         Image layer7 = Properties.Resources.Layer7_Bushes;
         Image layer8 = Properties.Resources.Layer8_Platform;
 
-        int s1 = 0, s2 = 1277, cb1 = 0, cb2 = 1277, cf1 = 0, cf2 = 1277, hb1 = 0, hb2 = 1277, hf1 = 0, hf2 = 1277, p1 = 0, p2 = 1277, t1 = 0, t2 = 1277, b1 = 0, b2 = 1277;
-        bool move = false, paused = false, muted = false;
+        Image encounterImg = Properties.Resources.Archer;//placeholder lang yung archer para di mag-error
+
+        int s1 = 0, s2 = 1277, cb1 = 0, cb2 = 1277, cf1 = 0, cf2 = 1277, hb1 = 0, hb2 = 1277, 
+            hf1 = 0, hf2 = 1277, p1 = 0, p2 = 1277, t1 = 0, t2 = 1277, b1 = 0, b2 = 1277,
+            charLocX=1280, charLocY=320;
+
+        bool move = false, paused = false, muted = false, hasEncounter = false;
         //===========================================
 
         Image imgChar = null;
@@ -72,8 +77,10 @@ namespace ComProg2Finals
             string programDirectory = AppDomain.CurrentDomain.BaseDirectory;
             directory = AppDomain.CurrentDomain.BaseDirectory;
 
+            dialogueTextBox.Font = new Font(Program.CustomFont,10,FontStyle.Regular);
+
             timer = new System.Windows.Forms.Timer();
-            timer.Interval = 3000;
+            timer.Interval = 1000;
             timer.Tick += Timer_Tick;
 
             encounterCount = 1;
@@ -247,21 +254,33 @@ namespace ComProg2Finals
             Invalidate();
         }
 
+        //=============== TIMERS ===================
         private void timer1_Tick(object sender, EventArgs e)
         {
             moveBG();
         }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (hasEncounter)
+            {
+                encounterExit();
+            }
+            else
+            {
+                encounterEntrance();
+            }
+            
+        }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            move = false;
+            
             timer.Stop();
             for (int i = 0; i < Player.PlayerItems.Count; i++)
             {
                 Player.PlayerItems[i].Encountered(Player);
             }
-            playerPictureBox.Image = Properties.Resources.BlooIdleRight;
-            playerPictureBox.Location = new System.Drawing.Point(230, 241);
-
+            
 
             if (currentEncounter != mastergooway && currentEncounter != shopkeeper)
             {
@@ -308,9 +327,14 @@ namespace ComProg2Finals
                     LoadSkillShop();
                 }
             }
-            label1.Text = currentEncounter.Name;
+            label1.Text = currentEncounter.Name.ToUpper();
+            label1.Font = new Font(Program.CustomFont, 12, FontStyle.Regular);
             dialogueTextBox.Text = currentEncounter.EncounterDialogue;
-            charactersPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
+
+            //charactersPictureBox.Image = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
+
+            
+
             if (currentEncounter is Character)
             {
                 for (int i = 0; i < Player.PlayerItems.Count; i++)
@@ -333,6 +357,45 @@ namespace ComProg2Finals
 
 
         }
+
+        //============= ENCOUNTER MOVEMENT =================
+        private void encounterEntrance()
+        {
+            if (move)
+            {
+                charLocX -= 11;
+                if (charLocX <= 900)
+                {
+                    move = false;
+                    playerPictureBox.Image = Properties.Resources.bloo_idle;
+                    playerPictureBox.Location = new System.Drawing.Point(230, 127);
+                    timer.Start();
+                    hasEncounter = true;
+                }
+            }
+            Invalidate();
+        }
+
+        private void encounterExit()
+        {
+            if (move)
+            {
+                if (hasEncounter)
+                {
+                    charLocX -= 11;
+                    if(charLocX <= -200)
+                    {
+                        charLocX = 1280;
+                        encounterImg = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
+                        charLocY = 320 - encounterImg.Height;
+                        hasEncounter = false;
+                    }
+                }
+            }
+            Invalidate();
+        }
+
+        //=================================================
         public void EnterBattle()
         {
             f1 = Form1.GetInstance();
@@ -366,6 +429,7 @@ namespace ComProg2Finals
         int lastEnc;
         public void runNextEncounter()
         {
+            
             Player.ChangeRizz(2);
             UpdateStats();
             if(Player.Health <= 0 && Player.Lives > 0)
@@ -455,10 +519,17 @@ namespace ComProg2Finals
             label1.Text = "";
             dialogueTextBox.Text = currentEncounter.befEncounter;
             flowPanelButtons.Controls.Clear();
-            charactersPictureBox.Image = null;
-            playerPictureBox.Image = Properties.Resources.BlooWalkRight;
+            //charactersPictureBox.Image = null;
+
+            if (hasEncounter==false)
+            {
+                encounterImg = Image.FromFile(Path.Combine(directory, "assets", currentEncounter.picImage));
+                charLocY = 320 - encounterImg.Height;
+            }
+
+            playerPictureBox.Image = Properties.Resources.bloo_walk;
             move = true;
-            timer.Start();
+            //timer.Start();
         }
         public void LoadItemShop()
         {
@@ -582,6 +653,8 @@ namespace ComProg2Finals
             e.Graphics.DrawImage(layer7, b2, 0, 1280, 720);
             e.Graphics.DrawImage(layer8, p1, 0, 1280, 720);
             e.Graphics.DrawImage(layer8, p2, 0, 1280, 720);
+
+            e.Graphics.DrawImage(encounterImg, charLocX, charLocY);
         }
     }
 }
