@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
-using System.Timers;
+
 
 
 namespace ComProg2Finals
@@ -44,24 +44,26 @@ namespace ComProg2Finals
             Instance = this;
 
         }
-        Image layer1 = ComProg2Finals.Properties.Resources._00Sky;
-        Image layer2 = ComProg2Finals.Properties.Resources._01cloudsBack;
-        Image layer3 = ComProg2Finals.Properties.Resources._02cloudsFront;
-        Image layer4 = ComProg2Finals.Properties.Resources._03hillsBack;
-        Image layer5 = ComProg2Finals.Properties.Resources._04hillsFront;
-        Image layerTrees = ComProg2Finals.Properties.Resources.trees;
-        Image layerBush = ComProg2Finals.Properties.Resources.bushes;
-        Image layer6 = ComProg2Finals.Properties.Resources._05platform;
+        //============== UPDATED =====================
+        Image layer1 = Properties.Resources.Layer1_Sky;
+        Image layer2 = Properties.Resources.Layer2_Clouds;
+        Image layer3 = Properties.Resources.Layer3_Clouds;
+        Image layer4 = Properties.Resources.Layer4_Hills;
+        Image layer5 = Properties.Resources.Layer5_Hills;
+        Image layer6 = Properties.Resources.Layer6_Trees;
+        Image layer7 = Properties.Resources.Layer7_Bushes;
+        Image layer8 = Properties.Resources.Layer8_Platform;
 
         int s1 = 0, s2 = 1277, cb1 = 0, cb2 = 1277, cf1 = 0, cf2 = 1277, hb1 = 0, hb2 = 1277, hf1 = 0, hf2 = 1277, p1 = 0, p2 = 1277, t1 = 0, t2 = 1277, b1 = 0, b2 = 1277;
+        bool move = false, paused = false, muted = false;
+        //===========================================
 
         Image imgChar = null;
-        private void player_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         int dialogue_count, event_dialogue_count = 0;
+
+        
 
         int count = 0;
         bool fightClicked, rizzClicked = false;
@@ -71,7 +73,7 @@ namespace ComProg2Finals
             directory = AppDomain.CurrentDomain.BaseDirectory;
 
             timer = new System.Windows.Forms.Timer();
-            timer.Interval = 2000;
+            timer.Interval = 3000;
             timer.Tick += Timer_Tick;
 
             encounterCount = 1;
@@ -95,32 +97,64 @@ namespace ComProg2Finals
             }
 
 
-            dialoguePanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "scroll.png"));
-            statsPanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "statsPanel.png"));
-            dialoguePanel.BackgroundImageLayout = ImageLayout.Stretch;
-            statsPanel.BackgroundImageLayout = ImageLayout.Zoom;
+            //dialoguePanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "scroll.png"));
+            //statsPanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "statsPanel.png"));
+            //dialoguePanel.BackgroundImageLayout = ImageLayout.Stretch;
+            //statsPanel.BackgroundImageLayout = ImageLayout.Zoom;
             runNextEncounter();
             UpdateStats();
             //KingDebuff kingdebuff = new KingDebuff();
            // kingdebuff.Acquired(Player);
         }
-        bool right, hold = true;
+        
 
-        void moveBG()
+        //========= PAUSE AND AUDIO BUTTONS ===========
+        private void pauseBtn_Click(object sender, EventArgs e)
+        {
+            if (paused == false)
+            {
+                pauseBtn.Image = Properties.Resources.PausePlayButton2;
+                paused = true;
+            }
+            else if (paused == true)
+            {
+                pauseBtn.Image = Properties.Resources.PausePlayButton1;
+                paused = false;
+            }
+
+        }
+
+        private void audioBtn_Click(object sender, EventArgs e)
+        {
+            if (muted == false)
+            {
+                audioBtn.Image = Properties.Resources.AudioButton2;
+                muted = true;
+            }
+            else if (muted == true)
+            {
+                audioBtn.Image = Properties.Resources.AudioButton1;
+                muted = false;
+            }
+
+        }
+
+        //========================================
+        void moveBG() //UPDATED
         {
             //clouds back positions redraw
-            if (cb1 <= -1268)
+            if (cb1 <= -1267)
             {
                 cb1 = 1280;
             }
 
-            if (cb2 <= -1268)
+            if (cb2 <= -1267)
             {
                 cb2 = 1280;
             }
 
             //clouds front redraw
-            if (cf1 <= -1268)
+            if (cf1 <= -1267)
             {
                 cf1 = 1280;
             }
@@ -131,63 +165,63 @@ namespace ComProg2Finals
             }
 
             //hills back redraw
-            if (hb1 <= -1268)
+            if (hb1 <= -1267)
             {
                 hb1 = 1280;
             }
 
-            if (hb2 <= -1268)
+            if (hb2 <= -1267)
             {
                 hb2 = 1280;
             }
 
             //hills front redraw
-            if (hf1 <= -1268)
+            if (hf1 <= -1267)
             {
                 hf1 = 1280;
             }
 
-            if (hf2 <= -1268)
+            if (hf2 <= -1267)
             {
                 hf2 = 1280;
             }
 
             //trees redraw
-            if (t1 <= -1268)
+            if (t1 <= -1267)
             {
                 t1 = 1280;
             }
 
-            if (t2 <= -1268)
+            if (t2 <= -1267)
             {
                 t2 = 1280;
             }
 
             //bushes redraw
-            if (b1 <= -1268)
+            if (b1 <= -1267)
             {
                 b1 = 1280;
             }
 
-            if (b2 <= -1268)
+            if (b2 <= -1267)
             {
                 b2 = 1280;
             }
 
             //platform redraw
-            if (p1 <= -1268)
+            if (p1 <= -1267)
             {
                 p1 = 1280;
             }
 
-            if (p2 <= -1268)
+            if (p2 <= -1267)
             {
                 p2 = 1280;
             }
 
 
             //movement speed, back layers are slower; adjust to preference
-            if (right)
+            if (move)
             {
                 cb1 -= 2;
                 cb2 -= 2;
@@ -219,47 +253,47 @@ namespace ComProg2Finals
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
+            move = false;
             timer.Stop();
             for (int i = 0; i < Player.PlayerItems.Count; i++)
             {
                 Player.PlayerItems[i].Encountered(Player);
             }
-            playerPictureBox.Image = Properties.Resources.blooIdle;
+            playerPictureBox.Image = Properties.Resources.BlooIdleRight;
+            playerPictureBox.Location = new System.Drawing.Point(230, 241);
 
 
             if (currentEncounter != mastergooway && currentEncounter != shopkeeper)
             {
                 for (int i = 0; i < currentEncounter.Interactions.Length; i++)
                 {
-                    Button button = new Button();
+                    CustomButton button = new CustomButton();
 
-                    button.Text = currentEncounter.Interactions[i];
-                    button.Width = 200;
-                    button.Image = Image.FromFile(Path.Combine(directory, "assets", "Button.png"));
-                    button.BackColor = Color.Transparent;
+                    button.ButtonText = currentEncounter.Interactions[i];
+                    
                     switch (i)
                         {
                             case 0:
-                                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction1(Player));
+                                button.BtnClick += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction1(Player));
                                 break;
                             case 1:
-                                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction2(Player));
+                                button.BtnClick += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction2(Player));
                                 break;
                             case 2:
-                                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction3(Player));
+                                button.BtnClick += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction3(Player));
                                 break;
                             case 3:
-                                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction4(Player));
+                                button.BtnClick += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction4(Player));
                                 break;
                             case 4:
-                                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction5(Player));
+                                button.BtnClick += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction5(Player));
                                 break;
                             case 5:
-                                button.Click += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction6(Player));
+                                button.BtnClick += (buttonSender, eventArgs) => HandleButtonClick(buttonSender, eventArgs, () => currentEncounter.EventAction6(Player));
                                 break;
 
                         }
-                    flowLayoutPanel1.Controls.Add(button);
+                    flowPanelButtons.Controls.Add(button);
                 }
             }
             else
@@ -316,7 +350,7 @@ namespace ComProg2Finals
         }
         private void HandleButtonClick(object sender, EventArgs e, Action eventAction)
         {
-            foreach(Button btn in flowLayoutPanel1.Controls)
+            foreach(CustomButton btn in flowPanelButtons.Controls)
             {
                 btn.Enabled = false;
             }
@@ -418,23 +452,22 @@ namespace ComProg2Finals
             }
             label1.Text = "";
             dialogueTextBox.Text = currentEncounter.befEncounter;
-            flowLayoutPanel1.Controls.Clear();
+            flowPanelButtons.Controls.Clear();
             charactersPictureBox.Image = null;
-            playerPictureBox.Image = Properties.Resources.blooBouncing;
+            playerPictureBox.Image = Properties.Resources.BlooWalkRight;
+            move = true;
             timer.Start();
         }
         public void LoadItemShop()
         {
-            flowLayoutPanel1.Controls.Clear();
+            flowPanelButtons.Controls.Clear();
             for (int i = 0; i < shopkeeper.itemshop.Count; i++)
             {
                 int index = i;
-                Button button = new Button();
-                button.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "Button.png"));
+                CustomButton button = new CustomButton();
                 
-                button.Width = 200;
-                button.Text = shopkeeper.itemshop[i].Name + " $" + (shopkeeper.itemshop[index].Price*Player.discount).ToString();
-                button.Click += (Btnsender, args) =>
+                button.ButtonText = shopkeeper.itemshop[i].Name + " $" + (shopkeeper.itemshop[index].Price*Player.discount).ToString();
+                button.BtnClick += (Btnsender, args) =>
                 {
                     if ((shopkeeper.itemshop[index].Price * Player.discount) <= Player.Coins)
                     {
@@ -454,30 +487,29 @@ namespace ComProg2Finals
                         LoadItemShop();
                     }
                 };
-                flowLayoutPanel1.Controls.Add(button);
+                flowPanelButtons.Controls.Add(button);
             }
 
-            Button btncheck = new Button();
-            btncheck.Text = "Next";
+            CustomButton btncheck = new CustomButton();
+            btncheck.ButtonText = "Next";
 
-            btncheck.Click += (qqqsender, qe) =>
+            btncheck.BtnClick += (qqqsender, qe) =>
             {
                 runNextEncounter();
             };
-            flowLayoutPanel1.Controls.Add(btncheck);
+            flowPanelButtons.Controls.Add(btncheck);
             UpdateStats();
         }
         public void LoadSkillShop()
         {
-            flowLayoutPanel1.Controls.Clear();
+            flowPanelButtons.Controls.Clear();
             for (int i = 0; i < mastergooway.skillshop.Count; i++)
             {
                 int index = i;
-                Button button = new Button();
-                button.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "Button.png"));
-                button.Width = 200;
-                button.Text = mastergooway.skillshop[i].Name + " $" + (mastergooway.skillshop[index].Price *Player.discount).ToString();
-                button.Click += (Btnsender, args) =>
+                CustomButton button = new CustomButton();
+                
+                button.ButtonText = mastergooway.skillshop[i].Name + " $" + (mastergooway.skillshop[index].Price *Player.discount).ToString();
+                button.BtnClick += (Btnsender, args) =>
                 {
                     if (Player.CharSkills.Count < 4)
                     {
@@ -503,16 +535,16 @@ namespace ComProg2Finals
                        // MessageBox.Show("You cannot learn any more skills!");
                     }
                 };
-                flowLayoutPanel1.Controls.Add(button);
+                flowPanelButtons.Controls.Add(button);
             }
-            Button btncheck = new Button();
-            btncheck.Text = "Next";
+            CustomButton btncheck = new CustomButton();
+            btncheck.ButtonText = "Next";
 
-            btncheck.Click += (qqqsender, qe) =>
+            btncheck.BtnClick += (qqqsender, qe) =>
             {
                 runNextEncounter();
             };
-            flowLayoutPanel1.Controls.Add(btncheck);
+            flowPanelButtons.Controls.Add(btncheck);
             UpdateStats();
         }
         public void UpdateStats()
@@ -521,8 +553,9 @@ namespace ComProg2Finals
             coinStat.Text = Player.Coins.ToString();
             atkStat.Text = Player.AttackDamage.ToString();
             defStat.Text = Player.Defense.ToString();
+            //may stat ba for life? yung hearts?
         }
-        private void Form1_Paint(object sender, PaintEventArgs e)
+        private void Form2_Paint(object sender, PaintEventArgs e) //UPDATED, W/O CHARACTER PAINT YET
         {
             e.Graphics.DrawImage(layer1, s1, 0, 1280, 720);
             e.Graphics.DrawImage(layer1, s2, 0, 1280, 720);
@@ -534,12 +567,12 @@ namespace ComProg2Finals
             e.Graphics.DrawImage(layer4, hb2, 0, 1280, 720);
             e.Graphics.DrawImage(layer5, hf1, 0, 1280, 720);
             e.Graphics.DrawImage(layer5, hf2, 0, 1280, 720);
-            e.Graphics.DrawImage(layerTrees, t1, 0, 1280, 720);
-            e.Graphics.DrawImage(layerTrees, t2, 0, 1280, 720);
-            e.Graphics.DrawImage(layerBush, b1, 0, 1280, 720);
-            e.Graphics.DrawImage(layerBush, b2, 0, 1280, 720);
-            e.Graphics.DrawImage(layer6, p1, 0, 1280, 720);
-            e.Graphics.DrawImage(layer6, p2, 0, 1280, 720);
+            e.Graphics.DrawImage(layer6, t1, 0, 1280, 720);
+            e.Graphics.DrawImage(layer6, t2, 0, 1280, 720);
+            e.Graphics.DrawImage(layer7, b1, 0, 1280, 720);
+            e.Graphics.DrawImage(layer7, b2, 0, 1280, 720);
+            e.Graphics.DrawImage(layer8, p1, 0, 1280, 720);
+            e.Graphics.DrawImage(layer8, p2, 0, 1280, 720);
         }
     }
 }
