@@ -500,7 +500,7 @@ namespace ComProg2Finals
         {
             await Task.Delay(2000);
             battleForm.dialoguePanel.Visible = true;
-            battleForm.dialogueTextBox.Text = "Rogue used Lock!";
+            battleForm.dialogueTextBox.Text = "Archer used Lock!";
             await Task.Delay(2000);
             QuadrupleDamage quadrupleDamage = new QuadrupleDamage("Quadruple Damage", user.Multiplier);
             user.CharStatEffects.Add(quadrupleDamage);
