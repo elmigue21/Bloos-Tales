@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.IO.Ports;
+using System.IO;
 
 
 namespace ComProg2Finals
@@ -760,6 +761,7 @@ namespace ComProg2Finals
 
     public class Peech : Character
     {
+        public SoundPlayer musicBG;
         GoodEndingDialogue GoodEndDiag = new GoodEndingDialogue();
         BadEndingDialogue BadEndDiag = new BadEndingDialogue();
         public Peech(string name) : base(name)
@@ -773,6 +775,9 @@ namespace ComProg2Finals
         {
             if(bloo.Rizz >= 100)
             {
+                Stream soundStream = Properties.Resources.Ending;
+                musicBG = new SoundPlayer(soundStream);
+                musicBG.PlayLooping();
                 await Task.Delay(2000);
                 form2.dialogueTextBox.Text = GoodEndDiag.CommitEvent1;
                 await Task.Delay(5000);
@@ -787,6 +792,9 @@ namespace ComProg2Finals
             }
             else
             {
+                Stream soundStream = Properties.Resources.Ending;
+                musicBG = new SoundPlayer(soundStream);
+                musicBG.PlayLooping();
                 await Task.Delay(2000);
                 form2.dialogueTextBox.Text = BadEndDiag.CommitEvent1;
                 await Task.Delay(5000);
@@ -794,6 +802,9 @@ namespace ComProg2Finals
                 await Task.Delay(5000);
                 form2.dialogueTextBox.Text = BadEndDiag.CommitEvent3;
                 await Task.Delay(5000);
+                Stream soundStreams = Properties.Resources.Bad_Ending;
+                musicBG = new SoundPlayer(soundStreams);
+                musicBG.PlayLooping();
                 form2.dialogueTextBox.Text = BadEndDiag.CommitEvent4;
                 await Task.Delay(5000);
                 form2.dialogueTextBox.Text = BadEndDiag.CommitEvent5;

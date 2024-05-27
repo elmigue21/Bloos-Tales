@@ -61,6 +61,15 @@ namespace ComProg2Finals.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Adventure {
+            get {
+                return ResourceManager.GetStream("Adventure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap apple_tree {
@@ -97,6 +106,24 @@ namespace ComProg2Finals.Properties {
             get {
                 object obj = ResourceManager.GetObject("AudioButton2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Bad_Ending {
+            get {
+                return ResourceManager.GetStream("Bad_Ending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Battle {
+            get {
+                return ResourceManager.GetStream("Battle", resourceCulture);
             }
         }
         
@@ -217,6 +244,15 @@ namespace ComProg2Finals.Properties {
             get {
                 object obj = ResourceManager.GetObject("ButtonClicked", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Ending {
+            get {
+                return ResourceManager.GetStream("Ending", resourceCulture);
             }
         }
         
@@ -671,6 +707,15 @@ namespace ComProg2Finals.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Lose {
+            get {
+                return ResourceManager.GetStream("Lose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap master_gooway_idle {
@@ -821,6 +866,15 @@ namespace ComProg2Finals.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Title {
+            get {
+                return ResourceManager.GetStream("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap sword_in_stone {
@@ -837,6 +891,15 @@ namespace ComProg2Finals.Properties {
             get {
                 object obj = ResourceManager.GetObject("titleScreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Win {
+            get {
+                return ResourceManager.GetStream("Win", resourceCulture);
             }
         }
         

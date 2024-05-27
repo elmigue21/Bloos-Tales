@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.PerformanceData;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Runtime.CompilerServices;
@@ -25,6 +26,7 @@ namespace ComProg2Finals
     }
     public class Chest : Events
     {
+        public SoundPlayer musicBG;
         ChestyDialogue ChestyDiag = new ChestyDialogue();
         public Chest()
         {
@@ -66,6 +68,9 @@ namespace ComProg2Finals
             }
             else
             {
+                Stream soundStream = Properties.Resources.Battle;
+                musicBG = new SoundPlayer(soundStream);
+                musicBG.PlayLooping();
                 Form2 form2 = Form2.Instance;
                 Form1 form1 = Form1.GetInstance();
                 form1.Enemy = new HostileChest("CHESTY");
@@ -157,7 +162,7 @@ namespace ComProg2Finals
             else if (randomNumber <= totalChances)
             {
                 StrangeGem strangegem = new StrangeGem();
-                strangegem.Acquired(bloo);
+                strangegem.Acquired(bloo, form2);
                 form2.dialogueTextBox.Text = CaveDiag.CommitEvent5;
                 await Task.Delay(2000);
             }
@@ -207,7 +212,7 @@ namespace ComProg2Finals
             if (randomNumber <= pullChance)
             {
                 Excalibur excalibur = new Excalibur();
-                excalibur.Acquired(bloo);
+                excalibur.Acquired(bloo, form2);
                 form2.dialogueTextBox.Text = SwordStoneDiag.Option1Dialogue;
                 await Task.Delay(2000);
             }
@@ -289,10 +294,12 @@ namespace ComProg2Finals
             {
                 case 0:
                     form2.dialogueTextBox.Text = MysteriousManDiag.CommitEvent1;
+                    await Task.Delay(2000);
                     bloo.ChangeHealth(-bloo.Health * .25);
                     break;
                 case 1:
                     form2.dialogueTextBox.Text = MysteriousManDiag.CommitEvent2;
+                    await Task.Delay(2000);
                     bloo.ChangeAccuracy(-25);
                     break;
                 case 2:
@@ -350,10 +357,8 @@ namespace ComProg2Finals
         {
             await Task.Delay(2000);
             MysteryBox mysterybox = new MysteryBox();
-            mysterybox.Acquired(bloo);
-            form2.dialogueTextBox.Text = JesterDiag.EntranceDialogue;
+            mysterybox.Acquired(bloo, form2);
             bloo.ChangeCoin(-bloo.Coins * .75);
-            await Task.Delay(2000);
             form2.runNextEncounter();
         }
 
@@ -451,7 +456,7 @@ namespace ComProg2Finals
             if (randomNumber >= 1 && randomNumber <= 25)
             {
                 MysteryPotion mysterypotion = new MysteryPotion();
-                mysterypotion.Acquired(bloo);
+                mysterypotion.Acquired(bloo, form2);
                 form2.dialogueTextBox.Text = WishingWellDiag.CommitEvent1;
                 await Task.Delay(2000);
             }
@@ -459,7 +464,7 @@ namespace ComProg2Finals
             {
 
                 HolyWater holywater = new HolyWater();
-                holywater.Acquired(bloo);
+                holywater.Acquired(bloo, form2);
                 form2.dialogueTextBox.Text = WishingWellDiag.CommitEvent1;
                 await Task.Delay(2000);
                 form2.dialogueTextBox.Text = ItemsDiag.HolyWaterDialogue;
@@ -554,7 +559,7 @@ namespace ComProg2Finals
                 form2.dialogueTextBox.Text = GobletDiag.CommitEvent1;
                 await Task.Delay(2000);
                 Goblet goblet = new Goblet();
-                goblet.Acquired(bloo);
+                goblet.Acquired(bloo, form2);
             }
             else if (randomNumber > 15 && randomNumber <= 65)
             {
@@ -622,7 +627,7 @@ namespace ComProg2Finals
                 form2.dialogueTextBox.Text = AppleTreeDiag.CommitEvent3;
                 await Task.Delay(2000);
                 GoldenArrow goldenarrow = new GoldenArrow();
-                goldenarrow.Acquired(bloo);
+                goldenarrow.Acquired(bloo, form2);
             }
             form2.runNextEncounter();
         }
@@ -721,23 +726,23 @@ namespace ComProg2Finals
                     form2.dialogueTextBox.Text = ItemsDiag.LifeDialogue;
                     await Task.Delay(2000);
                     LifePotion lifepotion = new LifePotion();
-                    lifepotion.Acquired(bloo);
+                    lifepotion.Acquired(bloo, form2);
                     break;
                 case 1:
                     MysteryPotion mysterypotion = new MysteryPotion();
-                    mysterypotion.Acquired(bloo);
+                    mysterypotion.Acquired(bloo, form2);
                     break;
                 case 2:
                     form2.dialogueTextBox.Text = ItemsDiag.HardHelmentDialogue;
                     await Task.Delay(2000);
                     HardHelmet hardHelmet = new HardHelmet();
-                    hardHelmet.Acquired(bloo);
+                    hardHelmet.Acquired(bloo, form2);
                     break;
                 case 3:
                     form2.dialogueTextBox.Text = ItemsDiag.SpikedHelmetDialogue;
                     await Task.Delay(2000);
                     SpikedHelmet spikedHelmet = new SpikedHelmet();
-                    spikedHelmet.Acquired(bloo);
+                    spikedHelmet.Acquired(bloo, form2);
                     break;
             }
 

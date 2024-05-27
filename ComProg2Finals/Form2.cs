@@ -19,6 +19,7 @@ namespace ComProg2Finals
 
     public partial class Form2 : Form
     {
+        public SoundPlayer musicWalk;
         Character Enemy;
         public static Form2 Instance { get; private set; }
         public static Bloo Player { get; private set; }
@@ -42,6 +43,9 @@ namespace ComProg2Finals
             Player = bloo;
             f1.form2 = this;
             Instance = this;
+            Stream soundStream = Properties.Resources.Adventure;
+            musicWalk = new SoundPlayer(soundStream);
+            musicWalk.PlayLooping();
 
         }
         //============== UPDATED =====================
@@ -98,10 +102,6 @@ namespace ComProg2Finals
             }
 
             bossFights.Add(new Peech("Peech"));
-            foreach(Character boss in bossFights)
-            {
-                MessageBox.Show(boss.ToString());
-            }
 
 
             //dialoguePanel.BackgroundImage = Image.FromFile(Path.Combine(directory, "assets", "scroll.png"));
@@ -398,6 +398,10 @@ namespace ComProg2Finals
         //=================================================
         public void EnterBattle()
         {
+            this.Hide();
+            Stream soundStream = Properties.Resources.Battle;
+            musicWalk = new SoundPlayer(soundStream);
+            musicWalk.PlayLooping();
             f1 = Form1.GetInstance();
             f1.Enemy = currentEncounter as Character;
             Player.Health = Player.MaxHealth;
@@ -445,16 +449,9 @@ namespace ComProg2Finals
             {
                 case 0:
                     int bossIndex = encounterCount / 5;
-                    if (bossIndex > 2)
-                    {
-                        //MessageBox.Show("Peech");
-                        currentEncounter = new Peech(null);
-                    }
-                    else
-                    {
-                        currentEncounter = bossFights[bossIndex - 1];
 
-                    }
+                    currentEncounter = bossFights[bossIndex-1];
+
                     break;
                 case 4:
                     Random rand2 = new Random();
@@ -546,7 +543,7 @@ namespace ComProg2Finals
                 {
                     if ((shopkeeper.itemshop[index].Price * Player.discount) <= Player.Coins)
                     {
-                        shopkeeper.itemshop[index].Acquired(Player);
+                        shopkeeper.itemshop[index].Acquired(Player, this);
                         Player.Coins -= shopkeeper.itemshop[index].Price * Player.discount;
                       //  MessageBox.Show($"Price: {shopkeeper.itemshop[index].Price}\nDiscounted Price: {shopkeeper.itemshop[index].Price * Player.discount}\n\"Coins left : {Player.Coins}");
 
