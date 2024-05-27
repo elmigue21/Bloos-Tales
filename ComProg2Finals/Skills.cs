@@ -29,8 +29,8 @@ namespace ComProg2Finals
         }
         public async void Learn(Bloo bloo)
         {
-            bloo.CharSkills.Add(this);
             battleForm.dialoguePanel.Visible = true;
+            bloo.CharSkills.Add(this);
             battleForm.dialogueTextBox.Text = "added " + this.Name + " to bloos skills";
             await Task.Delay(2000);
             battleForm.dialoguePanel.Visible = false;
