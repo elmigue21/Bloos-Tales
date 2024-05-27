@@ -524,4 +524,12 @@ namespace ComProg2Finals
         }
     }
 
+    public class SkillDiag : Skill
+    {
+        public SkillDiag(Character user ,string skillName)
+        {
+            MessageBox.Show($"{user.Name} used {skillName}");
+        }
+    }
+
 }
