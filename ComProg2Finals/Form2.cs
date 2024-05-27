@@ -76,8 +76,14 @@ namespace ComProg2Finals
 
         int count = 0;
         bool fightClicked, rizzClicked = false;
-        private void Form2_Load(object sender, EventArgs e)
+        private async void Form2_Load(object sender, EventArgs e)
         {
+            dialogueTextBox.Font = new Font(Program.CustomFont, 9, FontStyle.Regular);
+            PrologueDialogue prologue = new PrologueDialogue();
+            dialogueTextBox.Text = prologue.IntroductionDialogue;
+            label1.Visible = false;
+            await Task.Delay(8000);
+            label1.Visible = true;
             string programDirectory = AppDomain.CurrentDomain.BaseDirectory;
             directory = AppDomain.CurrentDomain.BaseDirectory;
 
