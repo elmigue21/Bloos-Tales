@@ -280,6 +280,7 @@ namespace ComProg2Finals
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.playerPictureBox);
             this.Controls.Add(this.flowPanelItems);
             this.Controls.Add(this.pauseBtn);
             this.Controls.Add(this.audioBtn);
@@ -288,7 +289,6 @@ namespace ComProg2Finals
             this.Controls.Add(this.dialoguePanel);
             this.Controls.Add(this.flowPanelButtons);
             this.Controls.Add(this.WalkChar);
-            this.Controls.Add(this.playerPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
